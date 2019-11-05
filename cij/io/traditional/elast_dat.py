@@ -15,7 +15,6 @@ def read_elast_data(fname) -> ElastData:
     with open(fname, encoding="utf8") as fp:
         next(fp)
         fields = next(fp).strip().split()
-        print(fields)
         vref = float(fields[0])
         nv = int(fields[1])
         cellmass = float(fields[2])
