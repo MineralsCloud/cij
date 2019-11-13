@@ -1,15 +1,25 @@
 from typing import List, Tuple, NamedTuple
+from cij.util import c_
 import re
 
 class ElastVolumeData(NamedTuple):
     volume: float
-    static_elastic_coeficient: dict
+    static_elastic_modulus: dict
 
 class ElastData(NamedTuple):
     vref: float
     nv: int
     cellmass: float
     volumes: List[ElastVolumeData] = []
+
+REGEX_MODULUS = r"^\D*(\d+)$"
+
+def _find_modulus_key(key: str):
+    res = re.search(REGEX_MODULUS, key)
+    if res:
+        return c_(res.group(1))
+    else:
+        return key
 
 def read_elast_data(fname) -> ElastData:
     with open(fname, encoding="utf8") as fp:
@@ -21,6 +31,7 @@ def read_elast_data(fname) -> ElastData:
         ret = ElastData(vref, nv, cellmass)
 
         keys = next(fp).strip().split()
+        keys = [_find_modulus_key(x) for x in keys]
 
         for line in fp:
             fields = tuple(map(float, next(fp).strip().split()))

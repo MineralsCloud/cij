@@ -120,9 +120,9 @@ def interpolate_modes(
 
     ntv = v_array.shape[0]
 
-    interp_freq = numpy.empty((ntv, nq, np))
-    gamma_i= numpy.empty((ntv, nq, np))
-    vdr_dv = numpy.empty((ntv, nq, np))
+    interp_freq = numpy.zeros((ntv, nq, np))
+    gamma_i= numpy.zeros((ntv, nq, np))
+    vdr_dv = numpy.zeros((ntv, nq, np))
 
     mode_volumes = numpy.array([
         volume.volume
@@ -131,6 +131,8 @@ def interpolate_modes(
 
     for j in range(nq):
         for k in range(np):
+
+            if j == 0 and k in range(3): continue
 
             mode_freqs = numpy.array([
                 volume.q_points[j].modes[k]

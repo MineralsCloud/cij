@@ -9,8 +9,10 @@ setup(
     url='https://github.com/chazeon/qha-cij/',
     packages=find_packages(),
     install_requires=[
-        "numpy",
+        "numpy >= 1.7.0",
         "scipy",
-        "qha"
+        "qha",
+        "lazy_property",
+        "pint @ git+https://github.com/hgrecco/pint.git#egg=pint"
     ]
 )
