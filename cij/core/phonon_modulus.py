@@ -80,7 +80,7 @@ class LogitudinalElasticModulusPhononContribution(ElasticModulus):
         return (
             self.prefactors[0]    * self.calculator.mode_gamma[0],
             self.prefactors[1][0] * self.calculator.mode_gamma[1],
-            self.prefactors[2]    * self.calculator.mode_gamma[1] ** 2
+            self.prefactors[2]    * self.calculator.mode_gamma[2]
         )
 
     @LazyProperty
@@ -144,7 +144,7 @@ class LogitudinalElasticModulusPhononContribution(ElasticModulus):
             * self.average_over_modes(self.Q2 * self.mode_gamma[1][1]) \
             * (3 * k * self.na) ** 2
 
-        ret[numpy.where(self.t_array == 0),:] = 0
+        ret[numpy.where(self.t_array == 0), :] = 0
 
         return ret
 
@@ -171,7 +171,7 @@ class OffDiagnonalElasticModulusPhononContribution(LogitudinalElasticModulusPhon
         return (
             self.prefactors[0]    * self.calculator.mode_gamma[0],
             numpy.zeros(self.calculator.mode_gamma[1].shape),
-            self.prefactors[2]    * self.calculator.mode_gamma[1] ** 2
+            self.prefactors[2]    * self.calculator.mode_gamma[2]
         )
 
     @LazyProperty

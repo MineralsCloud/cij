@@ -57,8 +57,7 @@ class Calculator:
         self.modulus_worker = ElasticModulusWorker(self)
         for key in self.modulus_keys:
             self.modulus_adiabatic[key] = self.modulus_worker.get_modulus_adiabatic(key)
-            self.modulus_isothermal[key] = self.modulus_worker.get_modulus_adiabatic(key)
-            #LogitudinalElasticModulusPhononContribution(self, (1/3, 1/3))
+            self.modulus_isothermal[key] = self.modulus_worker.get_modulus_isothermal(key)
 
     def _calc_velocities(self):
 

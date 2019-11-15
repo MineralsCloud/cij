@@ -155,4 +155,6 @@ class ElasticModulusWorker:
 
             rhs += _key.multiplicity * eig[i] * eig[j] * value
 
+        logger.debug(f"Dividing by {key.multiplicity}")
+
         return (rhs - 0) / key.multiplicity
