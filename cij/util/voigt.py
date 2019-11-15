@@ -89,15 +89,19 @@ class ModulusRepresentation(NamedTuple):
     @classmethod
     def from_voigt(cls, i, j):
         return cls(
-            StrainRepresentation.from_voigt(i),
-            StrainRepresentation.from_voigt(j)
+            *sorted((
+                StrainRepresentation.from_voigt(i),
+                StrainRepresentation.from_voigt(j)
+            ), key=lambda e: e.voigt)
         )
 
     @classmethod
     def from_standard(cls, i, j, k, l):
         return cls(
-            StrainRepresentation.from_standard(i, j),
-            StrainRepresentation.from_standard(k, l)
+            *sorted((
+                StrainRepresentation.from_standard(i, j),
+                StrainRepresentation.from_standard(k, l),
+            ), key=lambda e: e.voigt)
         )
 
     @property
@@ -137,6 +141,13 @@ class ModulusRepresentation(NamedTuple):
     @property
     def is_shear(self) -> bool:
         return self.i.voigt in (4, 5, 6) or self.j.voigt in (4, 5, 6)
+
+    @property
+    def multiplicity(self) -> int:
+        return 1 \
+            << (self.i != self.j) \
+            << (self.i.i != self.i.j) \
+            << (self.j.i != self.j.j)
 
 E_ = StrainRepresentation
 C_ = ModulusRepresentation
