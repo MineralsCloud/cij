@@ -49,4 +49,4 @@ The code in this repo is initially authored by Chenxing Luo.
 
 ## Licence
 
-Released under MIT license.
+Released under GNU GPLv3 license.
