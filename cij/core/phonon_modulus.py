@@ -132,10 +132,7 @@ class LogitudinalElasticModulusPhononContribution(ElasticModulus):
 
     @LazyProperty
     def isothermal_to_adiabatic(self):
-        '''
-        This equation in the Fortran code still does not seem right to me.
-        '''
-
+        
         k = units.Quantity(_k, units.eV / units.K).to(units.rydberg / units.K).magnitude
 
         ret = self.t_array[:, nax] / self.v_array[nax, :] \
