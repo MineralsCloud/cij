@@ -18,8 +18,8 @@ def interpolate_mode_spline(mode_volumes, mode_freqs, v_array, order=5):
 
     return (
         numpy.exp(interp(ln_v_array)),
-        interp(ln_v_array, nu=1),
-        interp(ln_v_array, nu=2)
+        - interp(ln_v_array, nu=1),
+        - interp(ln_v_array, nu=2)
     )
 
 @numba.jit(parallel=True)
@@ -46,8 +46,8 @@ def interpolate_mode_lagrange(mode_volumes, mode_freqs, v_array, order=6):
 
     return (
         numpy.exp(interp_lnfreq_lnv(ln_v_array)),
-        interp_gamma_lnv(ln_v_array),
-        interp_vdr_dv_lnv(ln_v_array),
+        - interp_gamma_lnv(ln_v_array),
+        - interp_vdr_dv_lnv(ln_v_array),
     )
 
 @numba.jit(parallel=True)
@@ -71,8 +71,8 @@ def interpolate_mode_krogh(mode_volumes, mode_freqs, v_array, order=6):
 
     return (
         numpy.exp(krogh(ln_v_array)),
-        krogh.derivative(ln_v_array, der=1),
-        krogh.derivative(ln_v_array, der=2),
+        - krogh.derivative(ln_v_array, der=1),
+        - krogh.derivative(ln_v_array, der=2),
     )
 
 @numba.jit(parallel=True)
@@ -103,8 +103,8 @@ def interpolate_mode_ppoly(mode_volumes, mode_freqs, v_array, method: str, order
 
     return (
         numpy.exp(interp(ln_v_array)),
-        interp(ln_v_array, nu=1),
-        interp(ln_v_array, nu=2),
+        - interp(ln_v_array, nu=1),
+        - interp(ln_v_array, nu=2),
     )
 
 def interpolate_modes(
