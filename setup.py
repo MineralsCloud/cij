@@ -14,5 +14,8 @@ setup(
         "qha",
         "lazy_property",
         "pint @ git+https://github.com/hgrecco/pint.git#egg=pint"
-    ]
+    ],
+    entry_points = {
+        'console_scripts': ['qha-cij=cij.cli.main:main'],
+    }
 )
