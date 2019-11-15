@@ -5,6 +5,8 @@ from cij.core.qha_adapter import QHACalculatorAdapter
 from qha.v2p import v2p
 from cij.util import c_, units
 from cij.core.modulus_worker import ElasticModulusWorker
+from qha.fitting import polynomial_least_square_fitting
+from qha.grid_interpolation import calculate_eulerian_strain
 
 from lazy_property import LazyProperty
 import re
@@ -26,6 +28,7 @@ class Calculator:
         self.volume_based_result = CijVolumeBaseInterface(self)
         self.pressure_based_result = CijPressureBaseInterface(self)
 
+        self._calculate_pressure_static()
         self._process_cij()
         self._calc_velocities()
 
@@ -146,6 +149,20 @@ class Calculator:
         #self._born = {}
         #self._born[1] = c11 * c22 - c12 ** 2
         #self._born[2] = c11 * c22 * c33 + 2 * c12 * c13 * c23 - c11 * c23 **2 - c22 * c13 ** 2 - c33 * c12 ** 2
+    
+    def _calculate_pressure_static(self, order: int = 3):
+
+        volumes = numpy.array([volume.volume for volume in self.qha_input.volumes])
+        static_energies = numpy.array([volume.energy for volume in self.qha_input.volumes])
+
+        strains = calculate_eulerian_strain(volumes[0], volumes)
+        strain_array = calculate_eulerian_strain(volumes[0], self.v_array)
+        _, static_energy_array = polynomial_least_square_fitting(
+            strains, static_energies, strain_array,
+            order=order
+        )
+        
+        self.static_p_array = - numpy.gradient(static_energy_array) / numpy.gradient(self.v_array)
     
     @LazyProperty
     def volume_base(self):

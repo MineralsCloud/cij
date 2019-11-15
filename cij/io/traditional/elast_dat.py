@@ -33,8 +33,9 @@ def read_elast_data(fname) -> ElastData:
         keys = next(fp).strip().split()
         keys = [_find_modulus_key(x) for x in keys]
 
-        for line in fp:
-            fields = tuple(map(float, next(fp).strip().split()))
+        for _ in range(nv):
+            line = fp.readline()
+            fields = tuple(map(float, line.strip().split()))
             ret.volumes.append(ElastVolumeData(fields[0], dict(zip(keys[1:], fields[1:]))))
 
     return ret

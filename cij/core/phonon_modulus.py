@@ -132,7 +132,7 @@ class LogitudinalElasticModulusPhononContribution(ElasticModulus):
 
     @LazyProperty
     def isothermal_to_adiabatic(self):
-        
+
         k = units.Quantity(_k, units.eV / units.K).to(units.rydberg / units.K).magnitude
 
         ret = self.t_array[:, nax] / self.v_array[nax, :] \
@@ -201,8 +201,10 @@ class OffDiagnonalElasticModulusPhononContribution(LogitudinalElasticModulusPhon
 
     @LazyProperty
     def value_isothermal(self):
-        return self.zero_point_contribution + self.thermal_contribution + \
-            self.qha_calculator.volume_base.pressures
+        return self.zero_point_contribution + self.thermal_contribution + (
+            + self.qha_calculator.volume_base.pressures
+            - self.calculator.static_p_array[nax, :]
+        )
 
 class ShearElasticModulusPhononContribution(ElasticModulus):
     def __init__(self):
