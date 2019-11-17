@@ -11,8 +11,13 @@ from qha.grid_interpolation import calculate_eulerian_strain
 from lazy_property import LazyProperty
 import re
 import numpy
+import itertools
 
-REGEX_CIJ = r'^c_?([1-6]{2,2}|[1-3]{4,4})(s|t)?$'
+import logging
+
+logger = logging.Logger(__name__)
+
+REGEX_CIJ = r'^(c|s)_?([1-6]{2,2}|[1-3]{4,4})(s|t)?$'
 
 class Calculator:
 
@@ -30,6 +35,7 @@ class Calculator:
 
         self._calculate_pressure_static()
         self._process_cij()
+        self._calculate_compliances()
         self._calc_velocities()
 
     def _load(self, config_fname: str):
@@ -164,6 +170,27 @@ class Calculator:
         
         self.static_p_array = - numpy.gradient(static_energy_array) / numpy.gradient(self.v_array)
     
+    @property
+    def dims(self):
+        nt = self.qha_calculator.t_array.shape[0]
+        ntv = self.qha_calculator.v_array.shape[0]
+        return (nt, ntv)
+    
+    def _calculate_compliances(self):
+
+        elastic_moduli = numpy.zeros((*self.dims, 6, 6))
+        self._compliances = {}
+        for key in self.modulus_keys:
+            for i, j in set(itertools.permutations(key.voigt, 2)):
+                elastic_moduli[:, :, i-1, j-1] = self.modulus_adiabatic[key]
+        
+        compliances = numpy.linalg.inv(elastic_moduli)
+
+        for i, j in itertools.product(range(6), range(6)):
+            if i > j: continue
+            if numpy.allclose(compliances[:, :, i, j], 0): continue
+            self._compliances[c_(i+1, j+1)] = compliances[i, j, :, :]
+        
     @LazyProperty
     def volume_base(self):
         return self.volume_based_result
@@ -210,10 +237,10 @@ class CijVolumeBaseInterface:
     def __getattr__(self, name):
         res = re.search(REGEX_CIJ, name)
         if res:
-            key = c_(res.group(1))
+            key = c_(res.group(2))
             if key not in self.calculator.modulus_keys:
                 raise AttributeError()
-            if res.group(2) == 't':
+            if res.group(3) == 't':
                 return self.calculator.modulus_isothermal[key]
             else:
                 return self.calculator.modulus_adiabatic[key]
@@ -226,3 +253,4 @@ class CijVolumeBaseInterface:
     @property
     def secondary_velocities(self):
         return self.calculator._secondary_velocities
+        
