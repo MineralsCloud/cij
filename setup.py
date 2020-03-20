@@ -13,6 +13,7 @@ setup(
         "scipy",
         "qha",
         "lazy_property",
+        "jsonschema",
         "pint @ git+https://github.com/hgrecco/pint.git#egg=pint"
     ],
     entry_points = {

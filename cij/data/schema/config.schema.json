@@ -1,0 +1,11 @@
+{
+    "title": "Configuration file",
+    "description": "The configuration file controls the behavior of the elast program",
+
+    "type": "object",
+    "required": ["qha"],
+    "properties": {
+        "qha": { "type": "object" },
+        "elast": { "type": "object" }
+    }
+}
