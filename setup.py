@@ -16,6 +16,9 @@ setup(
         "jsonschema",
         "pint @ git+https://github.com/hgrecco/pint.git#egg=pint"
     ],
+    package_data={
+        "cij/data/schema": "*.schema.json"
+    },
     entry_points = {
         'console_scripts': ['qha-cij=cij.cli.main:main'],
     }
