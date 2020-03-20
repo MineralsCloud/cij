@@ -4,6 +4,7 @@ import logging
 def run(config_fname: str):
     import cij.core.calculator
     calculator = cij.core.calculator.Calculator(config_fname)
+    calculator.write_output()
 
 def parse_args():
     import cij

@@ -115,6 +115,13 @@ class Calculator:
     def __getattr__(self, prop):
         return getattr(self.qha_calculator, prop)
     
+    def write_output(self):
+        output_config = self.config["settings"]["output"]
+        if "pressure_base" in output_config.keys():
+            self.pressure_base.write_output(output_config["pressure_base"])
+        if "volume_base" in output_config.keys():
+            self.volume_base.write_output(output_config["volume_base"])
+    
 class CijPressureBaseInterface:
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
@@ -134,6 +141,15 @@ class CijPressureBaseInterface:
         func_of_t_v = getattr(self.calculator.volume_base, name)
         func_of_t_p = self.v2p(func_of_t_v)
         return func_of_t_p
+    
+    def write_output(self, output_config):
+        from cij.io.traditional.qha_output import save_x_tp
+        for output in output_config:
+            if isinstance(output, str):
+                output = { "key": output }
+            value = getattr(self, output["key"])
+            fname = f"{output['key']}_tp.txt"
+            save_x_tp(value, self.t_array, self.p_array, self.p_array, fname)
 
 class CijVolumeBaseInterface:
     def __init__(self, calculator: Calculator):
@@ -215,3 +231,12 @@ class CijVolumeBaseInterface:
     def secondary_velocities(self):
         e = units.Quantity(self.shear_modulus_voigt_reuss_hill * self.v_array, units.rydberg).to(units.kg * units.km ** 2 / units.s ** 2).magnitude
         return numpy.sqrt(e / self.mass)
+
+    def write_output(self, output_config):
+        from cij.io.traditional.qha_output import save_x_tv
+        for output in output_config:
+            if isinstance(output, str):
+                output = { "key": output }
+            value = getattr(self, output["key"])
+            fname = f"{output['key']}_tv.txt"
+            save_x_tv(value, self.t_array, self.v_array, self.t_array, fname)
