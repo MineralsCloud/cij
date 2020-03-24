@@ -60,6 +60,10 @@ def _read_volume_data(lines, nv, nq, np):
     return list(_yield_volume_data())
 
 def read_energy(fname: str) -> QHAInputData:
+    '''Read :math:`E`, :math:`V`, :math:`\omega` etc., from QHA data file
+
+    :param fname: The path of the input file
+    '''
 
     with open(fname, encoding="utf8") as fp:
         for line in fp:
