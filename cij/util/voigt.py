@@ -1,3 +1,7 @@
+'''
+Hashable representation of standard and voigt subscripts.
+'''
+
 from typing import NamedTuple
 
 VOIGT_TO_STANDARD = {

@@ -14,7 +14,7 @@ setup(
         "qha",
         "lazy_property",
         "jsonschema",
-        "pint @ git+https://github.com/hgrecco/pint.git#egg=pint"
+        "pint >= 0.10"
     ],
     package_data={
         "cij/data/schema": "*.schema.json"

@@ -1,3 +1,7 @@
+'''
+Input and output handling.
+'''
+
 from . import traditional
 from .config import read_config
 

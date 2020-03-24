@@ -5,7 +5,25 @@
     "type": "object",
     "required": ["qha"],
     "properties": {
-        "qha": { "type": "object" },
-        "elast": { "type": "object" }
+        "qha": {
+            "type": "object",
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "title": "QHA input file name",
+                    "description": "The name of the QHA input file"
+                }
+            }
+        },
+        "elast": {
+            "type": "object",
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "title": "Static elasticity input file name",
+                    "description": "The name of the static elasticity input file"
+                }
+            }
+        }
     }
 }

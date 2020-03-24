@@ -27,7 +27,6 @@ Welcome to qha-cij's documentation!
    :maxdepth: 4
 
    api
-   apis/modules
 
 
 Indices and tables

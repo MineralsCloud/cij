@@ -30,6 +30,7 @@ author = "Chenxing Luo"
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx_autodoc_typehints",
     "sphinx_rtd_theme"
 ]
 
