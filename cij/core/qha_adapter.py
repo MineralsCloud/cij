@@ -17,7 +17,7 @@ class QHACalculator(qha.calculator.Calculator):
 
         super().__init__(settings)
 
-    def read_input(self, qha_input: cij.io.traditional.models.QHAInputData):
+    def read_input(self, qha_input: cij.io.traditional.models.QHAInputData) -> None:
 
         self._formula_unit_number: int = qha_input.nm
 

@@ -1,6 +1,22 @@
+'''Element sorting based on similarities of the eigenvectors.
+'''
+
 import numpy
 
-def evec_sort(target_arr, target_evecs, base_evecs, filter = None, threshold: float = None):
+def evec_sort(target_arr, target_evecs, base_evecs, filter: callable = None, threshold: float = None):
+    '''Sort elements of an array based on the eigenvector similarities with
+    respect to another set of eigenvectors.
+
+    :param target_arr: The array of element to be sorted
+    :param target_evecs: The array of eigenvectors with one-on-one corresponds
+        to ``target_arr``
+    :param base_evecs: The array of eigenvectors as alignment.
+    :param filter: the filter to apply on the dot product before the sorting
+        actually happens.
+    :param threshold: below which threshold the error should be raised.
+
+    :raises: ``RuntimeError``
+    '''
 
     ndim = len(target_arr)
     sorted_arr = [None] * ndim

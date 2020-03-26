@@ -21,7 +21,12 @@ def _find_modulus_key(key: str):
     else:
         return key
 
-def read_elast_data(fname) -> ElastData:
+def read_elast_data(fname: str) -> ElastData:
+    '''
+    Read static elastic coefficients from data file.
+
+    :param fname: the name or path of the input file.
+    '''
     with open(fname, encoding="utf8") as fp:
         next(fp)
         fields = next(fp).strip().split()
