@@ -2,5 +2,6 @@ Phonon frequency interpolation
 ==============================
 
 .. automodule:: cij.core.mode_gamma_interpolate
-    :members:
-    :undoc-members:
+   :members:
+   :undoc-members:
+   :show-inheritance:

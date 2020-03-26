@@ -1,4 +1,2 @@
 Methods
 -------
-
-.. doctree ::

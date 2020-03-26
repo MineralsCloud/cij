@@ -21,3 +21,12 @@ Traditional QHA tabular output: ``qha_output``
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+Traditional elast tabular output: ``elast_dat``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: cij.io.traditional.elast_dat
+   :members:
+   :undoc-members:
+   :show-inheritance:
