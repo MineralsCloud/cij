@@ -23,6 +23,13 @@ Welcome to qha-cij's documentation!
    usage/output
 
 .. toctree::
+   :caption: Tutorials
+   :maxdepth: 2
+   :glob:
+
+   tutorial
+
+.. toctree::
    :caption: For developers
    :maxdepth: 4
 

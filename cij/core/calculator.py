@@ -41,9 +41,14 @@ class Calculator:
         # self._calc_velocities()
 
     def _load(self, config_fname: str):
+
+        from pathlib import Path
+        config_fname = Path(config_fname)
+        work_dir = config_fname.parent
+
         self.config = cij.io.read_config(config_fname)
-        self.qha_input = cij.io.traditional.read_energy(self.config["qha"]["input"])
-        self.elast_data = cij.io.traditional.read_elast_data(self.config["elast"]["input"])
+        self.qha_input = cij.io.traditional.read_energy(work_dir / self.config["qha"]["input"])
+        self.elast_data = cij.io.traditional.read_elast_data(work_dir / self.config["elast"]["input"])
         self.qha_calculator = QHACalculatorAdapter(
             self.config["qha"]["settings"],
             self.qha_input
