@@ -2,5 +2,6 @@ Tutorials
 =========
 
 .. toctree::
+   :titlesonly:
 
-    tutorial/plotting.ipynb
+   tutorial/plotting.ipynb

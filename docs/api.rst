@@ -5,6 +5,7 @@ API Documentation
 
     api/core
     api/io
+    api/plot
     api/util/units
     api/util/voigt
     api/misc
