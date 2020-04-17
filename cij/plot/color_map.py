@@ -18,6 +18,8 @@ def color_x(
     
     norm = matplotlib.colors.Normalize(vmin=vmin, vmax=vmax)
     cmap = matplotlib.cm.ScalarMappable(norm=norm, cmap=cmap)
+
     def get_color(v: float) -> tuple:
         return cmap.to_rgba(v)
+
     return get_color

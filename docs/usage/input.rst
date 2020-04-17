@@ -4,25 +4,27 @@ Building input
 The input for cij's input file contains 3 parts, a program settings and two
 parts of input data.
 
-Program setting
-"""""""""""""""
+Program configuration file
+""""""""""""""""""""""""""
 
 A YAML file controls the behavior of the program: where to look for the input
 data, which parameters to calculate, the pressure and temperature range to work
 on.
 
-Input data for QHA
-""""""""""""""""""
+The structure of this file is described below:
+
+.. jsonschema:: ../../cij/data/schema/config.schema.json
+.. jsonschema:: ../../cij/data/schema/config.schema.json#/definitions/qha_settings
+.. jsonschema:: ../../cij/data/schema/config.schema.json#/definitions/elast_settings
+
+
+The QHA input data file
+"""""""""""""""""""""""
 The first input data is similar to the 
 `QHA's input data <https://mineralscloud.github.io/qha/tutorials/run.html#how-to-make-input-data>`_.
 
-Input data of cij
-"""""""""""""""""
-
-The input data for cij is simple.
-
-
-
+The static elastic moduli data file
+"""""""""""""""""""""""""""""""""""
 
 Example
 -------

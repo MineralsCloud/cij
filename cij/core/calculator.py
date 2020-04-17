@@ -3,7 +3,7 @@ import cij.io
 from cij.core.phonon_modulus import LogitudinalElasticModulusPhononContribution
 from cij.core.qha_adapter import QHACalculatorAdapter
 from qha.v2p import v2p
-from cij.util import c_, units
+from cij.util import c_, units, _to_gpa, _to_ang3
 from cij.core.modulus_worker import ElasticModulusWorker
 from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
@@ -93,8 +93,11 @@ class Calculator:
     
     @property
     def dims(self) -> Tuple[int, int]:
+        '''The dimension of the temperature-volume :math:`(T, V)` grid
+        '''
         nt = self.qha_calculator.t_array.shape[0]
         ntv = self.qha_calculator.v_array.shape[0]
+
         return (nt, ntv)
     
     def _calculate_compliances(self):
@@ -129,54 +132,27 @@ class Calculator:
             self.pressure_base.write_output(output_config["pressure_base"])
         if "volume_base" in output_config.keys():
             self.volume_base.write_output(output_config["volume_base"])
-    
-class CijPressureBaseInterface:
-    def __init__(self, calculator: Calculator):
-        self.calculator = calculator
 
-    def v2p(self, func_of_t_v):
-        return v2p(func_of_t_v, self.calculator.qha_calculator.volume_base.pressures, self.p_array)
-    
-    @property
-    def p_array(self):
-        return self.calculator.qha_calculator.pressure_base.p_array
-
-    @property
-    def t_array(self):
-        return self.calculator.qha_calculator.pressure_base.t_array
-
-    def __getattr__(self, name):
-        func_of_t_v = getattr(self.calculator.volume_base, name)
-        func_of_t_p = self.v2p(func_of_t_v)
-        return func_of_t_p
-    
-    def write_output(self, output_config: List[Union[dict, str]]) -> None:
-        '''Write variables as functions of temperature and pressure in QHA
-        output format
-
-        :param output_config: a list values, each should either be a ``str`` of
-            the output parameter such as ``c11s``, ``vs``, etc., or a ``dict``
-            of the output detail.
-        '''
-        from cij.io.traditional.qha_output import save_x_tp
-        for output in output_config:
-            if isinstance(output, str):
-                output = { "key": output }
-            value = getattr(self, output["key"])
-            fname = f"{output['key']}_tp.txt"
-            p_array = units.Quantity(self.p_array, units.rydberg / units.bohr ** 3).to(units.GPa).magnitude
-            save_x_tp(value, self.t_array, p_array, p_array, fname)
 
 class CijVolumeBaseInterface:
+    '''Elastic and accoustic properties calculated at the volume-temperature
+    :math:`(T, V)` grid.
+    '''
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
 
     @property
-    def v_array(self):
+    def v_array(self) -> numpy.ndarray:
+        '''The array of volume points :math:`V` of the temperature-volume
+        :math:`(T, V)` grid
+        '''
         return self.calculator.qha_calculator.volume_base.v_array
 
     @property
-    def t_array(self):
+    def t_array(self) -> numpy.ndarray:
+        '''The array of temperature points :math:`T` of the temperature-volume
+        :math:`(T, V)` grid
+        '''
         return self.calculator.qha_calculator.volume_base.t_array
 
     def __getattr__(self, name):
@@ -200,51 +176,107 @@ class CijVolumeBaseInterface:
         raise AttributeError(name)
 
     @property
-    def bulk_modulus_voigt(self):
+    def bulk_modulus_voigt(self) -> numpy.ndarray:
+        '''Voigt average of bulk modulus :math:`K_\\text{V}(T, V)` as a function
+        of temperature and volume.
+
+        .. math::
+            K_\\text{V} = [(c_{11}+c_{22}+c_{33}) + 2(c_{12}+c_{23}+c_{31})]/9
+        '''
         return (self.c11 + self.c22 + self.c33 \
                 + 2 * (self.c12 + self.c23 + self.c13)) / 9
 
     @property
-    def bulk_modulus_reuss(self):
+    def bulk_modulus_reuss(self) -> numpy.ndarray:
+        '''Reuss average of bulk modulus :math:`K_\\text{R}(T, V)` as a function
+        of temperature and volume.
+
+        .. math::
+            K_\\text{R} = [(s_{11}+s_{22}+s_{33})+2(s_{12}+s_{23}+s_{31})]^{-1}
+        '''
         return 1 / (self.s11 + self.s22 + self.s33 \
                     + 2 * (self.s12 + self.s23 + self.s13))
     
     @property
-    def bulk_modulus_voigt_reuss_hill(self):
+    def bulk_modulus_voigt_reuss_hill(self) -> numpy.ndarray:
+        '''Voigt-Reuss-Hill average of bulk modulus :math:`K_\\text{VRH}(T, V)`
+        as a function of temperature and volume.
+
+        .. math::
+            K_\\text{VRH} = (K_\\text{V} + K_\\text{R}) / 2
+        '''
         return (self.bulk_modulus_reuss + self.bulk_modulus_voigt) / 2
     
     @property
-    def shear_modulus_voigt(self):
+    def shear_modulus_voigt(self) -> numpy.ndarray:
+        '''Voigt average of shear modulus :math:`G_\\text{V}(T, V)` as a function
+        of temperature and volume.
+
+        .. math::
+            G_\\text{V} = [
+                    (c_{11} + c_{22} + c_{33})
+                -   (c_{12} + c_{23} + c_{31})
+                + 3 (c_{44} + c_{55} + c_{66})
+            ] / 15
+        '''
         return ( \
             + (self.c11 + self.c22 + self.c33) \
             - (self.c12 + self.c23 + self.c13)
             + 3 * (self.c44 + self.c55 + self.c66)) / 15
 
     @property
-    def shear_modulus_reuss(self):
+    def shear_modulus_reuss(self) -> numpy.ndarray:
+        '''Reuss average of shear modulus :math:`K_\\text{R}(T, V)` as a function
+        of temperature and volume.
+
+        .. math::
+            G_\\text{R} = 15 / [
+                  4 (s_{11} + s_{22} + s_{33})
+                + 2 (s_{12} + s_{23} + s_{31})
+                + 3 (s_{44} + s_{55} + s_{66})
+            ]
+        ''' 
         return 15 / ( \
             + 4 * (self.s11 + self.s22 + self.s33) \
             - 4 * (self.s12 + self.s23 + self.s13) \
             + 3 * (self.s44 + self.s55 + self.s66))
 
     @property
-    def shear_modulus_voigt_reuss_hill(self):
+    def shear_modulus_voigt_reuss_hill(self) -> numpy.ndarray:
+        '''Voigt-Reuss-Hill average of shear modulus :math:`G_\\text{VRH}(T, V)`
+        as a function of temperature and volume.
+
+        .. math::
+            G_\\text{VRH} = (G_\\text{V} + G_\\text{R}) / 2
+        '''
         return (self.shear_modulus_reuss + self.shear_modulus_voigt) / 2
         
     @property
-    def mass(self):
+    def mass(self) -> float:
+        '''The mass per cell :math:`m` in kilogram.'''
         m = self.calculator.elast_data.cellmass 
         N = scipy.constants.physical_constants["Avogadro constant"][0]
         return m * 1e-3 / N
     
     @property
-    def primary_velocities(self):
+    def primary_velocities(self) -> numpy.ndarray:
+        '''Primary accoustic velocity :math:`v_\\text{p}(T, V)` as a function of
+        temperature and volume.
+
+        .. math::
+            v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 3/4 \, G_\\text{VRH} }{\\rho}}
+        '''
         e = units.Quantity((self.bulk_modulus_voigt_reuss_hill + 4 / 3 * self.shear_modulus_voigt_reuss_hill) * self.v_array, units.rydberg).to(units.kg * units.km ** 2 / units.s ** 2).magnitude
-        #print(e, self.mass)
         return numpy.sqrt(e / self.mass)
 
     @property
-    def secondary_velocities(self):
+    def secondary_velocities(self) -> numpy.ndarray:
+        '''Secondary accoustic velocity :math:`v_\\text{s}(T, V)` as a function
+        of temperature and volume.
+
+        .. math::
+            v_\\text{s} = \\sqrt{\\frac{G_\\text{VRH}}{\\rho}}
+        '''
         e = units.Quantity(self.shear_modulus_voigt_reuss_hill * self.v_array, units.rydberg).to(units.kg * units.km ** 2 / units.s ** 2).magnitude
         return numpy.sqrt(e / self.mass)
 
@@ -262,5 +294,179 @@ class CijVolumeBaseInterface:
                 output = { "key": output }
             value = getattr(self, output["key"])
             fname = f"{output['key']}_tv.txt"
-            v_array = units.Quantity(self.v_array, units.bohr ** 3).to(units.angstrom ** 3).magnitude
+            v_array = _to_ang3(self.v_array)
             save_x_tv(value, self.t_array, v_array, self.t_array, fname)
+
+
+class CijPressureBaseModulusInterface:
+
+    def __init__(self, modulus, v2p: callable):
+        self.modulus = modulus
+        self.v2p = v2p
+
+    def __getitem__(self, key: str) -> numpy.ndarray:
+        return self.v2p(self.modulus[key])
+
+    
+class CijPressureBaseInterface:
+    '''Elastic and accoustic properties calculated at the pressure-temperature
+    :math:`(T, P)` grid.
+    '''
+
+    def __init__(self, calculator: Calculator):
+        self.calculator = calculator
+
+    def v2p(self, func_of_t_v: numpy.ndarray) -> numpy.ndarray:
+        '''The conversion function from :math:`(T, V)` to :math:`(T, P)` grid
+
+        .. math::
+            f(T, V) \\rightarrow f(T, P)
+
+        :param func_of_t_v: the input function :math:`f(T, V)` under the :math:`(T, V)` grid
+        :returns: the output function :math:`f(T, P)` under the :math:`(T, P)` grid
+        '''
+        return v2p(func_of_t_v, self.calculator.qha_calculator.volume_base.pressures, self.p_array)
+    
+    @property
+    def p_array(self) -> numpy.ndarray:
+        '''The array of pressure points :math:`P` of the pressure-temperature
+        :math:`(T, P)` grid
+        '''
+        return self.calculator.qha_calculator.pressure_base.p_array
+
+    @property
+    def t_array(self) -> numpy.ndarray:
+        '''The array of temperature points :math:`T` of the pressure-temperature
+        :math:`(T, P)` grid
+        '''
+        return self.calculator.qha_calculator.pressure_base.t_array
+
+    @property
+    def modulus_adiabatic(self):
+        return CijPressureBaseModulusInterface(
+            self.calculator.modulus_adiabatic,
+            self.v2p
+        )
+
+    @property
+    def modulus_isothermal(self):
+        return CijPressureBaseModulusInterface(
+            self.calculator.modulus_isothermal,
+            self.v2p
+        )
+
+    @property
+    def bulk_modulus_voigt(self) -> numpy.ndarray:
+        '''Voigt average of bulk modulus :math:`K_\\text{V}(T, P)` as a function
+        of temperature and pressure.
+
+        .. math::
+            K_\\text{V} = [(c_{11}+c_{22}+c_{33}) + 2(c_{12}+c_{23}+c_{31})]/9
+        '''
+        return self.v2p(self.calculator.volume_base.bulk_modulus_voigt)
+
+    @property
+    def bulk_modulus_reuss(self) -> numpy.ndarray:
+        '''Reuss average of bulk modulus :math:`K_\\text{R}(T, P)` as a function
+        of temperature and pressure.
+
+        .. math::
+            K_\\text{R} = [(s_{11}+s_{22}+s_{33})+2(s_{12}+s_{23}+s_{31})]^{-1}
+        '''
+        return self.v2p(self.calculator.volume_base.bulk_modulus_reuss)
+   
+    @property
+    def bulk_modulus_voigt_reuss_hill(self) -> numpy.ndarray:
+        '''Voigt-Reuss-Hill average of bulk modulus :math:`K_\\text{VRH}(T, P)`
+        as a function of temperature and pressure.
+
+        .. math::
+            K_\\text{VRH} = (K_\\text{V} + K_\\text{R}) / 2
+        '''
+        return self.v2p(self.calculator.volume_base.bulk_modulus_voigt_reuss_hill)
+    
+    @property
+    def shear_modulus_voigt(self) -> numpy.ndarray:
+        '''Voigt average of shear modulus :math:`G_\\text{V}(T, P)` as a function
+        of temperature and pressure.
+
+        .. math::
+            G_\\text{V} = [
+                    (c_{11} + c_{22} + c_{33})
+                -   (c_{12} + c_{23} + c_{31})
+                + 3 (c_{44} + c_{55} + c_{66})
+            ] / 15
+        '''
+        return self.v2p(self.calculator.volume_base.shear_modulus_voigt)
+
+    @property
+    def shear_modulus_reuss(self) -> numpy.ndarray:
+        '''Reuss average of shear modulus :math:`G_\\text{R}(T, P)` as a function
+        of temperature and pressure.
+
+        .. math::
+            G_\\text{R} = 15 / [
+                  4 (s_{11} + s_{22} + s_{33})
+                + 2 (s_{12} + s_{23} + s_{31})
+                + 3 (s_{44} + s_{55} + s_{66})
+            ] 
+        '''
+        return self.v2p(self.calculator.volume_base.shear_modulus_reuss)
+
+    @property
+    def shear_modulus_voigt_reuss_hill(self) -> numpy.ndarray:
+        '''Voigt-Reuss-Hill average of shear modulus :math:`G_\\text{VRH}(T, P)`
+        as a function of temperature and pressure.
+
+        .. math::
+            G_\\text{VRH} = (G_\\text{V} + G_\\text{R}) / 2
+        '''
+        return self.v2p(self.calculator.volume_base.shear_modulus_voigt)
+        
+    @property
+    def mass(self) -> float:
+        '''The mass per cell :math:`m` in kilogram.'''
+        return self.calculator.volume_base.mass
+    
+    @property
+    def primary_velocities(self) -> numpy.ndarray:
+        '''Primary accoustic velocity :math:`v_\\text{p}(T, P)` as a function of
+        temperature and pressure.
+
+        .. math::
+            v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 3/4 \, G_\\text{VRH} }{\\rho}}
+        '''
+        return self.v2p(self.calculator.volume_base.primary_velocities)
+
+    @property
+    def secondary_velocities(self) -> numpy.ndarray:
+        '''Secondary accoustic velocity :math:`v_\\text{s}(T, P)` as a function
+        of temperature and pressure.
+
+        .. math::
+            v_\\text{s} = \\sqrt{\\frac{G_\\text{VRH}}{\\rho}}
+        '''
+ 
+        return self.v2p(self.calculator.volume_base.secondary_velocities)
+
+    def __getattr__(self, name):
+        func_of_t_v = getattr(self.calculator.volume_base, name)
+        func_of_t_p = self.v2p(func_of_t_v)
+        return func_of_t_p
+    
+    def write_output(self, output_config: List[Union[dict, str]]) -> None:
+        '''Write variables as functions of temperature and pressure in QHA
+        output format
+
+        :param output_config: a list values, each should either be a ``str`` of
+            the output parameter such as ``c11s``, ``vs``, etc., or a ``dict``
+            of the output detail.
+        '''
+        from cij.io.traditional.qha_output import save_x_tp
+        for output in output_config:
+            if isinstance(output, str):
+                output = { "key": output }
+            value = getattr(self, output["key"])
+            fname = f"{output['key']}_tp.txt"
+            p_array = _to_gpa(self.p_array)
+            save_x_tp(value, self.t_array, p_array, p_array, fname)

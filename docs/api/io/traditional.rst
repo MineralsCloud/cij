@@ -24,7 +24,7 @@ Traditional QHA tabular output: ``qha_output``
 
 
 Traditional elast tabular output: ``elast_dat``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: cij.io.traditional.elast_dat
    :members:

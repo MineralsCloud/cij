@@ -34,7 +34,8 @@ extensions = [
     "sphinx_rtd_theme",
 #    "sphinxcontrib.katex",
     'sphinx.ext.mathjax',
-    "nbsphinx"
+    "nbsphinx",
+    "sphinx-jsonschema"
 ]
 
 # Add any paths that contain templates here, relative to this directory.

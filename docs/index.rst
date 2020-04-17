@@ -26,7 +26,9 @@ Welcome to qha-cij's documentation!
    :caption: Tutorials
    :maxdepth: 2
    :glob:
+   :titlesonly:
 
+   array
    tutorial
 
 .. toctree::
