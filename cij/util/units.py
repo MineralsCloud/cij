@@ -35,7 +35,7 @@ def _to_gpa(value: _T) -> _T:
 def _from_gpa(value: _T) -> _T:
     return convert_unit(
         units.GPa,
-        units.bohr ** 3,
+        units.rydberg / units.bohr ** 3,
         value
     )
 

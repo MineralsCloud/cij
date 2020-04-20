@@ -6,7 +6,7 @@ from .units import (
 from .voigt import C_, E_
 c_ = C_._
 e_ = E_._
-s_ = E_._
+s_ = C_._
 
 __all__ = [
     'units', 'convert_unit'
