@@ -2,12 +2,12 @@ from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
 import numpy
 from numpy import newaxis as nax
-from cij.util import units, C_, E_, c_, e_
+from cij.util import units, C_, E_, c_, e_, _to_gpa, _from_gpa
 import itertools
 import logging
 import scipy.interpolate
 
-from cij.core.phonon_modulus import (
+from .phonon_contribution import (
     LogitudinalElasticModulusPhononContribution,
     OffDiagnonalElasticModulusPhononContribution,
     ShearElasticModulusPhononContribution
@@ -24,7 +24,16 @@ class ElasticModulusWorker:
             OffDiagnonalElasticModulusPhononContribution: [],
         }
 
-    def fit_modulus(self, moduli, order: int = 2):
+    def fit_modulus(self, moduli: numpy.ndarray, order: int = 2) -> numpy.ndarray:
+        '''Interpolate static elastic constants :math:`c^\\text{st}_{ij}(V)` as
+        a function of volume with polynomial least square fitting
+
+        :param moduli: The static elastic moduli :math:`c^\\text{st}_{ij}(V)`
+            to be fitted
+        :param order: The order for least square fitting
+
+        :returns: The interpolated modulus :math:`c^\\text{st}_{ij}(V)`
+        '''
         # c_of_v = scipy.interpolate.UnivariateSpline(
         #     numpy.flip(self.volumes, axis=0),
         #     numpy.flip(moduli, axis=0)
@@ -40,20 +49,22 @@ class ElasticModulusWorker:
         return modulus_array
         
     @property
-    def volumes(self):
+    def volumes(self) -> numpy.ndarray:
+        '''The array of original volume points :math:`V` from input.
+        '''
         return numpy.array([volume.volume for volume in self.elast_data.volumes])
 
     @property
-    def v_array(self):
+    def v_array(self) -> numpy.ndarray:
+        '''The array of interpolated volume points :math:`V`.
+        '''
         return self.calculator.v_array
     
     def get_static_modulus(self, key: tuple):
         static_moduli = numpy.array([
             volume.static_elastic_modulus[key] for volume in self.elast_data.volumes
         ])
-        static_moduli = units.Quantity(static_moduli, units.GPa) \
-            .to(units.rydberg / units.bohr ** 3) \
-            .magnitude
+        static_moduli = _from_gpa(static_moduli)
         static_modulus_array = self.fit_modulus(static_moduli)
         return static_modulus_array
     

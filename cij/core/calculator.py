@@ -1,9 +1,8 @@
 from cij.core.mode_gamma_interpolate import interpolate_modes
 import cij.io
-from cij.core.phonon_modulus import LogitudinalElasticModulusPhononContribution
 from cij.core.qha_adapter import QHACalculatorAdapter
 from qha.v2p import v2p
-from cij.util import c_, units, _to_gpa, _to_ang3
+from cij.util import c_, C_, units, _to_gpa, _to_ang3
 from cij.core.modulus_worker import ElasticModulusWorker
 from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
@@ -64,7 +63,7 @@ class Calculator:
         self.mode_gamma = [vdr_dv, gamma_i, gamma_i**2]
     
     @LazyProperty
-    def modulus_keys(self) -> List[c_]:
+    def modulus_keys(self) -> List[C_]:
         '''Elastic coefficient keys
         '''
         return list(self.elast_data.volumes[0].static_elastic_modulus.keys())
@@ -260,8 +259,8 @@ class CijVolumeBaseInterface:
     
     @property
     def primary_velocities(self) -> numpy.ndarray:
-        '''Primary accoustic velocity :math:`v_\\text{p}(T, V)` as a function of
-        temperature and volume.
+        '''Primary accoustic wave velocity :math:`v_\\text{p}(T, V)` as a
+        function of temperature and volume.
 
         .. math::
             v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 3/4 \, G_\\text{VRH} }{\\rho}}
@@ -271,8 +270,8 @@ class CijVolumeBaseInterface:
 
     @property
     def secondary_velocities(self) -> numpy.ndarray:
-        '''Secondary accoustic velocity :math:`v_\\text{s}(T, V)` as a function
-        of temperature and volume.
+        '''Secondary accoustic wave velocity :math:`v_\\text{s}(T, V)` as a
+        function of temperature and volume.
 
         .. math::
             v_\\text{s} = \\sqrt{\\frac{G_\\text{VRH}}{\\rho}}
@@ -309,7 +308,7 @@ class CijPressureBaseModulusInterface:
 
     
 class CijPressureBaseInterface:
-    '''Elastic and accoustic properties calculated at the pressure-temperature
+    '''Elastic and accoustic properties calculated at the temperature-pressure
     :math:`(T, P)` grid.
     '''
 
@@ -342,14 +341,20 @@ class CijPressureBaseInterface:
         return self.calculator.qha_calculator.pressure_base.t_array
 
     @property
-    def modulus_adiabatic(self):
+    def modulus_adiabatic(self) -> CijPressureBaseModulusInterface:
+        '''Adiabatic elastic modulus :math:`c^S_{ij}(T, P)`  as a function of
+        temperature and pressure.
+        '''
         return CijPressureBaseModulusInterface(
             self.calculator.modulus_adiabatic,
             self.v2p
         )
 
     @property
-    def modulus_isothermal(self):
+    def modulus_isothermal(self) -> CijPressureBaseModulusInterface:
+        '''Isothermal elastic modulus :math:`c^T_{ij}(T, P)`  as a function of
+        temperature and pressure.
+        '''
         return CijPressureBaseModulusInterface(
             self.calculator.modulus_isothermal,
             self.v2p
@@ -430,8 +435,8 @@ class CijPressureBaseInterface:
     
     @property
     def primary_velocities(self) -> numpy.ndarray:
-        '''Primary accoustic velocity :math:`v_\\text{p}(T, P)` as a function of
-        temperature and pressure.
+        '''Primary accoustic wave velocity :math:`v_\\text{p}(T, P)` as a
+        function of temperature and pressure.
 
         .. math::
             v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 3/4 \, G_\\text{VRH} }{\\rho}}
@@ -440,8 +445,8 @@ class CijPressureBaseInterface:
 
     @property
     def secondary_velocities(self) -> numpy.ndarray:
-        '''Secondary accoustic velocity :math:`v_\\text{s}(T, P)` as a function
-        of temperature and pressure.
+        '''Secondary accoustic wave velocity :math:`v_\\text{s}(T, P)` as a
+        function of temperature and pressure.
 
         .. math::
             v_\\text{s} = \\sqrt{\\frac{G_\\text{VRH}}{\\rho}}
