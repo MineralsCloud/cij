@@ -28,7 +28,7 @@ def evec_sort(target_arr, target_evecs, base_evecs, filter: callable = None, thr
     m = numpy.conj(numpy.array(base_evecs)) @ numpy.array(target_evecs).T
     if filter: m = filter(m)
     for i in range(ndim):
-        idx = numpy.unravel_index(numpy.argmax(m), m.shape)
+        idx = numpy.unravel_index(numpy.argmax(numpy.abs(m)), m.shape)
         if threshold and m[idx] < threshold:
             raise RuntimeError("Low eval product")
         m[idx[0], :] = 0
