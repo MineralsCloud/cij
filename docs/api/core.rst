@@ -4,7 +4,8 @@ The core of thermoelasticity calculator: ``cij.core``
 .. toctree::
 
     core/calculator
-    core/modulus_worker
-    core/phonon_modulus
+    core/full_modulus
+    core/tasks
+    core/phonon_contribution
     core/mode_gamma
     core/qha_adapter
