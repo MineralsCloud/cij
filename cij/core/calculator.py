@@ -1,18 +1,22 @@
-from cij.core.mode_gamma_interpolate import interpolate_modes
-import cij.io
-from cij.core.qha_adapter import QHACalculatorAdapter
+import re
+import itertools
+from typing import List, Tuple, Union
+from pathlib import Path
+import numpy
+import scipy.constants
+from lazy_property import LazyProperty
+
 from qha.v2p import v2p
-from cij.util import c_, C_, units, _to_gpa, _to_ang3
-from cij.core.modulus_worker import ElasticModulusWorker
 from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
-from typing import List, Tuple, Union
 
-from lazy_property import LazyProperty
-import re
-import numpy
-import itertools
-import scipy.constants
+import cij.io
+from cij.util import c_, C_, units, _to_gpa, _to_ang3
+
+from .mode_gamma import interpolate_modes
+from .qha_adapter import QHACalculatorAdapter
+# from .modulus_worker import ElasticModulusWorker
+from .full_modulus import FullThermalElasticModulus
 
 import logging
 
@@ -21,6 +25,10 @@ logger = logging.Logger(__name__)
 REGEX_CIJ = r'^(c|s)_?([1-6]{2,2}|[1-3]{4,4})(s|t)?$'
 
 class Calculator:
+    '''The main entrance for QHA calculator
+
+    :param config_fname: the location of the configuration file
+    '''
 
     def __init__(self, config_fname: str):
         self._load(config_fname)
@@ -41,7 +49,6 @@ class Calculator:
 
     def _load(self, config_fname: str):
 
-        from pathlib import Path
         config_fname = Path(config_fname)
         work_dir = config_fname.parent
 
@@ -68,13 +75,18 @@ class Calculator:
         '''
         return list(self.elast_data.volumes[0].static_elastic_modulus.keys())
 
+    # def _process_cij(self):
+    #     self.modulus_adiabatic = {}
+    #     self.modulus_isothermal = {}
+    #     self.modulus_worker = ElasticModulusWorker(self)
+    #     for key in self.modulus_keys:
+    #         self.modulus_adiabatic[key] = self.modulus_worker.get_modulus_adiabatic(key)
+    #         self.modulus_isothermal[key] = self.modulus_worker.get_modulus_isothermal(key)
+
     def _process_cij(self):
-        self.modulus_adiabatic = {}
-        self.modulus_isothermal = {}
-        self.modulus_worker = ElasticModulusWorker(self)
-        for key in self.modulus_keys:
-            self.modulus_adiabatic[key] = self.modulus_worker.get_modulus_adiabatic(key)
-            self.modulus_isothermal[key] = self.modulus_worker.get_modulus_isothermal(key)
+        self._full_modulus = FullThermalElasticModulus(self)
+        self.modulus_adiabatic = self._full_modulus.modulus_adiabatic
+        self.modulus_isothermal = self._full_modulus.modulus_isothermal
 
     def _calculate_pressure_static(self, order: int = 3):
 

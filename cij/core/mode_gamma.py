@@ -1,7 +1,6 @@
 from ..io.traditional import models
 import numpy
 import scipy.interpolate, scipy.misc
-import multiprocessing
 import numba
 from numpy.polynomial.polynomial import Polynomial
 

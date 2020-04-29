@@ -1,15 +1,15 @@
 import logging
 import json
 import numpy
+import copy
 
 import qha.calculator
 import qha.basic_io
+from qha.settings import DEFAULT_SETTINGS
 
 import cij.io.traditional.models
 
 logger = logging.getLogger(__name__)
-
-DEFAULT_SETTINGS = qha.settings.DEFAULT_SETTINGS.copy()
 
 class QHACalculator(qha.calculator.Calculator):
 
@@ -69,10 +69,10 @@ class QHACalculatorAdapter():
     @staticmethod
     def _load_qha_calculator(settings: dict, qha_input: cij.io.traditional.models.QHAInputData):
         
-        user_settings = DEFAULT_SETTINGS.copy()
+        user_settings = copy.copy(DEFAULT_SETTINGS)
         user_settings.update(settings)
 
-        calculator = QHACalculator(settings)
+        calculator = QHACalculator(user_settings)
 
         logger.debug("QHA info %s" % json.dumps(calculator.settings))
         logger.debug(

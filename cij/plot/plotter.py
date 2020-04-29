@@ -72,7 +72,7 @@ class Plotter:
     def plot_cij_t_with(self, handler: callable, cij_key: int, p: float):
         
         key = c_(cij_key)
-        p_index = self.index_p(self._from_gpa(p))
+        p_index = self.index_p(_from_gpa(p))
 
         # p_array = self.calculator.pressure_base.p_array[p_indices[t_index]]
         # c_array = self.calculator.modulus_adiabatic[key][t_index, p_indices[t_index]]

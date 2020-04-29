@@ -43,7 +43,7 @@ def clear_gamma_point(mat: numpy.ndarray):
     indices = tuple([slice(None)] * (dims - 2) + [0, slice(0, 3)])
     mat[indices] = 0
 
-class LogitudinalElasticModulusPhononContribution(ElasticModulus):
+class LongitudinalElasticModulusPhononContribution(ElasticModulus):
     '''Represents the phonon part of the longitudinal thermal
     elastic modulus :math:`c^\\text{ph}_{ii}(T, V)`
 
@@ -52,8 +52,10 @@ class LogitudinalElasticModulusPhononContribution(ElasticModulus):
             = c^\\text{zpm}_{ii}(V) + c^\\text{th}_{ii}(T, V)
 
     :param calculator:
-    :param e: the "strain" (:math:`e/\\Delta`) for calculating strain-Gruneisen parameter
-        :math:`\\gamma^{ii}_{qm}` from mode-Gruneisen parameter :math:`\\gamma_{qm}`.
+    :param e: the "strain" corresponding to the subscript 
+        (:math:`e_i/\\Delta` and `e_j/\\Delta`) for calculating strain-Gruneisen
+        parameter :math:`\\gamma^{ii}_{qm}` from mode-Gruneisen parameter
+        :math:`\\gamma_{qm}`.
     '''
 
     # type: calculator = cij.core.calculator.Calculator
@@ -99,6 +101,8 @@ class LogitudinalElasticModulusPhononContribution(ElasticModulus):
 
     @LazyProperty
     def mode_gamma(self) -> tuple:
+        '''Values related to the strain-Grüneisen parameter
+        '''
         return (
             self.prefactors[0]    * self.calculator.mode_gamma[0],
             self.prefactors[1][0] * self.calculator.mode_gamma[1],
@@ -237,7 +241,7 @@ class LogitudinalElasticModulusPhononContribution(ElasticModulus):
         return average_over_modes(amount, self.q_weights)
 
 
-class OffDiagnonalElasticModulusPhononContribution(LogitudinalElasticModulusPhononContribution):
+class OffDiagonalElasticModulusPhononContribution(LongitudinalElasticModulusPhononContribution):
 
     @LazyProperty
     def prefactors(self):
@@ -309,8 +313,4 @@ class OffDiagnonalElasticModulusPhononContribution(LogitudinalElasticModulusPhon
             - self.calculator.static_p_array[nax, :]
         )
 
-class ShearElasticModulusPhononContribution(ElasticModulus):
-    def __init__(self):
-        self.value_adiabatic = None
-        self.value_isothermal = None
 

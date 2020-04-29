@@ -9,3 +9,4 @@ Tutorials
    tutorial/handling-units.ipynb
    tutorial/voigt.ipynb
    tutorial/strain-diagonalization.ipynb
+   tutorial/shear-elastic-modulus-dependency.ipynb

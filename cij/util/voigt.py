@@ -3,6 +3,8 @@ Hashable representation of standard and voigt subscripts.
 '''
 
 from typing import NamedTuple
+from enum import Enum, auto
+
 
 VOIGT_TO_STANDARD = {
     1: (1, 1),
@@ -14,7 +16,15 @@ VOIGT_TO_STANDARD = {
     6: (1, 2)
 }
 
+
 STANDARD_TO_VOIGT = dict((v, k) for k, v in VOIGT_TO_STANDARD.items())
+
+
+class ElasticModulusCalculationType(Enum):
+    LONGITUDINAL = auto()
+    OFF_DIAGONAL = auto()
+    SHEAR = auto()
+
 
 class StrainRepresentation(NamedTuple):
 
@@ -152,6 +162,16 @@ class ModulusRepresentation(NamedTuple):
             << (self.i != self.j) \
             << (self.i.i != self.i.j) \
             << (self.j.i != self.j.j)
+    
+    @property
+    def calc_type(self) -> ElasticModulusCalculationType:
+        if self.is_longitudinal:
+            return ElasticModulusCalculationType.LONGITUDINAL
+        if self.is_off_diagonal:
+            return ElasticModulusCalculationType.OFF_DIAGONAL
+        if self.is_shear:
+            return ElasticModulusCalculationType.SHEAR
 
 E_ = StrainRepresentation
 C_ = ModulusRepresentation
+

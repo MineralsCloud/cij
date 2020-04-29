@@ -14,7 +14,8 @@ setup(
         "qha",
         "lazy_property",
         "jsonschema",
-        "pint >= 0.10"
+        "pint >= 0.10",
+        "networkx"
     ],
     package_data={
         "cij/data/schema": "*.schema.json"
