@@ -12,6 +12,6 @@ def validate_config(config: dict) -> None:
     :raise: ``jsonschema.exceptions.ValidationError``
     '''
 
-    with open(cij.data.__path__ / "schema" / "config.schema.json") as fp:
+    with open(cij.data.get_data_fname("schema/config.schema.json")) as fp:
         schema = json.load(fp)
     jsonschema.validate(instance=config, schema=schema)

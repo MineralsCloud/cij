@@ -1,0 +1,91 @@
+- keywords: 
+  - cij_s
+  - cij
+  - adiabatic_elastic_moduli
+  fname_pattern: 'c{ij}s_{base}_gpa.txt'
+  var_type: ij_value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: modulus_adiabatic
+
+- keywords: 
+  - cij_t
+  - isothermal_elastic_moduli
+  fname_pattern: 'c{ij}t_{base}_gpa.txt'
+  var_type: ij_value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: modulus_isothermal
+
+- keywords: 
+  - B_v
+  - bulk_modulus_voigt
+  fname_pattern: 'B_v_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: bulk_modulus_voigt
+
+- keywords: 
+  - B_r
+  - bulk_modulus_reuss
+  fname_pattern: 'B_r_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: bulk_modulus_reuss
+
+- keywords: 
+  - B_vrh
+  - bulk_modulus_voigt_reuss_hill
+  fname_pattern: 'B_vrh_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: bulk_modulus_voigt_reuss_hill
+
+- keywords: 
+  - G_v
+  - shear_modulus_voigt
+  fname_pattern: 'B_v_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: shear_modulus_voigt
+
+- keywords: 
+  - G_r
+  - shear_modulus_reuss
+  fname_pattern: 'G_r_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: shear_modulus_reuss
+
+- keywords: 
+  - G_vrh
+  fname_pattern: 'G_vrh_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: shear_modulus_voigt_reuss_hill
+
+- keywords: 
+  - v_s
+  - vs
+  - primary_velocities
+  fname_pattern: v_s_{base}_m_s.txt
+  var_type: value
+  unit_internal: "m/s"
+  unit: "m/s"
+  prop: primary_velocities
+
+- keywords: 
+  - v_p
+  - vp
+  - secondary_velocities
+  fname_pattern: v_p_{base}_m_s.txt
+  var_type: value
+  unit_internal: "m/s"
+  unit: "m/s"
+  prop: secondary_velocities

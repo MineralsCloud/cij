@@ -1,10 +1,11 @@
 import re
 import itertools
-from typing import List, Tuple, Union
+from typing import List, Tuple, Union, Iterable
 from pathlib import Path
 import numpy
 import scipy.constants
 from lazy_property import LazyProperty
+from collections import UserDict
 
 from qha.v2p import v2p
 from qha.fitting import polynomial_least_square_fitting
@@ -12,6 +13,8 @@ from qha.grid_interpolation import calculate_eulerian_strain
 
 import cij.io
 from cij.util import c_, C_, units, _to_gpa, _to_ang3
+from cij.io.traditional.qha_output import save_x_tv, save_x_tp
+from cij.io.output import ResultsWriter
 
 from .mode_gamma import interpolate_modes
 from .qha_adapter import QHACalculatorAdapter
@@ -138,17 +141,23 @@ class Calculator:
         return getattr(self.qha_calculator, prop)
     
     def write_output(self):
+
         output_config = self.config["settings"]["output"]
+
         if "pressure_base" in output_config.keys():
-            self.pressure_base.write_output(output_config["pressure_base"])
+            self.pressure_base.write_variables(output_config["pressure_base"])
+
         if "volume_base" in output_config.keys():
-            self.volume_base.write_output(output_config["volume_base"])
+            self.volume_base.write_variables(output_config["volume_base"])
 
 
 class CijVolumeBaseInterface:
     '''Elastic and accoustic properties calculated at the volume-temperature
     :math:`(T, V)` grid.
     '''
+
+    _base_name = "tv"
+
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
 
@@ -185,6 +194,14 @@ class CijVolumeBaseInterface:
                     raise AttributeError()
                 return self.calculator._compliances[key]
         raise AttributeError(name)
+
+    @property
+    def modulus_adiabatic(self) -> dict:
+        return self.calculator.modulus_adiabatic
+
+    @property
+    def modulus_isothermal(self) -> dict:
+        return self.calculator.modulus_isothermal
 
     @property
     def bulk_modulus_voigt(self) -> numpy.ndarray:
@@ -291,29 +308,32 @@ class CijVolumeBaseInterface:
         e = units.Quantity(self.shear_modulus_voigt_reuss_hill * self.v_array, units.rydberg).to(units.kg * units.km ** 2 / units.s ** 2).magnitude
         return numpy.sqrt(e / self.mass)
 
-    def write_output(self, output_config: List[Union[dict, str]]) -> None:
-        '''Write variables as functions of temperature and volume in QHA
-        output format
-
-        :param output_config: a list values, each should either be a ``str`` of
-            the output parameter such as ``c11s``, ``vs``, etc., or a ``dict``
-            of the output detail.
+    def write_table(self, fname: str, value: numpy.ndarray) -> None:
+        '''Write variable as functions of temperature and volume in QHA
+        output format, intended to be called by ``ResultsWriter`` only.
         '''
-        from cij.io.traditional.qha_output import save_x_tv
-        for output in output_config:
-            if isinstance(output, str):
-                output = { "key": output }
-            value = getattr(self, output["key"])
-            fname = f"{output['key']}_tv.txt"
-            v_array = _to_ang3(self.v_array)
-            save_x_tv(value, self.t_array, v_array, self.t_array, fname)
+        v_array = _to_ang3(self.v_array)
+        save_x_tv(value, self.t_array, v_array, self.t_array, fname)
 
+    def write_variables(self, variables: Iterable[Union[str, dict]]):
+        '''Write variables to files
+
+        :param variables: List of varables to be written to file, see output
+            file description for a detailed description
+        '''
+        writer = ResultsWriter(self)
+        for c in variables:
+            writer.write(c)
 
 class CijPressureBaseModulusInterface:
 
     def __init__(self, modulus, v2p: callable):
         self.modulus = modulus
         self.v2p = v2p
+
+    def items(self):
+        for key in self.modulus.keys():
+            yield key, self[key]
 
     def __getitem__(self, key: str) -> numpy.ndarray:
         return self.v2p(self.modulus[key])
@@ -323,6 +343,8 @@ class CijPressureBaseInterface:
     '''Elastic and accoustic properties calculated at the temperature-pressure
     :math:`(T, P)` grid.
     '''
+
+    _base_name = "tp"
 
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
@@ -471,19 +493,19 @@ class CijPressureBaseInterface:
         func_of_t_p = self.v2p(func_of_t_v)
         return func_of_t_p
     
-    def write_output(self, output_config: List[Union[dict, str]]) -> None:
-        '''Write variables as functions of temperature and pressure in QHA
-        output format
-
-        :param output_config: a list values, each should either be a ``str`` of
-            the output parameter such as ``c11s``, ``vs``, etc., or a ``dict``
-            of the output detail.
+    def write_table(self, fname: str, value: numpy.ndarray) -> None:
+        '''Write variable as functions of temperature and volume in QHA
+        output format, intended to be called by ``ResultsWriter`` only.
         '''
-        from cij.io.traditional.qha_output import save_x_tp
-        for output in output_config:
-            if isinstance(output, str):
-                output = { "key": output }
-            value = getattr(self, output["key"])
-            fname = f"{output['key']}_tp.txt"
-            p_array = _to_gpa(self.p_array)
-            save_x_tp(value, self.t_array, p_array, p_array, fname)
+        p_array = _to_gpa(self.p_array)
+        save_x_tp(value, self.t_array, p_array, p_array, fname)
+    
+    def write_variables(self, variables: Iterable[Union[str, dict]]):
+        '''Write variables to files
+
+        :param variables: List of varables to be written to file, see output
+            file description for a detailed description
+        '''
+        writer = ResultsWriter(self)
+        for c in variables:
+            writer.write(c)

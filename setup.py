@@ -18,7 +18,8 @@ setup(
         "networkx"
     ],
     package_data={
-        "cij/data/schema": "*.schema.json"
+        "cij/data/schema": "*.schema.json",
+        "cij/data/output": "writer_rules.yml"
     },
     entry_points = {
         'console_scripts': ['qha-cij=cij.cli.main:main'],
