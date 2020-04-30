@@ -174,6 +174,7 @@ class PhononContributionTaskList(UserList):
         Example
             :math:`c_{44}` depends on :math:`c_{2'2'}`, :math:`c_{2'3'}` and 
             :math:`c_{3'3'}`, the order of calculation tasks should be:
+
                 [:math:`c_{2'2'}`, :math:`c_{2'3'}`, :math:`c_{3'3'}`,
                 :math:`c_{44}`]
 
@@ -242,11 +243,11 @@ class PhononContributionTaskList(UserList):
                     task.calculator.get_modulus_keys_rotated()
                 )
 
-                print("03 ->", list(task.calculator.get_modulus_keys()))
-                print("03 ->", list(task.calculator.get_modulus_keys_rotated()))
+                # print("03 ->", list(task.calculator.get_modulus_keys()))
+                # print("03 ->", list(task.calculator.get_modulus_keys_rotated()))
 
-                print("04 ->", task.modulus_results.keys())
-                print("04 ->", task.modulus_results_rotated.keys())
+                # print("04 ->", task.modulus_results.keys())
+                # print("04 ->", task.modulus_results_rotated.keys())
 
             self.modulus_isothermal_values[task.task_params] = task.get_modulus_isothermal()
             self.modulus_adiabatic_values[task.task_params] = task.get_modulus_adiabatic()

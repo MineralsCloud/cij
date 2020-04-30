@@ -66,8 +66,8 @@ class Calculator:
     def _interpolate_modes(self):
         interp_freq, gamma_i, vdr_dv = interpolate_modes(
             self.qha_input, self.qha_calculator.v_array,
-            method=self.config["settings"]["mode_gamma"]["interpolator"],
-            order=self.config["settings"]["mode_gamma"]["order"]
+            method=self.config["elast"]["settings"]["mode_gamma"]["interpolator"],
+            order=self.config["elast"]["settings"]["mode_gamma"]["order"]
         )
         self.freq_array = interp_freq
         self.mode_gamma = [vdr_dv, gamma_i, gamma_i**2]
@@ -142,7 +142,7 @@ class Calculator:
     
     def write_output(self):
 
-        output_config = self.config["settings"]["output"]
+        output_config = self.config["output"]
 
         if "pressure_base" in output_config.keys():
             self.pressure_base.write_variables(output_config["pressure_base"])

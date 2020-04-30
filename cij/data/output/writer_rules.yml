@@ -7,6 +7,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: modulus_adiabatic
+  description: Adiabatic elastic modulus
 
 - keywords: 
   - cij_t
@@ -16,6 +17,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: modulus_isothermal
+  description: Isothermal elastic modulus
 
 - keywords: 
   - B_v
@@ -25,6 +27,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: bulk_modulus_voigt
+  description: Voigt average of bulk modulus
 
 - keywords: 
   - B_r
@@ -34,6 +37,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: bulk_modulus_reuss
+  description: Reuss average of bulk modulus
 
 - keywords: 
   - B_vrh
@@ -43,6 +47,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: bulk_modulus_voigt_reuss_hill
+  description: Voigt-Reuss-Hill average of bulk modulus
 
 - keywords: 
   - G_v
@@ -52,6 +57,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: shear_modulus_voigt
+  description: Voigt average of shear modulus
 
 - keywords: 
   - G_r
@@ -61,6 +67,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: shear_modulus_reuss
+  description: Reuss average of shear modulus
 
 - keywords: 
   - G_vrh
@@ -69,6 +76,7 @@
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
   prop: shear_modulus_voigt_reuss_hill
+  description: Voigt-Reuss-Hill average of shear modulus
 
 - keywords: 
   - v_s
@@ -79,6 +87,7 @@
   unit_internal: "km/s"
   unit: "km/s"
   prop: primary_velocities
+  description: Primary accoustic wave velocities
 
 - keywords: 
   - v_p
@@ -89,3 +98,4 @@
   unit_internal: "km/s"
   unit: "km/s"
   prop: secondary_velocities
+  description: Secondary accoustic wave velocities

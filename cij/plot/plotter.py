@@ -15,7 +15,6 @@ class Plotter:
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
 
-
     def index_t(self, t: float):
         t_array = self.calculator.pressure_base.t_array
         t_index = numpy.argmin(numpy.abs(t_array - t))

@@ -35,7 +35,7 @@ extensions = [
 #    "sphinxcontrib.katex",
     'sphinx.ext.mathjax',
     "nbsphinx",
-    "sphinx-jsonschema"
+    "sphinxcontrib.jinja"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -62,3 +62,44 @@ html_theme = "sphinx_rtd_theme"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (eg. https://...)
+html_css_files = [
+    'style.css'
+]
+
+# -- Jinja contexts ---------------------------------------------------------
+
+
+import yaml, json
+
+with open("../cij/data/schema/config.schema.json") as fp:
+    config_schema = json.load(fp)
+
+with open("../cij/data/output/writer_rules.yml") as fp:
+    writer_rules = yaml.safe_load(fp)
+
+def _flatten_properties(schema: dict):
+
+    stack = list(schema["properties"].items())
+    flattened = dict()
+
+    while len(stack) != 0:
+        key, val = stack.pop()
+        flattened[key] = val
+        if isinstance(val, dict) and "properties" in val.keys() and isinstance(val["properties"], dict):
+            for k, v in val["properties"].items():
+                stack.append((f"{key}::{k}", v))
+    
+    return flattened
+
+jinja_contexts = {
+    "writer_rules": {
+        "rules": writer_rules
+    },
+    "config_schema": {
+        "schema": config_schema,
+        "flatten_properties": _flatten_properties
+    }
+}

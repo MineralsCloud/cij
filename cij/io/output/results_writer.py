@@ -33,7 +33,14 @@ class ResultsWriterRule(NamedTuple):
 
     @classmethod
     def create(cls, rule: dict) -> 'ResultsWriterRule':
-        return cls(**rule)
+        return cls(
+            keywords=rule["keywords"],
+            fname_pattern=rule["fname_pattern"],
+            prop=rule["prop"],
+            unit=rule["unit"],
+            unit_internal=rule["unit_internal"],
+            var_type=rule["var_type"]
+        )
     
     @staticmethod
     def _format_ij(key: C_) -> str:

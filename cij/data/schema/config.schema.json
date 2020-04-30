@@ -6,22 +6,42 @@
     "required": ["qha"],
     "properties": {
         "qha": {
-            "title": "QHA options",
+            "title": "Configuration passed to QHA",
             "type": "object",
             "properties": {
-                "input": { "$ref": "#/definitions/qha_input" },
-                "settings": { "$ref": "#/definitions/qha_settings" }
+                "input": {
+                    "type": "string",
+                    "title": "The file name of the QHA input data file"
+                },
+                "settings": {
+                    "type": "object",
+                    "$ref": "#/definitions/qha_settings"
+                }
             }
         },
-        "elast": { "$ref": "#/definitions/elast_settings" }
+        "elast": {
+            "$ref": "#/definitions/elast_settings",
+            "title": "Configuration for thermalelasticity calculation",
+            "type": "object",
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "title": "Static elasticity input file name",
+                    "description": "The name of the static elasticity input file"
+                },
+                "settings": {
+                    "type": "object",
+                    "$ref": "#/definitions/elast_settings"
+                }
+            }
+        },
+        "output": {
+            "title": "The list of output variables",
+            "type": "object"
+        }
     },
 
     "definitions": {
-
-        "qha_input": {
-            "type": "string",
-            "title": "The file name of the QHA input data file"
-        },
 
         "qha_settings": {
             "title": "QHA calculation settings",
@@ -55,7 +75,6 @@
                     "type": "number",
                     "title": "Pressure-sampling interval, used for output, the default value is 1 GPa"
                 },
-
                 "volume_ratio": { "type": "number" }
             },
             "$$target": "#/definitions/qha_settings"
@@ -65,10 +84,12 @@
             "title": "Themoelasticity calculation setttings",
             "type": "object",
             "properties": {
-                "input": {
-                    "type": "string",
-                    "title": "Static elasticity input file name",
-                    "description": "The name of the static elasticity input file"
+                "mode_gamma": {
+                    "type": "object",
+                    "properties": {
+                        "interpolator": { "type": "string" },
+                        "order": { "type": "integer" }
+                    }
                 }
             },
             "$$target": "#/definitions/elast_settings"

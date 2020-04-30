@@ -1,21 +1,90 @@
 Building input
 ==============
 
-The input for cij's input file contains 3 parts, a program settings and two
-parts of input data.
+The executation the ``cij`` program requires a configuration file and two
+input data files. They are described below.
 
 Program configuration file
 """"""""""""""""""""""""""
 
-A YAML file controls the behavior of the program: where to look for the input
+The configuration file in JSON and YAML format controls the behavior of the program: where to look for the input
 data, which parameters to calculate, the pressure and temperature range to work
 on.
 
-The structure of this file is described below:
+This files contains three sections, ``qha``, ``elast`` and ``output``. The
+``qha`` and ``elast`` will be control the behavior of QHA calculation module and
+thermalelasticity calculation module; the ``output`` module controls output
+files and formats.
 
-.. jsonschema:: ../../cij/data/schema/config.schema.json
-.. jsonschema:: ../../cij/data/schema/config.schema.json#/definitions/qha_settings
-.. jsonschema:: ../../cij/data/schema/config.schema.json#/definitions/elast_settings
+For example in YAML format these sections are written nested:
+
+.. code-block:: yaml
+
+   qha:
+     input: # the qha::input
+     settings:
+       # the qha::settings section
+   elast:
+     input: # The elast::input
+     settings:
+       # The the elast::settings section
+   output:
+       # the output section
+
+In the following table, we summarize the functionalities for these sections in 
+the configurational file.
+
+.. jinja:: config_schema
+
+    .. list-table:: **The structure of the configuration file**
+        :header-rows: 1
+        :stub-columns: 1
+
+        * - key
+          - type
+          - description
+    {% for k, v in flatten_properties(schema).items() %}
+        * - ``{{k}}``
+          - ``{{v.type}}``
+          - {{v.title}}
+    {% endfor %}
+
+The following two tables decribes the accepted parameters for ``qha::settings``
+and ``elast::settings``.
+
+.. jinja:: config_schema
+
+    {% set schema = schema.definitions.qha_settings %}
+
+    .. list-table:: **{{schema.title}}** (``qha::settings``)
+        :header-rows: 1
+        :stub-columns: 1
+
+        * - key
+          - type
+          - description
+    {% for k, v in flatten_properties(schema).items() %}
+        * - ``{{k}}``
+          - ``{{v.type}}``
+          - {{v.title}}
+    {% endfor %}
+
+.. jinja:: config_schema
+
+    {% set schema = schema.definitions.elast_settings %}
+
+    .. list-table:: **{{schema.title}}** (``elast.settings::settings``)
+        :header-rows: 1
+        :stub-columns: 1
+
+        * - key
+          - type
+          - description
+    {% for k, v in flatten_properties(schema).items() %}
+        * - ``{{k}}``
+          - ``{{v.type}}``
+          - {{v.title}}
+    {% endfor %}
 
 
 The QHA input data file
@@ -25,104 +94,3 @@ The first input data is similar to the
 
 The static elastic moduli data file
 """""""""""""""""""""""""""""""""""
-
-Example
--------
-
-YAML input settings
-^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: yaml
-
-   qha:
-     input: qha_input
-     settings:
-       T_MIN: 0
-       NT: 15
-       DT: 100
-       P_MIN: 56
-       DELTA_P: 1
-       NTV: 81
-       p_min_modifier: 0
-       order: 3
-       static_only: False
-       DT_SAMPLE: 300
-       DELTA_P_SAMPLE: 5
-       volume_ratio: 1.08
-   elast:
-     input: elast_HC.txt
-   settings:
-     mode_gamma:
-       interpolator: spline
-       order: 5
-     cij_keys: [11, 22, 33, 12, 13, 23, 44, 55, 66]
-     disable_phonon_contribution: False
-     output:
-       pressure_base: []
-       volume_base:
-         - c11s
-         - c22s
-         - c33s
-
-
-QHA input
-^^^^^^^^^
-
-
-Static cij
-^^^^^^^^^^
-
-
-.. code-block:: 
-
-    V_0       NforE     cellmass
-    331.07     46    119.958386
-    V         c11       c22       c33       c12       c13       c23       c44       c55       c66   
-    331.07    667.40    688.55    623.75    263.55    198.55    228.60    177.75    169.00    291.05
-    327.60    689.70    706.90    641.95    277.90    208.75    239.95    179.95    171.85    299.05
-    325.92    700.00    716.15    651.10    284.45    213.10    245.70    181.00    173.20    303.02
-    324.28    710.55    725.70    659.80    291.10    217.95    251.90    182.00    174.50    306.90
-    322.67    722.05    734.80    668.50    298.80    223.70    257.65    182.95    175.80    310.80
-    321.10    732.45    744.15    677.00    305.55    228.55    263.55    183.85    177.10    314.73
-    319.57    743.05    752.75    685.60    312.55    233.60    268.90    184.75    178.40    318.60
-    316.59    763.55    770.55    702.95    326.05    243.40    280.20    186.35    180.80    326.30
-    315.14    773.85    779.60    711.60    332.90    248.40    286.10    187.10    181.95    330.10
-    313.72    783.80    788.30    719.75    339.45    253.20    291.55    187.80    183.15    333.88
-    312.34    793.65    797.05    728.10    346.00    257.95    297.05    188.40    184.25    337.57
-    310.98    803.90    805.65    736.80    352.85    263.20    302.60    189.05    185.40    341.35
-    309.64    813.95    814.65    745.15    359.50    268.10    308.55    189.65    186.45    345.07
-    308.34    823.80    823.30    753.35    366.20    273.15    314.25    190.20    187.55    348.75
-    307.05    833.90    831.85    761.75    373.10    278.50    319.70    190.70    188.65    352.45
-    305.79    843.35    840.40    770.00    379.40    283.00    325.35    191.27    189.65    356.12
-    304.55    853.20    848.95    778.20    386.15    288.05    330.95    191.75    190.70    359.80
-    303.34    863.00    857.50    786.20    392.80    293.40    336.50    192.20    191.70    363.40
-    302.13    872.60    866.10    794.30    399.25    298.15    342.05    192.55    192.70    367.05
-    300.96    882.35    874.60    802.25    406.05    303.35    347.60    192.95    193.65    370.65
-    299.80    891.65    883.15    810.30    412.40    308.10    353.20    193.30    194.65    374.23
-    298.65    901.15    891.60    818.35    419.00    313.10    358.70    193.58    195.55    377.82
-    297.54    910.55    899.95    826.15    425.50    318.05    364.25    193.85    196.45    381.38
-    296.44    919.85    908.10    834.20    432.00    322.95    369.65    194.15    197.40    384.90
-    295.34    929.05    916.50    842.20    438.45    327.90    375.20    194.40    198.30    388.50
-    294.28    938.50    924.60    849.95    445.25    333.05    380.70    194.65    199.15    392.02
-    292.18    956.85    941.40    866.00    457.85    343.00    391.90    195.00    200.85    399.05
-    291.17    966.15    949.55    873.85    464.45    348.10    397.30    195.20    201.70    402.50
-    290.15    975.35    957.85    881.75    470.90    353.10    402.85    195.30    202.45    406.00
-    289.16    984.40    965.90    889.65    477.35    358.10    408.25    195.45    203.25    409.48
-    288.19    993.40    974.15    897.50    483.70    363.05    413.75    195.60    204.05    412.85
-    287.22    1002.45    982.40    905.35    490.20    368.00    419.25    195.70    204.85    416.30
-    286.27    1011.35    990.30    913.00    496.50    372.90    424.55    195.75    205.60    419.73
-    285.33    1020.25    998.40    920.85    502.85    377.85    430.00    195.75    206.35    423.10
-    284.41    1029.20    1006.40    928.60    509.25    382.85    435.45    195.75    207.05    426.55
-    283.50    1038.05    1014.50    936.25    515.70    387.80    440.90    195.75    207.80    429.93
-    282.60    1046.90    1022.70    943.90    521.90    392.65    446.40    195.75    208.50    433.32
-    281.71    1055.70    1030.55    951.45    528.25    397.65    451.70    195.68    209.20    436.70
-    280.83    1064.50    1038.55    958.90    534.60    402.65    456.95    195.65    209.90    440.10
-    279.96    1073.40    1046.60    966.60    540.95    407.70    462.50    195.55    210.50    443.48
-    279.12    1081.90    1054.45    974.10    547.10    412.55    467.80    195.50    211.20    446.75
-    278.27    1090.80    1062.25    981.70    553.55    417.55    472.95    195.40    211.85    450.10
-    277.43    1099.65    1070.40    989.30    559.90    422.50    478.45    195.30    212.50    453.38
-    276.61    1108.35    1078.25    996.80    566.20    427.50    483.75    195.20    213.15    456.70
-    275.80    1116.95    1086.00    1004.20    572.55    432.45    489.05    195.05    213.75    460.02
-    274.99    1125.60    1093.90    1011.65    578.85    437.45    494.40    194.85    214.40    463.32
-
-
