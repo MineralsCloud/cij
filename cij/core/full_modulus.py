@@ -78,9 +78,19 @@ class FullThermalElasticModulus:
         static_modulus_array = self.fit_modulus(static_moduli)
         return static_modulus_array
     
-    def calculate_phonon_contribution(self):
+    def _get_init_strain(self) -> tuple:
+        if "init_strain" in self.calculator.config["elast"]["settings"]:
+            strain = self.calculator.config["elast"]["settings"]["init_strain"]
+            _sum = sum(strain)
+            return tuple(x / _sum for x in strain)
+        return (1/3, 1/3, 1/3)
+    
+    def calculate_phonon_contribution(self) -> None:
+
+        print(self._get_init_strain())
+
         self._phonon_contribution_task_list = PhononContributionTaskList(self.calculator)
-        self._phonon_contribution_task_list.resolve((1/3, 1/3, 1/3), self.modulus_keys)
+        self._phonon_contribution_task_list.resolve(self._get_init_strain(), self.modulus_keys)
         self._phonon_contribution_task_list.calculate()
         self._adiabatic_phonon_contribution = self._phonon_contribution_task_list.get_adiabatic_results()
         self._isothermal_phonon_contribution = self._phonon_contribution_task_list.get_isothermal_results()

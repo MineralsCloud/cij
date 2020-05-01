@@ -2,11 +2,11 @@
 '''
 
 import matplotlib
-from typing import Callable
+from typing import Callable, Optional, Union
 
 def color_x(
     vmin: float, vmax: float,
-    cmap: matplotlib.colors.Colormap = None
+    cmap: Optional[Union[matplotlib.colors.Colormap, str]] = None
 ) -> Callable[[float], tuple]:
     '''Generate a map from :math:`x` to color
     
@@ -15,7 +15,10 @@ def color_x(
 
     :returns: the function :math:`C(x)` that accepts :math:`x` and returns color :math:`C`
     '''
-    
+
+    if cmap == None:
+        cmap ="Blues"
+
     norm = matplotlib.colors.Normalize(vmin=vmin, vmax=vmax)
     cmap = matplotlib.cm.ScalarMappable(norm=norm, cmap=cmap)
 

@@ -22,6 +22,9 @@ setup(
         "cij/data/output": "writer_rules.yml"
     },
     entry_points = {
-        'console_scripts': ['qha-cij=cij.cli.main:main'],
+        'console_scripts': [
+            'qha-cij=cij.cli.main:main',
+            'qha-cij-plot=cij.cli.plot:main'
+        ],
     }
 )

@@ -82,7 +82,7 @@
   - v_s
   - vs
   - primary_velocities
-  fname_pattern: v_s_{base}_m_s.txt
+  fname_pattern: v_s_{base}_km_s.txt
   var_type: value
   unit_internal: "km/s"
   unit: "km/s"
@@ -93,7 +93,7 @@
   - v_p
   - vp
   - secondary_velocities
-  fname_pattern: v_p_{base}_m_s.txt
+  fname_pattern: v_p_{base}_km_s.txt
   var_type: value
   unit_internal: "km/s"
   unit: "km/s"
