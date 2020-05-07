@@ -8,6 +8,7 @@ SPHINXBUILD         ?= sphinx-build
 SPHINXAUTOBUILD     ?= sphinx-autobuild
 SOURCEDIR           = .
 BUILDDIR            = _build
+GITHUBREPO			= https://github.com/chazeon/qha-cij.git
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -17,6 +18,16 @@ help:
 
 serve:
 	@$(SPHINXAUTOBUILD) "$(SOURCEDIR)" "$(BUILDDIR)/html"
+
+publish: clean html
+	cd $(BUILDDIR)/html ; \
+	git init ; \
+	git add . ; \
+	git commit -m "Documentation updated at `date`" ; \
+	git branch -m gh-pages ; \
+	git remote add origin $(GITHUBREPO) ; \
+	git push -f origin gh-pages
+	
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).

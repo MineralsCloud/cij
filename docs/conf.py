@@ -35,7 +35,8 @@ extensions = [
 #    "sphinxcontrib.katex",
     'sphinx.ext.mathjax',
     "nbsphinx",
-    "sphinxcontrib.jinja"
+    "sphinxcontrib.jinja",
+    "sphinx.ext.githubpages"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
