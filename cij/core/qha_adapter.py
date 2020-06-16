@@ -122,6 +122,10 @@ class QHACalculatorAdapter():
         return self.calculator.temperature_array
 
     @property
+    def t_sample_array(self):
+        return self.calculator.temperature_sample_array
+
+    @property
     def ntv(self):
         return len(self.v_array)
     
@@ -138,15 +142,19 @@ class QHACalculatorAdapter():
 
 class QHAVolumeBaseInterface:
 
-    def __init__(self, calculator):
+    def __init__(self, calculator: QHACalculator):
         self.calculator = calculator
 
     @property
     def v_array(self):
         return self.calculator.finer_volumes_bohr3
+
     @property
     def t_array(self):
         return self.calculator.temperature_array
+    @property
+    def t_sample_array(self):
+        return self.calculator.temperature_sample_array
 
     @property
     def gibbs_free_energies(self):
@@ -189,6 +197,9 @@ class QHAPressureBaseInterface:
     @property
     def t_array(self):
         return self.calculator.temperature_array
+    @property
+    def t_sample_array(self):
+        return self.calculator.temperature_sample_array
 
     @property
     def gibbs_free_energies(self):

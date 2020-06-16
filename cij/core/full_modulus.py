@@ -87,7 +87,7 @@ class FullThermalElasticModulus:
     
     def calculate_phonon_contribution(self) -> None:
 
-        print(self._get_init_strain())
+        logging.debug("init_strain -> " + repr(self._get_init_strain()))
 
         self._phonon_contribution_task_list = PhononContributionTaskList(self.calculator)
         self._phonon_contribution_task_list.resolve(self._get_init_strain(), self.modulus_keys)
