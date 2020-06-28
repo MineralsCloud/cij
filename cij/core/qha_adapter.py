@@ -45,7 +45,7 @@ class QHACalculator(qha.calculator.Calculator):
 
         if self.p_tv_gpa[:, -1].min() < self.desired_pressures_gpa.max():
             ntv_max = int(
-                (self.p_tv_gpa[:, -1].min() - self.desired_pressures_gpa.min()) / d['DELTA_P'])
+                (self.p_tv_gpa[:, -1].min() - self.desired_pressures_gpa.min()) / self.settings['DELTA_P'])
 
             logger.error(
                 "!!!ATTENTION!!!\n"

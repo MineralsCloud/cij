@@ -54,10 +54,15 @@ def _read_volume_data(lines, nv, nq, np):
 
     def _yield_volume_data():
         for _ in range(nv):
-            P, V, E = map(float, re.search(REGEX_PVE, next(lines)).groups())
+            while True:
+                line = next(lines)
+                if line.strip() == "": continue
+                break
+            P, V, E = map(float, re.search(REGEX_PVE, line).groups())
             yield VolumeData(P, V, E, list(_yield_q_point_data()))
 
     return list(_yield_volume_data())
+
 
 def read_energy(fname: str) -> QHAInputData:
     '''Read :math:`E`, :math:`V`, :math:`\omega` etc., from QHA data file
@@ -86,3 +91,38 @@ def read_energy(fname: str) -> QHAInputData:
 
     return qha_input_data
 
+
+def write_energy(fname: str, input_data: QHAInputData, comment: str = "QHA Input data"):
+    '''Write QHA input data to file
+
+    :param fname:
+    :param input_data:
+    :param comment: The comment line
+    '''
+    lines = []
+
+    lines.append(comment)
+    lines.append("")
+    lines.append(" ".join("%s".rjust(4) % x for x in ('nv', 'nq', 'np', 'nm', 'na')))
+    lines.append(" ".join("%4d" % x for x in (
+        input_data.nv,
+        input_data.nq,
+        input_data.np,
+        input_data.nm,
+        input_data.na)))
+    lines.append("")
+
+    for p, v, e, v_data in input_data.volumes:
+        lines.append(f"P= {p:12.6f} V= {v:12.6f} E= {e:12.6f}")
+        for coords, modes in v_data:
+            lines.append(" ".join("%10.4f" % c for c in coords))
+            for cm_1 in modes:
+                lines.append(f"{cm_1:12.6f}")
+
+    lines.append("")
+    lines.append("weight")
+    for coords, weight in input_data.weights:
+        lines.append("%10.6f %10.6f %10.6f %10.6f" % (*coords, weight))
+
+    with open(fname, "w", encoding="utf8") as fp:
+        fp.writelines([f"{line}\n" for line in lines])
