@@ -2,24 +2,27 @@ import numpy
 
 from qha.fitting import apply_finite_strain_fitting, polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain, from_eulerian_strain
+from scipy.interpolate import InterpolatedUnivariateSpline
 
 
-def get_static_p_of_v(v_sparse, f_sparse, v0 = None, N = 100, order = 3) -> callable:
+def get_static_p_of_v(v_sparse, f_sparse, v0 = None, N = 100, order = 3, v_ratio = 1.2) -> callable:
 
     v0 = v0 if v0 != None else v_sparse[numpy.argmin(f_sparse)]
     x_sparse = calculate_eulerian_strain(v0, v_sparse)
-    x_dense = numpy.linspace(numpy.min(x_sparse), numpy.max(x_sparse), N + 1)
+    x_dense = numpy.linspace(
+        calculate_eulerian_strain(v0, numpy.max(v_sparse) * v_ratio),
+        calculate_eulerian_strain(v0, numpy.min(v_sparse) / v_ratio),
+        N + 1)
     _, f_dense = polynomial_least_square_fitting(x_sparse, f_sparse, x_dense, order = order)
     v_dense = from_eulerian_strain(v0, x_dense)
     p_dense = -numpy.gradient(f_dense) / numpy.gradient(v_dense)
 
     def static_p_of_v(v_new: numpy.array) -> numpy.array:
         x_new = calculate_eulerian_strain(v0, v_new)
-        _, p_new = polynomial_least_square_fitting(x_dense, p_dense, x_new, order = order)
-        return p_new
+        return InterpolatedUnivariateSpline(x_dense, p_dense)(x_new)
 
     return static_p_of_v
-        
+
 if __name__ == "__main__":
 
     import sys
