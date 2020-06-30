@@ -460,7 +460,7 @@ class CijPressureBaseInterface:
         .. math::
             G_\\text{VRH} = (G_\\text{V} + G_\\text{R}) / 2
         '''
-        return self.v2p(self.calculator.volume_base.shear_modulus_voigt)
+        return self.v2p(self.calculator.volume_base.shear_modulus_voigt_reuss_hill)
         
     @property
     def mass(self) -> float:
