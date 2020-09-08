@@ -79,8 +79,8 @@
   description: Voigt-Reuss-Hill average of shear modulus
 
 - keywords: 
-  - v_s
-  - vs
+  - v_p
+  - vp
   - primary_velocities
   fname_pattern: v_s_{base}_km_s.txt
   var_type: value
@@ -90,8 +90,8 @@
   description: Primary accoustic wave velocities
 
 - keywords: 
-  - v_p
-  - vp
+  - v_s
+  - vs
   - secondary_velocities
   fname_pattern: v_p_{base}_km_s.txt
   var_type: value
