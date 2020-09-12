@@ -255,7 +255,10 @@ class OffDiagonalElasticModulusPhononContribution(LongitudinalElasticModulusPhon
     def mode_gamma(self):
         return (
             self.prefactors[0]    * self.calculator.mode_gamma[0],
-            numpy.zeros(self.calculator.mode_gamma[1].shape),
+            (
+                self.prefactors[1][0]    * self.calculator.mode_gamma[1],
+                self.prefactors[1][1]    * self.calculator.mode_gamma[1]
+            ),
             self.prefactors[2]    * self.calculator.mode_gamma[2]
         )
 
