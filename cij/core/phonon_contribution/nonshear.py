@@ -105,7 +105,10 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         '''
         return (
             self.prefactors[0]    * self.calculator.mode_gamma[0],
-            self.prefactors[1][0] * self.calculator.mode_gamma[1],
+            (
+                self.prefactors[1][0] * self.calculator.mode_gamma[1],
+                self.prefactors[1][1] * self.calculator.mode_gamma[1],
+            ),
             self.prefactors[2]    * self.calculator.mode_gamma[2]
         )
 
@@ -159,7 +162,7 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
             * self.average_over_modes(
                 + self.mode_gamma[2] * self.freq_array
                 - self.mode_gamma[0] * self.freq_array
-                + self.mode_gamma[1] * self.freq_array
+                + self.mode_gamma[1][0] * self.freq_array
             ) * 3 * self.na
 
     @LazyProperty
@@ -178,7 +181,7 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
                 + self.Q1 * (
                     + self.mode_gamma[2][nax,:,:,:]
                     - self.mode_gamma[0][nax,:,:,:]
-                    + self.mode_gamma[1][nax,:,:,:]
+                    + self.mode_gamma[1][0][nax,:,:,:]
                 )
             ) * 3 * self.na
 
