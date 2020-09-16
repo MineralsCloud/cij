@@ -99,3 +99,23 @@
   unit: "km/s"
   prop: secondary_velocities
   description: Secondary accoustic wave velocities
+
+- keywords: 
+  - v
+  - volumes
+  fname_pattern: v_{base}_ang3.txt
+  var_type: value
+  unit_internal: "bohr^3"
+  unit: "angstrom^3"
+  prop: volumes
+  description: Volumes (available only in pressure base)
+
+- keywords: 
+  - p
+  - pressures
+  fname_pattern: p_{base}_gpa.txt
+  var_type: value
+  unit_internal: "rydberg / bohr^3"
+  unit: "GPa"
+  prop: pressures
+  description: Pressures (available only in volume base)

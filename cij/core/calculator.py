@@ -307,6 +307,10 @@ class CijVolumeBaseInterface:
         '''
         e = units.Quantity(self.shear_modulus_voigt_reuss_hill * self.v_array, units.rydberg).to(units.kg * units.km ** 2 / units.s ** 2).magnitude
         return numpy.sqrt(e / self.mass)
+    
+    @property
+    def pressures(self) -> numpy.ndarray:
+        return self.calculator.qha_calculator.volume_base.pressures
 
     def write_table(self, fname: str, value: numpy.ndarray) -> None:
         '''Write variable as functions of temperature and volume in QHA
@@ -487,6 +491,10 @@ class CijPressureBaseInterface:
         '''
  
         return self.v2p(self.calculator.volume_base.secondary_velocities)
+
+    @property
+    def volumes(self) -> numpy.ndarray:
+        return self.calculator.qha_calculator.pressure_base.volumes
 
     def __getattr__(self, name):
         func_of_t_v = getattr(self.calculator.volume_base, name)
