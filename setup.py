@@ -25,7 +25,8 @@ setup(
         'console_scripts': [
             'qha-cij=cij.cli.main:main',
             'qha-cij-extract=cij.cli.extract:main',
-            'qha-cij-plot=cij.cli.plot:main'
+            'qha-cij-plot=cij.cli.plot:main',
+            'qha-cij-modes=cij.cli.modes:main'
         ],
     }
 )
