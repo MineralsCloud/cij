@@ -23,7 +23,7 @@ from .full_modulus import FullThermalElasticModulus
 
 import logging
 
-logger = logging.Logger(__name__)
+logger = logging.getLogger(__name__)
 
 REGEX_CIJ = r'^(c|s)_?([1-6]{2,2}|[1-3]{4,4})(s|t)?$'
 
