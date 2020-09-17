@@ -90,15 +90,15 @@ class FullThermalElasticModulus:
         ntv = self.v_array.shape[0]
 
         if len(self.elast_data.lattice_parmeters) == 0:
-            return numpy.ones((3, ntv))
+            return numpy.ones((ntv, 3))
 
         lattice_params = numpy.array(self.elast_data.lattice_parmeters)
-        strains = numpy.zeros((3, ntv))
+        strains = numpy.zeros((ntv, 3))
 
         for i in range(3):
             params = self.fit_modulus(lattice_params[:, i])
             tmp = params[[0, *range(len(params)), -1]]
-            strains[i,:] = (tmp[2:] - tmp[:-2]) / (tmp[2:] + tmp[:-2])
+            strains[:,i] = (tmp[2:] - tmp[:-2]) / (tmp[2:] + tmp[:-2])
         
         strains = strains / strains[0,:] # TODO: not really need this line
 
