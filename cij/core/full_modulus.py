@@ -19,6 +19,9 @@ from .tasks import PhononContributionTaskList
 logger = logging.getLogger(__name__)
 
 class FullThermalElasticModulus:
+    '''
+    Calculates the static and thermal part of the elastic constants.
+    '''
 
     def __init__(self, calculator: 'cij.core.Calculator'):
         self.calculator = calculator
@@ -51,11 +54,6 @@ class FullThermalElasticModulus:
 
         :returns: The interpolated modulus :math:`c^\\text{st}_{ij}(V)`
         '''
-        # c_of_v = scipy.interpolate.UnivariateSpline(
-        #     numpy.flip(self.volumes, axis=0),
-        #     numpy.flip(moduli, axis=0)
-        # )
-        # return c_of_v(self.v_array)
 
         strains = calculate_eulerian_strain(self.volumes[0], self.volumes)
         strain_array = calculate_eulerian_strain(self.volumes[0], self.v_array)
@@ -85,9 +83,31 @@ class FullThermalElasticModulus:
             return tuple(x / _sum for x in strain)
         return (1/3, 1/3, 1/3)
     
+    def get_axial_strains(self) -> numpy.ndarray:
+
+        # TODO: need to write a clearer implementation
+
+        ntv = self.v_array.shape[0]
+
+        if len(self.elast_data.lattice_parmeters) == 0:
+            return numpy.ones((3, ntv))
+
+        lattice_params = numpy.array(self.elast_data.lattice_parmeters)
+        strains = numpy.zeros((3, ntv))
+
+        for i in range(3):
+            params = self.fit_modulus(lattice_params[:, i])
+            tmp = params[[0, *range(len(params)), -1]]
+            strains[i,:] = (tmp[2:] - tmp[:-2]) / (tmp[2:] + tmp[:-2])
+        
+        strains = strains / strains[0,:] # TODO: not really need this line
+
+        return strains
+    
     def calculate_phonon_contribution(self) -> None:
 
         logging.debug("init_strain -> " + repr(self._get_init_strain()))
+        self.get_axial_strains()
 
         self._phonon_contribution_task_list = PhononContributionTaskList(self.calculator)
         self._phonon_contribution_task_list.resolve(self._get_init_strain(), self.modulus_keys)

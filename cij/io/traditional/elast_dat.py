@@ -2,6 +2,10 @@ from typing import List, Tuple, NamedTuple
 from cij.util import c_
 import re
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 class ElastVolumeData(NamedTuple):
     volume: float
     static_elastic_modulus: dict
@@ -11,6 +15,7 @@ class ElastData(NamedTuple):
     nv: int
     cellmass: float
     volumes: List[ElastVolumeData] = []
+    lattice_parmeters: List[Tuple[float, float, float]] = []
 
 REGEX_MODULUS = r"^\D*(\d+)$"
 
@@ -42,5 +47,16 @@ def read_elast_data(fname: str) -> ElastData:
             line = fp.readline()
             fields = tuple(map(float, line.strip().split()))
             ret.volumes.append(ElastVolumeData(fields[0], dict(zip(keys[1:], fields[1:]))))
+        
+        try:
+            line = fp.readline()
+            if line.strip() != "":
+                for _ in range(nv):
+                    line = fp.readline()
+                    fields = tuple(map(float, line.strip().split()))
+                    ret.lattice_parmeters.append(fields)
+            logger.debug("Lattice parameters: " + str(ret.lattice_parmeters))
+        except EOFError:
+            logger.debug("No lattice parameters found in file.")
 
     return ret
