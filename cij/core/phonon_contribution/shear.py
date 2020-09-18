@@ -118,8 +118,23 @@ class ShearElasticModulusPhononContribution:
     
     @LazyProperty
     def strain_rotated(self):
-        strain_rotated = self.transformation_matrix.T @ numpy.diag(self.strain) @ self.transformation_matrix
-        return tuple(numpy.diag(strain_rotated).tolist())
+
+        # Dimension of self.strain is (ntv, 3), now we build a (ntv, 3, 3)
+        # matrix for the calculation purpose
+        strain = numpy.zeros((*self.strain.shape, 3))
+
+        # Blow up the matrix to form a diagonal (in last two indices) matrix
+        # * left hand side: get a reference of the diagonal (1+1D) of the above
+        #   matrix (1+2D),
+        # * right hand side: strain (1+1D)
+        # the diagonal is writable with [...] here
+        numpy.einsum('...ii -> ...i', strain)[...] = self.strain
+
+        # Calculate the rotated strain
+        strain_rotated = self.transformation_matrix.T @ strain @ self.transformation_matrix
+
+        # Get the diagonal in the last step
+        return numpy.diagonal(strain_rotated, axis1=-2, axis2=-1)
 
     def get_target_elastic_modulus(self) -> numpy.ndarray:
         '''The elastic modulus need to be calculated from the difference in

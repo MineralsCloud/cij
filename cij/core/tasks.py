@@ -15,8 +15,8 @@ from .phonon_contribution import (
     OffDiagonalElasticModulusPhononContribution
 )
 
-from logging import Logger
-logger = Logger(__file__)
+import logging
+logger = logging.getLogger(__name__)
 
 class PhononContributionTaskParams(NamedTuple):
     '''Parameters for elastic constants phonon contribution calculation task.
@@ -26,14 +26,16 @@ class PhononContributionTaskParams(NamedTuple):
 
     @staticmethod
     def _make_param_by_strain_key(strain: tuple, key: C_):
+        # print("!!!!", strain)
         if key.is_shear:
             return strain, key
-        else:
+        else: # i = k, j = l
             i, j, k, l = key.s
-            return tuple(sorted([
-                strain[i-1] / sum(strain),
-                strain[j-1] / sum(strain)
-            ]))
+            # TODO: sorted
+            return (
+                strain[:, i-1] / numpy.sum(strain, axis=1),
+                strain[:, j-1] / numpy.sum(strain, axis=1)
+            )
 
     @classmethod
     def create(cls, strain: tuple, key: C_) -> 'PhononContributionTaskParams':
@@ -44,17 +46,24 @@ class PhononContributionTaskParams(NamedTuple):
             hydrostatic pressure.
         :param key: The symbol :math:`c_{ij}` needs to be calculated.
         '''
+        # print("!!!! ->", strain)
         return cls(key.calc_type, cls._make_param_by_strain_key(strain, key))
     
     def __eq__(self, other: 'PhononContributionTaskParams') -> bool:
         if self.calc_type != other.calc_type: return False
         if self.calc_type == ElasticModulusCalculationType.SHEAR:
-            if self.params[0] != other.params[0]: return False
-            if not numpy.allclose(self.params[1], other.params[1]): return False
+            if self.params[1] != other.params[1]: return False # key comparison
+            if not numpy.allclose(self.params[0], other.params[0]): return False # strain comparison
             return True
         else:
             if not numpy.allclose(self.params, other.params): return False
             return True
+        
+    def __hash__(self):
+        if self.calc_type != ElasticModulusCalculationType.SHEAR:
+            return hash(self.calc_type) ^ hash(tuple(self.params[0].flatten().tolist())) ^ hash(tuple(self.params[1].flatten().tolist()))
+        else:
+            return hash(self.calc_type) ^ hash(tuple(self.params[0].flatten().tolist())) ^ hash(self.params[1])
 
 
 class PhononContributionTaskResults(UserDict):
@@ -184,10 +193,10 @@ class PhononContributionTaskList(UserList):
         :param keys: The symbols :math:`c_{ij}`s needs to be calculated.
         '''
 
-        self.strain = strain
-        self.keys = keys
+        self.strain = strain # e1, e2, e3
+        self.keys = keys # c11, c22, c33, ...
 
-        q = list(itertools.product([strain], keys, [None]))
+        q = list(itertools.product([strain], keys, [None])) # strain, key, dependency
 
         tasks = [] 
 
@@ -197,6 +206,7 @@ class PhononContributionTaskList(UserList):
 
             strain, key, dep = q.pop()
 
+            print("202 -> ", strain)
             task_params = PhononContributionTaskParams.create(strain, key)
             task = next((t for t in tasks if t.task_params == task_params), None)
 

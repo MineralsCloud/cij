@@ -100,17 +100,20 @@ class FullThermalElasticModulus:
             tmp = params[[0, *range(len(params)), -1]]
             strains[:,i] = (tmp[2:] - tmp[:-2]) / (tmp[2:] + tmp[:-2])
         
-        strains = strains / strains[0,:] # TODO: not really need this line
+        # strains = strains / strains[0,:] # TODO: not really need this line
+        strains = strains / numpy.sum(strains, axis=1, keepdims=True)
 
         return strains
     
     def calculate_phonon_contribution(self) -> None:
 
         logging.debug("init_strain -> " + repr(self._get_init_strain()))
-        self.get_axial_strains()
+        axial_strains = self.get_axial_strains()
+        # print(axial_strains)
 
         self._phonon_contribution_task_list = PhononContributionTaskList(self.calculator)
-        self._phonon_contribution_task_list.resolve(self._get_init_strain(), self.modulus_keys)
+        # self._phonon_contribution_task_list.resolve(self._get_init_strain(), self.modulus_keys)
+        self._phonon_contribution_task_list.resolve(axial_strains, self.modulus_keys)
         self._phonon_contribution_task_list.calculate()
         self._adiabatic_phonon_contribution = self._phonon_contribution_task_list.get_adiabatic_results()
         self._isothermal_phonon_contribution = self._phonon_contribution_task_list.get_isothermal_results()

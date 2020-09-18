@@ -60,7 +60,8 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
 
     # type: calculator = cij.core.calculator.Calculator
 
-    def __init__(self, calculator: 'cij.core.calculator.Calculator', e: Tuple[float, float]):
+    def __init__(self, calculator: 'cij.core.calculator.Calculator', e: Tuple[numpy.ndarray, numpy.ndarray]):
+        # e[i] is of dimension [nax]
         # e ought to be the e / dialation
         self.e = e
         self.calculator = calculator
@@ -71,7 +72,7 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         self.nq = self.calculator.nq
         self.na = self.calculator.na
 
-        if not numpy.isclose(e[0], e[1]): raise RuntimeError()
+        if not numpy.allclose(e[0], e[1]): raise RuntimeError()
 
     @property
     def v_array(self) -> numpy.ndarray:
@@ -92,11 +93,11 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         return numpy.array([ weight for coord, weight in self.calculator.qha_input.weights ])
 
     @LazyProperty
-    def prefactors(self):
+    def prefactors(self) -> Tuple[numpy.ndarray, Tuple[numpy.ndarray, numpy.ndarray], numpy.ndarray]:
         return (
-            1 / 5 / numpy.prod(self.e),
+            1 / 5 / numpy.prod(self.e, axis=0),
             (1 / 3 / self.e[0], 1 / 3 / self.e[1]),
-            1 / 5 / numpy.prod(self.e)
+            1 / 5 / numpy.prod(self.e, axis=0)
         )
 
     @LazyProperty
@@ -104,12 +105,12 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         '''Values related to the strain-Grüneisen parameter
         '''
         return (
-            self.prefactors[0]    * self.calculator.mode_gamma[0],
+            self.prefactors[0][:,nax,nax] * self.calculator.mode_gamma[0],
             (
-                self.prefactors[1][0] * self.calculator.mode_gamma[1],
-                self.prefactors[1][1] * self.calculator.mode_gamma[1],
+                self.prefactors[1][0][:,nax,nax] * self.calculator.mode_gamma[1],
+                self.prefactors[1][1][:,nax,nax] * self.calculator.mode_gamma[1],
             ),
-            self.prefactors[2]    * self.calculator.mode_gamma[2]
+            self.prefactors[2][:,nax,nax] * self.calculator.mode_gamma[2]
         )
 
     @LazyProperty
@@ -247,22 +248,22 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
 class OffDiagonalElasticModulusPhononContribution(LongitudinalElasticModulusPhononContribution):
 
     @LazyProperty
-    def prefactors(self):
+    def prefactors(self) -> Tuple[numpy.ndarray, Tuple[numpy.ndarray, numpy.ndarray], numpy.ndarray]:
         return (
-            1 / 15 / numpy.prod(self.e),
+            1 / 15 / numpy.prod(self.e, axis=0),
             (1 / 3 / self.e[0], 1 / 3 / self.e[1]),
-            1 / 15 / numpy.prod(self.e)
+            1 / 15 / numpy.prod(self.e, axis=0)
         )
 
     @LazyProperty
     def mode_gamma(self):
         return (
-            self.prefactors[0]    * self.calculator.mode_gamma[0],
+            self.prefactors[0][:,nax,nax] * self.calculator.mode_gamma[0],
             (
-                self.prefactors[1][0]    * self.calculator.mode_gamma[1],
-                self.prefactors[1][1]    * self.calculator.mode_gamma[1]
+                self.prefactors[1][0][:,nax,nax] * self.calculator.mode_gamma[1],
+                self.prefactors[1][1][:,nax,nax] * self.calculator.mode_gamma[1]
             ),
-            self.prefactors[2]    * self.calculator.mode_gamma[2]
+            self.prefactors[2][:,nax,nax] * self.calculator.mode_gamma[2]
         )
 
     @LazyProperty
