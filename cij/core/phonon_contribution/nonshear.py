@@ -72,7 +72,6 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         self.nq = self.calculator.nq
         self.na = self.calculator.na
 
-        if not numpy.allclose(e[0], e[1]): raise RuntimeError()
 
     @property
     def v_array(self) -> numpy.ndarray:
@@ -187,7 +186,7 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
             ) * 3 * self.na
 
         ret[numpy.where(self.t_array == 0),:] = 0
-        
+
         return ret
 
     @LazyProperty
@@ -223,7 +222,7 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
             * (3 * k * self.na) ** 2
 
         ret[numpy.where(self.t_array == 0), :] = 0
-
+        
         return ret
 
     @property
@@ -257,6 +256,7 @@ class OffDiagonalElasticModulusPhononContribution(LongitudinalElasticModulusPhon
 
     @LazyProperty
     def mode_gamma(self):
+        # print(self.prefactors[0][2], self.prefactors[1][0][2], self.prefactors[1][1][2], self.prefactors[2][2])
         return (
             self.prefactors[0][:,nax,nax] * self.calculator.mode_gamma[0],
             (

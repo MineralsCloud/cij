@@ -29,12 +29,12 @@ class PhononContributionTaskParams(NamedTuple):
         # print("!!!!", strain)
         if key.is_shear:
             return strain, key
-        else: # i = k, j = l
+        else: # i = j, k = l
             i, j, k, l = key.s
             # TODO: sorted
             return (
                 strain[:, i-1] / numpy.sum(strain, axis=1),
-                strain[:, j-1] / numpy.sum(strain, axis=1)
+                strain[:, k-1] / numpy.sum(strain, axis=1)
             )
 
     @classmethod
@@ -206,7 +206,8 @@ class PhononContributionTaskList(UserList):
 
             strain, key, dep = q.pop()
 
-            print("202 -> ", strain)
+            # print("202 -> ", strain)
+            # print(key, dep, strain[0, :])
             task_params = PhononContributionTaskParams.create(strain, key)
             task = next((t for t in tasks if t.task_params == task_params), None)
 
