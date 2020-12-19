@@ -1,10 +1,15 @@
 import numpy
 import itertools
 from typing import Union, Tuple, List
+from logging import getLogger
 
 from lazy_property import LazyProperty
 
 from cij.util import C_, c_
+
+
+logger = getLogger(__name__)
+
 
 def calculate_fictitious_strain_energy(
     fictitious_strain: numpy.ndarray,
@@ -62,12 +67,13 @@ class ShearElasticModulusPhononContribution:
     '''
     '''
 
-    def __init__(self, strain: Tuple[float, float, float], key: C_):
+    def __init__(self, strain: Tuple[float, float, float], key: C_, calculator=None):
         self.key = key
         self.strain = strain
 
         self.modulus_isothermal = dict()
         self.modulus_isothermal_rotated = dict()
+        self.calculator = calculator
 
     @LazyProperty
     def fictitious_strain(self):
@@ -87,12 +93,24 @@ class ShearElasticModulusPhononContribution:
     def fictitious_strain_rotated(self):
         '''The fictitious strain in the rotated coordinate system
         '''
+
+        logger.debug(
+            "Fictitious rotated -> " + \
+            str(self.key) + \
+            str(numpy.diag(numpy.linalg.eig(self.fictitious_strain)[0])))
+
         return numpy.diag(numpy.linalg.eig(self.fictitious_strain)[0])
 
     @LazyProperty
     def transformation_matrix(self):
         '''The transformation matrix
         '''
+
+        logger.debug(
+            "Transformation matrix -> " + \
+            str(self.key) + \
+            str(numpy.linalg.eig(self.fictitious_strain)[1]))
+
         return numpy.linalg.eig(self.fictitious_strain)[1]
 
     @property
@@ -157,13 +175,9 @@ class ShearElasticModulusPhononContribution:
         return get_fictitious_strain_energy_keys(self.fictitious_strain_rotated)
     
     def get_elastic_modulus(self, key: C_) -> numpy.ndarray:
-        # print(self.modulus.keys())
-        # print(self.modulus_isothermal_rotated.keys())
         return self.modulus[key]
 
     def get_elastic_modulus_rotated(self, key: C_) -> numpy.ndarray:
-        # print(self.modulus_rotated.keys())
-        # print(self.modulus_isothermal_rotated.keys())
         return self.modulus_rotated[key]
 
     @LazyProperty
