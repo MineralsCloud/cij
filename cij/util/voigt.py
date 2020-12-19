@@ -154,7 +154,7 @@ class ModulusRepresentation(NamedTuple):
 
     @property
     def is_shear(self) -> bool:
-        return self.i.voigt in (4, 5, 6) or self.j.voigt in (4, 5, 6)
+        return self.i.voigt in {4, 5, 6} or self.j.voigt in {4, 5, 6}
 
     @property
     def multiplicity(self) -> int:

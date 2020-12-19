@@ -15,7 +15,9 @@ __all__ = [
     "units",
     "convert_unit",
     "_from_gpa", "_to_gpa",
-    "_from_ang3", "_to_ang3"
+    "_from_ang3", "_to_ang3",
+    "_from_ev", "_to_ev",
+    "_from_gcm3", "_to_gcm3",
 ]
 
 def convert_unit(unit_from: units.Unit, unit_to: units.Unit, value: _T = None) -> _T:
@@ -50,5 +52,34 @@ def _from_ang3(value: _T) -> _T:
     return convert_unit(
         units.angstrom ** 3,
         units.bohr ** 3,
+        value
+    )
+
+
+def _to_ev(value: _T) -> _T:
+    return convert_unit(
+        units.rydberg,
+        units.eV,
+        value
+    )
+
+def _from_ev(value: _T) -> _T:
+    return convert_unit(
+        units.eV,
+        units.rydberg,
+        value
+    )
+
+def _from_gcm3(value: _T) -> _T:
+    return convert_unit(
+        units.g / units.cm ** 3,
+        (units.g / units.mol) / (units.bohr ** 3 / units.particle),
+        value
+    )
+
+def _to_gcm3(value: _T) -> _T:
+    return convert_unit(
+        (units.g / units.mol) / (units.bohr ** 3 / units.particle),
+        units.g / units.cm ** 3,
         value
     )
