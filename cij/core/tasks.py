@@ -116,7 +116,7 @@ class PhononContributionTask:
         elif self.key.is_off_diagonal:
             self.calculator = OffDiagonalElasticModulusPhononContribution(calculator, self.params)
         elif self.key.is_shear:
-            self.calculator = ShearElasticModulusPhononContribution(*self.params)
+            self.calculator = ShearElasticModulusPhononContribution(*self.params, calculator)
         
     @property
     def calc_type(self) -> ElasticModulusCalculationType:
