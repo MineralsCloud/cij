@@ -20,9 +20,11 @@
   description: Isothermal elastic modulus
 
 - keywords: 
-  - B_v
+  - B_V
+  - Bm_V
+  - bm_V
   - bulk_modulus_voigt
-  fname_pattern: 'B_v_{base}_gpa.txt'
+  fname_pattern: 'bm_V_{base}_gpa.txt'
   var_type: value
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
@@ -30,9 +32,11 @@
   description: Voigt average of bulk modulus
 
 - keywords: 
-  - B_r
+  - B_R
+  - Bm_R
+  - bm_R
   - bulk_modulus_reuss
-  fname_pattern: 'B_r_{base}_gpa.txt'
+  fname_pattern: 'bm_R_{base}_gpa.txt'
   var_type: value
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
@@ -40,9 +44,11 @@
   description: Reuss average of bulk modulus
 
 - keywords: 
-  - B_vrh
+  - B_VRH
+  - Bm_VRH
+  - bm_VRH
   - bulk_modulus_voigt_reuss_hill
-  fname_pattern: 'B_vrh_{base}_gpa.txt'
+  fname_pattern: 'bm_VRH_{base}_gpa.txt'
   var_type: value
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
@@ -50,9 +56,9 @@
   description: Voigt-Reuss-Hill average of bulk modulus
 
 - keywords: 
-  - G_v
+  - G_V
   - shear_modulus_voigt
-  fname_pattern: 'B_v_{base}_gpa.txt'
+  fname_pattern: 'G_V_{base}_gpa.txt'
   var_type: value
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
@@ -60,9 +66,9 @@
   description: Voigt average of shear modulus
 
 - keywords: 
-  - G_r
+  - G_R
   - shear_modulus_reuss
-  fname_pattern: 'G_r_{base}_gpa.txt'
+  fname_pattern: 'G_R_{base}_gpa.txt'
   var_type: value
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
@@ -70,8 +76,9 @@
   description: Reuss average of shear modulus
 
 - keywords: 
-  - G_vrh
-  fname_pattern: 'G_vrh_{base}_gpa.txt'
+  - G_VRH
+  - shear_modulus_voigt_reuss_hill
+  fname_pattern: 'G_VRH_{base}_gpa.txt'
   var_type: value
   unit_internal: "rydberg / bohr ^ 3"
   unit: "GPa"
@@ -82,7 +89,7 @@
   - v_p
   - vp
   - primary_velocities
-  fname_pattern: v_s_{base}_km_s.txt
+  fname_pattern: v_p_{base}_km_s.txt
   var_type: value
   unit_internal: "km/s"
   unit: "km/s"
@@ -93,7 +100,7 @@
   - v_s
   - vs
   - secondary_velocities
-  fname_pattern: v_p_{base}_km_s.txt
+  fname_pattern: v_s_{base}_km_s.txt
   var_type: value
   unit_internal: "km/s"
   unit: "km/s"
@@ -102,6 +109,7 @@
 
 - keywords: 
   - v
+  - V
   - volumes
   fname_pattern: v_{base}_ang3.txt
   var_type: value
@@ -112,6 +120,7 @@
 
 - keywords: 
   - p
+  - P
   - pressures
   fname_pattern: p_{base}_gpa.txt
   var_type: value
