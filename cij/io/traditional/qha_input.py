@@ -30,15 +30,17 @@ class QHAInputData(NamedTuple):
 
 
 REGEX_INFO_START = r"^(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$"
-REGEX_Q_WEIGHT = r"^(-?\d+\.?\d*)\s+(-?\d+\.?\d*)\s+(-?\d+\.?\d*)\s+(-?\d+\.?\d*)$"
+# REGEX_Q_WEIGHT = r"^(-?\d+\.?\d*)\s+(-?\d+\.?\d*)\s+(-?\d+\.?\d*)\s+(-?\d+\.?\d*)$"
 REGEX_PVE = r"P=\s+(-?\d*\.?\d*)\s+V=\s+(-?\d*\.?\d*)\s+E=\s+(-?\d*\.?\d*)"
+REGEX_PVE = r"\S=\s+(\S+)\s+\S=\s+(\S+)\s+\S=\s+(\S+)"
 
 def _read_weights(lines, nq):
     def _yield_weights():
         for _ in range(nq):
             line = next(lines)
-            res = re.search(REGEX_Q_WEIGHT, line.strip())
-            yield QPointWeight(tuple(map(float, res.groups()[:-1])), float(res.group(4)))
+            words = line.strip().split()
+            # res = re.search(REGEX_Q_WEIGHT, line.strip())
+            yield QPointWeight(tuple(map(float, words[0:3])), float(words[3]))
     return list(_yield_weights())
 
 def _read_volume_data(lines, nv, nq, np):

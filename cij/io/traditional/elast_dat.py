@@ -1,6 +1,7 @@
 from typing import List, Tuple, NamedTuple
-from cij.util import c_
+from cij.util import c_, C_
 import re
+from collections import OrderedDict
 
 import logging
 
@@ -8,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 class ElastVolumeData(NamedTuple):
     volume: float
-    static_elastic_modulus: dict
+    static_elastic_modulus: OrderedDict
 
 class ElastData(NamedTuple):
     vref: float
