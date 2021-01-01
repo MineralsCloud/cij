@@ -29,7 +29,9 @@ setup(
             'qha-cij-extract=cij.cli.extract:main',
             'qha-cij-plot=cij.cli.plot:main',
             'qha-cij-modes=cij.cli.modes:main',
-            'qha-cij-static=cij.cli.static:main'
+            'qha-cij-static=cij.cli.static:main',
+            'qha-cij-fill=cij.cli.fill:main',
+            'cij=cij.cli.cij:main'
         ],
     }
 )
