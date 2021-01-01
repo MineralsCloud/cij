@@ -19,5 +19,12 @@ main.add_command(_fill, "fill")
 from cij.cli.extract import main as _extract
 main.add_command(_extract, "extract")
 
+from cij.cli.modes import main as _modes
+main.add_command(_modes, "modes")
+
+from cij.cli.plot import main as _plot
+main.add_command(_plot, "plot")
+
+
 if __name__ == "__main__":
     main()

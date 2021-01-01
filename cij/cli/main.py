@@ -1,15 +1,15 @@
 import logging
 import click
-import cij
+from cij import __version__
 
 def run(config_fname: str):
     import cij.core.calculator
     calculator = cij.core.calculator.Calculator(config_fname)
     calculator.write_output()
     
-@click.command(help="Perform SAM-Cij calculation")
+@click.command(help="Perform SAM-Cij calculation.")
 @click.argument("settings_filename", type=click.Path(exists=True))
-@click.version_option(version=cij.__version__, prog_name="cij")
+@click.version_option(version=__version__, prog_name="cij")
 @click.option("--debug", default="INFO", type=click.Choice(logging._levelToName.values()), help="Logging level")
 def main(settings_filename: str, debug: str):
 

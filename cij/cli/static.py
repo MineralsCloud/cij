@@ -38,7 +38,7 @@ def v2p1d(x_old: numpy.array, p_old: numpy.array, p_new: numpy.array):
     from numpy import newaxis as nax
     return v2p(x_old[nax, ::-1], p_old[nax, ::-1], p_new)[0]
 
-@click.command(help="Perform static Cij calculation")
+@click.command(help="Calculate elastic moduli and acoustic velocities.")
 @click.argument("input01", type=click.Path(exists=True))
 @click.argument("input02", required=False, type=click.Path(exists=True))
 @click.option("-I", "--interp", type=click.Choice(["none", "pressure", "volume"]), default="none")

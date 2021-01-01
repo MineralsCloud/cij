@@ -10,7 +10,7 @@ from cij.util.fill import fill_cij
 from cij.data import get_data_fname
 
 
-@click.command(help="Fill non-zero Cij terms based on symmetry")
+@click.command(help="Fill non-zero Cij terms based on symmetry.")
 @click.argument("fname", type=click.Path(exists=True))
 @click.option("-c", "--constraints")
 @click.option("--ignore-residuals", is_flag=True)

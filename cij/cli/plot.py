@@ -1,9 +1,14 @@
-def main():
+import sys
+from glob import glob
+import click
 
-    import sys
-    from glob import glob
-    from cij.plot.quick import plot_table
+from cij.plot.quick import plot_table
 
-    for arg in sys.argv[1:]:
-        for fname in glob(arg):
+
+@click.command(help="Plot SAM-Cij calculation results.")
+@click.argument("patterns", nargs=-1)
+def main(patterns):
+
+    for pattern in patterns:
+        for fname in glob(pattern):
             plot_table(fname)

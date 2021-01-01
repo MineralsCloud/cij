@@ -10,11 +10,11 @@ def load_data(var):
     df.index = [float(idx) for idx in df.index]
     return df
 
-@click.command(help="Extract the value and create table for multiple variables at specific P, V or T.")
-@click.option("-T", "--temperature", type=click.FLOAT, help="Temperature in K")
-@click.option("-P", "--pressure", type=click.FLOAT, help="Pressure in GPa")
-@click.option("-v", "--variables", required=True, help="Variables for output")
-@click.option("-h", "--hide-header", default=False, is_flag=True, help="Hide header or not")
+@click.command(help="Extract the value and create table for multiple variables at specific P or T.")
+@click.option("-T", "--temperature", type=click.FLOAT, help="Specify temperature in K.")
+@click.option("-P", "--pressure", type=click.FLOAT, help="Specify tressure in GPa.")
+@click.option("-v", "--variables", required=True, help="Variables to output.")
+@click.option("-h", "--hide-header", default=False, is_flag=True, help="Hide header or not.")
 def main(variables: List[str], hide_header: bool, temperature: float = None, pressure: float = None):
 
     data = {}
