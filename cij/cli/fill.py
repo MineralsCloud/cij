@@ -40,7 +40,6 @@ def main(**kwargs):
 
         # Convert the constraint name to its full path
 
-
         if kwargs["constraints"] is not None:
             constraints_fname = Path("constraints") / kwargs["constraints"]
             kwargs["constraints"] = get_data_fname(str(constraints_fname))
