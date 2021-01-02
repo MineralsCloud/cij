@@ -14,7 +14,7 @@ def fill_cij(
     constraints: str = None,
     ignore_residuals: bool = False,
     ignore_rank: bool = False,
-    drop_atol: float = None
+    drop_atol: float = 1e-8 
 ) -> pandas.DataFrame:
 
     if constraints is None:

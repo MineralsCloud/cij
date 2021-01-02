@@ -15,7 +15,7 @@ from cij.data import get_data_fname
 @click.option("-c", "--constraints")
 @click.option("--ignore-residuals", is_flag=True)
 @click.option("--ignore-rank", is_flag=True)
-@click.option("--drop-atol", type=click.FLOAT)
+@click.option("--drop-atol", type=click.FLOAT, default=1e-8)
 def main(**kwargs):
 
     fname = kwargs.pop("fname")
