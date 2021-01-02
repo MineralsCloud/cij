@@ -3,6 +3,8 @@ import pandas
 import numpy
 import sys
 import itertools
+from pathlib import Path
+from logging import getLogger
 from scipy.interpolate import InterpolatedUnivariateSpline
 
 from qha.fitting import polynomial_least_square_fitting
@@ -12,7 +14,11 @@ from qha.v2p import v2p
 from cij.io.traditional import read_elast_data, read_energy
 from cij.util.units import *
 from cij.util import c_
+from cij.util.fill import fill_cij
+from cij.data import get_data_fname
 
+
+logger = getLogger(__name__)
 
 
 def fit_modulus(volumes: numpy.ndarray, v_array: numpy.ndarray, moduli: numpy.ndarray, order: int = 2) -> numpy.ndarray:
@@ -48,7 +54,8 @@ def v2p1d(x_old: numpy.array, p_old: numpy.array, p_new: numpy.array):
 @click.option("--delta-p-sample", type=click.FLOAT, default=None)
 @click.option("--cellmass", type=click.FLOAT)
 @click.option("--v-ratio", type=click.FLOAT, default=1.2)
-def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_ratio: float, p_min: float, delta_p: float, delta_p_sample: float):
+@click.option("-c", "--constraints", default=None)
+def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_ratio: float, p_min: float, delta_p: float, delta_p_sample: float, constraints: str = None):
 
     input01 = read_energy(input01)
     if input02:
@@ -105,6 +112,13 @@ def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_r
             ]).T
             strkey = "c%d%d" % key.voigt
             df.loc[:, strkey] = fit_modulus(volumes, v_array, moduli)
+
+    # fill all non-zero terms based on symmetry constraints
+    
+    if constraints == None:
+        logger.warning(f"Symmetry constraints check not performed! Make sure to fill in all non-zero terms for correct VRH averages!")
+    else:
+        df = fill_cij(df, constraints)
     
     if cellmass:
         df.loc[:, "density"] = cellmass / df.loc[:, "V"]
