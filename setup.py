@@ -16,12 +16,16 @@ setup(
         "lazy_property",
         "pint >= 0.10",
         "networkx",
-        "click"
+        "click",
+        "jsonschema",
+        "sympy"
     ],
     package_data={
-        "cij/data/schema": "*.schema.json",
-        "cij/data/output": "writer_rules.yml",
-        "cij/data/constraints": "*"
+        "cij.data": [
+            "schema/*.schema.json", 
+            "output/writer_rules.yml", 
+            "constraints/*"
+        ]
     },
     entry_points = {
         'console_scripts': [
