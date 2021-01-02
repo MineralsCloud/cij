@@ -90,6 +90,10 @@
                         "interpolator": { "type": "string" },
                         "order": { "type": "integer" }
                     }
+                },
+                "symmetry": {
+                    "type": "string",
+                    "title": "Symmetry to be applied on input elastic constants to fill all non-zero terms"
                 }
             },
             "$$target": "#/definitions/elast_settings"

@@ -14,6 +14,7 @@ from qha.grid_interpolation import calculate_eulerian_strain
 import cij.io
 from cij.util import c_, C_, units, _to_gpa, _to_ang3
 from cij.io.traditional.qha_output import save_x_tv, save_x_tp
+from cij.io.traditional.elast_dat import apply_symetry_on_elast_data
 from cij.io.output import ResultsWriter
 
 from .mode_gamma import interpolate_modes
@@ -35,6 +36,7 @@ class Calculator:
 
     def __init__(self, config_fname: str):
         self._load(config_fname)
+        self._apply_elastic_constants_symmetry()
         self._interpolate_modes()
 
         self.nv = self.qha_input.nv
@@ -62,6 +64,15 @@ class Calculator:
             self.config["qha"]["settings"],
             self.qha_input
         )
+    
+    def _apply_elastic_constants_symmetry(self):
+
+        symmetry = self.config["elast"]["settings"].get("symmetry", None)
+
+        if symmetry == None:
+            return
+        else:
+            apply_symetry_on_elast_data(self.elast_data, symmetry)
 
     def _interpolate_modes(self):
         interp_freq, gamma_i, vdr_dv = interpolate_modes(

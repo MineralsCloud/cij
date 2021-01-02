@@ -61,3 +61,35 @@ def read_elast_data(fname: str) -> ElastData:
             logger.debug("No lattice parameters found in file.")
 
     return ret
+
+
+def apply_symetry_on_elast_data(input: ElastData, symmetry: str) -> None:
+
+    from cij.util.fill import fill_cij
+    from cij.data import get_data_fname
+    import pandas
+    from pathlib import Path
+
+    df = pandas.DataFrame([
+        dict(
+            ("c%s%s" % key.v, val)
+            for key, val in volume.static_elastic_modulus.items()
+        )
+        for volume in input.volumes
+    ])
+
+    constraints_fname = Path("constraints") / symmetry
+    constraints_fname = get_data_fname(str(constraints_fname))
+
+    df = fill_cij(df, constraints_fname)
+
+    for i in range(len(input.volumes)):
+        static_elastic_modulus = dict([
+            (c_(key[1:]), val)
+            for key, val in df.iloc[i, :].items()
+        ])
+        input.volumes[i] = ElastVolumeData(
+            input.volumes[i].volume,
+            static_elastic_modulus
+
+        )
