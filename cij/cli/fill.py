@@ -38,12 +38,6 @@ def main(**kwargs):
             sio.write(line)
         sio.seek(0)
 
-        # Convert the constraint name to its full path
-
-        if kwargs["constraints"] is not None:
-            constraints_fname = Path("constraints") / kwargs["constraints"]
-            kwargs["constraints"] = get_data_fname(str(constraints_fname))
-
         # Write elasticity table
 
         elast = pandas.read_table(sio, header=0, index_col=None, sep="\s+")

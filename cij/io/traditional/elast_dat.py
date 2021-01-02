@@ -66,9 +66,7 @@ def read_elast_data(fname: str) -> ElastData:
 def apply_symetry_on_elast_data(input: ElastData, symmetry: str) -> None:
 
     from cij.util.fill import fill_cij
-    from cij.data import get_data_fname
     import pandas
-    from pathlib import Path
 
     df = pandas.DataFrame([
         dict(
@@ -78,10 +76,7 @@ def apply_symetry_on_elast_data(input: ElastData, symmetry: str) -> None:
         for volume in input.volumes
     ])
 
-    constraints_fname = Path("constraints") / symmetry
-    constraints_fname = get_data_fname(str(constraints_fname))
-
-    df = fill_cij(df, constraints_fname)
+    df = fill_cij(df, constraints=symmetry)
 
     for i in range(len(input.volumes)):
         static_elastic_modulus = dict([

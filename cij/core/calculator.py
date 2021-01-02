@@ -70,7 +70,7 @@ class Calculator:
         symmetry = self.config["elast"]["settings"].get("symmetry", None)
 
         if symmetry == None:
-            return
+            logger.warning(f"Symmetry constraints check not performed! Make sure to fill in all non-zero terms for correct VRH averages!")
         else:
             apply_symetry_on_elast_data(self.elast_data, symmetry)
 
