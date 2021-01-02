@@ -8,6 +8,8 @@ import sympy
 import numpy
 from sympy.parsing.sympy_parser import parse_expr
 
+from cij.data import get_data_fname
+
 
 def fill_cij(
     elast: pandas.DataFrame,
@@ -49,7 +51,16 @@ def fill_cij(
     a = numpy.array(a)
     b = numpy.array(b)
 
+
     # constraints
+
+    # ... try to find constraints file
+
+    if not Path(constraints).exists():
+        constraints = Path("constraints") / constraints
+        constraints = get_data_fname(str(constraints))
+
+    # ... apply constraints
 
     eqns = []
 
