@@ -13,13 +13,13 @@ from cij.data import get_data_fname
 
 def fill_cij(
     elast: pandas.DataFrame,
-    constraints: str = None,
+    system: str = None,
     ignore_residuals: bool = False,
     ignore_rank: bool = False,
     drop_atol: float = 1e-8 
 ) -> pandas.DataFrame:
 
-    if constraints is None:
+    if system is None:
         return elast
 
     # use V column as index
@@ -56,8 +56,8 @@ def fill_cij(
 
     # ... try to find constraints file
 
-    if not Path(constraints).exists():
-        constraints = Path("constraints") / constraints
+    if not Path(system).exists():
+        constraints = Path("constraints") / system
         constraints = get_data_fname(str(constraints))
 
     # ... apply constraints

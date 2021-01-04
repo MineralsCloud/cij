@@ -1,48 +1,9 @@
 import click
-import pandas
-import numpy
-import sys
-import itertools
-from pathlib import Path
+
 from logging import getLogger
-from scipy.interpolate import InterpolatedUnivariateSpline
-
-from qha.fitting import polynomial_least_square_fitting
-from qha.grid_interpolation import calculate_eulerian_strain
-from qha.v2p import v2p
-
-from cij.io.traditional import read_elast_data, read_energy
-from cij.util.units import *
-from cij.util import c_
-from cij.util.fill import fill_cij
-from cij.data import get_data_fname
-
 
 logger = getLogger(__name__)
 
-
-def fit_modulus(volumes: numpy.ndarray, v_array: numpy.ndarray, moduli: numpy.ndarray, order: int = 2) -> numpy.ndarray:
-    '''Interpolate static elastic constants :math:`c^\\text{st}_{ij}(V)` as
-    a function of volume with polynomial least square fitting
-
-    :param moduli: The static elastic moduli :math:`c^\\text{st}_{ij}(V)`
-        to be fitted
-    :param order: The order for least square fitting
-
-    :returns: The interpolated modulus :math:`c^\\text{st}_{ij}(V)`
-    '''
-
-    strains = calculate_eulerian_strain(volumes[0], volumes)
-    strain_array = calculate_eulerian_strain(volumes[0], v_array)
-    _, modulus_array = polynomial_least_square_fitting(
-        strains, moduli, strain_array,
-        order=order
-    )
-    return modulus_array
-
-def v2p1d(x_old: numpy.array, p_old: numpy.array, p_new: numpy.array):
-    from numpy import newaxis as nax
-    return v2p(x_old[nax, ::-1], p_old[nax, ::-1], p_new)[0]
 
 @click.command(help="Calculate elastic moduli and acoustic velocities.")
 @click.argument("input01", type=click.Path(exists=True))
@@ -54,8 +15,50 @@ def v2p1d(x_old: numpy.array, p_old: numpy.array, p_new: numpy.array):
 @click.option("--delta-p-sample", type=click.FLOAT, default=None)
 @click.option("--cellmass", type=click.FLOAT)
 @click.option("--v-ratio", type=click.FLOAT, default=1.2)
-@click.option("-c", "--constraints", default=None)
-def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_ratio: float, p_min: float, delta_p: float, delta_p_sample: float, constraints: str = None):
+@click.option("-s", "--system", default=None)
+def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_ratio: float, p_min: float, delta_p: float, delta_p_sample: float, system: str = None):
+
+    import pandas
+    import numpy
+    import sys
+    import itertools
+    from pathlib import Path
+
+    from scipy.interpolate import InterpolatedUnivariateSpline
+
+    from qha.fitting import polynomial_least_square_fitting
+    from qha.grid_interpolation import calculate_eulerian_strain
+    from qha.v2p import v2p
+
+    from cij.io.traditional import read_elast_data, read_energy
+    from cij.util.units import _from_gpa, _to_gpa, _from_ang3, _to_ang3, _to_gcm3, _to_ev
+    from cij.util import c_
+    from cij.util.fill import fill_cij
+    from cij.data import get_data_fname
+
+    def fit_modulus(volumes: numpy.ndarray, v_array: numpy.ndarray, moduli: numpy.ndarray, order: int = 2) -> numpy.ndarray:
+        '''Interpolate static elastic constants :math:`c^\\text{st}_{ij}(V)` as
+        a function of volume with polynomial least square fitting
+
+        :param moduli: The static elastic moduli :math:`c^\\text{st}_{ij}(V)`
+            to be fitted
+        :param order: The order for least square fitting
+
+        :returns: The interpolated modulus :math:`c^\\text{st}_{ij}(V)`
+        '''
+
+        strains = calculate_eulerian_strain(volumes[0], volumes)
+        strain_array = calculate_eulerian_strain(volumes[0], v_array)
+        _, modulus_array = polynomial_least_square_fitting(
+            strains, moduli, strain_array,
+            order=order
+        )
+        return modulus_array
+
+    def v2p1d(x_old: numpy.array, p_old: numpy.array, p_new: numpy.array):
+        from numpy import newaxis as nax
+        return v2p(x_old[nax, ::-1], p_old[nax, ::-1], p_new)[0]
+
 
     input01 = read_energy(input01)
     if input02:
@@ -115,10 +118,10 @@ def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_r
 
     # fill all non-zero terms based on symmetry constraints
     
-    if constraints == None:
+    if system == None:
         logger.warning(f"Symmetry constraints check not performed! Make sure to fill in all non-zero terms for correct VRH averages!")
     else:
-        df = fill_cij(df, constraints)
+        df = fill_cij(df, system)
     
     if cellmass:
         df.loc[:, "density"] = cellmass / df.loc[:, "V"]

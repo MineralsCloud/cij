@@ -1,10 +1,11 @@
 import click
-import pandas
 from typing import List
-import numpy
-import glob
+
 
 def load_data(var):
+
+    import pandas
+
     df = pandas.read_table(glob.glob(f"{var}_tp_*")[0], sep="\s+", index_col=0)
     df.columns = [float(colname) for colname in df.columns]
     df.index = [float(idx) for idx in df.index]
@@ -16,6 +17,10 @@ def load_data(var):
 @click.option("-v", "--variables", required=True, help="Variables to output.")
 @click.option("-h", "--hide-header", default=False, is_flag=True, help="Hide header or not.")
 def main(variables: List[str], hide_header: bool, temperature: float = None, pressure: float = None):
+
+    import glob
+    import pandas
+    import numpy
 
     data = {}
 

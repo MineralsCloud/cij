@@ -1,22 +1,19 @@
-from io import StringIO
-import sys
-
 import click
-import pandas
-
-from pathlib import Path
-
-from cij.util.fill import fill_cij
-from cij.data import get_data_fname
-
 
 @click.command(help="Fill non-zero Cij terms based on symmetry.")
 @click.argument("fname", type=click.Path(exists=True))
-@click.option("-c", "--constraints")
+@click.option("-s", "--system")
 @click.option("--ignore-residuals", is_flag=True)
 @click.option("--ignore-rank", is_flag=True)
 @click.option("--drop-atol", type=click.FLOAT, default=1e-8)
 def main(**kwargs):
+
+    import pandas
+    import sys
+    from io import StringIO
+    from pathlib import Path
+    
+    from cij.util.fill import fill_cij
 
     fname = kwargs.pop("fname")
 

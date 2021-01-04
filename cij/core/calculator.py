@@ -67,12 +67,12 @@ class Calculator:
     
     def _apply_elastic_constants_symmetry(self):
 
-        symmetry = self.config["elast"]["settings"].get("symmetry", None)
+        system = self.config["elast"]["settings"].get("system", None)
 
-        if symmetry == None:
+        if system == None:
             logger.warning(f"Symmetry constraints check not performed! Make sure to fill in all non-zero terms for correct VRH averages!")
         else:
-            apply_symetry_on_elast_data(self.elast_data, symmetry)
+            apply_symetry_on_elast_data(self.elast_data, system)
 
     def _interpolate_modes(self):
         interp_freq, gamma_i, vdr_dv = interpolate_modes(

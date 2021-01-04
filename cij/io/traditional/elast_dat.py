@@ -63,7 +63,7 @@ def read_elast_data(fname: str) -> ElastData:
     return ret
 
 
-def apply_symetry_on_elast_data(input: ElastData, symmetry: str) -> None:
+def apply_symetry_on_elast_data(input: ElastData, system: str) -> None:
 
     from cij.util.fill import fill_cij
     import pandas
@@ -76,7 +76,7 @@ def apply_symetry_on_elast_data(input: ElastData, symmetry: str) -> None:
         for volume in input.volumes
     ])
 
-    df = fill_cij(df, constraints=symmetry)
+    df = fill_cij(df, system=system)
 
     for i in range(len(input.volumes)):
         static_elastic_modulus = dict([

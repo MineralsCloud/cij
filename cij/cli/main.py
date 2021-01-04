@@ -1,6 +1,8 @@
 import logging
 import click
-from cij import __version__
+from pathlib import Path
+
+with open(Path(__file__).parent / "../version.py") as fp: exec(fp.read())
 
 def run(config_fname: str):
     import cij.core.calculator
@@ -9,7 +11,7 @@ def run(config_fname: str):
     
 @click.command(help="Perform SAM-Cij calculation.")
 @click.argument("settings_filename", type=click.Path(exists=True))
-@click.version_option(version=__version__, prog_name="cij")
+@click.version_option(version=__version__, prog_name="Cij")     # pylint: disable=undefined-variable
 @click.option("--debug", default="INFO", type=click.Choice(logging._levelToName.values()), help="Logging level")
 def main(settings_filename: str, debug: str):
 

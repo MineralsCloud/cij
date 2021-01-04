@@ -1,6 +1,7 @@
 import click
-from cij import __version__
+from pathlib import Path
 
+with open(Path(__file__).parent / "../version.py") as fp: exec(fp.read())
 
 @click.group()
 @click.version_option(version=__version__, prog_name="Cij")

@@ -1,8 +1,11 @@
 from setuptools import setup, find_packages
+from pathlib import Path
+
+with open(Path(__file__) / "cij" / "version.py") as fp: exec(fp.read())
 
 setup(
     name='cij',
-    version='1.0',
+    version=__version__,
     description='High temperature thermal elasticity',
     author='Chenxing Luo',
     author_email='chenxing.luo@columbia.edu',
@@ -29,13 +32,13 @@ setup(
     },
     entry_points = {
         'console_scripts': [
-            'qha-cij=cij.cli.main:main',
-            'qha-cij-extract=cij.cli.extract:main',
-            'qha-cij-plot=cij.cli.plot:main',
-            'qha-cij-modes=cij.cli.modes:main',
-            'qha-cij-static=cij.cli.static:main',
-            'qha-cij-fill=cij.cli.fill:main',
-            'cij=cij.cli.cij:main'
+            'cij=cij.cli.cij:main',
+            'cij-run=cij.cli.main:main',
+            'cij-run-static=cij.cli.static:main',
+            'cij-extract=cij.cli.extract:main',
+            'cij-plot=cij.cli.plot:main',
+            'cij-modes=cij.cli.modes:main',
+            'cij-fill=cij.cli.fill:main',
         ],
     }
 )
