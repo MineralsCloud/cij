@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 from pathlib import Path
 
-with open(Path(__file__) / "cij" / "version.py") as fp: exec(fp.read())
+with open(Path(__file__).parent / "cij" / "version.py") as fp: exec(fp.read())
 
 setup(
     name='cij',
@@ -36,6 +36,7 @@ setup(
             'cij-run=cij.cli.main:main',
             'cij-run-static=cij.cli.static:main',
             'cij-extract=cij.cli.extract:main',
+            'cij-extract-geotherm=cij.cli.geotherm:main',
             'cij-plot=cij.cli.plot:main',
             'cij-modes=cij.cli.modes:main',
             'cij-fill=cij.cli.fill:main',
