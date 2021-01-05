@@ -5,8 +5,9 @@ from typing import List
 def load_data(var):
 
     import pandas
+    from glob import glob
 
-    df = pandas.read_table(glob.glob(f"{var}_tp_*")[0], sep="\s+", index_col=0)
+    df = pandas.read_table(glob(f"{var}_tp_*")[0], sep="\s+", index_col=0)
     df.columns = [float(colname) for colname in df.columns]
     df.index = [float(idx) for idx in df.index]
     return df
