@@ -1,0 +1,1646 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>&lt;no title&gt; &mdash; qha-Cij  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> qha-Cij
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/input.html">Building input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/output.html">Output parameters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../array.html">Conventions for using multi-demensional arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">qha-Cij</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>&lt;no title&gt;</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorial/Untitled1.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    min-width: 5ex;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 0.3rem;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pkg_resources</span>
+
+<span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;cij.data&quot;</span><span class="p">,</span> <span class="s2">&quot;schema/config.schema.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/Users/chazeon/Documents/Projects/qha-cij-2/cij/data/schema/config.schema.json&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;cij&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;/Users/chazeon/Documents/Projects/qha-cij-2/cij&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">cij.data</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">cij</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+
+<span class="n">fname</span> <span class="o">=</span> <span class="n">cij</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">get_data_fname</span><span class="p">(</span><span class="s2">&quot;schema/config.schema.json&quot;</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;Path&#39;, &#39;__builtins__&#39;, &#39;__cached__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__path__&#39;, &#39;__spec__&#39;, &#39;get_data_fname&#39;, &#39;pkg_resources&#39;]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;{\n    &#34;title&#34;: &#34;Configuration file&#34;,\n    &#34;description&#34;: &#34;The configuration file controls the behavior of the elast program&#34;,\n\n    &#34;type&#34;: &#34;object&#34;,\n    &#34;required&#34;: [&#34;qha&#34;],\n    &#34;properties&#34;: {\n        &#34;qha&#34;: {\n            &#34;title&#34;: &#34;QHA options&#34;,\n            &#34;type&#34;: &#34;object&#34;,\n            &#34;properties&#34;: {\n                &#34;input&#34;: { &#34;$ref&#34;: &#34;#/definitions/qha_input&#34; },\n                &#34;settings&#34;: { &#34;$ref&#34;: &#34;#/definitions/qha_settings&#34; }\n            }\n        },\n        &#34;elast&#34;: { &#34;$ref&#34;: &#34;#/definitions/elast_settings&#34; }\n    },\n\n    &#34;definitions&#34;: {\n\n        &#34;qha_input&#34;: {\n            &#34;type&#34;: &#34;string&#34;,\n            &#34;title&#34;: &#34;The file name of the QHA input data file&#34;\n        },\n\n        &#34;qha_settings&#34;: {\n            &#34;title&#34;: &#34;QHA calculation settings&#34;,\n            &#34;type&#34;: &#34;object&#34;,\n            &#34;properties&#34;: {\n\n                &#34;NT&#34;: {\n                    &#34;type&#34;: &#34;integer&#34;,\n                    &#34;title&#34;: &#34;Number of temperatures on the grid&#34;\n                },\n                &#34;DT&#34;: {\n                    &#34;type&#34;: &#34;number&#34;,\n                    &#34;title&#34;: &#34;The interval between two nearest temperatures on the grid&#34;\n                },\n                &#34;T_MIN&#34;: { &#34;type&#34;: &#34;number&#34; },\n\n                &#34;NTV&#34;: {\n                    &#34;type&#34;: &#34;integer&#34;,\n                    &#34;title&#34;: &#34;Number of volumes (or equivivalently, pressures) on the grid&#34;\n                },\n\n                &#34;P_MIN&#34;: {\n                    &#34;type&#34;: &#34;number&#34;,\n                    &#34;title&#34;: &#34;Desired minimum pressure to calculate, in GPa&#34;\n                },\n                &#34;DELTA_P&#34;: {\n                    &#34;type&#34;: &#34;number&#34;,\n                    &#34;title&#34;: &#34;The interval between two nearest pressures on the grid&#34;\n                },\n                &#34;DELTA_P_SAMPLE&#34;: {\n                    &#34;type&#34;: &#34;number&#34;,\n                    &#34;title&#34;: &#34;Pressure-sampling interval, used for output, the default value is 1 GPa&#34;\n                },\n\n                &#34;volume_ratio&#34;: { &#34;type&#34;: &#34;number&#34; }\n            },\n            &#34;$$target&#34;: &#34;#/definitions/qha_settings&#34;\n        },\n\n        &#34;elast_settings&#34;: {\n            &#34;title&#34;: &#34;Themoelasticity calculation setttings&#34;,\n            &#34;type&#34;: &#34;object&#34;,\n            &#34;properties&#34;: {\n                &#34;input&#34;: {\n                    &#34;type&#34;: &#34;string&#34;,\n                    &#34;title&#34;: &#34;Static elasticity input file name&#34;,\n                    &#34;description&#34;: &#34;The name of the static elasticity input file&#34;\n                }\n            },\n            &#34;$$target&#34;: &#34;#/definitions/elast_settings&#34;\n        }\n    }\n}&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">cij</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">__path__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+PosixPath(&#39;/Users/chazeon/Documents/Projects/qha-cij-2/cij/data&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="s2">&quot;c_</span><span class="si">{ij}</span><span class="s2">s_</span><span class="si">{base}</span><span class="s2">.txt&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ij</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;c_12s_15.txt&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">cij.util</span> <span class="k">import</span> <span class="n">convert_unit</span>
+
+<span class="n">convert_unit</span><span class="p">(</span><span class="s2">&quot;rydberg / bohr ^ 3 &quot;</span><span class="p">,</span> <span class="s2">&quot;GPa&quot;</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+14710.50784817977
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">cij.io.output.results_writer</span>
+<span class="n">cij</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">results_writer</span><span class="o">.</span><span class="n">DEFAULT_WRITER_RULES</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[{&#39;keywords&#39;: [&#39;cij_s&#39;, &#39;adiabatic_elastic_moduli&#39;],
+  &#39;file_name_pattern&#39;: &#39;c_{ij}s_{base}.txt&#39;,
+  &#39;type&#39;: &#39;ij_value,&#39;,
+  &#39;unit_internal&#39;: &#39;rydberg / bohr ^ 3&#39;,
+  &#39;unit&#39;: &#39;GPa&#39;}]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">cij.util</span> <span class="k">import</span> <span class="n">units</span>
+<span class="n">units</span><span class="o">.</span><span class="n">Unit</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;A&#39;,
+ &#39;A_90&#39;,
+ &#39;A_US&#39;,
+ &#39;A_it&#39;,
+ &#39;At&#39;,
+ &#39;B&#39;,
+ &#39;BDFT&#39;,
+ &#39;BF&#39;,
+ &#39;BTU&#39;,
+ &#39;Ba&#39;,
+ &#39;Bd&#39;,
+ &#39;Bi&#39;,
+ &#39;Bq&#39;,
+ &#39;Btu&#39;,
+ &#39;Btu_iso&#39;,
+ &#39;Btu_it&#39;,
+ &#39;Btu_th&#39;,
+ &#39;C&#39;,
+ &#39;C_90&#39;,
+ &#39;Ci&#39;,
+ &#39;Cl&#39;,
+ &#39;D&#39;,
+ &#39;DPI&#39;,
+ &#39;Da&#39;,
+ &#39;ECC&#39;,
+ &#39;EC_therm&#39;,
+ &#39;E_h&#39;,
+ &#39;Eh&#39;,
+ &#39;F&#39;,
+ &#39;FBM&#39;,
+ &#39;F_90&#39;,
+ &#39;Fr&#39;,
+ &#39;G&#39;,
+ &#39;G_0&#39;,
+ &#39;Gal&#39;,
+ &#39;Gb&#39;,
+ &#39;Gy&#39;,
+ &#39;H&#39;,
+ &#39;H2O&#39;,
+ &#39;H_90&#39;,
+ &#39;Hg&#39;,
+ &#39;Hg_0C&#39;,
+ &#39;Hg_32F&#39;,
+ &#39;Hg_60F&#39;,
+ &#39;Hz&#39;,
+ &#39;J&#39;,
+ &#39;K&#39;,
+ &#39;KPH&#39;,
+ &#39;K_J&#39;,
+ &#39;K_J90&#39;,
+ &#39;K_alpha_Cu_d_220&#39;,
+ &#39;K_alpha_Mo_d_220&#39;,
+ &#39;K_alpha_W_d_220&#39;,
+ &#39;L&#39;,
+ &#39;Ly&#39;,
+ &#39;M&#39;,
+ &#39;MPH&#39;,
+ &#39;Measurement&#39;,
+ &#39;Mx&#39;,
+ &#39;N&#39;,
+ &#39;N_A&#39;,
+ &#39;Ne&#39;,
+ &#39;NeC&#39;,
+ &#39;Nm&#39;,
+ &#39;Np&#39;,
+ &#39;Oe&#39;,
+ &#39;P&#39;,
+ &#39;PPCM&#39;,
+ &#39;PPI&#39;,
+ &#39;PSH&#39;,
+ &#39;Pa&#39;,
+ &#39;Phi_0&#39;,
+ &#39;Quantity&#39;,
+ &#39;R&#39;,
+ &#39;RKM&#39;,
+ &#39;R_K&#39;,
+ &#39;R_K90&#39;,
+ &#39;R_inf&#39;,
+ &#39;R_∞&#39;,
+ &#39;Rd&#39;,
+ &#39;Ry&#39;,
+ &#39;S&#39;,
+ &#39;St&#39;,
+ &#39;Sv&#39;,
+ &#39;T&#39;,
+ &#39;Ta&#39;,
+ &#39;Td&#39;,
+ &#39;Tj&#39;,
+ &#39;Tt&#39;,
+ &#39;U&#39;,
+ &#39;UK_bbl&#39;,
+ &#39;UK_bushel&#39;,
+ &#39;UK_cup&#39;,
+ &#39;UK_cwt&#39;,
+ &#39;UK_fluid_ounce&#39;,
+ &#39;UK_force_ton&#39;,
+ &#39;UK_gallon&#39;,
+ &#39;UK_gill&#39;,
+ &#39;UK_horsepower&#39;,
+ &#39;UK_hundredweight&#39;,
+ &#39;UK_pint&#39;,
+ &#39;UK_pk&#39;,
+ &#39;UK_quart&#39;,
+ &#39;UK_ton&#39;,
+ &#39;UK_ton_force&#39;,
+ &#39;US_cwt&#39;,
+ &#39;US_dry_barrel&#39;,
+ &#39;US_dry_gallon&#39;,
+ &#39;US_dry_pint&#39;,
+ &#39;US_dry_quart&#39;,
+ &#39;US_fluid_dram&#39;,
+ &#39;US_fluid_ounce&#39;,
+ &#39;US_force_ton&#39;,
+ &#39;US_hundredweight&#39;,
+ &#39;US_international_ampere&#39;,
+ &#39;US_international_ohm&#39;,
+ &#39;US_international_volt&#39;,
+ &#39;US_liquid_cup&#39;,
+ &#39;US_liquid_dram&#39;,
+ &#39;US_liquid_fifth&#39;,
+ &#39;US_liquid_gallon&#39;,
+ &#39;US_liquid_gill&#39;,
+ &#39;US_liquid_ounce&#39;,
+ &#39;US_liquid_quart&#39;,
+ &#39;US_pint&#39;,
+ &#39;US_shot&#39;,
+ &#39;US_therm&#39;,
+ &#39;US_ton&#39;,
+ &#39;US_ton_force&#39;,
+ &#39;Unit&#39;,
+ &#39;V&#39;,
+ &#39;VA&#39;,
+ &#39;V_90&#39;,
+ &#39;V_US&#39;,
+ &#39;V_it&#39;,
+ &#39;W&#39;,
+ &#39;W_90&#39;,
+ &#39;Wb&#39;,
+ &#39;Wh&#39;,
+ &#39;Xu_Cu&#39;,
+ &#39;Xu_Mo&#39;,
+ &#39;Z_0&#39;,
+ &#39;a&#39;,
+ &#39;a0&#39;,
+ &#39;a_0&#39;,
+ &#39;a_u_action&#39;,
+ &#39;a_u_current&#39;,
+ &#39;a_u_electric_field&#39;,
+ &#39;a_u_energy&#39;,
+ &#39;a_u_force&#39;,
+ &#39;a_u_intensity&#39;,
+ &#39;a_u_length&#39;,
+ &#39;a_u_mass&#39;,
+ &#39;a_u_temp&#39;,
+ &#39;a_u_time&#39;,
+ &#39;abA&#39;,
+ &#39;abC&#39;,
+ &#39;abF&#39;,
+ &#39;abH&#39;,
+ &#39;abS&#39;,
+ &#39;abV&#39;,
+ &#39;abampere&#39;,
+ &#39;abcoulomb&#39;,
+ &#39;aberdeen&#39;,
+ &#39;abfarad&#39;,
+ &#39;abhenry&#39;,
+ &#39;abmho&#39;,
+ &#39;abohm&#39;,
+ &#39;absiemens&#39;,
+ &#39;abvolt&#39;,
+ &#39;abΩ&#39;,
+ &#39;acre&#39;,
+ &#39;acre_feet&#39;,
+ &#39;acre_foot&#39;,
+ &#39;alpha&#39;,
+ &#39;amp&#39;,
+ &#39;ampere&#39;,
+ &#39;ampere_turn&#39;,
+ &#39;amu&#39;,
+ &#39;angstrom&#39;,
+ &#39;angstrom_star&#39;,
+ &#39;angular_degree&#39;,
+ &#39;angular_minute&#39;,
+ &#39;angular_second&#39;,
+ &#39;ap_dr&#39;,
+ &#39;ap_lb&#39;,
+ &#39;ap_oz&#39;,
+ &#39;apothecary_dram&#39;,
+ &#39;apothecary_ounce&#39;,
+ &#39;apothecary_pound&#39;,
+ &#39;arc_minute&#39;,
+ &#39;arc_second&#39;,
+ &#39;arcdeg&#39;,
+ &#39;arcdegree&#39;,
+ &#39;arcmin&#39;,
+ &#39;arcminute&#39;,
+ &#39;arcsec&#39;,
+ &#39;arcsecond&#39;,
+ &#39;are&#39;,
+ &#39;astronomical_unit&#39;,
+ &#39;at&#39;,
+ &#39;atm&#39;,
+ &#39;atm_l&#39;,
+ &#39;atmosphere&#39;,
+ &#39;atmosphere_liter&#39;,
+ &#39;atomic_mass_constant&#39;,
+ &#39;atomic_unit_of_action&#39;,
+ &#39;atomic_unit_of_current&#39;,
+ &#39;atomic_unit_of_electric_field&#39;,
+ &#39;atomic_unit_of_energy&#39;,
+ &#39;atomic_unit_of_force&#39;,
+ &#39;atomic_unit_of_intensity&#39;,
+ &#39;atomic_unit_of_length&#39;,
+ &#39;atomic_unit_of_mass&#39;,
+ &#39;atomic_unit_of_temperature&#39;,
+ &#39;atomic_unit_of_time&#39;,
+ &#39;au&#39;,
+ &#39;avdp_dram&#39;,
+ &#39;avdp_ounce&#39;,
+ &#39;avdp_pound&#39;,
+ &#39;avogadro_constant&#39;,
+ &#39;avogadro_number&#39;,
+ &#39;avoirdupois_dram&#39;,
+ &#39;avoirdupois_ounce&#39;,
+ &#39;avoirdupois_pound&#39;,
+ &#39;b&#39;,
+ &#39;bag&#39;,
+ &#39;bar&#39;,
+ &#39;barad&#39;,
+ &#39;barie&#39;,
+ &#39;barn&#39;,
+ &#39;barrel&#39;,
+ &#39;barrie&#39;,
+ &#39;baryd&#39;,
+ &#39;barye&#39;,
+ &#39;baud&#39;,
+ &#39;bbl&#39;,
+ &#39;becquerel&#39;,
+ &#39;beer_barrel&#39;,
+ &#39;beer_bbl&#39;,
+ &#39;bel&#39;,
+ &#39;big_point&#39;,
+ &#39;biot&#39;,
+ &#39;biot_turn&#39;,
+ &#39;bit&#39;,
+ &#39;bits_per_pixel&#39;,
+ &#39;board_feet&#39;,
+ &#39;board_foot&#39;,
+ &#39;bohr&#39;,
+ &#39;bohr_magneton&#39;,
+ &#39;bohr_radius&#39;,
+ &#39;boiler_horsepower&#39;,
+ &#39;boltzmann_constant&#39;,
+ &#39;bp&#39;,
+ &#39;bpp&#39;,
+ &#39;bps&#39;,
+ &#39;british_thermal_unit&#39;,
+ &#39;bu&#39;,
+ &#39;buckingham&#39;,
+ &#39;bushel&#39;,
+ &#39;byte&#39;,
+ &#39;c&#39;,
+ &#39;c_0&#39;,
+ &#39;c_1&#39;,
+ &#39;c_2&#39;,
+ &#39;cables_length&#39;,
+ &#39;cal&#39;,
+ &#39;cal_15&#39;,
+ &#39;cal_it&#39;,
+ &#39;cal_th&#39;,
+ &#39;calorie&#39;,
+ &#39;candela&#39;,
+ &#39;candle&#39;,
+ &#39;carat&#39;,
+ &#39;cc&#39;,
+ &#39;cd&#39;,
+ &#39;celsius&#39;,
+ &#39;centimeter&#39;,
+ &#39;centimeter_H2O&#39;,
+ &#39;centimeter_Hg&#39;,
+ &#39;centimeter_Hg_0C&#39;,
+ &#39;centipoise&#39;,
+ &#39;centuries&#39;,
+ &#39;century&#39;,
+ &#39;chain&#39;,
+ &#39;characteristic_impedance_of_vacuum&#39;,
+ &#39;cicero&#39;,
+ &#39;circle&#39;,
+ &#39;circular_mil&#39;,
+ &#39;classical_electron_radius&#39;,
+ &#39;clausius&#39;,
+ &#39;cmH2O&#39;,
+ &#39;cmHg&#39;,
+ &#39;cm_1&#39;,
+ &#39;cm_H2O&#39;,
+ &#39;cm_Hg&#39;,
+ &#39;cmil&#39;,
+ &#39;common_year&#39;,
+ &#39;conductance_quantum&#39;,
+ &#39;conventional_ampere_90&#39;,
+ &#39;conventional_coulomb_90&#39;,
+ &#39;conventional_farad_90&#39;,
+ &#39;conventional_henry_90&#39;,
+ &#39;conventional_josephson_constant&#39;,
+ &#39;conventional_mercury&#39;,
+ &#39;conventional_ohm_90&#39;,
+ &#39;conventional_volt_90&#39;,
+ &#39;conventional_von_klitzing_constant&#39;,
+ &#39;conventional_water&#39;,
+ &#39;conventional_watt_90&#39;,
+ &#39;convert&#39;,
+ &#39;coulomb&#39;,
+ &#39;coulomb_constant&#39;,
+ &#39;count&#39;,
+ &#39;counts_per_second&#39;,
+ &#39;cp&#39;,
+ &#39;cps&#39;,
+ &#39;css_pixel&#39;,
+ &#39;ct&#39;,
+ &#39;cu_ft&#39;,
+ &#39;cu_in&#39;,
+ &#39;cu_yd&#39;,
+ &#39;cubic_centimeter&#39;,
+ &#39;cubic_feet&#39;,
+ &#39;cubic_foot&#39;,
+ &#39;cubic_inch&#39;,
+ &#39;cubic_yard&#39;,
+ &#39;cup&#39;,
+ &#39;curie&#39;,
+ &#39;cwt&#39;,
+ &#39;cycle&#39;,
+ &#39;d&#39;,
+ &#39;d_220&#39;,
+ &#39;dalton&#39;,
+ &#39;darcy&#39;,
+ &#39;day&#39;,
+ &#39;debye&#39;,
+ &#39;decade&#39;,
+ &#39;decimeter&#39;,
+ &#39;decitex&#39;,
+ &#39;define&#39;,
+ &#39;deg&#39;,
+ &#39;degC&#39;,
+ &#39;degF&#39;,
+ &#39;degK&#39;,
+ &#39;degR&#39;,
+ &#39;degRe&#39;,
+ &#39;degree&#39;,
+ &#39;degreeC&#39;,
+ &#39;degreeF&#39;,
+ &#39;degreeK&#39;,
+ &#39;degreeR&#39;,
+ &#39;degreeRe&#39;,
+ &#39;degree_Celsius&#39;,
+ &#39;degree_Fahrenheit&#39;,
+ &#39;degree_Kelvin&#39;,
+ &#39;degree_Rankine&#39;,
+ &#39;degree_Reaumur&#39;,
+ &#39;degree_Réaumur&#39;,
+ &#39;delta_celsius&#39;,
+ &#39;delta_degC&#39;,
+ &#39;delta_degF&#39;,
+ &#39;delta_degRe&#39;,
+ &#39;delta_degreeC&#39;,
+ &#39;delta_degreeF&#39;,
+ &#39;delta_degreeRe&#39;,
+ &#39;delta_degree_Celsius&#39;,
+ &#39;delta_degree_Fahrenheit&#39;,
+ &#39;delta_degree_Reaumur&#39;,
+ &#39;delta_degree_Réaumur&#39;,
+ &#39;delta_fahrenheit&#39;,
+ &#39;delta_reaumur&#39;,
+ &#39;delta_réaumur&#39;,
+ &#39;den&#39;,
+ &#39;denier&#39;,
+ &#39;dgal&#39;,
+ &#39;didot&#39;,
+ &#39;dirac_constant&#39;,
+ &#39;dot&#39;,
+ &#39;dots_per_inch&#39;,
+ &#39;dpi&#39;,
+ &#39;dqt&#39;,
+ &#39;dr&#39;,
+ &#39;drachm&#39;,
+ &#39;dram&#39;,
+ &#39;dry_barrel&#39;,
+ &#39;dry_gallon&#39;,
+ &#39;dry_pint&#39;,
+ &#39;dry_quart&#39;,
+ &#39;dtex&#39;,
+ &#39;dwt&#39;,
+ &#39;dyn&#39;,
+ &#39;dyne&#39;,
+ &#39;e&#39;,
+ &#39;eV&#39;,
+ &#39;electric_constant&#39;,
+ &#39;electrical_horsepower&#39;,
+ &#39;electron_g_factor&#39;,
+ &#39;electron_mass&#39;,
+ &#39;electron_volt&#39;,
+ &#39;elementary_charge&#39;,
+ &#39;entropy_unit&#39;,
+ &#39;enzyme_unit&#39;,
+ &#39;enzymeunit&#39;,
+ &#39;eon&#39;,
+ &#39;eps0&#39;,
+ &#39;eps_0&#39;,
+ &#39;epsilon_0&#39;,
+ &#39;erg&#39;,
+ &#39;esu&#39;,
+ &#39;eu&#39;,
+ &#39;fahrenheit&#39;,
+ &#39;farad&#39;,
+ &#39;faraday&#39;,
+ &#39;faraday_constant&#39;,
+ &#39;fathom&#39;,
+ &#39;feet&#39;,
+ &#39;feet_H2O&#39;,
+ &#39;femtometer&#39;,
+ &#39;fermi&#39;,
+ &#39;fifteen_degree_calorie&#39;,
+ &#39;fifth&#39;,
+ &#39;fine_structure_constant&#39;,
+ &#39;first_radiation_constant&#39;,
+ &#39;fldr&#39;,
+ &#39;floz&#39;,
+ &#39;fluid_dram&#39;,
+ &#39;fluid_ounce&#39;,
+ &#39;fluidram&#39;,
+ &#39;fm&#39;,
+ &#39;foot&#39;,
+ &#39;foot_H2O&#39;,
+ &#39;foot_per_second&#39;,
+ &#39;foot_pound&#39;,
+ &#39;footpound&#39;,
+ &#39;force_gram&#39;,
+ &#39;force_kilogram&#39;,
+ &#39;force_long_ton&#39;,
+ &#39;force_metric_ton&#39;,
+ &#39;force_ounce&#39;,
+ &#39;force_pound&#39;,
+ &#39;force_short_ton&#39;,
+ &#39;force_t&#39;,
+ &#39;force_ton&#39;,
+ &#39;fortnight&#39;,
+ &#39;fps&#39;,
+ &#39;franklin&#39;,
+ &#39;ft&#39;,
+ &#39;ftH2O&#39;,
+ &#39;ft_lb&#39;,
+ &#39;fur&#39;,
+ &#39;furlong&#39;,
+ &#39;g&#39;,
+ &#39;g0&#39;,
+ &#39;g_0&#39;,
+ &#39;g_e&#39;,
+ &#39;g_n&#39;,
+ &#39;gal&#39;,
+ &#39;galileo&#39;,
+ &#39;gallon&#39;,
+ &#39;gamma&#39;,
+ &#39;gamma_mass&#39;,
+ &#39;gauss&#39;,
+ &#39;get_base_units&#39;,
+ &#39;get_dimensionality&#39;,
+ &#39;get_name&#39;,
+ &#39;get_root_units&#39;,
+ &#39;get_symbol&#39;,
+ &#39;gf&#39;,
+ &#39;gi&#39;,
+ &#39;gigapascal&#39;,
+ &#39;gilbert&#39;,
+ &#39;gill&#39;,
+ &#39;gon&#39;,
+ &#39;gr&#39;,
+ &#39;grad&#39;,
+ &#39;grade&#39;,
+ &#39;grain&#39;,
+ &#39;gram&#39;,
+ &#39;gram_force&#39;,
+ &#39;gravitational_constant&#39;,
+ &#39;gravity&#39;,
+ &#39;gray&#39;,
+ &#39;gregorian_year&#39;,
+ &#39;h&#39;,
+ &#39;ha&#39;,
+ &#39;hand&#39;,
+ &#39;hartree&#39;,
+ &#39;hartree_energy&#39;,
+ &#39;hbar&#39;,
+ &#39;hectare&#39;,
+ &#39;henry&#39;,
+ &#39;hertz&#39;,
+ &#39;hogshead&#39;,
+ &#39;horsepower&#39;,
+ &#39;hour&#39;,
+ &#39;hp&#39;,
+ &#39;hr&#39;,
+ &#39;hundredweight&#39;,
+ &#39;hydraulic_horsepower&#39;,
+ &#39;impedance_of_free_space&#39;,
+ &#39;imperial_barrel&#39;,
+ &#39;imperial_bbl&#39;,
+ &#39;imperial_bu&#39;,
+ &#39;imperial_bushel&#39;,
+ &#39;imperial_cp&#39;,
+ &#39;imperial_cup&#39;,
+ &#39;imperial_fldr&#39;,
+ &#39;imperial_floz&#39;,
+ &#39;imperial_fluid_drachm&#39;,
+ &#39;imperial_fluid_dram&#39;,
+ &#39;imperial_fluid_ounce&#39;,
+ &#39;imperial_fluid_scruple&#39;,
+ &#39;imperial_gal&#39;,
+ &#39;imperial_gallon&#39;,
+ &#39;imperial_gi&#39;,
+ &#39;imperial_gill&#39;,
+ &#39;imperial_minim&#39;,
+ &#39;imperial_peck&#39;,
+ &#39;imperial_pint&#39;,
+ &#39;imperial_pk&#39;,
+ &#39;imperial_pt&#39;,
+ &#39;imperial_qt&#39;,
+ &#39;imperial_quart&#39;,
+ &#39;in&#39;,
+ &#39;inHg&#39;,
+ &#39;in_Hg&#39;,
+ &#39;inch&#39;,
+ &#39;inch_H2O_39F&#39;,
+ &#39;inch_H2O_60F&#39;,
+ &#39;inch_Hg&#39;,
+ &#39;inch_Hg_32F&#39;,
+ &#39;inch_Hg_60F&#39;,
+ &#39;inches&#39;,
+ &#39;international_british_thermal_unit&#39;,
+ &#39;international_calorie&#39;,
+ &#39;international_feet&#39;,
+ &#39;international_foot&#39;,
+ &#39;international_inch&#39;,
+ &#39;international_inches&#39;,
+ &#39;international_knot&#39;,
+ &#39;international_mile&#39;,
+ &#39;international_steam_table_calorie&#39;,
+ &#39;international_yard&#39;,
+ &#39;jig&#39;,
+ &#39;josephson_constant&#39;,
+ &#39;joule&#39;,
+ &#39;julian_year&#39;,
+ &#39;jute&#39;,
+ &#39;k&#39;,
+ &#39;k_B&#39;,
+ &#39;k_C&#39;,
+ &#39;karat&#39;,
+ &#39;kat&#39;,
+ &#39;katal&#39;,
+ &#39;kayser&#39;,
+ &#39;kelvin&#39;,
+ &#39;kgf&#39;,
+ &#39;kilogram&#39;,
+ &#39;kilogram_force&#39;,
+ &#39;kilometer&#39;,
+ &#39;kilometer_per_hour&#39;,
+ &#39;kilometer_per_second&#39;,
+ &#39;kip&#39;,
+ &#39;kip_per_square_inch&#39;,
+ &#39;knot&#39;,
+ &#39;knot_international&#39;,
+ &#39;kph&#39;,
+ &#39;kps&#39;,
+ &#39;ksi&#39;,
+ &#39;kt&#39;,
+ &#39;l&#39;,
+ &#39;lambda&#39;,
+ &#39;lambert&#39;,
+ &#39;langley&#39;,
+ &#39;lattice_spacing_of_Si&#39;,
+ &#39;lb&#39;,
+ &#39;lbf&#39;,
+ &#39;lbt&#39;,
+ &#39;league&#39;,
+ &#39;leap_year&#39;,
+ &#39;li&#39;,
+ &#39;light_year&#39;,
+ &#39;lightyear&#39;,
+ &#39;link&#39;,
+ &#39;liquid_cup&#39;,
+ &#39;liquid_gallon&#39;,
+ &#39;liquid_gill&#39;,
+ &#39;liquid_pint&#39;,
+ &#39;liquid_quart&#39;,
+ &#39;liter&#39;,
+ &#39;litre&#39;,
+ &#39;lm&#39;,
+ &#39;ln10&#39;,
+ &#39;load_definitions&#39;,
+ &#39;long_hundredweight&#39;,
+ &#39;long_ton&#39;,
+ &#39;long_ton_force&#39;,
+ &#39;lumen&#39;,
+ &#39;lunar_month&#39;,
+ &#39;lux&#39;,
+ &#39;lx&#39;,
+ &#39;ly&#39;,
+ &#39;m&#39;,
+ &#39;m_e&#39;,
+ &#39;m_n&#39;,
+ &#39;m_p&#39;,
+ &#39;m_u&#39;,
+ &#39;magnetic_constant&#39;,
+ &#39;magnetic_flux_quantum&#39;,
+ &#39;mas&#39;,
+ &#39;maxwell&#39;,
+ &#39;mean_international_ampere&#39;,
+ &#39;mean_international_ohm&#39;,
+ &#39;mean_international_volt&#39;,
+ &#39;mercury&#39;,
+ &#39;mercury_60F&#39;,
+ &#39;meter&#39;,
+ &#39;meter_per_second&#39;,
+ &#39;metre&#39;,
+ &#39;metric_horsepower&#39;,
+ &#39;metric_ton&#39;,
+ &#39;metric_ton_force&#39;,
+ &#39;mho&#39;,
+ &#39;mi&#39;,
+ &#39;microgram&#39;,
+ &#39;microliter&#39;,
+ &#39;micrometer&#39;,
+ &#39;micromole&#39;,
+ &#39;micron&#39;,
+ &#39;mil&#39;,
+ &#39;mil_length&#39;,
+ &#39;mile&#39;,
+ &#39;mile_per_hour&#39;,
+ &#39;millennia&#39;,
+ &#39;millennium&#39;,
+ &#39;milliarcsecond&#39;,
+ &#39;milligram&#39;,
+ &#39;millimeter&#39;,
+ &#39;millimeter_Hg&#39;,
+ &#39;millimeter_Hg_0C&#39;,
+ &#39;min&#39;,
+ &#39;minim&#39;,
+ &#39;minute&#39;,
+ &#39;mmHg&#39;,
+ &#39;mm_Hg&#39;,
+ &#39;mol&#39;,
+ &#39;molar&#39;,
+ &#39;molar_gas_constant&#39;,
+ &#39;mole&#39;,
+ &#39;molec&#39;,
+ &#39;molecule&#39;,
+ &#39;month&#39;,
+ &#39;mph&#39;,
+ &#39;mps&#39;,
+ &#39;mu0&#39;,
+ &#39;mu_0&#39;,
+ &#39;mu_B&#39;,
+ &#39;mu_N&#39;,
+ &#39;nautical_mile&#39;,
+ &#39;neper&#39;,
+ &#39;neutron_mass&#39;,
+ &#39;newton&#39;,
+ &#39;newtonian_constant_of_gravitation&#39;,
+ &#39;nit&#39;,
+ &#39;nmi&#39;,
+ &#39;nuclear_magneton&#39;,
+ &#39;number_english&#39;,
+ &#39;number_meter&#39;,
+ &#39;octet&#39;,
+ &#39;oersted&#39;,
+ &#39;ohm&#39;,
+ &#39;ohm_90&#39;,
+ &#39;ohm_US&#39;,
+ &#39;ohm_it&#39;,
+ &#39;oil_barrel&#39;,
+ &#39;oil_bbl&#39;,
+ &#39;ounce&#39;,
+ &#39;ounce_force&#39;,
+ &#39;oz&#39;,
+ &#39;ozf&#39;,
+ &#39;ozt&#39;,
+ &#39;parse_expression&#39;,
+ &#39;parse_unit_name&#39;,
+ &#39;parse_units&#39;,
+ &#39;parsec&#39;,
+ &#39;particle&#39;,
+ &#39;pascal&#39;,
+ &#39;pc&#39;,
+ &#39;pdl&#39;,
+ &#39;peak_sun_hour&#39;,
+ &#39;peck&#39;,
+ &#39;pel&#39;,
+ &#39;pennyweight&#39;,
+ &#39;perch&#39;,
+ &#39;pi&#39;,
+ &#39;pica&#39;,
+ &#39;picture_element&#39;,
+ &#39;pint&#39;,
+ &#39;pixel&#39;,
+ &#39;pixels_per_centimeter&#39;,
+ &#39;pixels_per_inch&#39;,
+ &#39;pk&#39;,
+ &#39;planck_constant&#39;,
+ &#39;planck_current&#39;,
+ &#39;planck_length&#39;,
+ &#39;planck_mass&#39;,
+ &#39;planck_temperature&#39;,
+ &#39;planck_time&#39;,
+ &#39;point&#39;,
+ &#39;poise&#39;,
+ &#39;pole&#39;,
+ &#39;pond&#39;,
+ &#39;pound&#39;,
+ &#39;pound_force&#39;,
+ &#39;pound_force_per_square_inch&#39;,
+ &#39;poundal&#39;,
+ &#39;pp&#39;,
+ &#39;ppi&#39;,
+ &#39;printers_dpi&#39;,
+ &#39;printers_pica&#39;,
+ &#39;printers_point&#39;,
+ &#39;proton_mass&#39;,
+ &#39;psi&#39;,
+ &#39;pt&#39;,
+ &#39;px&#39;,
+ &#39;qt&#39;,
+ &#39;quad&#39;,
+ &#39;quadrillion_Btu&#39;,
+ &#39;quart&#39;,
+ &#39;quarter&#39;,
+ &#39;r_e&#39;,
+ &#39;rad&#39;,
+ &#39;radian&#39;,
+ &#39;rads&#39;,
+ &#39;rankine&#39;,
+ &#39;rd&#39;,
+ &#39;reaumur&#39;,
+ &#39;reciprocal_centimeter&#39;,
+ &#39;refrigeration_ton&#39;,
+ &#39;rem&#39;,
+ &#39;revolution&#39;,
+ &#39;revolutions_per_minute&#39;,
+ &#39;reyn&#39;,
+ &#39;rhe&#39;,
+ &#39;rod&#39;,
+ &#39;roentgen&#39;,
+ &#39;rpm&#39;,
+ &#39;rutherford&#39;,
+ &#39;rydberg&#39;,
+ &#39;rydberg_constant&#39;,
+ &#39;réaumur&#39;,
+ &#39;röntgen&#39;,
+ &#39;s&#39;,
+ &#39;scaled_point&#39;,
+ &#39;scruple&#39;,
+ &#39;sec&#39;,
+ &#39;second&#39;,
+ &#39;second_radiation_constant&#39;,
+ &#39;section&#39;,
+ &#39;sft&#39;,
+ &#39;shake&#39;,
+ &#39;short_hundredweight&#39;,
+ &#39;short_ton&#39;,
+ &#39;short_ton_force&#39;,
+ &#39;shot&#39;,
+ &#39;sidereal_day&#39;,
+ &#39;sidereal_month&#39;,
+ &#39;sidereal_year&#39;,
+ &#39;siemens&#39;,
+ &#39;sievert&#39;,
+ &#39;sigma&#39;,
+ &#39;sigma_e&#39;,
+ &#39;slm&#39;,
+ &#39;slpm&#39;,
+ &#39;slug&#39;,
+ &#39;smi&#39;,
+ &#39;speed_of_light&#39;,
+ &#39;sq_deg&#39;,
+ &#39;sq_ft&#39;,
+ &#39;sq_in&#39;,
+ &#39;sq_mi&#39;,
+ &#39;sq_perch&#39;,
+ &#39;sq_pole&#39;,
+ &#39;sq_rod&#39;,
+ &#39;sq_yd&#39;,
+ &#39;sqdeg&#39;,
+ &#39;square_degree&#39;,
+ &#39;square_feet&#39;,
+ &#39;square_foot&#39;,
+ &#39;square_inch&#39;,
+ &#39;square_inches&#39;,
+ &#39;square_league&#39;,
+ &#39;square_mile&#39;,
+ &#39;square_rod&#39;,
+ &#39;square_survey_mile&#39;,
+ &#39;square_yard&#39;,
+ &#39;sr&#39;,
+ &#39;standard_atmosphere&#39;,
+ &#39;standard_gravity&#39;,
+ &#39;standard_liter_per_minute&#39;,
+ &#39;statA&#39;,
+ &#39;statC&#39;,
+ &#39;statF&#39;,
+ &#39;statH&#39;,
+ &#39;statT&#39;,
+ &#39;statV&#39;,
+ &#39;statWb&#39;,
+ &#39;statampere&#39;,
+ &#39;statcoulomb&#39;,
+ &#39;statfarad&#39;,
+ &#39;stathenry&#39;,
+ &#39;statmho&#39;,
+ &#39;statohm&#39;,
+ &#39;stattesla&#39;,
+ &#39;statvolt&#39;,
+ &#39;statweber&#39;,
+ &#39;statΩ&#39;,
+ &#39;stefan_boltzmann_constant&#39;,
+ &#39;steradian&#39;,
+ &#39;stere&#39;,
+ &#39;stilb&#39;,
+ &#39;stokes&#39;,
+ &#39;stone&#39;,
+ &#39;super_feet&#39;,
+ &#39;super_foot&#39;,
+ &#39;superficial_feet&#39;,
+ &#39;superficial_foot&#39;,
+ &#39;survey_foot&#39;,
+ &#39;survey_link&#39;,
+ &#39;survey_mile&#39;,
+ &#39;svedberg&#39;,
+ &#39;synodic_month&#39;,
+ &#39;t&#39;,
+ &#39;tTNT&#39;,
+ &#39;t_force&#39;,
+ &#39;tablespoon&#39;,
+ &#39;tansec&#39;,
+ &#39;tbsp&#39;,
+ &#39;teaspoon&#39;,
+ &#39;technical_atmosphere&#39;,
+ &#39;tesla&#39;,
+ &#39;tex&#39;,
+ &#39;tex_cicero&#39;,
+ &#39;tex_didot&#39;,
+ &#39;tex_pica&#39;,
+ &#39;tex_point&#39;,
+ &#39;tf&#39;,
+ &#39;th&#39;,
+ &#39;therm&#39;,
+ &#39;thermochemical_british_thermal_unit&#39;,
+ &#39;thermochemical_calorie&#39;,
+ &#39;thm&#39;,
+ &#39;thomson_cross_section&#39;,
+ &#39;thou&#39;,
+ &#39;tlb&#39;,
+ &#39;toe&#39;,
+ &#39;ton&#39;,
+ &#39;ton_TNT&#39;,
+ &#39;ton_force&#39;,
+ &#39;ton_of_refrigeration&#39;,
+ &#39;tonne&#39;,
+ &#39;tonne_of_oil_equivalent&#39;,
+ &#39;torr&#39;,
+ &#39;toz&#39;,
+ &#39;tropical_month&#39;,
+ &#39;tropical_year&#39;,
+ &#39;troy_ounce&#39;,
+ &#39;troy_pound&#39;,
+ &#39;tsp&#39;,
+ &#39;turn&#39;,
+ &#39;u&#39;,
+ &#39;unified_atomic_mass_unit&#39;,
+ &#39;unit_pole&#39;,
+ &#39;us_statute_mile&#39;,
+ &#39;vacuum_permeability&#39;,
+ &#39;vacuum_permittivity&#39;,
+ &#39;volt&#39;,
+ &#39;volt_ampere&#39;,
+ &#39;von_klitzing_constant&#39;,
+ &#39;water&#39;,
+ &#39;water_39F&#39;,
+ &#39;water_4C&#39;,
+ &#39;water_60F&#39;,
+ &#39;watt&#39;,
+ &#39;watt_hour&#39;,
+ &#39;watthour&#39;,
+ &#39;weber&#39;,
+ &#39;week&#39;,
+ &#39;wien_frequency_displacement_law_constant&#39;,
+ &#39;wien_u&#39;,
+ &#39;wien_wavelength_displacement_law_constant&#39;,
+ &#39;wien_x&#39;,
+ &#39;x_unit_Cu&#39;,
+ &#39;x_unit_Mo&#39;,
+ &#39;yard&#39;,
+ &#39;yd&#39;,
+ &#39;year&#39;,
+ &#39;yr&#39;,
+ &#39;zeta&#39;,
+ &#39;°C&#39;,
+ &#39;°F&#39;,
+ &#39;°K&#39;,
+ &#39;°R&#39;,
+ &#39;°Re&#39;,
+ &#39;µ&#39;,
+ &#39;µ_0&#39;,
+ &#39;µ_B&#39;,
+ &#39;µ_N&#39;,
+ &#39;Å&#39;,
+ &#39;Å_star&#39;,
+ &#39;ångström&#39;,
+ &#39;ørsted&#39;,
+ &#39;ħ&#39;,
+ &#39;Δcelsius&#39;,
+ &#39;ΔdegC&#39;,
+ &#39;ΔdegF&#39;,
+ &#39;ΔdegRe&#39;,
+ &#39;ΔdegreeC&#39;,
+ &#39;ΔdegreeF&#39;,
+ &#39;ΔdegreeRe&#39;,
+ &#39;Δdegree_Réaumur&#39;,
+ &#39;Δfahrenheit&#39;,
+ &#39;Δreaumur&#39;,
+ &#39;Δréaumur&#39;,
+ &#39;Δ°C&#39;,
+ &#39;Δ°F&#39;,
+ &#39;Δ°Re&#39;,
+ &#39;Φ_0&#39;,
+ &#39;Ω&#39;,
+ &#39;Ω_90&#39;,
+ &#39;Ω_US&#39;,
+ &#39;Ω_it&#39;,
+ &#39;α&#39;,
+ &#39;γ&#39;,
+ &#39;ε_0&#39;,
+ &#39;ζ&#39;,
+ &#39;λ&#39;,
+ &#39;π&#39;,
+ &#39;σ&#39;,
+ &#39;σ_e&#39;,
+ &#39;Å&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">NamedTuple</span><span class="p">,</span> <span class="n">List</span>
+<span class="k">class</span> <span class="nc">ResultsWriterRule</span><span class="p">(</span><span class="n">NamedTuple</span><span class="p">):</span>
+
+    <span class="n">keywords</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">fname_pattern</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">prop</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">unit</span><span class="p">:</span> <span class="n">units</span><span class="o">.</span><span class="n">Unit</span>
+    <span class="n">unit_internal</span><span class="p">:</span> <span class="n">units</span><span class="o">.</span><span class="n">Unit</span>
+    <span class="n">var_type</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">rule</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;keywords&quot;</span><span class="p">],</span>
+            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;file_name_pattern&quot;</span><span class="p">],</span>
+            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">],</span>
+            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;unit_internal&quot;</span><span class="p">],</span>
+            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">],</span>
+            <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;property&quot;</span><span class="p">]</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ResultsWriterRule</span><span class="p">(</span><span class="n">var_type</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">unit_internal</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-13-a53aabee0dcd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>ResultsWriterRule<span class="ansi-blue-fg">(</span>var_type<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">,</span> unit_internal <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">,</span> prop<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#34;&#34;</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: __new__() missing 3 required positional arguments: &#39;keywords&#39;, &#39;fname_pattern&#39;, and &#39;unit&#39;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">namedtuple</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">])</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">n</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">_asdict</span><span class="p">()</span>
+<span class="n">s1</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+OrderedDict([(&#39;s&#39;, 1), (&#39;t&#39;, 1)]) OrderedDict([(&#39;s&#39;, 1)])
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Chenxing Luo
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

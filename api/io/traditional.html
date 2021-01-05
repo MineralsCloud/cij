@@ -1,0 +1,548 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Traditional I/O &mdash; qha-Cij  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Plotting helper cij.plot" href="../plot.html" />
+    <link rel="prev" title="Reading configuration: cij.io.config" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> qha-Cij
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/input.html">Building input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/output.html">Output parameters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../array.html">Conventions for using multi-demensional arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For developers</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Traditional I/O</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.qha_input">Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.qha_output">Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.elast_dat">Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util/units.html">Physical unit handling: the <code class="docutils literal notranslate"><span class="pre">cij.util.units</span></code> module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util/voigt.html">Standard and voigt subscripts: the <code class="docutils literal notranslate"><span class="pre">cij.util.voigt</span></code> module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc.html">Miscellaneous functions: <code class="docutils literal notranslate"><span class="pre">cij.misc</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">qha-Cij</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a> &raquo;</li>
+        
+      <li>Traditional I/O</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/io/traditional.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-cij.io.traditional">
+<span id="traditional-i-o"></span><h1>Traditional I/O<a class="headerlink" href="#module-cij.io.traditional" title="Permalink to this headline">¶</a></h1>
+<p>Handling traditional way of data input and output used by
+<a class="reference external" href="https://mineralscloud.github.io/qha">QHA</a> and <code class="docutils literal notranslate"><span class="pre">thermo.f</span></code> code</p>
+<dl class="function">
+<dt id="cij.io.traditional.read_energy">
+<code class="sig-prename descclassname">cij.io.traditional.</code><code class="sig-name descname">read_energy</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.read_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span> etc., from QHA data file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The path of the input file</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#cij.io.traditional.qha_input.QHAInputData" title="cij.io.traditional.qha_input.QHAInputData"><code class="xref py py-class docutils literal notranslate"><span class="pre">QHAInputData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.read_elast_data">
+<code class="sig-prename descclassname">cij.io.traditional.</code><code class="sig-name descname">read_elast_data</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.read_elast_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read static elastic coefficients from data file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the name or path of the input file.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#cij.io.traditional.elast_dat.ElastData" title="cij.io.traditional.elast_dat.ElastData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElastData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="section" id="module-cij.io.traditional.qha_input">
+<span id="traditional-qha-input-qha-input"></span><h2>Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code><a class="headerlink" href="#module-cij.io.traditional.qha_input" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cij.io.traditional.qha_input.QHAInputData">
+<em class="property">class </em><code class="sig-prename descclassname">cij.io.traditional.qha_input.</code><code class="sig-name descname">QHAInputData</code><span class="sig-paren">(</span><em class="sig-param">nv</em>, <em class="sig-param">nq</em>, <em class="sig-param">np</em>, <em class="sig-param">nm</em>, <em class="sig-param">na</em>, <em class="sig-param">weights</em>, <em class="sig-param">volumes</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QHAInputData.na">
+<em class="property">property </em><code class="sig-name descname">na</code><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.na" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QHAInputData.nm">
+<em class="property">property </em><code class="sig-name descname">nm</code><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QHAInputData.np">
+<em class="property">property </em><code class="sig-name descname">np</code><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.np" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QHAInputData.nq">
+<em class="property">property </em><code class="sig-name descname">nq</code><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QHAInputData.nv">
+<em class="property">property </em><code class="sig-name descname">nv</code><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QHAInputData.volumes">
+<em class="property">property </em><code class="sig-name descname">volumes</code><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.volumes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QHAInputData.weights">
+<em class="property">property </em><code class="sig-name descname">weights</code><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cij.io.traditional.qha_input.QPointData">
+<em class="property">class </em><code class="sig-prename descclassname">cij.io.traditional.qha_input.</code><code class="sig-name descname">QPointData</code><span class="sig-paren">(</span><em class="sig-param">coord</em>, <em class="sig-param">modes</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QPointData.coord">
+<em class="property">property </em><code class="sig-name descname">coord</code><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData.coord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QPointData.modes">
+<em class="property">property </em><code class="sig-name descname">modes</code><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData.modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cij.io.traditional.qha_input.QPointWeight">
+<em class="property">class </em><code class="sig-prename descclassname">cij.io.traditional.qha_input.</code><code class="sig-name descname">QPointWeight</code><span class="sig-paren">(</span><em class="sig-param">coord</em>, <em class="sig-param">weight</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QPointWeight.coord">
+<em class="property">property </em><code class="sig-name descname">coord</code><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight.coord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.QPointWeight.weight">
+<em class="property">property </em><code class="sig-name descname">weight</code><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight.weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cij.io.traditional.qha_input.VolumeData">
+<em class="property">class </em><code class="sig-prename descclassname">cij.io.traditional.qha_input.</code><code class="sig-name descname">VolumeData</code><span class="sig-paren">(</span><em class="sig-param">pressure</em>, <em class="sig-param">volume</em>, <em class="sig-param">energy</em>, <em class="sig-param">q_points</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.VolumeData.energy">
+<em class="property">property </em><code class="sig-name descname">energy</code><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.VolumeData.pressure">
+<em class="property">property </em><code class="sig-name descname">pressure</code><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.VolumeData.q_points">
+<em class="property">property </em><code class="sig-name descname">q_points</code><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.q_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.qha_input.VolumeData.volume">
+<em class="property">property </em><code class="sig-name descname">volume</code><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.qha_input.read_energy">
+<code class="sig-prename descclassname">cij.io.traditional.qha_input.</code><code class="sig-name descname">read_energy</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.read_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(V\)</span>, <span class="math notranslate nohighlight">\(\omega\)</span> etc., from QHA data file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The path of the input file</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#cij.io.traditional.qha_input.QHAInputData" title="cij.io.traditional.qha_input.QHAInputData"><code class="xref py py-class docutils literal notranslate"><span class="pre">QHAInputData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.qha_input.write_energy">
+<code class="sig-prename descclassname">cij.io.traditional.qha_input.</code><code class="sig-name descname">write_energy</code><span class="sig-paren">(</span><em class="sig-param">fname</em>, <em class="sig-param">input_data</em>, <em class="sig-param">comment='QHA Input data'</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.write_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write QHA input data to file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>input_data</strong> (<a class="reference internal" href="#cij.io.traditional.qha_input.QHAInputData" title="cij.io.traditional.qha_input.QHAInputData"><code class="xref py py-class docutils literal notranslate"><span class="pre">QHAInputData</span></code></a>) – </p></li>
+<li><p><strong>comment</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The comment line</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cij.io.traditional.qha_output">
+<span id="traditional-qha-tabular-output-qha-output"></span><h2>Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code><a class="headerlink" href="#module-cij.io.traditional.qha_output" title="Permalink to this headline">¶</a></h2>
+<p>These methods are imported and is therfore identical to what is provided in
+the QHA distribution.</p>
+<dl class="function">
+<dt id="cij.io.traditional.qha_output.save_x_tp">
+<code class="sig-prename descclassname">cij.io.traditional.qha_output.</code><code class="sig-name descname">save_x_tp</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">t</em>, <em class="sig-param">desired_pressures_gpa</em>, <em class="sig-param">p_sample_gpa</em>, <em class="sig-param">outfile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_tp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.qha_output.save_x_pt">
+<code class="sig-prename descclassname">cij.io.traditional.qha_output.</code><code class="sig-name descname">save_x_pt</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">t</em>, <em class="sig-param">desired_pressures_gpa</em>, <em class="sig-param">t_sample</em>, <em class="sig-param">outfile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_pt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.qha_output.save_x_vt">
+<code class="sig-prename descclassname">cij.io.traditional.qha_output.</code><code class="sig-name descname">save_x_vt</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">t</em>, <em class="sig-param">volume_grid</em>, <em class="sig-param">t_sample</em>, <em class="sig-param">outfile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_vt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.qha_output.save_x_tv">
+<code class="sig-prename descclassname">cij.io.traditional.qha_output.</code><code class="sig-name descname">save_x_tv</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">t</em>, <em class="sig-param">volume_grid</em>, <em class="sig-param">t_sample</em>, <em class="sig-param">outfile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_tv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-cij.io.traditional.elast_dat">
+<span id="traditional-elast-tabular-output-elast-dat"></span><h2>Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code><a class="headerlink" href="#module-cij.io.traditional.elast_dat" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cij.io.traditional.elast_dat.ElastData">
+<em class="property">class </em><code class="sig-prename descclassname">cij.io.traditional.elast_dat.</code><code class="sig-name descname">ElastData</code><span class="sig-paren">(</span><em class="sig-param">vref</em>, <em class="sig-param">nv</em>, <em class="sig-param">cellmass</em>, <em class="sig-param">volumes</em>, <em class="sig-param">lattice_parmeters</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="cij.io.traditional.elast_dat.ElastData.cellmass">
+<em class="property">property </em><code class="sig-name descname">cellmass</code><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.cellmass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.elast_dat.ElastData.lattice_parmeters">
+<em class="property">property </em><code class="sig-name descname">lattice_parmeters</code><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.lattice_parmeters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.elast_dat.ElastData.nv">
+<em class="property">property </em><code class="sig-name descname">nv</code><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.nv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.elast_dat.ElastData.volumes">
+<em class="property">property </em><code class="sig-name descname">volumes</code><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.volumes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.elast_dat.ElastData.vref">
+<em class="property">property </em><code class="sig-name descname">vref</code><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.vref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cij.io.traditional.elast_dat.ElastVolumeData">
+<em class="property">class </em><code class="sig-prename descclassname">cij.io.traditional.elast_dat.</code><code class="sig-name descname">ElastVolumeData</code><span class="sig-paren">(</span><em class="sig-param">volume</em>, <em class="sig-param">static_elastic_modulus</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dl class="method">
+<dt id="cij.io.traditional.elast_dat.ElastVolumeData.static_elastic_modulus">
+<em class="property">property </em><code class="sig-name descname">static_elastic_modulus</code><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData.static_elastic_modulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.io.traditional.elast_dat.ElastVolumeData.volume">
+<em class="property">property </em><code class="sig-name descname">volume</code><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.elast_dat.apply_symetry_on_elast_data">
+<code class="sig-prename descclassname">cij.io.traditional.elast_dat.</code><code class="sig-name descname">apply_symetry_on_elast_data</code><span class="sig-paren">(</span><em class="sig-param">input</em>, <em class="sig-param">system</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.elast_dat.apply_symetry_on_elast_data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="cij.io.traditional.elast_dat.read_elast_data">
+<code class="sig-prename descclassname">cij.io.traditional.elast_dat.</code><code class="sig-name descname">read_elast_data</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.elast_dat.read_elast_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read static elastic coefficients from data file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the name or path of the input file.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#cij.io.traditional.elast_dat.ElastData" title="cij.io.traditional.elast_dat.ElastData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElastData</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plot.html" class="btn btn-neutral float-right" title="Plotting helper cij.plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="config.html" class="btn btn-neutral float-left" title="Reading configuration: cij.io.config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Chenxing Luo
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

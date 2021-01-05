@@ -1,0 +1,223 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## The order of phonon `cij` resolution"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from typing import Tuple\n",
+    "from lazy_property import LazyProperty\n",
+    "import numpy\n",
+    "from cij.util import c_, C_\n",
+    "\n",
+    "def yield_strain_dependency(\n",
+    "    fictitious_strain: numpy.ndarray,\n",
+    "    target: Union[C_, None] = None\n",
+    ") -> numpy.ndarray:\n",
+    "\n",
+    "    nz = numpy.argwhere(\n",
+    "        numpy.logical_not(numpy.isclose(fictitious_strain, 0))\n",
+    "    )\n",
+    "\n",
+    "    for (i, j), (k, l) in itertools.product(nz, nz):\n",
+    "\n",
+    "        key = c_(i+1, j+1, k+1, l+1)\n",
+    "\n",
+    "        if target and key == target: continue\n",
+    "\n",
+    "        yield key\n",
+    "\n",
+    "class ShearPhononCalculator:\n",
+    "\n",
+    "    def __init__(self, key: C_, strain: Tuple[float, float, float]):\n",
+    "        self.key = key\n",
+    "        self.strain = strain\n",
+    "\n",
+    "    @LazyProperty\n",
+    "    def fictitious_strain(self):\n",
+    "        '''The fictitious strain\n",
+    "        ''' \n",
+    "        e = numpy.zeros((3, 3))\n",
+    "\n",
+    "        e[self.key.i[0] - 1, self.key.i[1] - 1] = 1\n",
+    "        e[self.key.i[1] - 1, self.key.i[0] - 1] = 1\n",
+    "\n",
+    "        e[self.key.j[0] - 1, self.key.j[1] - 1] = 1\n",
+    "        e[self.key.j[1] - 1, self.key.j[0] - 1] = 1\n",
+    "\n",
+    "        return e\n",
+    "    \n",
+    "    @LazyProperty\n",
+    "    def fictitious_strain_rotated(self):\n",
+    "        '''The fictitious strain in the rotated coordinate system\n",
+    "        '''\n",
+    "        return numpy.diag(numpy.linalg.eig(self.fictitious_strain)[0])\n",
+    "\n",
+    "    @LazyProperty\n",
+    "    def transformation_matrix(self):\n",
+    "        '''The transformation matrix\n",
+    "        '''\n",
+    "        return numpy.linalg.eig(self.fictitious_strain)[1]\n",
+    "\n",
+    "    @property\n",
+    "    def fictitious_strain_energy(self) -> numpy.ndarray:\n",
+    "        '''The strain energy for the fictitious strain under the original\n",
+    "        coordinate system except for the unknown\n",
+    "        '''\n",
+    "        calculate_fictitious_strain_energy(\n",
+    "            self.fictitious_strain,\n",
+    "            lambda _key: self.get_elastic_modulus(_key),\n",
+    "            self.key\n",
+    "        )\n",
+    "\n",
+    "    @property\n",
+    "    def fictitious_strain_energy_rotated(self) -> numpy.ndarray:\n",
+    "        '''The strain energy for the fictitious strain under the rotated\n",
+    "        coordinate system\n",
+    "        '''\n",
+    "        calculate_fictitious_strain_energy(\n",
+    "            numpy.diag(numpy.diag(self.fictitious_strain_rotated)),\n",
+    "            lambda _key: self.get_elastic_modulus_rotated(_key)\n",
+    "        )\n",
+    "        \n",
+    "    @LazyProperty\n",
+    "    def rotated_strain(self) -> tuple:\n",
+    "        return tuple(numpy.diag(\n",
+    "            self.fictitious_strain.T @ numpy.diag(self.strain) @ self.fictitious_strain\n",
+    "        ).tolist())\n",
+    "\n",
+    "    def get_target_elastic_modulus(self) -> numpy.ndarray:\n",
+    "        '''The elastic modulus need to be calculated from the difference in\n",
+    "        fictitious strain energy of the rotated coordinate system and the known\n",
+    "        terms in the original coordinate.\n",
+    "        '''\n",
+    "        i, j, k, l = self.key.standard\n",
+    "\n",
+    "        strain_energy_difference = \\\n",
+    "            self.fictitious_strain_energy_rotated - self.fictitious_strain_energy\n",
+    "\n",
+    "        return 2 * strain_energy_difference / (\n",
+    "            self.fictitious_strain[i,j] * self.fictitious_strain[k,l]\n",
+    "        ) / self.key.multiplicity\n",
+    "    \n",
+    "    def resolve_elastic_modulus_dependency(self, g):\n",
+    "        for key in yield_strain_dependency():\n",
+    "            if not g.has_node((key, self.rotated_strain))\n",
+    "            g.add_node((key, self.rotated_strain))\n",
+    "        g.add_edge((key, self.rotated_strain), )\n",
+    "                \n",
+    "    def get_elastic_modulus(self, key: C_) -> numpy.ndarray:\n",
+    "        pass\n",
+    "\n",
+    "    def get_elastic_modulus_rotated(self, key: C_) -> numpy.ndarray:\n",
+    "        pass"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import networkx as nx\n",
+    "\n",
+    "cij_dependency_ordering = nx.DiGraph()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "\n",
+    "from cij.util.voigt import _cij_sort_key\n",
+    "from IPython.display import display\n",
+    "\n",
+    "orig = sorted([\n",
+    "    c_(11), c_(12), c_(13), c_(22), c_(23), c_(33), c_(15), c_(25), c_(35), c_(46), c_(44), c_(55), c_(66)\n",
+    "], key=_cij_sort_key)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid syntax (<ipython-input-4-e83f7844e294>, line 3)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;36m  File \u001b[0;32m\"<ipython-input-4-e83f7844e294>\"\u001b[0;36m, line \u001b[0;32m3\u001b[0m\n\u001b[0;31m    g.add_node():\u001b[0m\n\u001b[0m                 ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+     ]
+    }
+   ],
+   "source": [
+    "def add_dependent():\n",
+    "    if not g.has_node():\n",
+    "        g.add_node():\n",
+    "    g.add_edge(,)\n",
+    "\n",
+    "def resolve_shear(key, strain):\n",
+    "\n",
+    "\n",
+    "def resolve_cij(key, strain = (1/3, 1/3, 1/3)):\n",
+    "    g.add_node((strain, key))\n",
+    "    if key.is_shear:\n",
+    "        resolve_shear(key, strain)\n",
+    "    \n",
+    "for key in orig:\n",
+    "    resolve_cij(key)\n",
+    "    \n",
+    "nx.algorithms.is_directed_acyclic_graph(g)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "list(nx.algorithms.dag.topological_sort(g))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
