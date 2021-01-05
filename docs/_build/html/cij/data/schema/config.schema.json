@@ -1,0 +1,102 @@
+{
+    "title": "Configuration file",
+    "description": "The configuration file controls the behavior of the elast program",
+
+    "type": "object",
+    "required": ["qha"],
+    "properties": {
+        "qha": {
+            "title": "Configuration passed to QHA",
+            "type": "object",
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "title": "The file name of the QHA input data file"
+                },
+                "settings": {
+                    "type": "object",
+                    "$ref": "#/definitions/qha_settings"
+                }
+            }
+        },
+        "elast": {
+            "$ref": "#/definitions/elast_settings",
+            "title": "Configuration for thermalelasticity calculation",
+            "type": "object",
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "title": "Static elasticity input file name",
+                    "description": "The name of the static elasticity input file"
+                },
+                "settings": {
+                    "type": "object",
+                    "$ref": "#/definitions/elast_settings"
+                }
+            }
+        },
+        "output": {
+            "title": "The list of output variables",
+            "type": "object"
+        }
+    },
+
+    "definitions": {
+
+        "qha_settings": {
+            "title": "QHA calculation settings",
+            "type": "object",
+            "properties": {
+
+                "NT": {
+                    "type": "integer",
+                    "title": "Number of temperatures on the grid"
+                },
+                "DT": {
+                    "type": "number",
+                    "title": "The interval between two nearest temperatures on the grid"
+                },
+                "T_MIN": { "type": "number" },
+
+                "NTV": {
+                    "type": "integer",
+                    "title": "Number of volumes (or equivivalently, pressures) on the grid"
+                },
+
+                "P_MIN": {
+                    "type": "number",
+                    "title": "Desired minimum pressure to calculate, in GPa"
+                },
+                "DELTA_P": {
+                    "type": "number",
+                    "title": "The interval between two nearest pressures on the grid"
+                },
+                "DELTA_P_SAMPLE": {
+                    "type": "number",
+                    "title": "Pressure-sampling interval, used for output, the default value is 1 GPa"
+                },
+                "volume_ratio": { "type": "number" }
+            },
+            "$$target": "#/definitions/qha_settings"
+        },
+
+        "elast_settings": {
+            "title": "Themoelasticity calculation setttings",
+            "type": "object",
+            "properties": {
+                "mode_gamma": {
+                    "type": "object",
+                    "properties": {
+                        "interpolator": { "type": "string" },
+                        "order": { "type": "integer" }
+                    }
+                },
+                "system": {
+                    "type": "string",
+                    "title": "Symmetry to be applied on input elastic constants to fill all non-zero terms"
+                }
+            },
+            "$$target": "#/definitions/elast_settings"
+        }
+    }
+}

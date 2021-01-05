@@ -1,0 +1,130 @@
+- keywords: 
+  - cij_s
+  - cij
+  - adiabatic_elastic_moduli
+  fname_pattern: 'c{ij}s_{base}_gpa.txt'
+  var_type: ij_value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: modulus_adiabatic
+  description: Adiabatic elastic modulus
+
+- keywords: 
+  - cij_t
+  - isothermal_elastic_moduli
+  fname_pattern: 'c{ij}t_{base}_gpa.txt'
+  var_type: ij_value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: modulus_isothermal
+  description: Isothermal elastic modulus
+
+- keywords: 
+  - B_V
+  - Bm_V
+  - bm_V
+  - bulk_modulus_voigt
+  fname_pattern: 'bm_V_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: bulk_modulus_voigt
+  description: Voigt average of bulk modulus
+
+- keywords: 
+  - B_R
+  - Bm_R
+  - bm_R
+  - bulk_modulus_reuss
+  fname_pattern: 'bm_R_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: bulk_modulus_reuss
+  description: Reuss average of bulk modulus
+
+- keywords: 
+  - B_VRH
+  - Bm_VRH
+  - bm_VRH
+  - bulk_modulus_voigt_reuss_hill
+  fname_pattern: 'bm_VRH_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: bulk_modulus_voigt_reuss_hill
+  description: Voigt-Reuss-Hill average of bulk modulus
+
+- keywords: 
+  - G_V
+  - shear_modulus_voigt
+  fname_pattern: 'G_V_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: shear_modulus_voigt
+  description: Voigt average of shear modulus
+
+- keywords: 
+  - G_R
+  - shear_modulus_reuss
+  fname_pattern: 'G_R_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: shear_modulus_reuss
+  description: Reuss average of shear modulus
+
+- keywords: 
+  - G_VRH
+  - shear_modulus_voigt_reuss_hill
+  fname_pattern: 'G_VRH_{base}_gpa.txt'
+  var_type: value
+  unit_internal: "rydberg / bohr ^ 3"
+  unit: "GPa"
+  prop: shear_modulus_voigt_reuss_hill
+  description: Voigt-Reuss-Hill average of shear modulus
+
+- keywords: 
+  - v_p
+  - vp
+  - primary_velocities
+  fname_pattern: v_p_{base}_km_s.txt
+  var_type: value
+  unit_internal: "km/s"
+  unit: "km/s"
+  prop: primary_velocities
+  description: Primary accoustic wave velocities
+
+- keywords: 
+  - v_s
+  - vs
+  - secondary_velocities
+  fname_pattern: v_s_{base}_km_s.txt
+  var_type: value
+  unit_internal: "km/s"
+  unit: "km/s"
+  prop: secondary_velocities
+  description: Secondary accoustic wave velocities
+
+- keywords: 
+  - v
+  - V
+  - volumes
+  fname_pattern: v_{base}_ang3.txt
+  var_type: value
+  unit_internal: "bohr^3"
+  unit: "angstrom^3"
+  prop: volumes
+  description: Volumes (available only in pressure base)
+
+- keywords: 
+  - p
+  - P
+  - pressures
+  fname_pattern: p_{base}_gpa.txt
+  var_type: value
+  unit_internal: "rydberg / bohr^3"
+  unit: "GPa"
+  prop: pressures
+  description: Pressures (available only in volume base)
