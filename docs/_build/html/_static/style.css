@@ -1,0 +1,10 @@
+.rst-content table.docutils th p:last-child,
+.rst-content table.field-list th p:last-child {
+    margin-bottom: 0px;
+}
+
+.wy-table tbody,
+.rst-content table.docutils tbody,
+.rst-content table.field-list tbody {
+    text-align: left;
+}

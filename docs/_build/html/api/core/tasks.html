@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The phonon contribution tasks module &mdash; qha-Cij  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The phonon contribution module" href="phonon_contribution.html" />
+    <link rel="prev" title="The elastic moduli as a whole" href="full_modulus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> qha-Cij
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/input.html">Building input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/output.html">Output parameters</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../array.html">Conventions for using multi-demensional arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorials</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For developers</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="calculator.html">The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="full_modulus.html">The elastic moduli as a whole</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The phonon contribution tasks module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="phonon_contribution.html">The phonon contribution module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mode_gamma.html">Phonon frequency interpolation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qha_adapter.html">Adapter layer for QHA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plot.html">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util/units.html">Physical unit handling: the <code class="docutils literal notranslate"><span class="pre">cij.util.units</span></code> module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../util/voigt.html">Standard and voigt subscripts: the <code class="docutils literal notranslate"><span class="pre">cij.util.voigt</span></code> module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc.html">Miscellaneous functions: <code class="docutils literal notranslate"><span class="pre">cij.misc</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">qha-Cij</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../api.html">API Documentation</a> &raquo;</li>
+        
+          <li><a href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a> &raquo;</li>
+        
+      <li>The phonon contribution tasks module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/core/tasks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-cij.core.tasks">
+<span id="the-phonon-contribution-tasks-module"></span><h1>The phonon contribution tasks module<a class="headerlink" href="#module-cij.core.tasks" title="Permalink to this headline">¶</a></h1>
+<p>This module analysis the basic units (task) of phonon contribution
+calculation to be performed, and the order they are conducted.</p>
+<dl class="class">
+<dt id="cij.core.tasks.PhononContributionTask">
+<em class="property">class </em><code class="sig-prename descclassname">cij.core.tasks.</code><code class="sig-name descname">PhononContributionTask</code><span class="sig-paren">(</span><em class="sig-param">strain</em>, <em class="sig-param">key</em>, <em class="sig-param">calculator=None</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTask.calc_type">
+<em class="property">property </em><code class="sig-name descname">calc_type</code><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.calc_type" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElasticModulusCalculationType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTask.get_dependencies">
+<code class="sig-name descname">get_dependencies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.get_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>, <a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTask.get_modulus_adiabatic">
+<code class="sig-name descname">get_modulus_adiabatic</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.get_modulus_adiabatic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get phonon contribution of the adiabatic elastic modulus as the
+result of this task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTask.get_modulus_isothermal">
+<code class="sig-name descname">get_modulus_isothermal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.get_modulus_isothermal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get phonon contribution of the isothermal elastic modulus as the 
+result of this task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTask.params">
+<em class="property">property </em><code class="sig-name descname">params</code><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.params" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTask.task_params">
+<em class="property">property </em><code class="sig-name descname">task_params</code><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.task_params" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cij.core.tasks.PhononContributionTaskList">
+<em class="property">class </em><code class="sig-prename descclassname">cij.core.tasks.</code><code class="sig-name descname">PhononContributionTaskList</code><span class="sig-paren">(</span><em class="sig-param">calculator</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserList</span></code></p>
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskList.calculate">
+<code class="sig-name descname">calculate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.calculate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskList.get_adiabatic_results">
+<code class="sig-name descname">get_adiabatic_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.get_adiabatic_results" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskList.get_isothermal_results">
+<code class="sig-name descname">get_isothermal_results</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.get_isothermal_results" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskList.resolve">
+<code class="sig-name descname">resolve</code><span class="sig-paren">(</span><em class="sig-param">strain</em>, <em class="sig-param">keys</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.resolve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the list of phonon calculation tasks based on the initial
+strain and the <span class="math notranslate nohighlight">\(c_{ij}\)</span> keys in topological order, i.e. each task
+should have a smaller index than its dependant.</p>
+<dl>
+<dt>Example</dt><dd><p><span class="math notranslate nohighlight">\(c_{44}\)</span> depends on <span class="math notranslate nohighlight">\(c_{2'2'}\)</span>, <span class="math notranslate nohighlight">\(c_{2'3'}\)</span> and 
+<span class="math notranslate nohighlight">\(c_{3'3'}\)</span>, the order of calculation tasks should be:</p>
+<blockquote>
+<div><p>[<span class="math notranslate nohighlight">\(c_{2'2'}\)</span>, <span class="math notranslate nohighlight">\(c_{2'3'}\)</span>, <span class="math notranslate nohighlight">\(c_{3'3'}\)</span>,
+<span class="math notranslate nohighlight">\(c_{44}\)</span>]</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strain</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – The strains <span class="math notranslate nohighlight">\(e_1/\Delta\)</span>, <span class="math notranslate nohighlight">\(e_2/\Delta\)</span>,
+<span class="math notranslate nohighlight">\(e_3/\Delta\)</span> in the orthogonal coordinates system under
+hydrostatic pressure.</p></li>
+<li><p><strong>keys</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>]) – The symbols :math:<a href="#id1"><span class="problematic" id="id2">`</span></a>c_{ij}`s needs to be calculated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cij.core.tasks.PhononContributionTaskParams">
+<em class="property">class </em><code class="sig-prename descclassname">cij.core.tasks.</code><code class="sig-name descname">PhononContributionTaskParams</code><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<p>Parameters for elastic constants phonon contribution calculation task.</p>
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskParams.calc_type">
+<em class="property">property </em><code class="sig-name descname">calc_type</code><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.calc_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskParams.create">
+<em class="property">classmethod </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">strain</em>, <em class="sig-param">key</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Factory method for creating <code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strain</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – The strains <span class="math notranslate nohighlight">\(e_1/\Delta\)</span>, <span class="math notranslate nohighlight">\(e_2/\Delta\)</span>,
+<span class="math notranslate nohighlight">\(e_3/\Delta\)</span> in the orthogonal coordinates system under
+hydrostatic pressure.</p></li>
+<li><p><strong>key</strong> (<a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>) – The symbol <span class="math notranslate nohighlight">\(c_{ij}\)</span> needs to be calculated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskParams.params">
+<em class="property">property </em><code class="sig-name descname">params</code><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cij.core.tasks.PhononContributionTaskResults">
+<em class="property">class </em><code class="sig-prename descclassname">cij.core.tasks.</code><code class="sig-name descname">PhononContributionTaskResults</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserDict</span></code></p>
+<p>The results of phonon calculation tasks</p>
+<ul class="simple">
+<li><p>Key is <code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></p></li>
+<li><p>Value is <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p></li>
+</ul>
+<dl class="method">
+<dt id="cij.core.tasks.PhononContributionTaskResults.get_results_by_strain_keys">
+<code class="sig-name descname">get_results_by_strain_keys</code><span class="sig-paren">(</span><em class="sig-param">strain</em>, <em class="sig-param">keys</em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskResults.get_results_by_strain_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>The results for given <span class="math notranslate nohighlight">\(c_{ij}\)</span> symbol at given set of strain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strain</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – The strains <span class="math notranslate nohighlight">\(e_1/\Delta\)</span>, <span class="math notranslate nohighlight">\(e_2/\Delta\)</span>,
+<span class="math notranslate nohighlight">\(e_3/\Delta\)</span> in the orthogonal coordinates system under
+hydrostatic pressure.</p></li>
+<li><p><strong>keys</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>]) – The symbols :math:<a href="#id3"><span class="problematic" id="id4">`</span></a>c_{ij}`s are calculated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="phonon_contribution.html" class="btn btn-neutral float-right" title="The phonon contribution module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="full_modulus.html" class="btn btn-neutral float-left" title="The elastic moduli as a whole" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Chenxing Luo
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
