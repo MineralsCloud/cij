@@ -20,6 +20,9 @@ main.add_command(_fill, "fill")
 from cij.cli.extract import main as _extract
 main.add_command(_extract, "extract")
 
+from cij.cli.geotherm import main as _geotherm
+main.add_command(_geotherm, "extract-geotherm")
+
 from cij.cli.modes import main as _modes
 main.add_command(_modes, "modes")
 

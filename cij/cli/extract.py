@@ -12,7 +12,7 @@ def load_data(var):
     df.index = [float(idx) for idx in df.index]
     return df
 
-@click.command(help="Extract the value and create table for multiple variables at specific P or T.")
+@click.command(help="Create data table at specific P or T.")
 @click.option("-T", "--temperature", type=click.FLOAT, help="Specify temperature in K.")
 @click.option("-P", "--pressure", type=click.FLOAT, help="Specify tressure in GPa.")
 @click.option("-v", "--variables", required=True, help="Variables to output.")

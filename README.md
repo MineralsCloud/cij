@@ -21,25 +21,27 @@ Options:
   --help     Show this message and exit.
 
 Commands:
-  extract     Extract the value and create table for multiple variables at...
-  fill        Fill non-zero Cij terms based on symmetry.
-  modes       Plot interpolated mode frequency vs volume.
-  plot        Plot SAM-Cij calculation results.
-  run         Perform SAM-Cij calculation.
-  run-static  Calculate elastic moduli and acoustic velocities.
+  extract           Create data table at specific P or T.
+  extract-geotherm  Create data table at geotherm PT.
+  fill              Fill non-zero Cij terms based on symmetry.
+  modes             Plot interpolated mode frequency vs volume.
+  plot              Plot SAM-Cij calculation results.
+  run               Perform SAM-Cij calculation.
+  run-static        Calculate elastic moduli and acoustic velocities.
 ```
 
 And are avaliable as standalone commands:
 
 - **`cij-run`**         - Perform SAM-Cij calculation.
 - **`cij-run-static`**  - Calculate elastic moduli and acoustic velocities.
-- **`cij-extract`**     - Extract the value and create table for multiple variables at spcific P or T.
+- **`cij-extract`**     - Extract the value and create data table for multiple variables at geotherm PT.
+- **`cij-extract-geotherm`** - Extract the value and create data table for multiple variables at spcific P or T.
 - **`cij-fill`**        - Fill non-zero Cij terms based on symmetry.
 - **`cij-modes`**       - Plot interpolated mode frequency vs volume.
 - **`cij-plot`**        - Plot SAM-Cij calculation results.
 
 
-### SAM-Cij calculations with `qha-cij` or `cij run`
+### SAM-Cij calculations with `cij run`
 
 #### Configuration file
 
