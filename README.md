@@ -10,17 +10,8 @@ The package can be installed with `pip` package manager.
 
 ### Command-line programs
 
-The packge is shipped with the following command-line programs:
-
-- **`qha-cij`**         - Perform SAM-Cij calculation.
-- **`qha-cij-static`** - Calculate elastic moduli and acoustic velocities.
-- **`qha-cij-extract`**     - Extract the value and create table for multiple variables at spcific P or T.
-- **`qha-cij-fill`**        - Fill non-zero Cij terms based on symmetry.
-- **`qha-cij-modes`**       - Plot interpolated mode frequency vs volume.
-- **`qha-cij-plot`**        - Plot SAM-Cij calculation results.
-
-And is avaliable as sub-commands of the `cij` program:
-
+After installation, the Cij program can be started by typing `cij` at your 
+command prompt:
 
 ```
 Usage: cij [OPTIONS] COMMAND [ARGS]...
@@ -37,6 +28,16 @@ Commands:
   run         Perform SAM-Cij calculation.
   run-static  Calculate elastic moduli and acoustic velocities.
 ```
+
+And are avaliable as standalone commands:
+
+- **`cij-run`**         - Perform SAM-Cij calculation.
+- **`cij-run-static`**  - Calculate elastic moduli and acoustic velocities.
+- **`cij-extract`**     - Extract the value and create table for multiple variables at spcific P or T.
+- **`cij-fill`**        - Fill non-zero Cij terms based on symmetry.
+- **`cij-modes`**       - Plot interpolated mode frequency vs volume.
+- **`cij-plot`**        - Plot SAM-Cij calculation results.
+
 
 ### SAM-Cij calculations with `qha-cij` or `cij run`
 
@@ -74,7 +75,7 @@ Options:
 
 See [GitHub pages][1].
 
-[1]: https://mineralscloud.github.io/qha-cij
+[1]: https://mineralscloud.github.io/cij
 
 ## Author
 

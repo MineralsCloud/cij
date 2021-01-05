@@ -9,7 +9,7 @@ setup(
     description='High temperature thermal elasticity',
     author='Chenxing Luo',
     author_email='chenxing.luo@columbia.edu',
-    url='https://github.com/MineralsCloud/qha-cij/',
+    url='https://github.com/MineralsCloud/cij/',
     packages=find_packages(),
     install_requires=[
         "numpy >= 1.10.0",
