@@ -8,7 +8,7 @@ from numpy import newaxis as nax
 import scipy.interpolate
 from lazy_property import LazyProperty
 
-from qha.fitting import polynomial_least_square_fitting
+# from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
 
 from cij.util import units, C_, E_, c_, e_, _to_gpa, _from_gpa
@@ -56,11 +56,9 @@ class FullThermalElasticModulus:
         '''
 
         strains = calculate_eulerian_strain(self.volumes[0], self.volumes)
-        strain_array = calculate_eulerian_strain(self.volumes[0], self.v_array)
-        _, modulus_array = polynomial_least_square_fitting(
-            strains, moduli, strain_array,
-            order=order
-        )
+        strain_array = calculate_eulerian_strain(self.volumes, self.v_array)
+        p = numpy.polyfit(strains, self.volumes * moduli, deg = order + 1)
+        modulus_array = numpy.polyval(p, strain_array) / self.v_array
         return modulus_array
     
     def get_static_modulus(self, key: C_):
