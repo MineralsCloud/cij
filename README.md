@@ -33,34 +33,56 @@ Commands:
   run-static        Calculate elastic moduli and acoustic velocities.
 ```
 
-And are avaliable as standalone commands:
-
-- **`cij-run`**         - Perform SAM-Cij calculation.
-- **`cij-run-static`**  - Calculate elastic moduli and acoustic velocities.
-- **`cij-extract`**     - Extract the value and create data table for multiple variables at geotherm PT.
-- **`cij-extract-geotherm`** - Extract the value and create data table for multiple variables at spcific P or T.
-- **`cij-fill`**        - Fill non-zero Cij terms based on symmetry.
-- **`cij-modes`**       - Plot interpolated mode frequency vs volume.
-- **`cij-plot`**        - Plot SAM-Cij calculation results.
-
-
 ### SAM-Cij calculations with `cij run`
 
-#### Configuration file
+#### Calculation settings file and example
+
+The `settings.yaml` file is home to all calculation settings. One needs to specify calculation parameters, such as thermal EoS fitting parameters, phonon interpolation settings, input data location, and output variables to store in YAML format. The following is an example settings file.
 
 ```yml
 qha:
   input: input01
   settings:
-    # QHA settings here ...
+    # similar to settings in qha
+    DT: 100
+    P_MIN: 0
+    DELTA_P: 0.5
+    NTV: 81
+    order: 3
+    static_only: False
+    T_MIN: 0
+    NT: 31
+    DT_SAMPLE: 100
+    DELTA_P_SAMPLE: 5
+    volume_ratio: 1.2
 elast:
   input: elast.dat
   settings:
     mode_gamma:
       interpolator: spline
-      order: 5
-    symmetry: cubic
+      order: 3
+    system: cubic
+output:
+  pressure_base:
+    - cij
+    - vs
+    - vp
+    - bm_V
+    - bm_R
+    - bm_VRH
+    - G_V
+    - G_R
+    - G_VRH
+    - v
+  volume_base:
+    - p
+    # ...
+
 ```
+
+#### Input data
+
+Input data include a QHA input data file (`input01`) and a static elasticity input data (`elast.dat`). See the paper or detailed documentation for description and the `examples` folder for detailed example.
 
 #### Command line arguments
 
@@ -76,11 +98,6 @@ Options:
   --help                          Show this message and exit.
 ```
 
-## Documentation
-
-See [GitHub pages][1].
-
-[1]: https://mineralscloud.github.io/cij
 
 ## Structure of the `cij` package
 
@@ -95,30 +112,34 @@ The Python code is organized into several modules:
 	- `phonon_contribution`: Calculate phonon *c<sub>ij</sub>*<sup>ph</sup>.
 	full_modulus – Interpolate *c<sub>ij</sub>*<sup>st</sup> vs. *V*, and calculate *c<sub>ij</sub><sup>S</sup>* and *c<sub>ij</sub><sup>T</sup>*.
 tasks – Handles the ordering of *c<sub>ij</sub>*<sup>ph</sup> calculation.
-
 - **`cij.util`**: Methods used in the main program
 	- `voigt`: Convert between Voigt (*c<sub>ij</sub>*) and regular (*c<sub>ijkl</sub>*) notations of elastic coefficients.
 	- `units`: Handle unit conversion.
-
 - **`cij.io`**: Input output functions and classes.
 - **`cij.plot`**: Plotting functionalities.
 - **`cij.cli`**: Command-line programs
-	- `cij run` (main.py) – Perform a SAM-Cij calculation.
+	- `cij run` (`main.py`) – Perform a SAM-Cij calculation.
 	- `cij run-static` (`static.py`) – Calculate static elastic properties.
 	- `cij extract` (`extract.py`) – Extract calculation results for a specific *T* or *P* to a table.
-	cij extract-geotherm (geotherm.py) – Extract calculation results along geotherm PT (given as input) to a table.
+	- `cij extract-geotherm` (`geotherm.py`) – Extract calculation results along geotherm *PT* (given as input) to a table.
 	- `cij plot` (`plot.py`) – Convert output data table to PNG plot.
 	- `cij modes` (`modes.py`) – Plot phonon frequency interpolation results.
   - `cij fill` (`fill.py`) – Fill all the non-zero terms for elastic coefficients given the constraint of a crystal system.
-
 - **`cij.data`**: Data distributed with the program, e.g., the relationship between *c<sub>ij</sub>*’s for different crystal systems, the naming scheme for output files, etc.
 - **`cij.misc`**: Miscellaneous functionalities that are not used in the main program, e.g., methods that facilitate the preparation of input files.
 
-
-
 ## Author
 
-The code in this repo is initially authored by Chenxing Luo.
+The code in this repo is initially authored by [Chenxing Luo][1].
+
+[1]: https://github.com/chazeon
+
+
+## Documentation
+
+See [GitHub pages][1].
+
+[1]: https://mineralscloud.github.io/cij
 
 ## Licence
 
