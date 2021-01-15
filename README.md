@@ -4,7 +4,10 @@ Calculate high temperature thermal elasticity in Python.
 
 ## Installation
 
-The package can be installed with `pip` package manager.
+The package can be installed with `pip` package manager:
+
+At the command prompt, one should navigate to the directory that contains the
+`setup.py` script and execute `pip install .`. Then, the package should be ready for use.
 
 ## Usage
 
@@ -78,6 +81,40 @@ Options:
 See [GitHub pages][1].
 
 [1]: https://mineralscloud.github.io/cij
+
+## Structure of the `cij` package
+
+The cij package is written in Python 3. The Python source code is located in the `cij` sub-folder.
+Input for three examples in the `examples` sub-folder, documentation in the `docs` sub-folder, and the installation script `setup.py`.
+
+The Python code is organized into several modules:
+
+- **`cij.core`**: Core functionalities
+	- `calculator`: The calculator that controls the workflow.
+	- `mode_gamma`: Interpolate phonon frequencies and calculate mode Grüneisen parameters.
+	- `phonon_contribution`: Calculate phonon *c<sub>ij</sub>*<sup>ph</sup>.
+	full_modulus – Interpolate *c<sub>ij</sub>*<sup>st</sup> vs. *V*, and calculate *c<sub>ij</sub><sup>S</sup>* and *c<sub>ij</sub><sup>T</sup>*.
+tasks – Handles the ordering of *c<sub>ij</sub>*<sup>ph</sup> calculation.
+
+- **`cij.util`**: Methods used in the main program
+	- `voigt`: Convert between Voigt (*c<sub>ij</sub>*) and regular (*c<sub>ijkl</sub>*) notations of elastic coefficients.
+	- `units`: Handle unit conversion.
+
+- **`cij.io`**: Input output functions and classes.
+- **`cij.plot`**: Plotting functionalities.
+- **`cij.cli`**: Command-line programs
+	- `cij run` (main.py) – Perform a SAM-Cij calculation.
+	- `cij run-static` (`static.py`) – Calculate static elastic properties.
+	- `cij extract` (`extract.py`) – Extract calculation results for a specific *T* or *P* to a table.
+	cij extract-geotherm (geotherm.py) – Extract calculation results along geotherm PT (given as input) to a table.
+	- `cij plot` (`plot.py`) – Convert output data table to PNG plot.
+	- `cij modes` (`modes.py`) – Plot phonon frequency interpolation results.
+  - `cij fill` (`fill.py`) – Fill all the non-zero terms for elastic coefficients given the constraint of a crystal system.
+
+- **`cij.data`**: Data distributed with the program, e.g., the relationship between *c<sub>ij</sub>*’s for different crystal systems, the naming scheme for output files, etc.
+- **`cij.misc`**: Miscellaneous functionalities that are not used in the main program, e.g., methods that facilitate the preparation of input files.
+
+
 
 ## Author
 
