@@ -31,8 +31,8 @@ def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_r
     from qha.v2p import v2p
 
     from cij.io.traditional import read_elast_data, read_energy
-    from cij.util.units import _from_gpa, _to_gpa, _from_ang3, _to_ang3, _to_gcm3, _to_ev
     from cij.util import c_
+    from cij.util.units import convert_unit, _from_gpa, _to_gpa, _from_ang3, _to_ang3, _to_gcm3, _to_ev, _to_kms
     from cij.util.fill import fill_cij
     from cij.data import get_data_fname
 
@@ -177,7 +177,6 @@ def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_r
         df.loc[:, "v_s"] = numpy.sqrt(df.loc[:, "G_VRH"] / df.loc[:, "density"])
         df.loc[:, "v_phi"] = numpy.sqrt(df.loc[:, "bm_VRH"] / df.loc[:, "density"])
 
-        _to_kms = convert_unit((units.GPa / (units.g / units.cm ** 3)) ** (1/2), units.km / units.s)
         df["v_p"] = _to_kms(df["v_p"].to_numpy())
         df["v_s"] = _to_kms(df["v_s"].to_numpy())
         df["v_phi"] = _to_kms(df["v_phi"].to_numpy())

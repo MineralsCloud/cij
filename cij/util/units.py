@@ -83,3 +83,11 @@ def _to_gcm3(value: _T) -> _T:
         units.g / units.cm ** 3,
         value
     )
+
+
+def _to_kms(value: _T) -> _T:
+    return convert_unit(
+        (units.GPa / (units.g / units.cm ** 3)) ** (1/2),
+        units.km / units.s,
+        value
+    )
