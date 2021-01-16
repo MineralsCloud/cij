@@ -1,0 +1,45 @@
+qha:
+  input: input01
+  settings:
+    T_MIN: 0
+    NT: 38
+    DT: 50
+    P_MIN: 0
+    DELTA_P: .5
+    NTV: 51
+    order: 3
+    static_only: False
+    DT_SAMPLE: 50
+    DELTA_P_SAMPLE: 1
+    volume_ratio: 1.25
+  frequency: hbar
+elast:
+  input: input02
+  settings:
+    mode_gamma:
+      interpolator: spline
+      order: 3
+output:
+  pressure_base:
+    - cij
+    - vs
+    - vp
+    - bm_V
+    - bm_R
+    - bm_VRH
+    - G_V
+    - G_R
+    - G_VRH
+    - V
+  volume_base:
+    - cij
+    - vs
+    - vp
+    - P
+    - bm_V
+    - bm_R
+    - bm_VRH
+    - G_V
+    - G_R
+    - G_VRH
+ 

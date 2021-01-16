@@ -1,0 +1,35 @@
+qha:
+  input: input01
+  settings:
+    DT: 100
+    P_MIN: 0
+    DELTA_P: 0.5
+    NTV: 81
+    order: 3
+    static_only: False
+    T_MIN: 0
+    NT: 31
+    DT_SAMPLE: 100
+    DELTA_P_SAMPLE: 5
+    volume_ratio: 1.2
+elast:
+  input: input02
+  settings:
+    mode_gamma:
+      interpolator: spline
+      order: 3
+    system: trigonal8
+output:
+  pressure_base:
+    - cij
+    - vs
+    - vp
+    - bm_V
+    - bm_R
+    - bm_VRH
+    - G_V
+    - G_R
+    - G_VRH
+    - v
+  volume_base:
+    - p

@@ -1,0 +1,34 @@
+qha:
+  input: input01
+  settings:
+    P_MIN: 0
+    DELTA_P: 5
+    DELTA_P_SAMPLE: 5
+    NTV: 31
+    order: 3
+    static_only: False
+    T_MIN: 0
+    NT: 41
+    DT: 100
+    DT_SAMPLE: 100
+    volume_ratio: 1.2
+elast:
+  input: elast.dat
+  settings:
+    mode_gamma:
+      interpolator: spline
+      order: 3
+output:
+  pressure_base:
+    - cij
+    - vs
+    - vp
+    - bm_V
+    - bm_R
+    - bm_VRH
+    - G_V
+    - G_R
+    - G_VRH
+    - v
+  volume_base:
+    - p
