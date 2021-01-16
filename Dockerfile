@@ -14,7 +14,7 @@ RUN git clone https://github.com/MineralsCloud/qha.git \
 
 RUN git clone https://github.com/MineralsCloud/cij.git \
   && cd cij \
-  && git checkout a878a654158db0de5942698bd4df301b7764d812 \
+  && git checkout ae910b2a9029bcd1ad742bb0ac95899da6f3a77d \
   && pip3 install --no-cache-dir . \
   && cd .. \
   && rm -r cij
