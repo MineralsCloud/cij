@@ -82,7 +82,7 @@ output:
 
 #### Input data
 
-Input data include a QHA input data file (`input01`) and a static elasticity input data (`elast.dat`). See the paper or detailed documentation for description and the `examples` folder for detailed example.
+Input data include a QHA input data file (`input01`) and a static elasticity input data (`elast.dat`). See the paper or detailed documentation for description and the [`examples`](./examples) folder for detailed example.
 
 #### Command line arguments
 
@@ -143,4 +143,4 @@ See [GitHub pages][1].
 
 ## Licence
 
-Released under GNU GPLv3 license.
+Released under [GNU GPLv3](./LICENCE) license.
