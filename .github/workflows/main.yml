@@ -30,6 +30,10 @@ jobs:
         run: |
           pip3 install -e .
           pip3 install -r dev-requirements.txt
+      
+      - name: Install pandoc
+        run: |
+          apt-get install pandoc
 
       # Build docs
       - name: Build docs
