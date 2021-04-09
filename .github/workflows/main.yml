@@ -46,7 +46,13 @@ jobs:
           cd docs/_build/html
           git init
 
-      - name: Push changes
+      - name: Delete docs branch
+        uses: dawidd6/action-delete-branch@v3
+        with:
+          github_token: ${{ secrets.DOCS_TOKEN }}
+          branches: docs
+
+      - name: Push changes to new docs branch
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.DOCS_TOKEN }}
