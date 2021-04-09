@@ -3,3 +3,4 @@ sphinx-autobuild
 sphinx-jinja
 sphinx-rtd-theme
 sphinx-autodoc-typehints
+nbsphinx
