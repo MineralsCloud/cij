@@ -35,22 +35,21 @@ jobs:
         run: |
           sudo apt-get install pandoc
 
+      - name: Create empty docs directory
+        run: |
+          mkdir -p docs/_build/html
+
+      - name: Clone the directory
+        uses: actions/checkout@v2
+        with:
+          ref: docs
+          path: 'docs/_build/html'
+
       # Build docs
       - name: Build docs
         run: |
           cd docs
           make html
-
-      - name: Create an empty repo
-        run: |
-          cd docs/_build/html
-          git init
-
-      - name: Delete docs branch
-        uses: dawidd6/action-delete-branch@v3
-        with:
-          github_token: ${{ secrets.DOCS_TOKEN }}
-          branches: docs
 
       - name: Push changes to new docs branch
         uses: ad-m/github-push-action@master
