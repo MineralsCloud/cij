@@ -40,3 +40,11 @@ jobs:
         run: |
           cd docs
           make html
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.DOCS_TOKEN }}
+          branch: docs
+          directory: ./docs/_build/html
+          force: true
