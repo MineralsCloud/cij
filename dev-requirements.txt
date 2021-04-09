@@ -4,3 +4,4 @@ sphinx-jinja
 sphinx-rtd-theme
 sphinx-autodoc-typehints
 nbsphinx
+pygments>=2.4.1
