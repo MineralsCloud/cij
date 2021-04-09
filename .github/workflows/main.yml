@@ -41,6 +41,11 @@ jobs:
           cd docs
           make html
 
+      - name: Create an empty repo
+        run: |
+          cd docs/_build/html
+          git init
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
