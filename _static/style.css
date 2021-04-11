@@ -8,3 +8,11 @@
 .rst-content table.field-list tbody {
     text-align: left;
 }
+
+.rst-content .section ol li>ol,
+.rst-content .section ol li>ul,
+.rst-content .section ul li>ol,
+.rst-content .section ul li>ul {
+    margin-bottom: 0;
+    margin-top: 0;
+}
