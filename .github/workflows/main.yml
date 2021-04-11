@@ -52,7 +52,7 @@ jobs:
           cd docs
           pwd -P
           make html
-          ls _build/html
+          ls -la _build/html
 
       - name: Push changes to new docs branch
         uses: ad-m/github-push-action@master
