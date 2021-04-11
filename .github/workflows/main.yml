@@ -50,6 +50,7 @@ jobs:
         run: |
           cd docs/_build/html
           git rm -r *
+          git rm -r ./.*
           
       # Build docs
       - name: Build docs
@@ -61,7 +62,7 @@ jobs:
         run: |
           cd docs/_build/html
           git add *
-          git add .*
+          git add ./.*
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Update docs"
