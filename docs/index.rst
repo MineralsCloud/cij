@@ -19,6 +19,7 @@ Welcome to Cij's documentation!
    :glob:
 
    usage/installation
+   usage/cli
    usage/input
    usage/output
    usage/faq

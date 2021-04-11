@@ -6,3 +6,4 @@ sphinx-rtd-theme
 sphinx-autodoc-typehints
 nbsphinx
 pygments>=2.4.1
+sphinx-click
