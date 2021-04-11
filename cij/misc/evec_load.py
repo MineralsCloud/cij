@@ -1,9 +1,14 @@
+'''Load displacement vector files (fleig, vlvec) from Quantum ESPRESSO's matdyn
+output
+'''
+
 import re
 import io
 import itertools
-from logging import Logger
+import logging
 
-logger = Logger(__file__)
+
+logger = logging.getLogger(__file__)
 
 Q_COORDS_REGEX = re.compile(r"q\s*=\s*(-?\d+\.?\d*)\s+(-?\d+\.?\d*)\s+(-?\d+\.?\d*)")
 MODE_INDEX_REGEX = re.compile(r"freq\s*\(\s*(\d+)\)\s*=\s*(-?\d+\.?\d*)\s*\[THz\]\s*=\s*(-?\d+\.?\d*)\s*\[cm\-1\]")
