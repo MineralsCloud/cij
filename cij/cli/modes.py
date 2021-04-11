@@ -1,6 +1,6 @@
 import click
 
-@click.command(help="Plot interpolated mode frequency vs volume.")
+@click.command("modes", help="Plot interpolated mode frequency vs volume.")
 @click.argument("fname", type=click.Path(exists=True))
 @click.option("-q", "--iq", type=click.INT, default=0, help="i-th q-point")
 @click.option("-n", type=click.IntRange(0, 3), default=0, help="n-th derivative") 

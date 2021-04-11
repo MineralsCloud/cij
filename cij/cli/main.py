@@ -9,7 +9,7 @@ def run(config_fname: str):
     calculator = cij.core.calculator.Calculator(config_fname)
     calculator.write_output()
     
-@click.command(help="Perform SAM-Cij calculation.")
+@click.command("run", help="Perform SAM-Cij calculation.")
 @click.argument("settings_filename", type=click.Path(exists=True))
 @click.version_option(version=__version__, prog_name="Cij")     # pylint: disable=undefined-variable
 @click.option("--debug", default="INFO", type=click.Choice(logging._levelToName.values()), help="Logging level")

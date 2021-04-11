@@ -5,7 +5,7 @@ from logging import getLogger
 logger = getLogger(__name__)
 
 
-@click.command(help="Calculate elastic moduli and acoustic velocities.")
+@click.command("run-static", help="Calculate elastic moduli and acoustic velocities.")
 @click.argument("input01", type=click.Path(exists=True))
 @click.argument("input02", required=False, type=click.Path(exists=True))
 @click.option("-I", "--interp", type=click.Choice(["none", "pressure", "volume"]), default="none")

@@ -1,6 +1,6 @@
 import click
 
-@click.command(help="Fill non-zero Cij terms based on symmetry.")
+@click.command("fill", help="Fill non-zero Cij terms based on symmetry.")
 @click.argument("fname", type=click.Path(exists=True))
 @click.option("-s", "--system")
 @click.option("--ignore-residuals", is_flag=True)

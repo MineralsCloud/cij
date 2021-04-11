@@ -3,7 +3,7 @@ from glob import glob
 import click
 
 
-@click.command(help="Plot SAM-Cij calculation results.")
+@click.command("plot", help="Plot SAM-Cij calculation results.")
 @click.argument("patterns", nargs=-1)
 def main(patterns):
 

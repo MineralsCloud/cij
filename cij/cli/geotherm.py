@@ -21,7 +21,7 @@ def fit_data(df):
     z = df.to_numpy()
     return RectBivariateSpline(x, y, z)
 
-@click.command(help="Create data table at geotherm PT.")
+@click.command("geotherm", help="Create data table at geotherm PT.")
 @click.option("-i", "-g", "--geotherm", required=True, help="The file name of geotherm P, D, T map.", type=click.Path(exists=True))
 @click.option("--t-col", help="The name of geotherm pressure column.", default="P")
 @click.option("--p-col", help="The name of geotherm temperature column", default="T")
