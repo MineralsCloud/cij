@@ -37,6 +37,7 @@ jobs:
 
       - name: Create empty docs directory
         run: |
+          pwd -P
           mkdir -p docs/_build/html
 
       - name: Clone the directory
@@ -49,7 +50,9 @@ jobs:
       - name: Build docs
         run: |
           cd docs
+          pwd -P
           make html
+          ls _build/html
 
       - name: Push changes to new docs branch
         uses: ad-m/github-push-action@master
