@@ -8,4 +8,5 @@ API Documentation
     api/plot
     api/util/units
     api/util/voigt
+    api/util/fill
     api/misc
