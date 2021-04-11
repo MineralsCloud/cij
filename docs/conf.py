@@ -18,8 +18,10 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = "qha-Cij"
-copyright = "2020, Chenxing Luo"
+from datetime import datetime
+
+project = "Cij"
+copyright = f"2020-{datetime.today().year}, Chenxing Luo"
 author = "Chenxing Luo"
 
 
