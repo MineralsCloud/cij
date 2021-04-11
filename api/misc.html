@@ -232,7 +232,7 @@ respect to another set of eigenvectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>target_arr</strong> – The array of element to be sorted</p></li>
+<li><p><strong>target_arr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – The array of element to be sorted</p></li>
 <li><p><strong>target_evecs</strong> – The array of eigenvectors with one-on-one corresponds
 to <code class="docutils literal notranslate"><span class="pre">target_arr</span></code></p></li>
 <li><p><strong>base_evecs</strong> – The array of eigenvectors as alignment.</p></li>
@@ -240,6 +240,12 @@ to <code class="docutils literal notranslate"><span class="pre">target_arr</span
 actually happens.</p></li>
 <li><p><strong>threshold</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – below which threshold the error should be raised.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The sorted array of elements</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
