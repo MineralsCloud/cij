@@ -56,8 +56,14 @@ jobs:
         run: |
           cd docs
           make html
-          git status
-          ls -la _build/html
+          
+      - name: Add docs
+        run: |
+          cd docs/_build/html
+          git add *
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Update docs" -a
 
       - name: Push changes to new docs branch
         uses: ad-m/github-push-action@master
