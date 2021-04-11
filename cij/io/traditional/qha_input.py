@@ -85,7 +85,7 @@ def read_energy(fname: str) -> QHAInputData:
             qha_input_data.volumes.append(volume)
 
         for line in fp:
-            if line.strip() == "weight":
+            if line.strip() in ["weight", "weights"]:
                 break
 
         for weight in _read_weights(fp, qha_input_data.nq):
