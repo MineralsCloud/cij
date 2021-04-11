@@ -1,12 +1,12 @@
-.. qha-cij documentation master file, created by
+.. Cij documentation master file, created by
    sphinx-quickstart on Thu Jan 23 16:55:21 2020.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to qha-cij's documentation!
-===================================
+Welcome to Cij's documentation!
+======================================
 
-**qha-cij** is a program that calculates elastic and accoustic properties of minerals at finite temperature.
+**Cij** is a program that calculates elastic and accoustic properties of minerals at finite temperature.
 
 .. toctree::
    :hidden:
