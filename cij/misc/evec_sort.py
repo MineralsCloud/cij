@@ -3,7 +3,7 @@
 
 import numpy
 
-def evec_sort(target_arr, target_evecs, base_evecs, filter: callable = None, threshold: float = None):
+def evec_sort(target_arr: list, target_evecs, base_evecs, filter: callable = None, threshold: float = None) -> list:
     '''Sort elements of an array based on the eigenvector similarities with
     respect to another set of eigenvectors.
 
@@ -14,6 +14,8 @@ def evec_sort(target_arr, target_evecs, base_evecs, filter: callable = None, thr
     :param filter: the filter to apply on the dot product before the sorting
         actually happens.
     :param threshold: below which threshold the error should be raised.
+
+    :returns: The sorted array of elements
 
     :raises: ``RuntimeError``
     '''
