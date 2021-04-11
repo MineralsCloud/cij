@@ -21,6 +21,7 @@ Welcome to qha-cij's documentation!
    usage/installation
    usage/input
    usage/output
+   usage/faq
 
 .. toctree::
    :caption: Tutorials
