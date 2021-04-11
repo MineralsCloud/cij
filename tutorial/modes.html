@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Checking interpolation of phonon modes &mdash; qha-Cij  documentation</title>
@@ -92,13 +91,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
 </ul>
-<p><span class="caption-text">For users</span></p>
+<p class="caption"><span class="caption-text">For users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/input.html">Building input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/output.html">Output parameters</a></li>
 </ul>
-<p><span class="caption-text">Tutorials</span></p>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../array.html">Conventions for using multi-demensional arrays</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorials</a><ul class="current">
@@ -111,7 +110,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">For developers</span></p>
+<p class="caption"><span class="caption-text">For developers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 </ul>
@@ -453,10 +452,10 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Checking-interpolation-of-phonon-modes">
+<div class="section" id="Checking-interpolation-of-phonon-modes">
 <h1>Checking interpolation of phonon modes<a class="headerlink" href="#Checking-interpolation-of-phonon-modes" title="Permalink to this headline">¶</a></h1>
 <p>In this tutorial, we will try to plot the phonon modes and its derivatives as functions of volume.</p>
-<section id="Load-the-configuration-and-run-the-Calculator">
+<div class="section" id="Load-the-configuration-and-run-the-Calculator">
 <h2>Load the configuration and run the <code class="docutils literal notranslate"><span class="pre">Calculator</span></code><a class="headerlink" href="#Load-the-configuration-and-run-the-Calculator" title="Permalink to this headline">¶</a></h2>
 <p>Same as performing calculations programatically, we need to load the <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code> calculator first.</p>
 <div class="nbinput docutils container">
@@ -492,8 +491,8 @@ calculator = cij.core.calculator.Calculator(&quot;_attachments/plotting/config.y
   return self.Q / (numpy.exp(self.Q) - 1)
 </pre></div></div>
 </div>
-</section>
-<section id="Plotting-the-interploated-phonon-modes-and-its-derivatives">
+</div>
+<div class="section" id="Plotting-the-interploated-phonon-modes-and-its-derivatives">
 <h2>Plotting the interploated phonon modes and its derivatives<a class="headerlink" href="#Plotting-the-interploated-phonon-modes-and-its-derivatives" title="Permalink to this headline">¶</a></h2>
 <p>To plot phonon modes, we could use the <code class="docutils literal notranslate"><span class="pre">ModePlotter</span></code> module.</p>
 <p>To use this module, we mport it first, and create a <code class="docutils literal notranslate"><span class="pre">ModePlotter</span></code> object <code class="docutils literal notranslate"><span class="pre">plotter</span></code> and initialize it with the <code class="docutils literal notranslate"><span class="pre">Calculator</span></code> we prepared above. With the <code class="docutils literal notranslate"><span class="pre">plotter</span></code> we can easily plot the interpolated mode frequency <span class="math notranslate nohighlight">\(\omega_{qm}(V)\)</span>, Grüneisen parameter <span class="math notranslate nohighlight">\(\gamma_{qm}(V)\)</span> and <span class="math notranslate nohighlight">\(V\partial\gamma_{qm}/\partial V\)</span> with it.</p>
@@ -596,8 +595,8 @@ plt.show()
 <img alt="../_images/tutorial_modes_8_0.png" src="../_images/tutorial_modes_8_0.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

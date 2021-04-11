@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Plotting elasticity and accoustic velocities at high PT with qha-cij &mdash; qha-Cij  documentation</title>
@@ -92,13 +91,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
 </ul>
-<p><span class="caption-text">For users</span></p>
+<p class="caption"><span class="caption-text">For users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/input.html">Building input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/output.html">Output parameters</a></li>
 </ul>
-<p><span class="caption-text">Tutorials</span></p>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../array.html">Conventions for using multi-demensional arrays</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorials</a><ul class="current">
@@ -111,7 +110,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">For developers</span></p>
+<p class="caption"><span class="caption-text">For developers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 </ul>
@@ -453,10 +452,10 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Plotting-elasticity-and-accoustic-velocities-at-high-PT-with-qha-cij">
+<div class="section" id="Plotting-elasticity-and-accoustic-velocities-at-high-PT-with-qha-cij">
 <h1>Plotting elasticity and accoustic velocities at high PT with <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code><a class="headerlink" href="#Plotting-elasticity-and-accoustic-velocities-at-high-PT-with-qha-cij" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial demostrate how to programmingly invoke <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code> package in Python, and how to plot with it.</p>
-<section id="Load-the-configuration-and-run-the-Calculator">
+<div class="section" id="Load-the-configuration-and-run-the-Calculator">
 <h2>Load the configuration and run the <code class="docutils literal notranslate"><span class="pre">Calculator</span></code><a class="headerlink" href="#Load-the-configuration-and-run-the-Calculator" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -510,8 +509,8 @@ calculator = cij.core.calculator.Calculator(&quot;_attachments/plotting/config.y
 04 -&gt; dict_keys([11(1111), 12(1122), 22(2222)])
 </pre></div></div>
 </div>
-</section>
-<section id="Plotting-elastic-moduli">
+</div>
+<div class="section" id="Plotting-elastic-moduli">
 <h2>Plotting elastic moduli<a class="headerlink" href="#Plotting-elastic-moduli" title="Permalink to this headline">¶</a></h2>
 <p>Here we prepare a plot for <span class="math notranslate nohighlight">\(c_{ij}\)</span> for forsterite.</p>
 <p>First let’s setup matplotlib</p>
@@ -616,8 +615,8 @@ plt.show()
 <img alt="../_images/tutorial_plotting_10_0.png" src="../_images/tutorial_plotting_10_0.png" />
 </div>
 </div>
-</section>
-<section id="Plotting-accoustic-velocities">
+</div>
+<div class="section" id="Plotting-accoustic-velocities">
 <h2>Plotting accoustic velocities<a class="headerlink" href="#Plotting-accoustic-velocities" title="Permalink to this headline">¶</a></h2>
 <p>Next we plot primary velocities <span class="math notranslate nohighlight">\(v_\text{s}\)</span> and secondary velocities <span class="math notranslate nohighlight">\(v_\text{p}\)</span></p>
 <div class="nbinput docutils container">
@@ -657,8 +656,8 @@ plt.show()
 <img alt="../_images/tutorial_plotting_13_0.png" src="../_images/tutorial_plotting_13_0.png" />
 </div>
 </div>
-</section>
-<section id="Plotting-with-plotter">
+</div>
+<div class="section" id="Plotting-with-plotter">
 <h2>Plotting with plotter<a class="headerlink" href="#Plotting-with-plotter" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -801,8 +800,8 @@ plt.show()
 </pre></div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

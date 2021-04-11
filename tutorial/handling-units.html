@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Unit handling and unit conversions in qha-cij &mdash; qha-Cij  documentation</title>
@@ -92,13 +91,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
 </ul>
-<p><span class="caption-text">For users</span></p>
+<p class="caption"><span class="caption-text">For users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/input.html">Building input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/output.html">Output parameters</a></li>
 </ul>
-<p><span class="caption-text">Tutorials</span></p>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../array.html">Conventions for using multi-demensional arrays</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorials</a><ul class="current">
@@ -111,7 +110,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">For developers</span></p>
+<p class="caption"><span class="caption-text">For developers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 </ul>
@@ -453,10 +452,10 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="Unit-handling-and-unit-conversions-in-qha-cij">
+<div class="section" id="Unit-handling-and-unit-conversions-in-qha-cij">
 <h1>Unit handling and unit conversions in <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code><a class="headerlink" href="#Unit-handling-and-unit-conversions-in-qha-cij" title="Permalink to this headline">¶</a></h1>
 <p>For the convenience of calculation, the physical quantities in <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code> are all stored in <a class="reference external" href="https://faculty.kfupm.edu.sa/phys/aanaqvi/rydberg.pdf">Rydberg atomic units</a>. But to make things easier for user, we use units that is reported by scientists. Natually, there is a lot of unit handling involved. This tutorial will demostrate how unit conversions are done in <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code>, so that if there is a need for you to address units issues on your own, you will not be lost.</p>
-<section id="The-units-module">
+<div class="section" id="The-units-module">
 <h2>The <code class="docutils literal notranslate"><span class="pre">units</span></code> module<a class="headerlink" href="#The-units-module" title="Permalink to this headline">¶</a></h2>
 <p>The units module is provided in <code class="docutils literal notranslate"><span class="pre">cij.util</span></code>. Based on the <a class="reference external" href="https://pint.readthedocs.io/en/0.10.1/">pint</a> package, the <code class="docutils literal notranslate"><span class="pre">units</span></code> is a instance of Pint <code class="docutils literal notranslate"><span class="pre">UnitRegistry</span></code> that will maintain a list of units. The atomic units are by <a class="reference external" href="https://github.com/hgrecco/pint/blob/master/pint/default_en.txt">default</a> loaded and available after Pint <code class="docutils literal notranslate"><span class="pre">0.10.0</span></code> we will stick to that. A single <code class="docutils literal notranslate"><span class="pre">UnitRegistry</span></code> instance is supposed to be shared among the entire program.</p>
 <div class="nbinput docutils container">
@@ -478,7 +477,7 @@ print(&quot;The type of `units` is actually a instance of&quot;, repr(type(units
 The type of `units` is actually a instance of &lt;class &#39;pint.registry.UnitRegistry&#39;&gt;
 </pre></div></div>
 </div>
-<section id="Declaring-quantity">
+<div class="section" id="Declaring-quantity">
 <h3>Declaring quantity<a class="headerlink" href="#Declaring-quantity" title="Permalink to this headline">¶</a></h3>
 <p>The physical variables are declared using <code class="docutils literal notranslate"><span class="pre">Quantity</span></code> to include the phyisical units</p>
 <div class="nbinput docutils container">
@@ -500,8 +499,8 @@ print(units.Quantity(1, units.rydberg))
 1 rydberg
 </pre></div></div>
 </div>
-</section>
-<section id="Conversion-between-units-with-to()">
+</div>
+<div class="section" id="Conversion-between-units-with-to()">
 <h3>Conversion between units with <code class="docutils literal notranslate"><span class="pre">to()</span></code><a class="headerlink" href="#Conversion-between-units-with-to()" title="Permalink to this headline">¶</a></h3>
 <p>Units are converted by create a <code class="docutils literal notranslate"><span class="pre">Quantity</span></code> with unit, and convert the unit with <code class="docutils literal notranslate"><span class="pre">to()</span></code>, and the the value number is obtained using the <code class="docutils literal notranslate"><span class="pre">.magnitude</span></code> property.</p>
 <p>Here we convert three terms:</p>
@@ -531,9 +530,9 @@ print(&quot;- Pressure:\t&quot;, units.Quantity(1, units.rydberg / units.bohr **
 - Pressure:      14710.50784817977
 </pre></div></div>
 </div>
-</section>
-</section>
-<section id="Helper-functions-to-make-it-even-better">
+</div>
+</div>
+<div class="section" id="Helper-functions-to-make-it-even-better">
 <h2>Helper functions to make it even better<a class="headerlink" href="#Helper-functions-to-make-it-even-better" title="Permalink to this headline">¶</a></h2>
 <p>To make unit conversion even easier, I have create a function called <code class="docutils literal notranslate"><span class="pre">convert_unit</span></code>. It takes three parameters, the original unit to convert from, the target unit to convert to, and the value.</p>
 <div class="nbinput docutils container">
@@ -585,8 +584,8 @@ Convert unit by creating a unit conversion function first:
 - Pressure:      14710.50784817977
 </pre></div></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

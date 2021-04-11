@@ -4,8 +4,7 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>The Voigt notation of strain and elastic modulus &mdash; qha-Cij  documentation</title>
@@ -92,13 +91,13 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
 </ul>
-<p><span class="caption-text">For users</span></p>
+<p class="caption"><span class="caption-text">For users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/input.html">Building input</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/output.html">Output parameters</a></li>
 </ul>
-<p><span class="caption-text">Tutorials</span></p>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../array.html">Conventions for using multi-demensional arrays</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorials</a><ul class="current">
@@ -111,7 +110,7 @@
 </ul>
 </li>
 </ul>
-<p><span class="caption-text">For developers</span></p>
+<p class="caption"><span class="caption-text">For developers</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
 </ul>
@@ -453,7 +452,7 @@ div.rendered_html tbody tr:hover {
     text-align: unset;
 }
 </style>
-<section id="The-Voigt-notation-of-strain-and-elastic-modulus">
+<div class="section" id="The-Voigt-notation-of-strain-and-elastic-modulus">
 <h1>The Voigt notation of strain and elastic modulus<a class="headerlink" href="#The-Voigt-notation-of-strain-and-elastic-modulus" title="Permalink to this headline">¶</a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code> package provide the <code class="docutils literal notranslate"><span class="pre">qha.cij.voigt</span></code> module to facilitate converison between standard (<span class="math notranslate nohighlight">\(c_{ijkl}\)</span>, <span class="math notranslate nohighlight">\(e_{ij}\)</span>, where <span class="math notranslate nohighlight">\(i,j,k,l=1,2,3\)</span>) and <a class="reference external" href="https://en.wikipedia.org/wiki/Voigt_notation">Voigt notation</a> (<span class="math notranslate nohighlight">\(c_{ij}\)</span>, <span class="math notranslate nohighlight">\(e_{i}\)</span>, where <span class="math notranslate nohighlight">\(i,j,k,l=1,...,6\)</span>) of symmetric metric tensor. With the help of this module, users could easily use both types of notations to work with strains and modulus.</p>
 <p>The class <code class="docutils literal notranslate"><span class="pre">cij.util.voigt.ModulusRepresentation</span></code> (or <code class="docutils literal notranslate"><span class="pre">C_</span></code>) and <code class="docutils literal notranslate"><span class="pre">cij.util.voigt.StrainRepresentation</span></code> (or <code class="docutils literal notranslate"><span class="pre">S_</span></code>) are used to represent strain and modulus keys. But to create these values, user should use the lowercase <code class="docutils literal notranslate"><span class="pre">c_</span></code> and <code class="docutils literal notranslate"><span class="pre">s_</span></code> from <code class="docutils literal notranslate"><span class="pre">cij.util</span></code>.</p>
@@ -608,7 +607,7 @@ print(c_(46).multiplicity)
 8
 </pre></div></div>
 </div>
-</section>
+</div>
 
 
            </div>
