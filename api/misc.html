@@ -207,6 +207,24 @@
 <div class="section" id="module-cij.misc">
 <span id="miscellaneous-functions-cij-misc"></span><h1>Miscellaneous functions: <code class="docutils literal notranslate"><span class="pre">cij.misc</span></code><a class="headerlink" href="#module-cij.misc" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
+<dt id="cij.misc.evec_load">
+<code class="sig-prename descclassname"><span class="pre">cij.misc.</span></code><code class="sig-name descname"><span class="pre">evec_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load <code class="docutils literal notranslate"><span class="pre">eig</span></code> file from <code class="docutils literal notranslate"><span class="pre">matdyn.x</span></code> output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the <code class="docutils literal notranslate"><span class="pre">eig</span></code> file</p></li>
+<li><p><strong>nq</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of q points</p></li>
+<li><p><strong>np</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of modes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="cij.misc.evec_sort">
 <code class="sig-prename descclassname"><span class="pre">cij.misc.</span></code><code class="sig-name descname"><span class="pre">evec_sort</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_evecs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_evecs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_sort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sort elements of an array based on the eigenvector similarities with
