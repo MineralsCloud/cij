@@ -3,10 +3,15 @@ from pathlib import Path
 
 with open(Path(__file__).parent / "cij" / "version.py") as fp: exec(fp.read())
 
+with open('README.md', encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(
     name='cij',
     version=__version__,
     description='High temperature thermal elasticity',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Chenxing Luo',
     author_email='chenxing.luo@columbia.edu',
     url='https://github.com/MineralsCloud/cij/',
