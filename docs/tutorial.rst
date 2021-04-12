@@ -10,3 +10,4 @@ Tutorials
    tutorial/voigt.ipynb
    tutorial/strain-diagonalization.ipynb
    tutorial/shear-elastic-modulus-dependency.ipynb
+   tutorial/tensor-symmetry
