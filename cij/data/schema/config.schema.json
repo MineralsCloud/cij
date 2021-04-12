@@ -54,11 +54,12 @@
                 },
                 "DT": {
                     "type": "number",
-                    "title": "The interval between two nearest temperatures on the grid"
+                    "title": "The interval between two nearest temperatures on the grid, in Kelvin."
                 },
                 "T_MIN": {
                     "type": "number",
-                    "minimum": 0
+                    "minimum": 0,
+                    "title": "The minimum temperature, in Kelvin."
                 },
                 "NTV": {
                     "type": "integer",
@@ -93,7 +94,7 @@
                     "properties": {
                         "interpolator": {
                             "type": "string",
-                            "title": "Interpolator used for interpolating log(freq) vs log(V)",
+                            "title": "The method to interpolate phonon frequencies vs. volume, one of: ``spline``, ``lsq_poly``, ``lagrange``, ``krogh``, ``pchip``, ``hermite``, ``akima``.",
                             "enum": ["lsq_poly", "lagrange", "spline", "krogh", "pchip", "hermite", "akima"]
                         },
                         "order": {
@@ -105,7 +106,7 @@
                 },
                 "system": {
                     "type": "string",
-                    "title": "Symmetry to be applied on input elastic constants to fill all non-zero terms",
+                    "title": "The crystal system used, one of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``. ",
                     "enum": ["triclinic", "monoclinic", "hexagonal", "trigonal6", "trigonal7", "orthorhombic", "tetragonal6", "tetragonal7", "cubi  c"]
                 }
             },
