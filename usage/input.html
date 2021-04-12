@@ -343,34 +343,22 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 <tbody>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">system</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
-<td><p>The crystal system used.</p></td>
+<td><p>The crystal system used. One of: <code class="docutils literal notranslate"><span class="pre">triclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">monoclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">hexagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal8</span></code>, <code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal7</span></code>, <code class="docutils literal notranslate"><span class="pre">cubic</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::order</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td><p>The order of phonon frequencies spline interpolation.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::interpolator</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>The method to interpolate phonon frequencies vs. volume. One of: <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">lsq_poly</span></code>, <code class="docutils literal notranslate"><span class="pre">lagrange</span></code>, <code class="docutils literal notranslate"><span class="pre">krogh</span></code>, <code class="docutils literal notranslate"><span class="pre">pchip</span></code>, <code class="docutils literal notranslate"><span class="pre">hermite</span></code>, <code class="docutils literal notranslate"><span class="pre">akima</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
-<p>One of: <code class="docutils literal notranslate"><span class="pre">triclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">monoclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">hexagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal8</span></code>, <code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal7</span></code>, <code class="docutils literal notranslate"><span class="pre">cubic</span></code>.</p>
-<blockquote>
-<div><ul class="simple">
-<li><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">mode_gamma</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></li>
-<li></li>
-</ul>
-</li>
-<li><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::order</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></li>
-<li><p>The order of phonon frequencies spline interpolation.</p></li>
-</ul>
-</li>
-<li><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::interpolator</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></li>
-<li><p>The method to interpolate phonon frequencies vs. volume.</p></li>
-</ul>
-</li>
-</ul>
-</div></blockquote>
-<p>One of: <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">lsq_poly</span></code>, <code class="docutils literal notranslate"><span class="pre">lagrange</span></code>, <code class="docutils literal notranslate"><span class="pre">krogh</span></code>, <code class="docutils literal notranslate"><span class="pre">pchip</span></code>, <code class="docutils literal notranslate"><span class="pre">hermite</span></code>, <code class="docutils literal notranslate"><span class="pre">akima</span></code>.</p>
 <p>Default values are:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qha</span><span class="p">:</span>
   <span class="nb">input</span><span class="p">:</span> <span class="n">input01</span>
