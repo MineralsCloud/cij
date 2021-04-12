@@ -58,7 +58,6 @@ class Calculator:
         work_dir = config_fname.parent
 
         self.config = cij.io.read_config(config_fname)
-        self.config = cij.io.apply_default_config(self.config)
         self.qha_input = cij.io.traditional.read_energy(work_dir / self.config["qha"]["input"])
         self.elast_data = cij.io.traditional.read_elast_data(work_dir / self.config["elast"]["input"])
         self.qha_calculator = QHACalculatorAdapter(

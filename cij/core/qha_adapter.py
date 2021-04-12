@@ -69,7 +69,10 @@ class QHACalculatorAdapter():
     @staticmethod
     def _load_qha_calculator(settings: dict, qha_input: cij.io.traditional.models.QHAInputData):
         
-        calculator = QHACalculator(settings)
+        user_settings = copy.copy(DEFAULT_SETTINGS)
+        user_settings.update(settings)
+
+        calculator = QHACalculator(user_settings)
 
         logger.debug("QHA info %s" % json.dumps(calculator.settings))
         logger.debug(

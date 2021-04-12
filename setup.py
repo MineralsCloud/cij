@@ -32,8 +32,7 @@ setup(
         "cij.data": [
             "schema/*.schema.json", 
             "output/writer_rules.yml", 
-            "constraints/*",
-            "default/*"
+            "constraints/*"
         ]
     },
     entry_points = {
