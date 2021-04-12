@@ -79,8 +79,16 @@
                     "type": "number",
                     "title": "Pressure-sampling interval, used for output, the default value is 1 GPa"
                 },
-                "volume_ratio": { "type": "number" },
-                "order": { "type": "number" }
+                "volume_ratio": {
+                    "type": "number",
+                    "title": "Ratio to expand the volume range when extrapolate equation of states. (from (vmin, vmax) to (vmin / volume_ratio, vmax * volume_ratio))",
+                    "minimum": 1.0
+                },
+                "order": {
+                    "type": "number",
+                    "minimum": 2,
+                    "title": "The order of equation of state to fit energy vs. volume."
+                }
             },
             "$$target": "#/definitions/qha_settings"
         },
@@ -94,19 +102,19 @@
                     "properties": {
                         "interpolator": {
                             "type": "string",
-                            "title": "The method to interpolate phonon frequencies vs. volume, one of: ``spline``, ``lsq_poly``, ``lagrange``, ``krogh``, ``pchip``, ``hermite``, ``akima``.",
+                            "title": "The method to interpolate phonon frequencies vs. volume.\nOne of: ``spline``, ``lsq_poly``, ``lagrange``, ``krogh``, ``pchip``, ``hermite``, ``akima``.",
                             "enum": ["lsq_poly", "lagrange", "spline", "krogh", "pchip", "hermite", "akima"]
                         },
                         "order": {
                             "type": "integer",
-                            "title": "Order of interpolating log(freq) vs log(V)",
-                            "minimum": 0
+                            "title": "The order of phonon frequencies spline interpolation.",
+                            "minimum": 1
                         }
                     }
                 },
                 "system": {
                     "type": "string",
-                    "title": "The crystal system used, one of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``. ",
+                    "title": "The crystal system used.\nOne of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``. ",
                     "enum": ["triclinic", "monoclinic", "hexagonal", "trigonal6", "trigonal7", "orthorhombic", "tetragonal6", "tetragonal7", "cubi  c"]
                 }
             },
