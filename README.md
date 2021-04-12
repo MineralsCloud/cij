@@ -4,7 +4,15 @@ Calculate high temperature thermal elasticity in Python.
 
 ## Installation
 
-The package can be installed with `pip` package manager:
+The package can be installed with `pip` package manager.
+
+### Install from PYPI (Python package index)
+
+```shell
+$ python3 -m pip install cij
+```
+
+### Manual install
 
 At the command prompt, one should navigate to the directory that contains the
 `setup.py` script and execute `pip install .`. Then, the package should be ready for use.
