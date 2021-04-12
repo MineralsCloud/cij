@@ -141,6 +141,10 @@ See [GitHub pages][1].
 
 [1]: https://mineralscloud.github.io/cij
 
+## Build status
+
+![GitHub CI](https://github.com/MineralsCloud/cij/actions/workflows/main.yml/badge.svg)
+
 ## Licence
 
 Released under [GNU GPLv3](./LICENCE) license.
