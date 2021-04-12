@@ -34,6 +34,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -94,9 +96,9 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Building input</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#program-configuration-file">Program configuration file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-qha-input-data-file">The QHA input data file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-static-elastic-moduli-data-file">The static elastic moduli data file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#program-configuration-file-settings-yaml">Program configuration file (<code class="docutils literal notranslate"><span class="pre">settings.yaml</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-qha-input-data-file-input01">The QHA input data file (<code class="docutils literal notranslate"><span class="pre">input01</span></code>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-static-elastic-moduli-data-file-elast-dat">The static elastic moduli data file (<code class="docutils literal notranslate"><span class="pre">elast.dat</span></code>)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="output.html">Output parameters</a></li>
@@ -205,8 +207,8 @@
 <h1>Building input<a class="headerlink" href="#building-input" title="Permalink to this headline">¶</a></h1>
 <p>The executation the <code class="docutils literal notranslate"><span class="pre">cij</span></code> program requires a configuration file and two
 input data files. They are described below.</p>
-<div class="section" id="program-configuration-file">
-<h2>Program configuration file<a class="headerlink" href="#program-configuration-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="program-configuration-file-settings-yaml">
+<h2>Program configuration file (<code class="docutils literal notranslate"><span class="pre">settings.yaml</span></code>)<a class="headerlink" href="#program-configuration-file-settings-yaml" title="Permalink to this headline">¶</a></h2>
 <p>The configuration file in JSON and YAML format controls the behavior of the program: where to look for the input
 data, which parameters to calculate, the pressure and temperature range to work
 on.</p>
@@ -328,7 +330,7 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tbody>
 </table>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text"><strong>Themoelasticity calculation setttings</strong> (<code class="docutils literal notranslate"><span class="pre">elast.settings::settings</span></code>)</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text"><strong>Themoelasticity calculation setttings</strong> (<code class="docutils literal notranslate"><span class="pre">elast::settings</span></code>)</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -391,13 +393,21 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </pre></div>
 </div>
 </div>
-<div class="section" id="the-qha-input-data-file">
-<h2>The QHA input data file<a class="headerlink" href="#the-qha-input-data-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-qha-input-data-file-input01">
+<h2>The QHA input data file (<code class="docutils literal notranslate"><span class="pre">input01</span></code>)<a class="headerlink" href="#the-qha-input-data-file-input01" title="Permalink to this headline">¶</a></h2>
 <p>The first input data is similar to the
 <a class="reference external" href="https://mineralscloud.github.io/qha/tutorials/run.html#how-to-make-input-data">QHA’s input data</a>.</p>
 </div>
-<div class="section" id="the-static-elastic-moduli-data-file">
-<h2>The static elastic moduli data file<a class="headerlink" href="#the-static-elastic-moduli-data-file" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-static-elastic-moduli-data-file-elast-dat">
+<h2>The static elastic moduli data file (<code class="docutils literal notranslate"><span class="pre">elast.dat</span></code>)<a class="headerlink" href="#the-static-elastic-moduli-data-file-elast-dat" title="Permalink to this headline">¶</a></h2>
+<p>The static elasticity input data file tabulates the static elastic coefficients
+(<span class="math notranslate nohighlight">\(c_{ij}^\text{st}\)</span>, <span class="math notranslate nohighlight">\(i,j = 1 \text{ to } 6\)</span>) and axial length along three axes in
+Cartesian coordinates (<span class="math notranslate nohighlight">\(a_{ii}, i=1,2,3\)</span>) at a series of volume points.</p>
+<p>To compute Voigt-Reuss-Hill (VRH) averaged elastic moduli and acoustic velocities,
+unless all non-zero terms are listed one needs to either specify the crystal system
+in <code class="docutils literal notranslate"><span class="pre">settings.yaml</span></code> or manually preprocess the elast.dat with the <code class="docutils literal notranslate"><span class="pre">cij</span> <span class="pre">fill</span></code>
+utility to generate a new <code class="docutils literal notranslate"><span class="pre">elast.dat</span></code> which contains all non-zero terms.
+The column names in this table also determine the output thermoelastic coefficient terms.</p>
 </div>
 </div>
 
