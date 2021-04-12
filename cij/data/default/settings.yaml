@@ -1,0 +1,28 @@
+qha:
+  input: input01
+  settings:
+    T_MIN: 0
+    DT: 100
+    DT_SAMPLE: 100
+    NT: 16
+    P_MIN: 0
+    order: 3
+    static_only: False
+    volume_ratio: 1.2
+elast:
+  input: input02
+  settings:
+    mode_gamma:
+      interpolator: lsq_poly
+      order: 3
+    system: triclinic
+output:
+  pressure_base:
+    - cij
+    - bm_VRH
+    - G_VRH
+    - v
+    - vs
+    - vp
+  volume_base:
+    - p
