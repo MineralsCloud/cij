@@ -245,31 +245,35 @@ the configurational file.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">output</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">additionalProperties</span></code></p></th>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">output</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
 <td><p>The list of output variables</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">elast</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">elast</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
 <td><p>Configuration for thermalelasticity calculation</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">elast::settings</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">elast::settings</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">elast::input</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">elast::input</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
 <td><p>Static elasticity input file name</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">qha</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">qha</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
 <td><p>Configuration passed to QHA</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">qha::settings</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">qha::settings</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">qha::input</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">qha::input</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
 <td><p>The file name of the QHA input data file</p></td>
 </tr>
@@ -291,39 +295,43 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">order</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">additionalProperties</span></code></p></th>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">order</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>The order of equation of state to fit energy vs. volume.</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">volume_ratio</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">volume_ratio</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>Ratio to expand the volume range when extrapolate equation of states. (from (vmin, vmax) to (vmin / volume_ratio, vmax * volume_ratio))</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P_SAMPLE</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P_SAMPLE</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>Pressure-sampling interval, used for output, the default value is 1 GPa</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>The interval between two nearest pressures on the grid</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">P_MIN</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">P_MIN</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>Desired minimum pressure to calculate, in GPa</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NTV</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NTV</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
 <td><p>Number of volumes (or equivivalently, pressures) on the grid</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">T_MIN</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">T_MIN</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>The minimum temperature, in Kelvin.</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DT</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DT</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>The interval between two nearest temperatures on the grid, in Kelvin.</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NT</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NT</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
 <td><p>Number of temperatures on the grid</p></td>
 </tr>
@@ -343,19 +351,39 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">system</span></code></p></th>
-<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
-<td><p>The crystal system used. One of: <code class="docutils literal notranslate"><span class="pre">triclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">monoclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">hexagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal8</span></code>, <code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal7</span></code>, <code class="docutils literal notranslate"><span class="pre">cubic</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::order</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::residual_atol</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
+<td><p>Tolerance for residual.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::drop_atol</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::ignore_rank</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::ignore_residuals</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>Keep going even</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::system</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>The crystal system used. One of: <code class="docutils literal notranslate"><span class="pre">triclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">monoclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">hexagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal8</span></code>, <code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal7</span></code>, <code class="docutils literal notranslate"><span class="pre">cubic</span></code>.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::order</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
 <td><p>The order of phonon frequencies spline interpolation.</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::interpolator</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::interpolator</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
 <td><p>The method to interpolate phonon frequencies vs. volume. One of: <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">lsq_poly</span></code>, <code class="docutils literal notranslate"><span class="pre">lagrange</span></code>, <code class="docutils literal notranslate"><span class="pre">krogh</span></code>, <code class="docutils literal notranslate"><span class="pre">pchip</span></code>, <code class="docutils literal notranslate"><span class="pre">hermite</span></code>, <code class="docutils literal notranslate"><span class="pre">akima</span></code>.</p></td>
 </tr>
@@ -370,6 +398,7 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
     <span class="n">DT_SAMPLE</span><span class="p">:</span> <span class="mi">100</span>
     <span class="n">NT</span><span class="p">:</span> <span class="mi">16</span>
     <span class="n">P_MIN</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">DELTA_P</span><span class="p">:</span> <span class="mi">1</span>
     <span class="n">order</span><span class="p">:</span> <span class="mi">3</span>
     <span class="n">static_only</span><span class="p">:</span> <span class="kc">False</span>
     <span class="n">volume_ratio</span><span class="p">:</span> <span class="mf">1.2</span>
@@ -379,7 +408,8 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
     <span class="n">mode_gamma</span><span class="p">:</span>
       <span class="n">interpolator</span><span class="p">:</span> <span class="n">lsq_poly</span>
       <span class="n">order</span><span class="p">:</span> <span class="mi">3</span>
-    <span class="n">system</span><span class="p">:</span> <span class="n">triclinic</span>
+    <span class="n">symmetry</span><span class="p">:</span>
+      <span class="n">system</span><span class="p">:</span> <span class="n">triclinic</span>
 <span class="n">output</span><span class="p">:</span>
   <span class="n">pressure_base</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">cij</span>
