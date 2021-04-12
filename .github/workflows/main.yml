@@ -108,3 +108,11 @@ jobs:
           pip install pytest
           pip install pytest-cov
           pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=cij --cov-report=xml --cov-report=html
+
+      - uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./coverage.xml # optional
+          flags: unittests # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
