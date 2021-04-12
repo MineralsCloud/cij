@@ -47,20 +47,23 @@
             "title": "QHA calculation settings",
             "type": "object",
             "properties": {
-
                 "NT": {
                     "type": "integer",
-                    "title": "Number of temperatures on the grid"
+                    "title": "Number of temperatures on the grid",
+                    "minimum": 1
                 },
                 "DT": {
                     "type": "number",
                     "title": "The interval between two nearest temperatures on the grid"
                 },
-                "T_MIN": { "type": "number" },
-
+                "T_MIN": {
+                    "type": "number",
+                    "minimum": 0
+                },
                 "NTV": {
                     "type": "integer",
-                    "title": "Number of volumes (or equivivalently, pressures) on the grid"
+                    "title": "Number of volumes (or equivivalently, pressures) on the grid",
+                    "minimum": 1
                 },
 
                 "P_MIN": {
@@ -75,7 +78,8 @@
                     "type": "number",
                     "title": "Pressure-sampling interval, used for output, the default value is 1 GPa"
                 },
-                "volume_ratio": { "type": "number" }
+                "volume_ratio": { "type": "number" },
+                "order": { "type": "number" }
             },
             "$$target": "#/definitions/qha_settings"
         },
@@ -87,13 +91,22 @@
                 "mode_gamma": {
                     "type": "object",
                     "properties": {
-                        "interpolator": { "type": "string" },
-                        "order": { "type": "integer" }
+                        "interpolator": {
+                            "type": "string",
+                            "title": "Interpolator used for interpolating log(freq) vs log(V)",
+                            "enum": ["lsq_poly", "lagrange", "spline", "krogh", "pchip", "hermite", "akima"]
+                        },
+                        "order": {
+                            "type": "integer",
+                            "title": "Order of interpolating log(freq) vs log(V)",
+                            "minimum": 0
+                        }
                     }
                 },
                 "system": {
                     "type": "string",
-                    "title": "Symmetry to be applied on input elastic constants to fill all non-zero terms"
+                    "title": "Symmetry to be applied on input elastic constants to fill all non-zero terms",
+                    "enum": ["triclinic", "monoclinic", "hexagonal", "trigonal6", "trigonal7", "orthorhombic", "tetragonal6", "tetragonal7", "cubi  c"]
                 }
             },
             "$$target": "#/definitions/elast_settings"
