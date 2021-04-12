@@ -315,11 +315,11 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">T_MIN</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td></td>
+<td><p>The minimum temperature, in Kelvin.</p></td>
 </tr>
 <tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DT</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td><p>The interval between two nearest temperatures on the grid</p></td>
+<td><p>The interval between two nearest temperatures on the grid, in Kelvin.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NT</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
@@ -343,7 +343,7 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 <tbody>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">system</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
-<td><p>Symmetry to be applied on input elastic constants to fill all non-zero terms</p></td>
+<td><p>The crystal system used, one of: <code class="docutils literal notranslate"><span class="pre">triclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">monoclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">hexagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal8</span></code>, <code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal7</span></code>, <code class="docutils literal notranslate"><span class="pre">cubic</span></code>.</p></td>
 </tr>
 <tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
@@ -355,7 +355,7 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 <tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::interpolator</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
-<td><p>Interpolator used for interpolating log(freq) vs log(V)</p></td>
+<td><p>The method to interpolate phonon frequencies vs. volume, one of: <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">lsq_poly</span></code>, <code class="docutils literal notranslate"><span class="pre">lagrange</span></code>, <code class="docutils literal notranslate"><span class="pre">krogh</span></code>, <code class="docutils literal notranslate"><span class="pre">pchip</span></code>, <code class="docutils literal notranslate"><span class="pre">hermite</span></code>, <code class="docutils literal notranslate"><span class="pre">akima</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
