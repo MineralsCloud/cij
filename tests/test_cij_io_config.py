@@ -3,7 +3,7 @@ from glob import glob
 
 from cij.io.config import read_config, validate_config, update_config
 
-files = glob("examples/*/settings.yaml")
+files = [*glob("examples/*/settings.yaml"), "cij/data/default/settings.yaml"]
 
 @pytest.fixture
 def config(request):
