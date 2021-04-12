@@ -371,6 +371,37 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </ul>
 </div></blockquote>
 <p>One of: <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">lsq_poly</span></code>, <code class="docutils literal notranslate"><span class="pre">lagrange</span></code>, <code class="docutils literal notranslate"><span class="pre">krogh</span></code>, <code class="docutils literal notranslate"><span class="pre">pchip</span></code>, <code class="docutils literal notranslate"><span class="pre">hermite</span></code>, <code class="docutils literal notranslate"><span class="pre">akima</span></code>.</p>
+<p>Default values are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qha</span><span class="p">:</span>
+  <span class="nb">input</span><span class="p">:</span> <span class="n">input01</span>
+  <span class="n">settings</span><span class="p">:</span>
+    <span class="n">T_MIN</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">DT</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="n">DT_SAMPLE</span><span class="p">:</span> <span class="mi">100</span>
+    <span class="n">NT</span><span class="p">:</span> <span class="mi">16</span>
+    <span class="n">P_MIN</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="n">order</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="n">static_only</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="n">volume_ratio</span><span class="p">:</span> <span class="mf">1.2</span>
+<span class="n">elast</span><span class="p">:</span>
+  <span class="nb">input</span><span class="p">:</span> <span class="n">input02</span>
+  <span class="n">settings</span><span class="p">:</span>
+    <span class="n">mode_gamma</span><span class="p">:</span>
+      <span class="n">interpolator</span><span class="p">:</span> <span class="n">lsq_poly</span>
+      <span class="n">order</span><span class="p">:</span> <span class="mi">3</span>
+    <span class="n">system</span><span class="p">:</span> <span class="n">triclinic</span>
+<span class="n">output</span><span class="p">:</span>
+  <span class="n">pressure_base</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">cij</span>
+    <span class="o">-</span> <span class="n">bm_VRH</span>
+    <span class="o">-</span> <span class="n">G_VRH</span>
+    <span class="o">-</span> <span class="n">v</span>
+    <span class="o">-</span> <span class="n">vs</span>
+    <span class="o">-</span> <span class="n">vp</span>
+  <span class="n">volume_base</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">p</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="the-qha-input-data-file">
 <h2>The QHA input data file<a class="headerlink" href="#the-qha-input-data-file" title="Permalink to this headline">¶</a></h2>
