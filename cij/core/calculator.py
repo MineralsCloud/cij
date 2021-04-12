@@ -68,9 +68,9 @@ class Calculator:
     
     def _apply_elastic_constants_symmetry(self):
 
-        system = self.config["elast"]["settings"].get("system", None)
+        system = self.config["elast"]["settings"]["symmetry"].get("system", None)
 
-        if system == None:
+        if system == None or system == "triclinic":
             logger.warning(f"Symmetry constraints check not performed! Make sure to fill in all non-zero terms for correct VRH averages!")
         else:
             apply_symetry_on_elast_data(self.elast_data, system)

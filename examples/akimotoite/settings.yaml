@@ -18,7 +18,8 @@ elast:
     mode_gamma:
       interpolator: spline
       order: 3
-    system: trigonal7
+    symmetry:
+      system: trigonal7
 output:
   pressure_base:
     - cij

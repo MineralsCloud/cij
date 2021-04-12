@@ -16,8 +16,13 @@ def fill_cij(
     system: str = None,
     ignore_residuals: bool = False,
     ignore_rank: bool = False,
-    drop_atol: float = 1e-8 
+    drop_atol: float = 1e-8,
+    residual_atol: float = 0.1
 ) -> pandas.DataFrame:
+    '''Fill Cij tensor components based on the symmetry requirement of the system.
+
+    :elast:
+    '''
 
     if system is None:
         return elast
@@ -70,6 +75,8 @@ def fill_cij(
             for part in parts[1:]:
                 eqns.append(parts[0] - part)
     
+    if len(eqns) == 0: return elast # Otherwise broadcast_to fails
+    
     _a, _b = sympy.linear_eq_to_matrix(eqns, *symbols.values())
     _a = numpy.array(_a).astype(numpy.float64)
     _b = numpy.array(_b).astype(numpy.float64)
@@ -87,7 +94,7 @@ def fill_cij(
     if rank < nsym and not ignore_rank:
         raise Warning(f"Rank of constraints {rank} is smaller than input {nsym}!")
     
-    if numpy.any(residuals > 0.1) and not ignore_residuals:
+    if numpy.any(residuals > residual_atol) and not ignore_residuals:
         raise Warning(f"Residuals seems to be too large! -> (" + ", ".join(
             f"{sym}: {res:.3f}" for sym, res in zip(symbols, residuals)
         ) + ")")

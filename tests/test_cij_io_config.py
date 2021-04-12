@@ -37,10 +37,10 @@ from jsonschema.exceptions import ValidationError
 @pytest.mark.parametrize("config", [
     {"qha": {}},
     {"elast": {}},
-    {"elast": {"settings": {"system": 2}}, "qha": {}},
-    {"elast": {"settings": {"system": "x"}}, "qha": {}},
-    {"elast": {"settings": {"system": "orthrohombic"}}, "qha": {}},
-    {"elast": {"settings": {"system": "orthrohombic"}}}
+    {"elast": {"settings": {"symmetry": {"system": 2}}}, "qha": {}},
+    {"elast": {"settings": {"symmetry": {"system": "x"}}}, "qha": {}},
+    {"elast": {"settings": {"symmetry": {"system": "orthrohombic"}}}, "qha": {}},
+    {"elast": {"settings": {"symmetry": {"system": "orthrohombic"}}}}
 ])
 def test_validate_config2(config):
     with pytest.raises(ValidationError):
@@ -48,7 +48,7 @@ def test_validate_config2(config):
 
 
 @pytest.mark.parametrize("config", [
-    { "elast": { "settings": { "system": "orthorhombic" } }, "qha": {} }
+    { "elast": { "settings": { "symmetry": { "system": "orthorhombic" } } }, "qha": {} }
 ])
 def test_validate_config3(config):
     validate_config(config)

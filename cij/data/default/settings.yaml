@@ -6,6 +6,7 @@ qha:
     DT_SAMPLE: 100
     NT: 16
     P_MIN: 0
+    DELTA_P: 1
     order: 3
     static_only: False
     volume_ratio: 1.2
@@ -15,7 +16,8 @@ elast:
     mode_gamma:
       interpolator: lsq_poly
       order: 3
-    system: triclinic
+    symmetry:
+      system: triclinic
 output:
   pressure_base:
     - cij
