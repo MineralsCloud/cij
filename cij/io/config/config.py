@@ -34,10 +34,10 @@ def update_config(input_dict: dict, default_dict: dict) -> dict:
     for k in set([*input_dict.keys(), *default_dict.keys()]):
         if k not in input_dict.keys():
             output_dict[k] = default_dict[k]
-        elif k not in output_dict.keys():
+        elif k not in default_dict.keys():
             output_dict[k] = input_dict[k]
         elif isinstance(input_dict[k], dict):
-            output_dict[k] = update_config(input_dict[k], input_dict[k])
+            output_dict[k] = update_config(input_dict[k], default_dict[k])
         else:
             output_dict[k] = input_dict[k]
     return output_dict
