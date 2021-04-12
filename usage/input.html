@@ -289,35 +289,39 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">volume_ratio</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">order</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P_SAMPLE</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">volume_ratio</span></code></p></th>
+<td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P_SAMPLE</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>Pressure-sampling interval, used for output, the default value is 1 GPa</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DELTA_P</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>The interval between two nearest pressures on the grid</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">P_MIN</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">P_MIN</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>Desired minimum pressure to calculate, in GPa</p></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NTV</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NTV</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
 <td><p>Number of volumes (or equivivalently, pressures) on the grid</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">T_MIN</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">T_MIN</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DT</span></code></p></th>
+<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">DT</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
 <td><p>The interval between two nearest temperatures on the grid</p></td>
 </tr>
-<tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NT</span></code></p></th>
+<tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">NT</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
 <td><p>Number of temperatures on the grid</p></td>
 </tr>
@@ -347,11 +351,11 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::order</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
-<td></td>
+<td><p>Order of interpolating log(freq) vs log(V)</p></td>
 </tr>
 <tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::interpolator</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
-<td></td>
+<td><p>Interpolator used for interpolating log(freq) vs log(V)</p></td>
 </tr>
 </tbody>
 </table>
