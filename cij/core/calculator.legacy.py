@@ -1,30 +1,23 @@
-import re
-import itertools
-from typing import List, Tuple, Union, Iterable
-from pathlib import Path
-import numpy
-import scipy.constants
-from lazy_property import LazyProperty
-from collections import UserDict
-
+from cij.core.mode_gamma import interpolate_modes
+import cij.io
+from cij.core.qha_adapter import QHACalculatorAdapter
 from qha.v2p import v2p
+from cij.util import c_, C_, units, _to_gpa, _to_ang3
+from cij.core.modulus_worker import ElasticModulusWorker
 from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
+from typing import List, Tuple, Union
 
-import cij.io
-from cij.util import c_, C_, units, _to_gpa, _to_ang3
-from cij.io.traditional.qha_output import save_x_tv, save_x_tp
-from cij.io.traditional.elast_dat import apply_symetry_on_elast_data
-from cij.io.output import ResultsWriter
-
-from .mode_gamma import interpolate_modes
-from .qha_adapter import QHACalculatorAdapter
-# from .modulus_worker import ElasticModulusWorker
-from .full_modulus import FullThermalElasticModulus
+from pathlib import Path
+from lazy_property import LazyProperty
+import re
+import numpy
+import itertools
+import scipy.constants
 
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.Logger(__name__)
 
 REGEX_CIJ = r'^(c|s)_?([1-6]{2,2}|[1-3]{4,4})(s|t)?$'
 
@@ -36,7 +29,6 @@ class Calculator:
 
     def __init__(self, config_fname: str):
         self._load(config_fname)
-        self._apply_elastic_constants_symmetry()
         self._interpolate_modes()
 
         self.nv = self.qha_input.nv
@@ -58,28 +50,18 @@ class Calculator:
         work_dir = config_fname.parent
 
         self.config = cij.io.read_config(config_fname)
-        self.config = cij.io.apply_default_config(self.config)
         self.qha_input = cij.io.traditional.read_energy(work_dir / self.config["qha"]["input"])
         self.elast_data = cij.io.traditional.read_elast_data(work_dir / self.config["elast"]["input"])
         self.qha_calculator = QHACalculatorAdapter(
             self.config["qha"]["settings"],
             self.qha_input
         )
-    
-    def _apply_elastic_constants_symmetry(self):
-
-        system = self.config["elast"]["settings"].get("system", None)
-
-        if system == None:
-            logger.warning(f"Symmetry constraints check not performed! Make sure to fill in all non-zero terms for correct VRH averages!")
-        else:
-            apply_symetry_on_elast_data(self.elast_data, system)
 
     def _interpolate_modes(self):
         interp_freq, gamma_i, vdr_dv = interpolate_modes(
             self.qha_input, self.qha_calculator.v_array,
-            method=self.config["elast"]["settings"]["mode_gamma"]["interpolator"],
-            order=self.config["elast"]["settings"]["mode_gamma"]["order"]
+            method=self.config["settings"]["mode_gamma"]["interpolator"],
+            order=self.config["settings"]["mode_gamma"]["order"]
         )
         self.freq_array = interp_freq
         self.mode_gamma = [vdr_dv, gamma_i, gamma_i**2]
@@ -90,18 +72,13 @@ class Calculator:
         '''
         return list(self.elast_data.volumes[0].static_elastic_modulus.keys())
 
-    # def _process_cij(self):
-    #     self.modulus_adiabatic = {}
-    #     self.modulus_isothermal = {}
-    #     self.modulus_worker = ElasticModulusWorker(self)
-    #     for key in self.modulus_keys:
-    #         self.modulus_adiabatic[key] = self.modulus_worker.get_modulus_adiabatic(key)
-    #         self.modulus_isothermal[key] = self.modulus_worker.get_modulus_isothermal(key)
-
     def _process_cij(self):
-        self._full_modulus = FullThermalElasticModulus(self)
-        self.modulus_adiabatic = self._full_modulus.modulus_adiabatic
-        self.modulus_isothermal = self._full_modulus.modulus_isothermal
+        self.modulus_adiabatic = {}
+        self.modulus_isothermal = {}
+        self.modulus_worker = ElasticModulusWorker(self)
+        for key in self.modulus_keys:
+            self.modulus_adiabatic[key] = self.modulus_worker.get_modulus_adiabatic(key)
+            self.modulus_isothermal[key] = self.modulus_worker.get_modulus_isothermal(key)
 
     def _calculate_pressure_static(self, order: int = 3):
 
@@ -153,23 +130,17 @@ class Calculator:
         return getattr(self.qha_calculator, prop)
     
     def write_output(self):
-
-        output_config = self.config["output"]
-
+        output_config = self.config["settings"]["output"]
         if "pressure_base" in output_config.keys():
-            self.pressure_base.write_variables(output_config["pressure_base"])
-
+            self.pressure_base.write_output(output_config["pressure_base"])
         if "volume_base" in output_config.keys():
-            self.volume_base.write_variables(output_config["volume_base"])
+            self.volume_base.write_output(output_config["volume_base"])
 
 
 class CijVolumeBaseInterface:
     '''Elastic and accoustic properties calculated at the volume-temperature
     :math:`(T, V)` grid.
     '''
-
-    _base_name = "tv"
-
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
 
@@ -206,14 +177,6 @@ class CijVolumeBaseInterface:
                     raise AttributeError()
                 return self.calculator._compliances[key]
         raise AttributeError(name)
-
-    @property
-    def modulus_adiabatic(self) -> dict:
-        return self.calculator.modulus_adiabatic
-
-    @property
-    def modulus_isothermal(self) -> dict:
-        return self.calculator.modulus_isothermal
 
     @property
     def bulk_modulus_voigt(self) -> numpy.ndarray:
@@ -319,37 +282,30 @@ class CijVolumeBaseInterface:
         '''
         e = units.Quantity(self.shear_modulus_voigt_reuss_hill * self.v_array, units.rydberg).to(units.kg * units.km ** 2 / units.s ** 2).magnitude
         return numpy.sqrt(e / self.mass)
-    
-    @property
-    def pressures(self) -> numpy.ndarray:
-        return self.calculator.qha_calculator.volume_base.pressures
 
-    def write_table(self, fname: str, value: numpy.ndarray) -> None:
-        '''Write variable as functions of temperature and volume in QHA
-        output format, intended to be called by ``ResultsWriter`` only.
+    def write_output(self, output_config: List[Union[dict, str]]) -> None:
+        '''Write variables as functions of temperature and volume in QHA
+        output format
+
+        :param output_config: a list values, each should either be a ``str`` of
+            the output parameter such as ``c11s``, ``vs``, etc., or a ``dict``
+            of the output detail.
         '''
-        v_array = _to_ang3(self.v_array)
-        save_x_tv(value, self.t_array, v_array, self.t_array, fname)
+        from cij.io.traditional.qha_output import save_x_tv
+        for output in output_config:
+            if isinstance(output, str):
+                output = { "key": output }
+            value = getattr(self, output["key"])
+            fname = f"{output['key']}_tv.txt"
+            v_array = _to_ang3(self.v_array)
+            save_x_tv(value, self.t_array, v_array, self.t_array, fname)
 
-    def write_variables(self, variables: Iterable[Union[str, dict]]):
-        '''Write variables to files
-
-        :param variables: List of varables to be written to file, see output
-            file description for a detailed description
-        '''
-        writer = ResultsWriter(self)
-        for c in variables:
-            writer.write(c)
 
 class CijPressureBaseModulusInterface:
 
     def __init__(self, modulus, v2p: callable):
         self.modulus = modulus
         self.v2p = v2p
-
-    def items(self):
-        for key in self.modulus.keys():
-            yield key, self[key]
 
     def __getitem__(self, key: str) -> numpy.ndarray:
         return self.v2p(self.modulus[key])
@@ -359,8 +315,6 @@ class CijPressureBaseInterface:
     '''Elastic and accoustic properties calculated at the temperature-pressure
     :math:`(T, P)` grid.
     '''
-
-    _base_name = "tp"
 
     def __init__(self, calculator: Calculator):
         self.calculator = calculator
@@ -504,28 +458,24 @@ class CijPressureBaseInterface:
  
         return self.v2p(self.calculator.volume_base.secondary_velocities)
 
-    @property
-    def volumes(self) -> numpy.ndarray:
-        return self.calculator.qha_calculator.pressure_base.volumes
-
     def __getattr__(self, name):
         func_of_t_v = getattr(self.calculator.volume_base, name)
         func_of_t_p = self.v2p(func_of_t_v)
         return func_of_t_p
     
-    def write_table(self, fname: str, value: numpy.ndarray) -> None:
-        '''Write variable as functions of temperature and volume in QHA
-        output format, intended to be called by ``ResultsWriter`` only.
-        '''
-        p_array = _to_gpa(self.p_array)
-        save_x_tp(value, self.t_array, p_array, p_array, fname)
-    
-    def write_variables(self, variables: Iterable[Union[str, dict]]):
-        '''Write variables to files
+    def write_output(self, output_config: List[Union[dict, str]]) -> None:
+        '''Write variables as functions of temperature and pressure in QHA
+        output format
 
-        :param variables: List of varables to be written to file, see output
-            file description for a detailed description
+        :param output_config: a list values, each should either be a ``str`` of
+            the output parameter such as ``c11s``, ``vs``, etc., or a ``dict``
+            of the output detail.
         '''
-        writer = ResultsWriter(self)
-        for c in variables:
-            writer.write(c)
+        from cij.io.traditional.qha_output import save_x_tp
+        for output in output_config:
+            if isinstance(output, str):
+                output = { "key": output }
+            value = getattr(self, output["key"])
+            fname = f"{output['key']}_tp.txt"
+            p_array = _to_gpa(self.p_array)
+            save_x_tp(value, self.t_array, p_array, p_array, fname)

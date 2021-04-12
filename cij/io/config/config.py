@@ -29,7 +29,7 @@ def read_config(fname: Union[str, Path], validate: bool = True) -> dict:
     return config
 
 
-def update_config(input_dict: dict, default_dict: dict):
+def update_config(input_dict: dict, default_dict: dict) -> dict:
     output_dict = {}
     for k in set([*input_dict.keys(), *default_dict.keys()]):
         if k not in input_dict.keys():
@@ -41,3 +41,11 @@ def update_config(input_dict: dict, default_dict: dict):
         else:
             output_dict[k] = input_dict[k]
     return output_dict
+
+
+def apply_default_config(input_dict: dict) -> dict:
+    import yaml
+    import cij.data
+    with open(cij.data.get_data_fname("default/settings.yaml")) as fp:
+        default_dict = yaml.load(fp, Loader=yaml.FullLoader)
+    return update_config(input_dict, default_dict)
