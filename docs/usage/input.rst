@@ -87,6 +87,12 @@ and ``elast::settings``.
     {% endfor %}
 
 
+Default values are:
+
+.. include:: ../../cij/data/default/settings.yaml
+   :literal:
+
+
 The QHA input data file
 """""""""""""""""""""""
 The first input data is similar to the 
