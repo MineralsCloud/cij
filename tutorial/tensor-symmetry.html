@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Symmetries table for elastic tensor &mdash; Cij  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Documentation" href="../api.html" />
+    <link rel="prev" title="Resolving the ordering and dependencies between shear elastic modulus" href="shear-elastic-modulus-dependency.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Cij
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
+</ul>
+<p class="caption"><span class="caption-text">For users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/cli.html">Command-line tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/input.html">Building input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/output.html">Output parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/faq.html">Frequently asked questions (FAQ)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../array.html">Conventions for using multi-demensional arrays</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tutorial.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting elasticity and accoustic velocities at high PT with <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modes.html">Checking interpolation of phonon modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="handling-units.html">Unit handling and unit conversions in <code class="docutils literal notranslate"><span class="pre">qha-cij</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="voigt.html">The Voigt notation of strain and elastic modulus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strain-diagonalization.html">Concepts for Diagonalization of strain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shear-elastic-modulus-dependency.html">Resolving the ordering and dependencies between shear elastic modulus</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Symmetries table for elastic tensor</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">For developers</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Cij</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../tutorial.html">Tutorials</a> &raquo;</li>
+        
+      <li>Symmetries table for elastic tensor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/tensor-symmetry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="symmetries-table-for-elastic-tensor">
+<h1>Symmetries table for elastic tensor<a class="headerlink" href="#symmetries-table-for-elastic-tensor" title="Permalink to this headline">¶</a></h1>
+<p>The table follows Bragger’s (1965) paper.</p>
+<blockquote>
+<div><p>Brugger, K. (1965). Pure Modes for Elastic Waves in Crystals. Journal of Applied Physics, 36(3), 759–768. <a class="reference external" href="https://doi.org/10.1063/1.1714215">https://doi.org/10.1063/1.1714215</a></p>
+</div></blockquote>
+<div class="section" id="tensor-symmetry-relationship-constraints">
+<h2>Tensor symmetry relationship constraints<a class="headerlink" href="#tensor-symmetry-relationship-constraints" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cubic">
+<h3>Cubic<a class="headerlink" href="#cubic" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span> <span class="o">=</span> <span class="n">c33</span>
+<span class="n">c12</span> <span class="o">=</span> <span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
+<span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span> <span class="o">=</span> <span class="n">c66</span>
+<span class="n">c14</span> <span class="o">=</span> <span class="n">c15</span> <span class="o">=</span> <span class="n">c16</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c24</span> <span class="o">=</span> <span class="n">c25</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c34</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c45</span> <span class="o">=</span> <span class="n">c46</span> <span class="o">=</span> <span class="n">c56</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="orthorhombic">
+<h3>Orthorhombic<a class="headerlink" href="#orthorhombic" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c14</span> <span class="o">=</span> <span class="n">c24</span> <span class="o">=</span> <span class="n">c34</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c15</span> <span class="o">=</span> <span class="n">c25</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c16</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c45</span> <span class="o">=</span> <span class="n">c46</span> <span class="o">=</span> <span class="n">c56</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tetrahedral-6">
+<h3>Tetrahedral (6)<a class="headerlink" href="#tetrahedral-6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
+<span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
+<span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span>
+<span class="n">c14</span> <span class="o">=</span> <span class="n">c24</span> <span class="o">=</span> <span class="n">c34</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c15</span> <span class="o">=</span> <span class="n">c25</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c16</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c45</span> <span class="o">=</span> <span class="n">c46</span> <span class="o">=</span> <span class="n">c56</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tetrahedral-7">
+<h3>Tetrahedral (7)<a class="headerlink" href="#tetrahedral-7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
+<span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
+<span class="n">c16</span> <span class="o">=</span> <span class="o">-</span><span class="n">c26</span>
+<span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span>
+<span class="n">c14</span> <span class="o">=</span> <span class="n">c24</span> <span class="o">=</span> <span class="n">c34</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c15</span> <span class="o">=</span> <span class="n">c25</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c36</span> <span class="o">=</span> <span class="n">c45</span> <span class="o">=</span> <span class="n">c46</span> <span class="o">=</span> <span class="n">c56</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hexagonal">
+<h3>Hexagonal<a class="headerlink" href="#hexagonal" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
+<span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
+<span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span>
+<span class="n">c66</span> <span class="o">=</span> <span class="p">(</span><span class="n">c11</span> <span class="o">-</span> <span class="n">c12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">c14</span> <span class="o">=</span> <span class="n">c24</span> <span class="o">=</span> <span class="n">c34</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c15</span> <span class="o">=</span> <span class="n">c25</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c16</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c45</span> <span class="o">=</span> <span class="n">c46</span> <span class="o">=</span> <span class="n">c56</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="trigonal-6">
+<h3>Trigonal (6)<a class="headerlink" href="#trigonal-6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
+<span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
+<span class="n">c14</span> <span class="o">=</span> <span class="o">-</span><span class="n">c24</span> <span class="o">=</span> <span class="n">c56</span>
+<span class="n">c15</span> <span class="o">=</span> <span class="o">-</span><span class="n">c25</span> <span class="o">=</span> <span class="o">-</span><span class="n">c46</span>
+<span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span>
+<span class="n">c66</span> <span class="o">=</span> <span class="p">(</span><span class="n">c11</span> <span class="o">-</span> <span class="n">c12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">c16</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="n">c34</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="n">c45</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="trigonal-7">
+<h3>Trigonal (7)<a class="headerlink" href="#trigonal-7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
+<span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
+<span class="n">c14</span> <span class="o">=</span> <span class="o">-</span> <span class="n">c24</span> <span class="o">=</span> <span class="n">c56</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">c15</span> <span class="o">=</span> <span class="o">-</span> <span class="n">c25</span> <span class="o">=</span> <span class="o">-</span> <span class="n">c46</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span>
+<span class="n">c66</span> <span class="o">=</span> <span class="p">(</span><span class="n">c11</span> <span class="o">-</span> <span class="n">c12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">c16</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="n">c34</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="n">c45</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="monoclinic">
+<h3>Monoclinic<a class="headerlink" href="#monoclinic" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c14</span> <span class="o">=</span> <span class="n">c16</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c24</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c34</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">c45</span> <span class="o">=</span> <span class="n">c56</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../api.html" class="btn btn-neutral float-right" title="API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="shear-elastic-modulus-dependency.html" class="btn btn-neutral float-left" title="Resolving the ordering and dependencies between shear elastic modulus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2021, Chenxing Luo.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
