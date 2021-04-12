@@ -1,13 +1,19 @@
 import pytest
 from glob import glob
 
-from cij.io.config import read_config, validate_config
+from cij.io.config import read_config, validate_config, update_config
 
-@pytest.yield_fixture
-def all_config():
-    return [read_config(fname) for fname in glob("examples/*/settings.yaml")]
+files = glob("examples/*/settings.yaml")
 
+@pytest.fixture
+def config(request):
+    return read_config(request.param)
 
-def test_validaiton(all_config):
-    for c in all_config:
-        validate_config(c)
+@pytest.mark.parametrize("config", files, indirect=True)
+def test_validate_config(config):
+    validate_config(config)
+
+@pytest.mark.parametrize("config", files, indirect=True)
+def test_update_config(config):
+    assert update_config(config, default_dict={}) == config
+    assert update_config({}, default_dict=config) == config
