@@ -142,18 +142,17 @@ The code in this repo is initially authored by [Chenxing Luo][1].
 
 [1]: https://github.com/chazeon
 
-
 ## Documentation
 
-See [GitHub pages][1].
+See [GitHub pages][2].
 
-[1]: https://mineralscloud.github.io/cij
+[2]: https://mineralscloud.github.io/cij
 
 ## Build status
 
-![GitHub CI](https://github.com/MineralsCloud/cij/actions/workflows/main.yml/badge.svg)
+![GitHub Actions](https://github.com/MineralsCloud/cij/actions/workflows/main.yml/badge.svg)
 [![codecov](https://codecov.io/gh/MineralsCloud/cij/branch/dev/graph/badge.svg?token=Ln1Fo4vNBE)](https://codecov.io/gh/MineralsCloud/cij)
-[![GitHub CI](https://img.shields.io/pypi/v/cij.svg)](https://pypi.org/project/cij/)
+[![pypi](https://img.shields.io/pypi/v/cij.svg)](https://pypi.org/project/cij/)
 
 ## Licence
 
