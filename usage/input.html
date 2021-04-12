@@ -403,13 +403,17 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
     <span class="n">static_only</span><span class="p">:</span> <span class="kc">False</span>
     <span class="n">volume_ratio</span><span class="p">:</span> <span class="mf">1.2</span>
 <span class="n">elast</span><span class="p">:</span>
-  <span class="nb">input</span><span class="p">:</span> <span class="n">input02</span>
+  <span class="nb">input</span><span class="p">:</span> <span class="n">elast</span><span class="o">.</span><span class="n">dat</span>
   <span class="n">settings</span><span class="p">:</span>
     <span class="n">mode_gamma</span><span class="p">:</span>
       <span class="n">interpolator</span><span class="p">:</span> <span class="n">lsq_poly</span>
       <span class="n">order</span><span class="p">:</span> <span class="mi">3</span>
     <span class="n">symmetry</span><span class="p">:</span>
       <span class="n">system</span><span class="p">:</span> <span class="n">triclinic</span>
+      <span class="n">ignore_residuals</span><span class="p">:</span> <span class="kc">False</span>
+      <span class="n">ignore_rank</span><span class="p">:</span> <span class="kc">False</span>
+      <span class="n">drop_atol</span><span class="p">:</span> <span class="mf">1.0e-8</span>
+      <span class="n">residual_atol</span><span class="p">:</span> <span class="mf">0.1</span>
 <span class="n">output</span><span class="p">:</span>
   <span class="n">pressure_base</span><span class="p">:</span>
     <span class="o">-</span> <span class="n">cij</span>
