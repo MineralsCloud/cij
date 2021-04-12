@@ -11,13 +11,17 @@ qha:
     static_only: False
     volume_ratio: 1.2
 elast:
-  input: input02
+  input: elast.dat
   settings:
     mode_gamma:
       interpolator: lsq_poly
       order: 3
     symmetry:
       system: triclinic
+      ignore_residuals: False
+      ignore_rank: False
+      drop_atol: 1.0e-8
+      residual_atol: 0.1
 output:
   pressure_base:
     - cij
