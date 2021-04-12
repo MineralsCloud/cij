@@ -27,3 +27,17 @@ def read_config(fname: Union[str, Path], validate: bool = True) -> dict:
         validate_config(config)
 
     return config
+
+
+def update_config(input_dict: dict, default_dict: dict):
+    output_dict = {}
+    for k in set([*input_dict.keys(), *default_dict.keys()]):
+        if k not in input_dict.keys():
+            output_dict[k] = default_dict[k]
+        elif k not in output_dict.keys():
+            output_dict[k] = input_dict[k]
+        elif isinstance(input_dict[k], dict):
+            output_dict[k] = update_config(input_dict[k], input_dict[k])
+        else:
+            output_dict[k] = input_dict[k]
+    return output_dict
