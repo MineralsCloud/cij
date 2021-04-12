@@ -31,3 +31,24 @@ def test_apply_default_config_changes(config):
 ])
 def test_update_config(a, b, ex):
     assert update_config(a, b) == ex
+
+from jsonschema.exceptions import ValidationError
+
+@pytest.mark.parametrize("config", [
+    {"qha": {}},
+    {"elast": {}},
+    {"elast": {"settings": {"system": 2}}, "qha": {}},
+    {"elast": {"settings": {"system": "x"}}, "qha": {}},
+    {"elast": {"settings": {"system": "orthrohombic"}}, "qha": {}},
+    {"elast": {"settings": {"system": "orthrohombic"}}}
+])
+def test_validate_config2(config):
+    with pytest.raises(ValidationError):
+        validate_config(config)
+
+
+@pytest.mark.parametrize("config", [
+    { "elast": { "settings": { "system": "orthorhombic" } }, "qha": {} }
+])
+def test_validate_config3(config):
+    validate_config(config)
