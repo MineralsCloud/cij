@@ -144,6 +144,7 @@ See [GitHub pages][1].
 ## Build status
 
 ![GitHub CI](https://github.com/MineralsCloud/cij/actions/workflows/main.yml/badge.svg)
+[![codecov](https://codecov.io/gh/MineralsCloud/cij/branch/dev/graph/badge.svg?token=Ln1Fo4vNBE)](https://codecov.io/gh/MineralsCloud/cij)
 
 ## Licence
 
