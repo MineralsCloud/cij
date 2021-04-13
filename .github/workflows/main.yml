@@ -105,8 +105,6 @@ jobs:
       
       - name: Test with pytest
         run: |
-          pip install pytest
-          pip install pytest-cov
           pytest tests --doctest-modules --junitxml=junit/test-results.xml --cov=cij --cov-report=xml --cov-report=html
 
       - uses: codecov/codecov-action@v1

@@ -1,3 +1,5 @@
+# Document builder
+
 docutils>=0.12,<0.17 
 sphinx
 sphinx-autobuild
@@ -7,3 +9,9 @@ sphinx-autodoc-typehints
 nbsphinx
 pygments>=2.4.1
 sphinx-click
+
+# Test
+
+pytest
+pytest-cov
+pytest-click
