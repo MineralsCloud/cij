@@ -72,8 +72,6 @@ class QHACalculatorAdapter():
         user_settings = copy.copy(DEFAULT_SETTINGS)
         user_settings.update(settings)
 
-        print(user_settings)
-
         calculator = QHACalculator(user_settings)
 
         logger.debug("QHA info %s" % json.dumps(calculator.settings))
