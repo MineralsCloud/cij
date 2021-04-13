@@ -87,7 +87,7 @@ def fill_cij(
 
     # fitting
 
-    x, residuals, rank, s = numpy.linalg.lstsq(a, b)
+    x, residuals, rank, s = numpy.linalg.lstsq(a, b, rcond=None)
 
     # warning
 
