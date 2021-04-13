@@ -102,7 +102,8 @@ def fill_cij(
     # write back to table
 
     for index, col in zip(symbols, x):
-        elast.loc[:, index] = col
+        key = next((key for key in elast.columns.tolist() if key.lower() == index), index)
+        elast.loc[:, key] = col
     
     # drop empty columns
 
