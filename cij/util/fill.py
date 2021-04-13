@@ -47,6 +47,7 @@ def fill_cij(
     b = []
 
     for sym, col in elast.iteritems():
+        sym = sym.lower()   # Warning: user may use upper case "Cij" instead of "cij"!
         if not re.search(r"c(\d)(\d)", sym): continue
         _a = numpy.zeros(nsym)
         _a[list(symbols.keys()).index(sym)] = 1
@@ -55,7 +56,6 @@ def fill_cij(
 
     a = numpy.array(a)
     b = numpy.array(b)
-
 
     # constraints
 
@@ -76,7 +76,7 @@ def fill_cij(
                 eqns.append(parts[0] - part)
     
     if len(eqns) == 0: return elast # Otherwise broadcast_to fails
-    
+
     _a, _b = sympy.linear_eq_to_matrix(eqns, *symbols.values())
     _a = numpy.array(_a).astype(numpy.float64)
     _b = numpy.array(_b).astype(numpy.float64)
