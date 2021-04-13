@@ -6,7 +6,7 @@ Calculate high temperature thermal elasticity in Python.
 
 The package can be installed with `pip` package manager.
 
-### Install from PYPI (Python package index)
+### Install from PyPI (Python package index)
 
 ```shell
 $ python3 -m pip install cij

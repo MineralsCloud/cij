@@ -5,6 +5,15 @@ The ``qha-cij`` code is developed for Python 3 (3.6+), and it is recommened to
 be installed with ``pip`` package manager to ensure its dependencies and 
 command-line aliases properly installed.
 
+From PyPI (Python package index)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The code can be installed with the following command from PyPI
+
+.. code-block:: bash
+
+    $ pip install cij
+
 From Source
 ^^^^^^^^^^^
 
