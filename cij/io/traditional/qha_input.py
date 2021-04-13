@@ -3,15 +3,14 @@ import re
 
 
 class QPointData(NamedTuple):
-    coord: Tuple[float, float, float] = []
-    modes: List[float] = []
-
+    coord: Tuple[float, float, float]
+    modes: List[float]
 
 class VolumeData(NamedTuple):
     pressure: float
     volume: float
     energy: float
-    q_points: List[QPointData] = []
+    q_points: List[QPointData]
 
 
 class QPointWeight(NamedTuple):
@@ -25,8 +24,8 @@ class QHAInputData(NamedTuple):
     np: int
     nm: int
     na: int
-    weights: List[Tuple[Tuple[float, float, float], float]] = []
-    volumes: List[VolumeData] = []
+    weights: List[Tuple[Tuple[float, float, float], float]]
+    volumes: List[VolumeData] = None
 
 
 REGEX_INFO_START = r"^(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$"
@@ -79,7 +78,7 @@ def read_energy(fname: str) -> QHAInputData:
                 (nv, nq, np, nm, na) = map(int, res.groups())
                 break
 
-        qha_input_data = QHAInputData(nv, nq, np, nm, na)
+        qha_input_data = QHAInputData(nv, nq, np, nm, na, [], [])
  
         for volume in _read_volume_data(fp, nv, nq, np):
             qha_input_data.volumes.append(volume)

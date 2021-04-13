@@ -15,8 +15,8 @@ class ElastData(NamedTuple):
     vref: float
     nv: int
     cellmass: float
-    volumes: List[ElastVolumeData] = []
-    lattice_parmeters: List[Tuple[float, float, float]] = []
+    volumes: List[ElastVolumeData]
+    lattice_parmeters: List[Tuple[float, float, float]]
 
 REGEX_MODULUS = r"^\D*(\d+)$"
 
@@ -39,7 +39,7 @@ def read_elast_data(fname: str) -> ElastData:
         vref = float(fields[0])
         nv = int(fields[1])
         cellmass = float(fields[2])
-        ret = ElastData(vref, nv, cellmass)
+        ret = ElastData(vref, nv, cellmass, [], [])
 
         keys = next(fp).strip().split()
         keys = [_find_modulus_key(x) for x in keys]
