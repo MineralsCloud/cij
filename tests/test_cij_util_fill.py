@@ -1,4 +1,5 @@
 import pytest
+import numpy
 
 from cij.util.fill import fill_cij
 
@@ -57,3 +58,13 @@ def test_cij_fill_correctly_raise_error_with_missing_column(cli_runner, input02,
     with pytest.raises(Warning):
         fill_cij(input02.iloc[:, :3], system=system)
 
+
+@pytest.mark.parametrize("input02, system", [("examples/akimotoite/input02", "trigonal7")], indirect=True)
+@pytest.mark.parametrize("key", ["c11", "c12"])
+def test_cij_fill_back_c22(cli_runner, input02, system, key):
+    assert key in input02.columns
+    broken = input02.drop(key, axis=1)
+    assert key not in broken
+    output = fill_cij(broken, system=system)
+    assert key in output.columns
+    assert numpy.allclose(output[key].values, input02[key].values)
