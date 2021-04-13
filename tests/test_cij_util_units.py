@@ -20,6 +20,7 @@ def test_units(x):
     assert numpy.allclose(_from_gpa(x), x / 14710.5076)
     assert numpy.allclose(  _to_gpa(x), x * 14710.5076)
 
+    # eV <-> ryd
     assert numpy.allclose(_from_ev(x), x / 13.6056980659)
     assert numpy.allclose(  _to_ev(x), x * 13.6056980659)
 
