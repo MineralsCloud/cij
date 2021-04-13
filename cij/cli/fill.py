@@ -1,7 +1,7 @@
 import click
 
 @click.command("fill", help="Fill non-zero Cij terms based on symmetry.")
-@click.argument("fname", type=click.Path(exists=True))
+@click.argument("input02", type=click.Path(exists=True))
 @click.option("-s", "--system")
 @click.option("--ignore-residuals", is_flag=True)
 @click.option("--ignore-rank", is_flag=True)
@@ -15,7 +15,7 @@ def main(**kwargs):
     
     from cij.util.fill import fill_cij
 
-    fname = kwargs.pop("fname")
+    fname = kwargs.pop("input02")
 
     with open(fname) as fp:
 
