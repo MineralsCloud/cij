@@ -1,8 +1,8 @@
 import click
 
-@click.command("fill", help="Fill Cij tensor components based on the symmetry constraints of the crystal system.")
-@click.argument("input02", type=click.Path(exists=True), help="The table of elastic tensor components at different volume points as input.")
-@click.option("-s", "--system", help="Name of the crystal system whose symmetry is applied to fill the missing elastic tensor components. Should be Should be one of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``.")
+@click.command("fill", help="Fill Cij tensor components table INPUT02 (elast.dat) based on the symmetry constraints of the crystal system.")
+@click.argument("input02", type=click.Path(exists=True))
+@click.option("-s", "--system", help="Name of the crystal system whose symmetry is applied to fill the missing elastic tensor components. Should be Should be one of: triclinic, monoclinic, hexagonal, trigonal6, trigonal7, orthorhombic, tetragonal6, tetragonal7, cubic.")
 @click.option("--ignore-residuals", is_flag=True, help="Keep filling the missing elastic tensor components based on the crystal system even if the disagreements exceeds tolerance.")
 @click.option("--ignore-rank", is_flag=True, help="Keep filling the missing elastic tensor components based on the crystal system even if not all necessary components are given")
 @click.option("--drop-atol", type=click.FLOAT, default=1e-8, help="Drop the elastic tensor components if the magnitude of the elastic tenor components if this components in all volume points are less than this value.")
