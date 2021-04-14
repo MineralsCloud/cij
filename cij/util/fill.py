@@ -26,7 +26,7 @@ def fill_cij(
     :param: system: Name of the crystal system whose symmetry is applied to
         fill the missing elastic tensor components.
         Should be Should be one of: ``triclinic``, ``monoclinic``, ``hexagonal``,
-        ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``,
+        ``trigonal6``, ``trigonal7``, ``orthorhombic``, ``tetragonal6``,
         ``tetragonal7``, ``cubic``.
     :param: ignore_residuals: Keep filling the missing elastic tensor components
         based on the crystal system even if the disagreements exceeds tolerance.

@@ -118,7 +118,7 @@
                     "properties": {
                         "system": {
                             "type": "string",
-                            "title": "Name of the crystal system whose symmetry is applied to fill the missing elastic tensor components. Should be one of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``. ",
+                            "title": "Name of the crystal system whose symmetry is applied to fill the missing elastic tensor components. Should be one of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal7``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``. ",
                             "enum": ["triclinic", "monoclinic", "hexagonal", "trigonal6", "trigonal7", "orthorhombic", "tetragonal6", "tetragonal7", "cubic"]
                         },
                         "ignore_residuals": {
