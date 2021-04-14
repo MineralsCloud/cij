@@ -13,10 +13,10 @@ def load_data(var):
     return df
 
 @click.command("extract", help="Create data table at specific P or T.")
-@click.option("-T", "--temperature", type=click.FLOAT, help="Specify temperature in K.")
-@click.option("-P", "--pressure", type=click.FLOAT, help="Specify tressure in GPa.")
-@click.option("-v", "--variables", required=True, help="Variables to output.")
-@click.option("-h", "--hide-header", default=False, is_flag=True, help="Hide header or not.")
+@click.option("-v", "--variables", required=True, help="Variables to output, (e.g., 'c11s,c12s,bm,G'), values should be seperated with comma.")
+@click.option("-T", "--temperature", type=click.FLOAT, help="Specify temperature to extract data at, value in unit K, result will be tabulated vs. P.")
+@click.option("-P", "--pressure", type=click.FLOAT, help="Specify pressure to extract data at, value in unit GPa, result will be tabulated vs. T.")
+@click.option("-h", "--hide-header", default=False, is_flag=True, help="Hide table header or not.")
 def main(variables: List[str], hide_header: bool, temperature: float = None, pressure: float = None):
 
     import glob
