@@ -127,7 +127,7 @@
                         },
                         "ignore_rank": {
                             "type": "boolean",
-                            "title": "Keep filling the missing elastic tensor components based on the crystal system even if not all necessary components are give."
+                            "title": "Keep filling the missing elastic tensor components based on the crystal system even if not all necessary components are given."
                         },
                         "drop_atol": {
                             "type": "number",

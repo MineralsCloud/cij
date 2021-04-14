@@ -31,7 +31,7 @@ def fill_cij(
     :param: ignore_residuals: Keep filling the missing elastic tensor components
         based on the crystal system even if the disagreements exceeds tolerance.
     :param: ignore_rank: Keep filling the missing elastic tensor components
-        based on the crystal system even if not all necessary components are give.
+        based on the crystal system even if not all necessary components are given.
     :param: drop_atol: Drop the elastic tensor components if the magnitude of
         the elastic tenor components if this components in all volume points are
         less than this value.
