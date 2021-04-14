@@ -254,7 +254,7 @@
 <dl class="object">
 <dt>
 <code class="sig-name descname"><span class="pre">run</span></code></dt>
-<dd><p>Perform SAM-Cij calculation.</p>
+<dd><p>Perform SAM-Cij calculation with…</p>
 </dd></dl>
 
 <dl class="object">
@@ -266,8 +266,8 @@
 </div>
 <div class="section" id="cij-run">
 <h2>cij run<a class="headerlink" href="#cij-run" title="Permalink to this headline">¶</a></h2>
-<p>Perform SAM-Cij calculation.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij run <span class="o">[</span>OPTIONS<span class="o">]</span> SETTINGS_FILENAME
+<p>Perform SAM-Cij calculation with configuraiton specified in SETTINGS.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij run <span class="o">[</span>OPTIONS<span class="o">]</span> SETTINGS
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -280,7 +280,7 @@
 <dl class="std option">
 <dt id="cmdoption-cij-run-debug">
 <code class="sig-name descname"><span class="pre">--debug</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;debug&gt;</span></code><a class="headerlink" href="#cmdoption-cij-run-debug" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logging level</p>
+<dd><p>Verbosity level of debug log emitted to the standard output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Options</dt>
 <dd class="field-odd"><p>CRITICAL | ERROR | WARNING | INFO | DEBUG | NOTSET</p>
@@ -290,8 +290,8 @@
 
 <p class="rubric">Arguments</p>
 <dl class="std option">
-<dt id="cmdoption-cij-run-arg-SETTINGS_FILENAME">
-<code class="sig-name descname"><span class="pre">SETTINGS_FILENAME</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-cij-run-arg-SETTINGS_FILENAME" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-cij-run-arg-SETTINGS">
+<code class="sig-name descname"><span class="pre">SETTINGS</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-cij-run-arg-SETTINGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
@@ -370,27 +370,27 @@
 </div>
 <p class="rubric">Options</p>
 <dl class="std option">
+<dt id="cmdoption-cij-extract-v">
+<code class="sig-name descname"><span class="pre">-v</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">--variables</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;variables&gt;</span></code><a class="headerlink" href="#cmdoption-cij-extract-v" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Required</strong> Variables to output, (e.g., ‘c11s,c12s,bm,G’), values should be seperated with comma.</p>
+</dd></dl>
+
+<dl class="std option">
 <dt id="cmdoption-cij-extract-T">
 <code class="sig-name descname"><span class="pre">-T</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">--temperature</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;temperature&gt;</span></code><a class="headerlink" href="#cmdoption-cij-extract-T" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specify temperature in K.</p>
+<dd><p>Specify temperature to extract data at, value in unit K, result will be tabulated vs. P.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-cij-extract-P">
 <code class="sig-name descname"><span class="pre">-P</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">--pressure</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;pressure&gt;</span></code><a class="headerlink" href="#cmdoption-cij-extract-P" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specify tressure in GPa.</p>
-</dd></dl>
-
-<dl class="std option">
-<dt id="cmdoption-cij-extract-v">
-<code class="sig-name descname"><span class="pre">-v</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">--variables</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;variables&gt;</span></code><a class="headerlink" href="#cmdoption-cij-extract-v" title="Permalink to this definition">¶</a></dt>
-<dd><p><strong>Required</strong> Variables to output.</p>
+<dd><p>Specify pressure to extract data at, value in unit GPa, result will be tabulated vs. T.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-cij-extract-h">
 <code class="sig-name descname"><span class="pre">-h</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">--hide-header</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-cij-extract-h" title="Permalink to this definition">¶</a></dt>
-<dd><p>Hide header or not.</p>
+<dd><p>Hide table header or not.</p>
 </dd></dl>
 
 </div>
