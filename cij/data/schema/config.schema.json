@@ -103,7 +103,7 @@
                     "properties": {
                         "interpolator": {
                             "type": "string",
-                            "title": "The method to interpolate phonon frequencies vs. volume. One of: ``spline``, ``lsq_poly``, ``lagrange``, ``krogh``, ``pchip``, ``hermite``, ``akima``.",
+                            "title": "The method to interpolate phonon frequencies vs. volume. Should be one of: ``spline``, ``lsq_poly``, ``lagrange``, ``krogh``, ``pchip``, ``hermite``, ``akima``.",
                             "enum": ["lsq_poly", "lagrange", "spline", "krogh", "pchip", "hermite", "akima"]
                         },
                         "order": {
@@ -118,18 +118,24 @@
                     "properties": {
                         "system": {
                             "type": "string",
-                            "title": "The crystal system used. One of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``. ",
+                            "title": "Name of the crystal system whose symmetry is applied to fill the missing elastic tensor components. Should be one of: ``triclinic``, ``monoclinic``, ``hexagonal``, ``trigonal6``, ``trigonal8``, ``orthorhombic``, ``tetragonal6``, ``tetragonal7``, ``cubic``. ",
                             "enum": ["triclinic", "monoclinic", "hexagonal", "trigonal6", "trigonal7", "orthorhombic", "tetragonal6", "tetragonal7", "cubic"]
                         },
                         "ignore_residuals": {
                             "type": "boolean",
-                            "title": "Keep going even"
+                            "title": "Keep filling the missing elastic tensor components based on the crystal system even if the disagreements exceeds tolerance."
                         },
-                        "ignore_rank": { "type": "boolean" },
-                        "drop_atol": { "type": "number" },
+                        "ignore_rank": {
+                            "type": "boolean",
+                            "title": "Keep filling the missing elastic tensor components based on the crystal system even if not all necessary components are give."
+                        },
+                        "drop_atol": {
+                            "type": "number",
+                            "title": "Drop the elastic tensor components if the magnitude of the elastic tensor components if this component in all volume points are less than this value."
+                        },
                         "residual_atol": {
                             "type": "number",
-                            "title": "Tolerance for residual."
+                            "title": "Disagreement allowed between the input elastic tenor components and constraints enforced by the symmetry of the system."
                         }
                     },
                     "additionalProperties": false
