@@ -19,23 +19,22 @@ def fill_cij(
     drop_atol: float = 1e-8,
     residual_atol: float = 0.1
 ) -> pandas.DataFrame:
-    '''Fill Cij tensor components based on the symmetry constraints of the
-        crystal system.
+    '''Fill Cij tensor components based on the symmetry constraints of the crystal system.
 
-    :param: elast: Elastic tensor components at different volume points as input.
-    :param: system: Name of the crystal system whose symmetry is applied to
+    :param elast: Elastic tensor components at different volume points as input.
+    :param system: Name of the crystal system whose symmetry is applied to
         fill the missing elastic tensor components.
         Should be Should be one of: ``triclinic``, ``monoclinic``, ``hexagonal``,
         ``trigonal6``, ``trigonal7``, ``orthorhombic``, ``tetragonal6``,
         ``tetragonal7``, ``cubic``.
-    :param: ignore_residuals: Keep filling the missing elastic tensor components
+    :param ignore_residuals: Keep filling the missing elastic tensor components
         based on the crystal system even if the disagreements exceeds tolerance.
-    :param: ignore_rank: Keep filling the missing elastic tensor components
+    :param ignore_rank: Keep filling the missing elastic tensor components
         based on the crystal system even if not all necessary components are given.
-    :param: drop_atol: Drop the elastic tensor components if the magnitude of
+    :param drop_atol: Drop the elastic tensor components if the magnitude of
         the elastic tenor components if this components in all volume points are
         less than this value.
-    :param: residual_atol: Disagreement allowed between the input elastic tensor
+    :param residual_atol: Disagreement allowed between the input elastic tensor
         components and constraints enforced by the symmetry of the system.
 
     :returns: Elastic tensor components at different volume points with missing
