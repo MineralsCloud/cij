@@ -1,13 +1,13 @@
 import click
 
-@click.command("modes", help="Plot interpolated mode frequency vs volume.")
-@click.argument("fname", type=click.Path(exists=True))
-@click.option("-q", "--iq", type=click.INT, default=0, help="i-th q-point")
-@click.option("-n", type=click.IntRange(0, 3), default=0, help="n-th derivative") 
-@click.option("-o", "--output", help="save figure to", default="modes.png") 
+@click.command("modes", help="Plot interpolated mode frequency vs volume for calculation details specified in SETTINGS.")
+@click.argument("settings", type=click.Path(exists=True))
+@click.option("-q", "--iq", type=click.INT, default=0, help="Plot for i-th q-point", show_default=True)
+@click.option("-n", type=click.IntRange(0, 3), default=0, help="Plot for n-th derivative", show_default=True) 
+@click.option("-o", "--output", help="File name for the output figure.", default="modes.png", type=click.Path(), show_default=True) 
 @click.option("--y-max", help="y-max limit", default=None, type=click.FLOAT) 
 @click.option("-p", "--interval", help="p-tick interval", default=0, type=click.FLOAT) 
-def main(fname: str, iq: int, n: int, interval: float, output: str, y_max: float):
+def main(settings: str, iq: int, n: int, interval: float, output: str, y_max: float):
 
     import cij.core.calculator
 
