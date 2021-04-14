@@ -29,6 +29,7 @@ main.add_command(_modes, "modes")
 from cij.cli.plot import main as _plot
 main.add_command(_plot, "plot")
 
+main.context_settings["max_content_width"] = 9999
 
 if __name__ == "__main__":
     main()

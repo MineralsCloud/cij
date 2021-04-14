@@ -63,13 +63,13 @@
                 },
                 "NTV": {
                     "type": "integer",
-                    "title": "Number of volumes (or equivivalently, pressures) on the grid",
+                    "title": "Number of volumes (or equivivalently, pressures) on the grid.",
                     "minimum": 1
                 },
 
                 "P_MIN": {
                     "type": "number",
-                    "title": "Desired minimum pressure to calculate, in GPa"
+                    "title": "Desired minimum pressure to calculate, in GPa."
                 },
                 "DELTA_P": {
                     "type": "number",
