@@ -13,11 +13,11 @@ def run(config_fname: str):
 @click.argument("settings", type=click.Path(exists=True))
 @click.version_option(version=__version__, prog_name="Cij")     # pylint: disable=undefined-variable
 @click.option("--debug", default="INFO", type=click.Choice(logging._levelToName.values()), help="Verbosity level of debug log emitted to the standard output.")
-def main(settings_filename: str, debug: str):
+def main(settings: str, debug: str):
 
     logger = logging.getLogger("cij")
     logger.setLevel(debug)
     handler = logging.StreamHandler()
     logger.addHandler(handler)
 
-    run(settings_filename)
+    run(settings)
