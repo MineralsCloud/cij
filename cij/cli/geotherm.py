@@ -21,11 +21,11 @@ def fit_data(df):
     z = df.to_numpy()
     return RectBivariateSpline(x, y, z)
 
-@click.command("geotherm", help="Create data table at geotherm PT.")
+@click.command("geotherm", help="Extract data from cij calculation results to table along a geotherm P, T and D (depth) map given in PATH.")
 @click.option("-i", "-g", "--geotherm", required=True, help="The file name of geotherm P, D, T map.", type=click.Path(exists=True))
 @click.option("--t-col", help="The name of geotherm pressure column.", default="P")
 @click.option("--p-col", help="The name of geotherm temperature column", default="T")
-@click.option("-v", "--variables", required=True, help="Variables to output.")
+@click.option("-v", "--variables", required=True, help="Variables to output, (e.g., 'c11s,c12s,bm,G'), values should be seperated with comma.")
 @click.option("-h", "--hide-header", default=False, is_flag=True, help="Hide header or not.")
 def main(variables: List[str], hide_header: bool, t_col: str = None, p_col: str = None, geotherm: str = None):
 
