@@ -5,7 +5,7 @@ from logging import getLogger
 logger = getLogger(__name__)
 
 
-@click.command("run-static", help="Calculate elastic moduli and acoustic velocities.")
+@click.command("run-static", help="Fit equation of state based on E, V given in INPUT01, and also elastic moduli and acoustic velocities if static Cij table INPUT02 (elast.dat) is given.")
 @click.argument("input01", type=click.Path(exists=True))
 @click.argument("input02", required=False, type=click.Path(exists=True))
 @click.option("-I", "--interp", type=click.Choice(["none", "pressure", "volume"]), default="none", show_default=True, help="Interpolate result vs. volume or pressure or don't interpolate (none).")
