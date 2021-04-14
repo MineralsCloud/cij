@@ -357,23 +357,23 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 <tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::residual_atol</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td><p>Tolerance for residual.</p></td>
+<td><p>Disagreement allowed between the input elastic tenor components and constraints enforced by the symmetry of the system.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::drop_atol</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
-<td></td>
+<td><p>Drop the elastic tensor components if the magnitude of the elastic tensor components if this component in all volume points are less than this value.</p></td>
 </tr>
 <tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::ignore_rank</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
-<td></td>
+<td><p>Keep filling the missing elastic tensor components based on the crystal system even if not all necessary components are give.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::ignore_residuals</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
-<td><p>Keep going even</p></td>
+<td><p>Keep filling the missing elastic tensor components based on the crystal system even if the disagreements exceeds tolerance.</p></td>
 </tr>
 <tr class="row-odd"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">symmetry::system</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
-<td><p>The crystal system used. One of: <code class="docutils literal notranslate"><span class="pre">triclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">monoclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">hexagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal8</span></code>, <code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal7</span></code>, <code class="docutils literal notranslate"><span class="pre">cubic</span></code>.</p></td>
+<td><p>Name of the crystal system whose symmetry is applied to fill the missing elastic tensor components. Should be one of: <code class="docutils literal notranslate"><span class="pre">triclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">monoclinic</span></code>, <code class="docutils literal notranslate"><span class="pre">hexagonal</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">trigonal8</span></code>, <code class="docutils literal notranslate"><span class="pre">orthorhombic</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal6</span></code>, <code class="docutils literal notranslate"><span class="pre">tetragonal7</span></code>, <code class="docutils literal notranslate"><span class="pre">cubic</span></code>.</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">object</span></code></p></td>
@@ -385,7 +385,7 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </tr>
 <tr class="row-even"><th class="stub"><p><code class="docutils literal notranslate"><span class="pre">mode_gamma::interpolator</span></code></p></th>
 <td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
-<td><p>The method to interpolate phonon frequencies vs. volume. One of: <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">lsq_poly</span></code>, <code class="docutils literal notranslate"><span class="pre">lagrange</span></code>, <code class="docutils literal notranslate"><span class="pre">krogh</span></code>, <code class="docutils literal notranslate"><span class="pre">pchip</span></code>, <code class="docutils literal notranslate"><span class="pre">hermite</span></code>, <code class="docutils literal notranslate"><span class="pre">akima</span></code>.</p></td>
+<td><p>The method to interpolate phonon frequencies vs. volume. Should be one of: <code class="docutils literal notranslate"><span class="pre">spline</span></code>, <code class="docutils literal notranslate"><span class="pre">lsq_poly</span></code>, <code class="docutils literal notranslate"><span class="pre">lagrange</span></code>, <code class="docutils literal notranslate"><span class="pre">krogh</span></code>, <code class="docutils literal notranslate"><span class="pre">pchip</span></code>, <code class="docutils literal notranslate"><span class="pre">hermite</span></code>, <code class="docutils literal notranslate"><span class="pre">akima</span></code>.</p></td>
 </tr>
 </tbody>
 </table>
