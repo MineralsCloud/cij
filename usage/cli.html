@@ -242,7 +242,7 @@
 <dl class="object">
 <dt>
 <code class="sig-name descname"><span class="pre">modes</span></code></dt>
-<dd><p>Plot interpolated mode frequency vs volume.</p>
+<dd><p>Plot interpolated mode frequency vs volume…</p>
 </dd></dl>
 
 <dl class="object">
@@ -254,7 +254,7 @@
 <dl class="object">
 <dt>
 <code class="sig-name descname"><span class="pre">run</span></code></dt>
-<dd><p>Perform SAM-Cij calculation with…</p>
+<dd><p>Perform SAM-Cij calculation details specified…</p>
 </dd></dl>
 
 <dl class="object">
@@ -266,7 +266,7 @@
 </div>
 <div class="section" id="cij-run">
 <h2>cij run<a class="headerlink" href="#cij-run" title="Permalink to this headline">¶</a></h2>
-<p>Perform SAM-Cij calculation with configuraiton specified in SETTINGS.</p>
+<p>Perform SAM-Cij calculation details specified in SETTINGS.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij run <span class="o">[</span>OPTIONS<span class="o">]</span> SETTINGS
 </pre></div>
 </div>
@@ -473,27 +473,42 @@
 </div>
 <div class="section" id="cij-modes">
 <h2>cij modes<a class="headerlink" href="#cij-modes" title="Permalink to this headline">¶</a></h2>
-<p>Plot interpolated mode frequency vs volume.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij modes <span class="o">[</span>OPTIONS<span class="o">]</span> FNAME
+<p>Plot interpolated mode frequency vs volume for calculation details specified in SETTINGS.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij modes <span class="o">[</span>OPTIONS<span class="o">]</span> SETTINGS
 </pre></div>
 </div>
 <p class="rubric">Options</p>
 <dl class="std option">
 <dt id="cmdoption-cij-modes-q">
 <code class="sig-name descname"><span class="pre">-q</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">--iq</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;iq&gt;</span></code><a class="headerlink" href="#cmdoption-cij-modes-q" title="Permalink to this definition">¶</a></dt>
-<dd><p>i-th q-point</p>
+<dd><p>Plot for i-th q-point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>0</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-cij-modes-n">
 <code class="sig-name descname"><span class="pre">-n</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;n&gt;</span></code><a class="headerlink" href="#cmdoption-cij-modes-n" title="Permalink to this definition">¶</a></dt>
-<dd><p>n-th derivative</p>
+<dd><p>Plot for n-th derivative</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>0</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="std option">
 <dt id="cmdoption-cij-modes-o">
 <code class="sig-name descname"><span class="pre">-o</span></code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname"><span class="pre">,</span> </code><code class="sig-name descname"><span class="pre">--output</span></code><code class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></code><a class="headerlink" href="#cmdoption-cij-modes-o" title="Permalink to this definition">¶</a></dt>
-<dd><p>save figure to</p>
+<dd><p>File name for the output figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p>modes.png</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="std option">
@@ -510,8 +525,8 @@
 
 <p class="rubric">Arguments</p>
 <dl class="std option">
-<dt id="cmdoption-cij-modes-arg-FNAME">
-<code class="sig-name descname"><span class="pre">FNAME</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-cij-modes-arg-FNAME" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-cij-modes-arg-SETTINGS">
+<code class="sig-name descname"><span class="pre">SETTINGS</span></code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-cij-modes-arg-SETTINGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required argument</p>
 </dd></dl>
 
