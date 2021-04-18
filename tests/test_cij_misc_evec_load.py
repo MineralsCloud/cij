@@ -5,12 +5,10 @@ import numpy
 from cij.misc.evec_load import evec_load
 from cij.misc.evec_sort import evec_sort
 
-
 test_files = {
     "eig": "pwscf.eig",
     "vec": "pwscf.vec"
 }
-
 
 @pytest.mark.parametrize("fname", [Path(__file__).parent / "data" / f for f in test_files.values()])
 @pytest.mark.parametrize("nq, nbnd", [(2, 60)])
@@ -45,3 +43,50 @@ def test_evec_load_orthogonal(key, fname, nq, nbnd):
             assert numpy.allclose(numpy.max(A - numpy.eye(nbnd)), 0, atol=1e-4)
         elif key == "vec":
             assert not numpy.allclose(numpy.max(A - numpy.eye(nbnd)), 0, atol=1e-4)
+
+@pytest.fixture
+def mass():
+    mmap = {1: 24.305, 2: 40.078, 3: 28.0855, 4: 15.999}
+    atypes = [2, 2, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 3, 3, 3, 3]
+    mass = [mmap[i] for i in atypes]
+    return mass
+
+@pytest.mark.parametrize("nq, nbnd", [(2, 60)])
+def test_evec_dispvec_disp2eig_vector_version(nq, nbnd, mass):
+
+    vecs = evec_load(Path(__file__).parent / "data" / test_files["vec"], nq, nbnd)
+    eigs = evec_load(Path(__file__).parent / "data" / test_files["eig"], nq, nbnd)
+
+    import numpy
+    from cij.misc.evec_disp2eig import evec_disp2eig
+
+    for iq in range(nq):
+
+        a1 = numpy.array([vecs[iq][1][ibnd][1] for ibnd in range(nbnd)])
+        a2 = numpy.array([eigs[iq][1][ibnd][1] for ibnd in range(nbnd)])
+        a1 = evec_disp2eig(a1, mass)
+
+        assert numpy.allclose(a1, a2, atol=1e-4)
+
+
+@pytest.mark.parametrize("nq, nbnd", [(2, 60)])
+def test_evec_dispvec_disp2eig_matrix_version(nq, nbnd, mass):
+
+    vecs = evec_load(Path(__file__).parent / "data" / test_files["vec"], nq, nbnd)
+    eigs = evec_load(Path(__file__).parent / "data" / test_files["eig"], nq, nbnd)
+
+    import numpy
+    from cij.misc.evec_disp2eig import evec_disp2eig
+
+    for iq in range(nq):
+
+        a1 = numpy.array([vecs[iq][1][ibnd][1] for ibnd in range(nbnd)])
+        a2 = numpy.array([eigs[iq][1][ibnd][1] for ibnd in range(nbnd)])
+
+        for ibnd in range(nbnd):
+
+            a1 = numpy.array(vecs[iq][1][ibnd][1])
+            a2 = numpy.array(eigs[iq][1][ibnd][1])
+            a1 = evec_disp2eig(a1, mass)
+
+            assert numpy.allclose(a1, a2, atol=1e-4)
