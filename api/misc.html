@@ -34,6 +34,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -208,6 +210,38 @@
 </style>
 <div class="section" id="module-cij.misc">
 <span id="miscellaneous-functions-cij-misc"></span><h1>Miscellaneous functions: <code class="docutils literal notranslate"><span class="pre">cij.misc</span></code><a class="headerlink" href="#module-cij.misc" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="cij.misc.evec_disp2eig">
+<code class="sig-prename descclassname"><span class="pre">cij.misc.</span></code><code class="sig-name descname"><span class="pre">evec_disp2eig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_disp2eig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert phonon displacement vector to eigenvector.</p>
+<p>The displacement vectors (<span class="math notranslate nohighlight">\(\left|C_i\right&gt;\)</span>) are not orthogonal,
+whereas eigenvectors (<span class="math notranslate nohighlight">\(\left|C_i^m\right&gt;\)</span>) are orthogonal.
+The difference is the mass matrix (<span class="math notranslate nohighlight">\(\hat M\)</span>).</p>
+<p><span class="math notranslate nohighlight">\(\left|C_i\right&gt;\)</span> and <span class="math notranslate nohighlight">\(\left|C_i^m\right&gt;\)</span> are related by</p>
+<div class="math notranslate nohighlight">
+\[\left|C_i^m\right&gt; = \hat M^{1/2} \left |C_i \right&gt;.\]</div>
+<p>This function returns normalized <span class="math notranslate nohighlight">\(\left|C_i^m\right&gt;\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 3N x 1 displacement vector or 3N x 3N displacement vector matrix</p></li>
+<li><p><strong>mass</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – N x 1 atom mass vector, of any unit</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><p>Eigenvector matrix, shape determined by the shape of <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a displacement vector, return a 3N x 1 eigenvector</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a displacement matrix, return a 3N x 3N eigenvector matrix</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt id="cij.misc.evec_load">
 <code class="sig-prename descclassname"><span class="pre">cij.misc.</span></code><code class="sig-name descname"><span class="pre">evec_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_load" title="Permalink to this definition">¶</a></dt>
