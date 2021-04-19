@@ -224,7 +224,7 @@ The difference is the mass matrix (<span class="math notranslate nohighlight">\(
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – 3N x 1 displacement vector or 3N x 3N displacement vector matrix</p></li>
+<li><p><strong>a</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – M x 3N displacement vector matrix</p></li>
 <li><p><strong>mass</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – N x 1 atom mass vector, of any unit</p></li>
 </ul>
 </dd>
@@ -232,12 +232,7 @@ The difference is the mass matrix (<span class="math notranslate nohighlight">\(
 <dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
 </dd>
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><p>Eigenvector matrix, shape determined by the shape of <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a displacement vector, return a 3N x 1 eigenvector</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a displacement matrix, return a 3N x 3N eigenvector matrix</p></li>
-</ul>
-</p>
+<dd class="field-odd"><p>Eigenvector matrix, shape is same as <code class="docutils literal notranslate"><span class="pre">a</span></code> (M x 3N):</p>
 </dd>
 </dl>
 </dd></dl>
