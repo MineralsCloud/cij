@@ -17,13 +17,10 @@ def evec_disp2eig(a: numpy.ndarray, mass: list) -> numpy.ndarray:
     This function returns normalized :math:`\\left|C_i^m\\right>`.
 
 
-    :param a: 3N x 1 displacement vector or 3N x 3N displacement vector matrix
+    :param a: M x 3N displacement vector matrix
     :param mass: N x 1 atom mass vector, of any unit
 
-    :returns: Eigenvector matrix, shape determined by the shape of ``a``:
-
-        * If ``a`` is a displacement vector, return a 3N x 1 eigenvector
-        * If ``a`` is a displacement matrix, return a 3N x 3N eigenvector matrix
+    :returns: Eigenvector matrix, shape is same as ``a`` (M x 3N):
     '''
 
     N = len(mass) # number of atoms
@@ -31,18 +28,7 @@ def evec_disp2eig(a: numpy.ndarray, mass: list) -> numpy.ndarray:
     m = numpy.repeat(mass, 3)   # Account for 3 polarization directions, N -> 3N
     a = numpy.copy(a)
 
-    if a.shape == (3*N,):
-
-        # Multiply by mass matrix
-
-        a *= numpy.sqrt(m)
-
-        # Renormalization
-
-        norm = numpy.conj(a) @ a.T
-        a /= numpy.sqrt(norm)
-
-    elif a.shape == (3*N, 3*N):
+    if a.shape[1] == 3*N:
 
         # Multiply by mass matrix
 

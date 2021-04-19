@@ -52,7 +52,7 @@ def mass():
     return mass
 
 @pytest.mark.parametrize("nq, nbnd", [(2, 60)])
-def test_evec_dispvec_disp2eig_vector_version(nq, nbnd, mass):
+def test_evec_dispvec_disp2eig_3Nx3N(nq, nbnd, mass):
 
     vecs = evec_load(Path(__file__).parent / "data" / test_files["vec"], nq, nbnd)
     eigs = evec_load(Path(__file__).parent / "data" / test_files["eig"], nq, nbnd)
@@ -70,7 +70,7 @@ def test_evec_dispvec_disp2eig_vector_version(nq, nbnd, mass):
 
 
 @pytest.mark.parametrize("nq, nbnd", [(2, 60)])
-def test_evec_dispvec_disp2eig_matrix_version(nq, nbnd, mass):
+def test_evec_dispvec_disp2eig_1x3N(nq, nbnd, mass):
 
     vecs = evec_load(Path(__file__).parent / "data" / test_files["vec"], nq, nbnd)
     eigs = evec_load(Path(__file__).parent / "data" / test_files["eig"], nq, nbnd)
@@ -85,8 +85,8 @@ def test_evec_dispvec_disp2eig_matrix_version(nq, nbnd, mass):
 
         for ibnd in range(nbnd):
 
-            a1 = numpy.array(vecs[iq][1][ibnd][1])
-            a2 = numpy.array(eigs[iq][1][ibnd][1])
+            a1 = numpy.array([vecs[iq][1][ibnd][1]])
+            a2 = numpy.array([eigs[iq][1][ibnd][1]])
             a1 = evec_disp2eig(a1, mass)
 
-            assert numpy.allclose(a1, a2, atol=1e-4)
+            assert numpy.allclose(a1[0], a2, atol=1e-4)
