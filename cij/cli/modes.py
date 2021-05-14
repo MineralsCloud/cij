@@ -11,7 +11,7 @@ def main(settings: str, iq: int, n: int, interval: float, output: str, y_max: fl
 
     import cij.core.calculator
 
-    calculator = cij.core.calculator.Calculator(fname)
+    calculator = cij.core.calculator.Calculator(settings)
 
     from cij.plot import ModePlotter
     from matplotlib import pyplot as plt
