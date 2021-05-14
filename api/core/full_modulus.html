@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
 
   
@@ -30,12 +32,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -222,13 +225,13 @@
 <div class="section" id="module-cij.core.full_modulus">
 <span id="the-elastic-moduli-as-a-whole"></span><h1>The elastic moduli as a whole<a class="headerlink" href="#module-cij.core.full_modulus" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.core.full_modulus.</span></code><code class="sig-name descname"><span class="pre">FullThermalElasticModulus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.core.full_modulus.</span></span><span class="sig-name descname"><span class="pre">FullThermalElasticModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Calculates the static and thermal part of the elastic constants.</p>
 <dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.calculate_phonon_contribution">
-<code class="sig-name descname"><span class="pre">calculate_phonon_contribution</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.calculate_phonon_contribution" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.calculate_phonon_contribution">
+<span class="sig-name descname"><span class="pre">calculate_phonon_contribution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.calculate_phonon_contribution" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
@@ -237,8 +240,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.fit_modulus">
-<code class="sig-name descname"><span class="pre">fit_modulus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moduli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.fit_modulus" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.fit_modulus">
+<span class="sig-name descname"><span class="pre">fit_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moduli</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.fit_modulus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpolate static elastic constants <span class="math notranslate nohighlight">\(c^\text{st}_{ij}(V)\)</span> as
 a function of volume with polynomial least square fitting</p>
 <dl class="field-list simple">
@@ -259,8 +262,8 @@ to be fitted</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.get_axial_strains">
-<code class="sig-name descname"><span class="pre">get_axial_strains</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.get_axial_strains" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.get_axial_strains">
+<span class="sig-name descname"><span class="pre">get_axial_strains</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.get_axial_strains" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
@@ -269,8 +272,8 @@ to be fitted</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.get_static_modulus">
-<code class="sig-name descname"><span class="pre">get_static_modulus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.get_static_modulus" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.get_static_modulus">
+<span class="sig-name descname"><span class="pre">get_static_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.get_static_modulus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get interpolated static elastic modulus <span class="math notranslate nohighlight">\(c^\text{st}_{ij}(V)\)</span>
 as a function of volume.</p>
 <dl class="field-list simple">
@@ -280,19 +283,19 @@ as a function of volume.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.modulus_adiabatic">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">modulus_adiabatic</span></code><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.modulus_adiabatic" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.modulus_adiabatic">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">modulus_adiabatic</span></span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.modulus_adiabatic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.modulus_isothermal">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">modulus_isothermal</span></code><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.modulus_isothermal" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.modulus_isothermal">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">modulus_isothermal</span></span><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.modulus_isothermal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.modulus_keys">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">modulus_keys</span></code><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.modulus_keys" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.modulus_keys">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">modulus_keys</span></span><em class="property"><span class="pre">:</span> <span class="pre">List[cij.util.voigt.ModulusRepresentation]</span></em><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.modulus_keys" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>]</p>
@@ -300,9 +303,9 @@ as a function of volume.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.v_array">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_array</span></code><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.v_array" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.v_array">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v_array</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.v_array" title="Permalink to this definition">¶</a></dt>
 <dd><p>The array of interpolated volume points <span class="math notranslate nohighlight">\(V\)</span>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -311,9 +314,9 @@ as a function of volume.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.full_modulus.FullThermalElasticModulus.volumes">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">volumes</span></code><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.volumes" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.full_modulus.FullThermalElasticModulus.volumes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.full_modulus.FullThermalElasticModulus.volumes" title="Permalink to this definition">¶</a></dt>
 <dd><p>The array of original volume points <span class="math notranslate nohighlight">\(V\)</span> from input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>

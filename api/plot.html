@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -30,12 +32,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -216,19 +219,19 @@
 <div class="section" id="module-cij.plot">
 <span id="plotting-helper-cij-plot"></span><h1>Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code><a class="headerlink" href="#module-cij.plot" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="cij.plot.ModePlotter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.plot.</span></code><code class="sig-name descname"><span class="pre">ModePlotter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.ModePlotter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.plot.</span></span><span class="sig-name descname"><span class="pre">ModePlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The plotter for plotting interpolated phonon mode frequency and its derivatives (Gruneisen parameters, etc.) for checking
 the status of mode-frequency interpolation</p>
 <dl class="py method">
-<dt id="cij.plot.ModePlotter.add_pressure_ticks">
-<code class="sig-name descname"><span class="pre">add_pressure_ticks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter.add_pressure_ticks" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.ModePlotter.add_pressure_ticks">
+<span class="sig-name descname"><span class="pre">add_pressure_ticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter.add_pressure_ticks" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.plot.ModePlotter.plot_modes">
-<code class="sig-name descname"><span class="pre">plot_modes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter.plot_modes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.ModePlotter.plot_modes">
+<span class="sig-name descname"><span class="pre">plot_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter.plot_modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plotting the phonon modes and its derivatives</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -244,63 +247,63 @@ the status of mode-frequency interpolation</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.plot.ModePlotter.qha_input">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">qha_input</span></code><a class="headerlink" href="#cij.plot.ModePlotter.qha_input" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.plot.ModePlotter.qha_input">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">qha_input</span></span><a class="headerlink" href="#cij.plot.ModePlotter.qha_input" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.plot.ModePlotter.v_array">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_array</span></code><a class="headerlink" href="#cij.plot.ModePlotter.v_array" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.plot.ModePlotter.v_array">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v_array</span></span><a class="headerlink" href="#cij.plot.ModePlotter.v_array" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.plot.ModePlotter.volumes">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">volumes</span></code><a class="headerlink" href="#cij.plot.ModePlotter.volumes" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.plot.ModePlotter.volumes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">volumes</span></span><a class="headerlink" href="#cij.plot.ModePlotter.volumes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt id="cij.plot.Plotter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.plot.</span></code><code class="sig-name descname"><span class="pre">Plotter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.Plotter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.plot.</span></span><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The plotter for QHA’s calculator</p>
 <dl class="py method">
-<dt id="cij.plot.Plotter.index_p">
-<code class="sig-name descname"><span class="pre">index_p</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.index_p" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.Plotter.index_p">
+<span class="sig-name descname"><span class="pre">index_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.index_p" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.plot.Plotter.index_t">
-<code class="sig-name descname"><span class="pre">index_t</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.index_t" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.Plotter.index_t">
+<span class="sig-name descname"><span class="pre">index_t</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.index_t" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.plot.Plotter.p_indices">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">p_indices</span></span><a class="headerlink" href="#cij.plot.Plotter.p_indices" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.plot.Plotter.p_indices">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">p_indices</span></code><a class="headerlink" href="#cij.plot.Plotter.p_indices" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.Plotter.plot_cij_p">
+<span class="sig-name descname"><span class="pre">plot_cij_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_p" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.plot.Plotter.plot_cij_p">
-<code class="sig-name descname"><span class="pre">plot_cij_p</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_p" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.Plotter.plot_cij_p_with">
+<span class="sig-name descname"><span class="pre">plot_cij_p_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_p_with" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.plot.Plotter.plot_cij_p_with">
-<code class="sig-name descname"><span class="pre">plot_cij_p_with</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_p_with" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt id="cij.plot.Plotter.plot_cij_t_with">
-<code class="sig-name descname"><span class="pre">plot_cij_t_with</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_t_with" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.Plotter.plot_cij_t_with">
+<span class="sig-name descname"><span class="pre">plot_cij_t_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_t_with" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.plot.color_x">
-<code class="sig-prename descclassname"><span class="pre">cij.plot.</span></code><code class="sig-name descname"><span class="pre">color_x</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.color_x" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.color_x">
+<span class="sig-prename descclassname"><span class="pre">cij.plot.</span></span><span class="sig-name descname"><span class="pre">color_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.color_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a map from <span class="math notranslate nohighlight">\(x\)</span> to color</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -321,19 +324,19 @@ the status of mode-frequency interpolation</p>
 <div class="section" id="module-cij.plot.modes">
 <span id="checking-mode-interpolation-results"></span><h2>Checking mode interpolation results<a class="headerlink" href="#module-cij.plot.modes" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="cij.plot.modes.ModePlotter">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.plot.modes.</span></code><code class="sig-name descname"><span class="pre">ModePlotter</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.plot.modes.</span></span><span class="sig-name descname"><span class="pre">ModePlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The plotter for plotting interpolated phonon mode frequency and its derivatives (Gruneisen parameters, etc.) for checking
 the status of mode-frequency interpolation</p>
 <dl class="py method">
-<dt id="cij.plot.modes.ModePlotter.add_pressure_ticks">
-<code class="sig-name descname"><span class="pre">add_pressure_ticks</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter.add_pressure_ticks" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.add_pressure_ticks">
+<span class="sig-name descname"><span class="pre">add_pressure_ticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter.add_pressure_ticks" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.plot.modes.ModePlotter.plot_modes">
-<code class="sig-name descname"><span class="pre">plot_modes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter.plot_modes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.plot_modes">
+<span class="sig-name descname"><span class="pre">plot_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter.plot_modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plotting the phonon modes and its derivatives</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -349,19 +352,19 @@ the status of mode-frequency interpolation</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.plot.modes.ModePlotter.qha_input">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">qha_input</span></code><a class="headerlink" href="#cij.plot.modes.ModePlotter.qha_input" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.qha_input">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">qha_input</span></span><a class="headerlink" href="#cij.plot.modes.ModePlotter.qha_input" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.plot.modes.ModePlotter.v_array">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_array</span></code><a class="headerlink" href="#cij.plot.modes.ModePlotter.v_array" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.v_array">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v_array</span></span><a class="headerlink" href="#cij.plot.modes.ModePlotter.v_array" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.plot.modes.ModePlotter.volumes">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">volumes</span></code><a class="headerlink" href="#cij.plot.modes.ModePlotter.volumes" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.volumes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">volumes</span></span><a class="headerlink" href="#cij.plot.modes.ModePlotter.volumes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -372,8 +375,8 @@ the status of mode-frequency interpolation</p>
 <p>Plotting the phonon contribution calculation tasks dependencies to a nice
 arrow plot. The underlying functionalities are provided by <a class="reference external" href="https://networkx.github.io/">NetworkX</a>.</p>
 <dl class="py function">
-<dt id="cij.plot.tasks.make_legend">
-<code class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></code><code class="sig-name descname"><span class="pre">make_legend</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['#1f77b4',</span> <span class="pre">'#ff7f0e',</span> <span class="pre">'#2ca02c',</span> <span class="pre">'#d62728',</span> <span class="pre">'#9467bd',</span> <span class="pre">'#8c564b',</span> <span class="pre">'#e377c2',</span> <span class="pre">'#7f7f7f',</span> <span class="pre">'#bcbd22',</span> <span class="pre">'#17becf']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.make_legend" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.tasks.make_legend">
+<span class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></span><span class="sig-name descname"><span class="pre">make_legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['#1f77b4',</span> <span class="pre">'#ff7f0e',</span> <span class="pre">'#2ca02c',</span> <span class="pre">'#d62728',</span> <span class="pre">'#9467bd',</span> <span class="pre">'#8c564b',</span> <span class="pre">'#e377c2',</span> <span class="pre">'#7f7f7f',</span> <span class="pre">'#bcbd22',</span> <span class="pre">'#17becf']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.make_legend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create legends for phonon contribution calculation task dependencies
 plot.</p>
 <dl class="field-list simple">
@@ -395,8 +398,8 @@ tasks:</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.plot.tasks.plot_phonon_contribution_dependencies">
-<code class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></code><code class="sig-name descname"><span class="pre">plot_phonon_contribution_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.plot_phonon_contribution_dependencies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.tasks.plot_phonon_contribution_dependencies">
+<span class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></span><span class="sig-name descname"><span class="pre">plot_phonon_contribution_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.plot_phonon_contribution_dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plotting phonon contribution calculation task dependencies</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -410,8 +413,8 @@ tasks:</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.plot.tasks.plot_tasklist_dependencies">
-<code class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></code><code class="sig-name descname"><span class="pre">plot_tasklist_dependencies</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.plot_tasklist_dependencies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.plot.tasks.plot_tasklist_dependencies">
+<span class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></span><span class="sig-name descname"><span class="pre">plot_tasklist_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.plot_tasklist_dependencies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plotting phonon contribution calculation task dependencies in a given
 task list</p>
 <dl class="field-list simple">

@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
 
   
@@ -30,12 +32,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -228,14 +231,14 @@
 <div class="section" id="module-cij.core.phonon_contribution.nonshear">
 <span id="longitudinal-and-off-diagonal-phonon-contribution"></span><h2>Longitudinal and off-diagonal phonon contribution<a class="headerlink" href="#module-cij.core.phonon_contribution.nonshear" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="cij.core.phonon_contribution.nonshear.ElasticModulus">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></code><code class="sig-name descname"><span class="pre">ElasticModulus</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.ElasticModulus" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.ElasticModulus">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></span><span class="sig-name descname"><span class="pre">ElasticModulus</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.ElasticModulus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></code><code class="sig-name descname"><span class="pre">LongitudinalElasticModulusPhononContribution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></span><span class="sig-name descname"><span class="pre">LongitudinalElasticModulusPhononContribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cij.core.phonon_contribution.nonshear.ElasticModulus" title="cij.core.phonon_contribution.nonshear.ElasticModulus"><code class="xref py py-class docutils literal notranslate"><span class="pre">cij.core.phonon_contribution.nonshear.ElasticModulus</span></code></a></p>
 <p>Represents the phonon part of the longitudinal thermal
 elastic modulus <span class="math notranslate nohighlight">\(c^\text{ph}_{ii}(T, V)\)</span></p>
@@ -253,26 +256,26 @@ parameter <span class="math notranslate nohighlight">\(\gamma^{ii}_{qm}\)</span>
 </ul>
 </dd>
 </dl>
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">Q</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">Q</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of expression <span class="math notranslate nohighlight">\(Q_{qm}(T, V)\)</span></p>
 <div class="math notranslate nohighlight">
 \[Q_{qm}(T, V) = \frac{\hbar\omega_{qm}(V)}{k_\text{B}T}\]</div>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q1">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">Q1</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q1" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q1">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">Q1</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of expression</p>
 <div class="math notranslate nohighlight">
 \[\frac{Q_{qm}(T, V)}{\exp Q_{qm}(T, V) - 1}\]</div>
 <p>where <span class="math notranslate nohighlight">\(Q_{qm}(T, V) = \frac{\hbar\omega_{qm}(V)}{k_\text{B}T}\)</span></p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q2">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">Q2</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q2" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q2">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">Q2</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Value of expression</p>
 <div class="math notranslate nohighlight">
 \[\frac{Q_{qm}^2(T, V) \exp Q_{qm}(T, V) }{(\exp Q_{qm}(T, V) - 1) ^ 2}\]</div>
@@ -280,13 +283,13 @@ parameter <span class="math notranslate nohighlight">\(\gamma^{ii}_{qm}\)</span>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.average_over_modes">
-<code class="sig-name descname"><span class="pre">average_over_modes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.average_over_modes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.average_over_modes">
+<span class="sig-name descname"><span class="pre">average_over_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.average_over_modes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.freq_array">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">freq_array</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.freq_array" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.freq_array">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">freq_array</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.freq_array" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
@@ -294,9 +297,9 @@ parameter <span class="math notranslate nohighlight">\(\gamma^{ii}_{qm}\)</span>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.isothermal_to_adiabatic">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">isothermal_to_adiabatic</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.isothermal_to_adiabatic" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.isothermal_to_adiabatic">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">isothermal_to_adiabatic</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.isothermal_to_adiabatic" title="Permalink to this definition">¶</a></dt>
 <dd><p>The difference between isothermal <span class="math notranslate nohighlight">\(c^\text{T}_{ij}\)</span> and
 adiabatic <span class="math notranslate nohighlight">\(c^\text{S}_{ij}\)</span> thermal elastic modulus</p>
 <div class="math notranslate nohighlight">
@@ -306,20 +309,20 @@ adiabatic <span class="math notranslate nohighlight">\(c^\text{S}_{ij}\)</span> 
     \frac{\partial S}{\partial e_{j j}}\]</div>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.mode_gamma">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">mode_gamma</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.mode_gamma" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.mode_gamma">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">mode_gamma</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.mode_gamma" title="Permalink to this definition">¶</a></dt>
 <dd><p>Values related to the strain-Grüneisen parameter</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.prefactors">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">prefactors</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.prefactors" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.prefactors">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">prefactors</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.prefactors" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.q_weights">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">q_weights</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.q_weights" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.q_weights">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">q_weights</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.q_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>The <span class="math notranslate nohighlight">\(q\)</span>-points multiplicities or weights <span class="math notranslate nohighlight">\(w_{q}\)</span></p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -328,9 +331,9 @@ adiabatic <span class="math notranslate nohighlight">\(c^\text{S}_{ij}\)</span> 
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.t_array">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">t_array</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.t_array" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.t_array">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">t_array</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.t_array" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
@@ -338,18 +341,18 @@ adiabatic <span class="math notranslate nohighlight">\(c^\text{S}_{ij}\)</span> 
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.thermal_contribution">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">thermal_contribution</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.thermal_contribution" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.thermal_contribution">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">thermal_contribution</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.thermal_contribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>The thermal contribution <span class="math notranslate nohighlight">\(c^\text{th}\)</span> to the
 vibrational part of the longitudinal elastic modulus (<span class="math notranslate nohighlight">\(c_{iiii}\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[\]</div>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.v_array">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v_array</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.v_array" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.v_array">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v_array</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.v_array" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
@@ -357,9 +360,9 @@ vibrational part of the longitudinal elastic modulus (<span class="math notransl
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_adiabatic">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">value_adiabatic</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_adiabatic" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_adiabatic">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">value_adiabatic</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_adiabatic" title="Permalink to this definition">¶</a></dt>
 <dd><p>The adiabatic elastic modulus <span class="math notranslate nohighlight">\(c^\text{S}_{ij}(T, V)\)</span> as a
 function of temperature and volume, valid only for longitudinal and
 off-diagonal elastic modulus (<span class="math notranslate nohighlight">\(i,j=1,2,3\)</span>)</p>
@@ -371,9 +374,9 @@ off-diagonal elastic modulus (<span class="math notranslate nohighlight">\(i,j=1
     + c^\text{T}_{ij}\]</div>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_isothermal">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">value_isothermal</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_isothermal" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_isothermal">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">value_isothermal</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_isothermal" title="Permalink to this definition">¶</a></dt>
 <dd><p>The phonon part of the elastic constant <span class="math notranslate nohighlight">\(c^\text{ph}_{ij}\)</span>
 as a function of temeprature and volume</p>
 <div class="math notranslate nohighlight">
@@ -381,9 +384,9 @@ as a function of temeprature and volume</p>
     = c^\text{zpm}_{ij}(V) + c^\text{th}_{ij}(T, V)\]</div>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.zero_point_contribution">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">zero_point_contribution</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.zero_point_contribution" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.zero_point_contribution">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">zero_point_contribution</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.zero_point_contribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>The zero-point motion contribution to the
 vibrational part of the longitudinal elastic modulus
 (<span class="math notranslate nohighlight">\(c_{iiii}\)</span>, <span class="math notranslate nohighlight">\(i = 1-3\)</span>).</p>
@@ -398,23 +401,23 @@ vibrational part of the longitudinal elastic modulus
 </dd></dl>
 
 <dl class="py class">
-<dt id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></code><code class="sig-name descname"><span class="pre">OffDiagonalElasticModulusPhononContribution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></span><span class="sig-name descname"><span class="pre">OffDiagonalElasticModulusPhononContribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution" title="cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution"><code class="xref py py-class docutils literal notranslate"><span class="pre">cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution</span></code></a></p>
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.mode_gamma">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">mode_gamma</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.mode_gamma" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.mode_gamma">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">mode_gamma</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.mode_gamma" title="Permalink to this definition">¶</a></dt>
 <dd><p>Values related to the strain-Grüneisen parameter</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.prefactors">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">prefactors</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.prefactors" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.prefactors">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">prefactors</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.prefactors" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.thermal_contribution">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">thermal_contribution</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.thermal_contribution" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.thermal_contribution">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">thermal_contribution</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.thermal_contribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>The thermal contribution to the
 vibrational part of the longitudinal elastic modulus
 (<span class="math notranslate nohighlight">\(c^\text{th}_{iijj}\)</span>, <span class="math notranslate nohighlight">\(i,j = 1-3\)</span>, <span class="math notranslate nohighlight">\(i \neq j\)</span>).</p>
@@ -424,9 +427,9 @@ vibrational part of the longitudinal elastic modulus
     = \]</div>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.value_isothermal">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">value_isothermal</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.value_isothermal" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.value_isothermal">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">value_isothermal</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.value_isothermal" title="Permalink to this definition">¶</a></dt>
 <dd><p>The phonon part of the elastic constant <span class="math notranslate nohighlight">\(c^\text{ph}_{ij}\)</span>
 as a function of temeprature and volume</p>
 <div class="math notranslate nohighlight">
@@ -434,9 +437,9 @@ as a function of temeprature and volume</p>
     = c^\text{zpm}_{ij}(V) + c^\text{th}_{ij}(T, V)\]</div>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.zero_point_contribution">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">zero_point_contribution</span></code><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.zero_point_contribution" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.zero_point_contribution">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">zero_point_contribution</span></span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.zero_point_contribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>The zero-point motion contribution to the
 vibrational part of the longitudinal elastic modulus
 (<span class="math notranslate nohighlight">\(c^\text{zpm}_{iijj}\)</span>, <span class="math notranslate nohighlight">\(i,j = 1-3\)</span>, <span class="math notranslate nohighlight">\(i \neq j\)</span>).</p>
@@ -451,8 +454,8 @@ vibrational part of the longitudinal elastic modulus
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.core.phonon_contribution.nonshear.average_over_modes">
-<code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></code><code class="sig-name descname"><span class="pre">average_over_modes</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.average_over_modes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.average_over_modes">
+<span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></span><span class="sig-name descname"><span class="pre">average_over_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_weights</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.average_over_modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate sum of physical quantity over <span class="math notranslate nohighlight">\(3N\)</span> phonon modes and
 <span class="math notranslate nohighlight">\(N_q\)</span> <span class="math notranslate nohighlight">\(q\)</span>-points (<span class="math notranslate nohighlight">\(\sum_{qm}\)</span>) except for accoustic modes
 at Gamma point (first <span class="math notranslate nohighlight">\(q\)</span>-point and first three modes).</p>
@@ -473,26 +476,26 @@ at Gamma point (first <span class="math notranslate nohighlight">\(q\)</span>-po
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.core.phonon_contribution.nonshear.clear_gamma_point">
-<code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></code><code class="sig-name descname"><span class="pre">clear_gamma_point</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.clear_gamma_point" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.nonshear.clear_gamma_point">
+<span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.nonshear.</span></span><span class="sig-name descname"><span class="pre">clear_gamma_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.nonshear.clear_gamma_point" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="module-cij.core.phonon_contribution.shear">
 <span id="shear-phonon-contribution"></span><h2>Shear phonon contribution<a class="headerlink" href="#module-cij.core.phonon_contribution.shear" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.shear.</span></code><code class="sig-name descname"><span class="pre">ShearElasticModulusPhononContribution</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.shear.</span></span><span class="sig-name descname"><span class="pre">ShearElasticModulusPhononContribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">fictitious_strain</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">fictitious_strain</span></span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain" title="Permalink to this definition">¶</a></dt>
 <dd><p>The fictitious strain</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">fictitious_strain_energy</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">fictitious_strain_energy</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>The strain energy for the fictitious strain under the original
 coordinate system except for the unknown</p>
 <dl class="field-list simple">
@@ -502,9 +505,9 @@ coordinate system except for the unknown</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy_rotated">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">fictitious_strain_energy_rotated</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy_rotated" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy_rotated">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">fictitious_strain_energy_rotated</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy_rotated" title="Permalink to this definition">¶</a></dt>
 <dd><p>The strain energy for the fictitious strain under the rotated
 coordinate system</p>
 <dl class="field-list simple">
@@ -514,15 +517,15 @@ coordinate system</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_rotated">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">fictitious_strain_rotated</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_rotated" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_rotated">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">fictitious_strain_rotated</span></span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_rotated" title="Permalink to this definition">¶</a></dt>
 <dd><p>The fictitious strain in the rotated coordinate system</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus">
-<code class="sig-name descname"><span class="pre">get_elastic_modulus</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus">
+<span class="sig-name descname"><span class="pre">get_elastic_modulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
@@ -531,8 +534,8 @@ coordinate system</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus_rotated">
-<code class="sig-name descname"><span class="pre">get_elastic_modulus_rotated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus_rotated" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus_rotated">
+<span class="sig-name descname"><span class="pre">get_elastic_modulus_rotated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus_rotated" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
@@ -541,18 +544,18 @@ coordinate system</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys">
-<code class="sig-name descname"><span class="pre">get_modulus_keys</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys">
+<span class="sig-name descname"><span class="pre">get_modulus_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys_rotated">
-<code class="sig-name descname"><span class="pre">get_modulus_keys_rotated</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys_rotated" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys_rotated">
+<span class="sig-name descname"><span class="pre">get_modulus_keys_rotated</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys_rotated" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_target_elastic_modulus">
-<code class="sig-name descname"><span class="pre">get_target_elastic_modulus</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_target_elastic_modulus" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_target_elastic_modulus">
+<span class="sig-name descname"><span class="pre">get_target_elastic_modulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_target_elastic_modulus" title="Permalink to this definition">¶</a></dt>
 <dd><p>The elastic modulus need to be calculated from the difference in
 fictitious strain energy of the rotated coordinate system and the known
 terms in the original coordinate.</p>
@@ -563,32 +566,32 @@ terms in the original coordinate.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.strain_rotated">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">strain_rotated</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.strain_rotated" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.strain_rotated">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">strain_rotated</span></span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.strain_rotated" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.transformation_matrix">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">transformation_matrix</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.transformation_matrix" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.transformation_matrix">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">transformation_matrix</span></span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.transformation_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>The transformation matrix</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_adiabatic">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">value_adiabatic</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_adiabatic" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_adiabatic">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">value_adiabatic</span></span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_adiabatic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py method">
-<dt id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_isothermal">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">value_isothermal</span></code><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_isothermal" title="Permalink to this definition">¶</a></dt>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_isothermal">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">value_isothermal</span></span><a class="headerlink" href="#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_isothermal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.core.phonon_contribution.shear.calculate_fictitious_strain_energy">
-<code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.shear.</span></code><code class="sig-name descname"><span class="pre">calculate_fictitious_strain_energy</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictitious_strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolve_elastic_modulus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.calculate_fictitious_strain_energy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.calculate_fictitious_strain_energy">
+<span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.shear.</span></span><span class="sig-name descname"><span class="pre">calculate_fictitious_strain_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictitious_strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolve_elastic_modulus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.calculate_fictitious_strain_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the strain energy for under given coordinate system, ignore
 the unknown.</p>
 <dl class="field-list simple">
@@ -607,8 +610,8 @@ is calculated</p></li>
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.core.phonon_contribution.shear.get_fictitious_strain_energy_keys">
-<code class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.shear.</span></code><code class="sig-name descname"><span class="pre">get_fictitious_strain_energy_keys</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictitious_strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.get_fictitious_strain_energy_keys" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.core.phonon_contribution.shear.get_fictitious_strain_energy_keys">
+<span class="sig-prename descclassname"><span class="pre">cij.core.phonon_contribution.shear.</span></span><span class="sig-name descname"><span class="pre">get_fictitious_strain_energy_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fictitious_strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.phonon_contribution.shear.get_fictitious_strain_energy_keys" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>

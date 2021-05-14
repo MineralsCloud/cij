@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/style.css" type="text/css" />
 
   
@@ -30,12 +32,13 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-        <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -211,8 +214,8 @@
 <div class="section" id="module-cij.misc">
 <span id="miscellaneous-functions-cij-misc"></span><h1>Miscellaneous functions: <code class="docutils literal notranslate"><span class="pre">cij.misc</span></code><a class="headerlink" href="#module-cij.misc" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt id="cij.misc.evec_disp2eig">
-<code class="sig-prename descclassname"><span class="pre">cij.misc.</span></code><code class="sig-name descname"><span class="pre">evec_disp2eig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_disp2eig" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.misc.evec_disp2eig">
+<span class="sig-prename descclassname"><span class="pre">cij.misc.</span></span><span class="sig-name descname"><span class="pre">evec_disp2eig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_disp2eig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert phonon displacement vector to eigenvector.</p>
 <p>The displacement vectors (<span class="math notranslate nohighlight">\(\left|C_i\right&gt;\)</span>) are not orthogonal,
 whereas eigenvectors (<span class="math notranslate nohighlight">\(\left|C_i^m\right&gt;\)</span>) are orthogonal.
@@ -238,8 +241,8 @@ The difference is the mass matrix (<span class="math notranslate nohighlight">\(
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.misc.evec_load">
-<code class="sig-prename descclassname"><span class="pre">cij.misc.</span></code><code class="sig-name descname"><span class="pre">evec_load</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_load" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.misc.evec_load">
+<span class="sig-prename descclassname"><span class="pre">cij.misc.</span></span><span class="sig-name descname"><span class="pre">evec_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load <code class="docutils literal notranslate"><span class="pre">eig</span></code> file from <code class="docutils literal notranslate"><span class="pre">matdyn.x</span></code> output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -256,8 +259,8 @@ The difference is the mass matrix (<span class="math notranslate nohighlight">\(
 </dd></dl>
 
 <dl class="py function">
-<dt id="cij.misc.evec_sort">
-<code class="sig-prename descclassname"><span class="pre">cij.misc.</span></code><code class="sig-name descname"><span class="pre">evec_sort</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_evecs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_evecs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_sort" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="cij.misc.evec_sort">
+<span class="sig-prename descclassname"><span class="pre">cij.misc.</span></span><span class="sig-name descname"><span class="pre">evec_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_evecs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_evecs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.misc.evec_sort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sort elements of an array based on the eigenvector similarities with
 respect to another set of eigenvectors.</p>
 <dl class="field-list simple">
