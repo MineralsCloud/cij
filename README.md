@@ -69,7 +69,8 @@ elast:
     mode_gamma:
       interpolator: spline
       order: 3
-    system: cubic
+    symmetry:
+      system: cubic
 output:
   pressure_base:
     - cij
