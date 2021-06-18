@@ -155,6 +155,14 @@ See [GitHub pages][2].
 [![codecov](https://codecov.io/gh/MineralsCloud/cij/branch/dev/graph/badge.svg?token=Ln1Fo4vNBE)](https://codecov.io/gh/MineralsCloud/cij)
 [![pypi](https://img.shields.io/pypi/v/cij.svg)](https://pypi.org/project/cij/)
 
+## How to cite
+
+If you use this software in any publication, please cite:
+
+Luo, C., Deng, X., Wang, W., Shukla, G., Wu, Z., & Wentzcovitch, R. M. (2021). cij: A Python code for quasiharmonic thermoelasticity. *Computer Physics Communications*, 108067. https://doi.org/10.1016/j.cpc.2021.108067
+
+The paper is also available from arXiv: https://arxiv.org/abs/2101.12596
+
 ## Licence
 
 Released under [GNU GPLv3](./LICENCE) license.
