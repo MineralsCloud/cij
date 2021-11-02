@@ -1,75 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Standard and voigt subscripts: the cij.util.voigt module &mdash; Cij  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Automatic filling of the Cij tensor based on symmetry: the cij.util.fill module" href="fill.html" />
     <link rel="prev" title="Physical unit handling: the cij.util.units module" href="units.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../../index.html" class="icon icon-home"> Cij
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,22 +37,11 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Welcome</a></li>
 </ul>
-<p class="caption"><span class="caption-text">For users</span></p>
+<p class="caption" role="heading"><span class="caption-text">For users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/cli.html">Command-line tools</a></li>
@@ -100,12 +49,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage/output.html">Output parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../usage/faq.html">Frequently asked questions (FAQ)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../array.html">Conventions for using multi-demensional arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorial.html">Tutorials</a></li>
 </ul>
-<p class="caption"><span class="caption-text">For developers</span></p>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../../api.html">API Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a></li>
@@ -119,73 +68,31 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Cij</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../../api.html">API Documentation</a> &raquo;</li>
-        
       <li>Standard and voigt subscripts: the <code class="docutils literal notranslate"><span class="pre">cij.util.voigt</span></code> module</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../../_sources/api/util/voigt.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -211,49 +118,49 @@
 }
 </style>
 <div class="section" id="module-cij.util.voigt">
-<span id="standard-and-voigt-subscripts-the-cij-util-voigt-module"></span><h1>Standard and voigt subscripts: the <code class="docutils literal notranslate"><span class="pre">cij.util.voigt</span></code> module<a class="headerlink" href="#module-cij.util.voigt" title="Permalink to this headline">¶</a></h1>
+<span id="standard-and-voigt-subscripts-the-cij-util-voigt-module"></span><h1>Standard and voigt subscripts: the <code class="docutils literal notranslate"><span class="pre">cij.util.voigt</span></code> module<a class="headerlink" href="#module-cij.util.voigt" title="Permalink to this headline"></a></h1>
 <p>Hashable representation of standard and voigt subscripts.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.C_">
-<span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">C_</span></span><a class="headerlink" href="#cij.util.voigt.C_" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">C_</span></span><a class="headerlink" href="#cij.util.voigt.C_" title="Permalink to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">cij.util.voigt.ModulusRepresentation</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.E_">
-<span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">E_</span></span><a class="headerlink" href="#cij.util.voigt.E_" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">E_</span></span><a class="headerlink" href="#cij.util.voigt.E_" title="Permalink to this definition"></a></dt>
 <dd><p>alias of <a class="reference internal" href="#cij.util.voigt.StrainRepresentation" title="cij.util.voigt.StrainRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">cij.util.voigt.StrainRepresentation</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.util.voigt.ElasticModulusCalculationType">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">ElasticModulusCalculationType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">ElasticModulusCalculationType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
 <p>An enumeration.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.ElasticModulusCalculationType.LONGITUDINAL">
-<span class="sig-name descname"><span class="pre">LONGITUDINAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType.LONGITUDINAL" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">LONGITUDINAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType.LONGITUDINAL" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.ElasticModulusCalculationType.OFF_DIAGONAL">
-<span class="sig-name descname"><span class="pre">OFF_DIAGONAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType.OFF_DIAGONAL" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">OFF_DIAGONAL</span></span><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType.OFF_DIAGONAL" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.ElasticModulusCalculationType.SHEAR">
-<span class="sig-name descname"><span class="pre">SHEAR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType.SHEAR" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">SHEAR</span></span><em class="property"> <span class="pre">=</span> <span class="pre">3</span></em><a class="headerlink" href="#cij.util.voigt.ElasticModulusCalculationType.SHEAR" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">ModulusRepresentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">ModulusRepresentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.calc_type">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="pre">:</span> <span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.calc_type" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></a></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.calc_type" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElasticModulusCalculationType</span></code></a></p>
@@ -263,28 +170,28 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.create">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.create" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.from_standard">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_standard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.from_standard" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_standard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.from_standard" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.from_voigt">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_voigt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.from_voigt" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_voigt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.from_voigt" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.i">
-<span class="sig-name descname"><span class="pre">i</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="#cij.util.voigt.StrainRepresentation" title="cij.util.voigt.StrainRepresentation"><span class="pre">cij.util.voigt.StrainRepresentation</span></a></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.i" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">i</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="#cij.util.voigt.StrainRepresentation" title="cij.util.voigt.StrainRepresentation"><span class="pre">cij.util.voigt.StrainRepresentation</span></a></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.i" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.is_longitudinal">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_longitudinal</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.is_longitudinal" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_longitudinal</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.is_longitudinal" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
@@ -294,7 +201,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.is_off_diagonal">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_off_diagonal</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.is_off_diagonal" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_off_diagonal</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.is_off_diagonal" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
@@ -304,7 +211,7 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.is_shear">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_shear</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.is_shear" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">is_shear</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.is_shear" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
@@ -314,13 +221,13 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.j">
-<span class="sig-name descname"><span class="pre">j</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="#cij.util.voigt.StrainRepresentation" title="cij.util.voigt.StrainRepresentation"><span class="pre">cij.util.voigt.StrainRepresentation</span></a></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.j" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">j</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="#cij.util.voigt.StrainRepresentation" title="cij.util.voigt.StrainRepresentation"><span class="pre">cij.util.voigt.StrainRepresentation</span></a></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.j" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.multiplicity">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">multiplicity</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.multiplicity" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">multiplicity</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.multiplicity" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
@@ -330,75 +237,75 @@
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.s">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.s" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.s" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.standard">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">standard</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.standard" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">standard</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.standard" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.v">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.v" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.v" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.ModulusRepresentation.voigt">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">voigt</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.voigt" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">voigt</span></span><a class="headerlink" href="#cij.util.voigt.ModulusRepresentation.voigt" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">StrainRepresentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.util.voigt.</span></span><span class="sig-name descname"><span class="pre">StrainRepresentation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.create">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.create" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.create" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.from_standard">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_standard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.from_standard" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_standard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.from_standard" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.from_voigt">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_voigt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.from_voigt" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">from_voigt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.from_voigt" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.i">
-<span class="sig-name descname"><span class="pre">i</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.i" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">i</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.i" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.j">
-<span class="sig-name descname"><span class="pre">j</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.j" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">j</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.j" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.s">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.s" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.s" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.standard">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">standard</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.standard" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">standard</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.standard" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.v">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.v" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.v" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.util.voigt.StrainRepresentation.voigt">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">voigt</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.voigt" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">voigt</span></span><a class="headerlink" href="#cij.util.voigt.StrainRepresentation.voigt" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -407,50 +314,33 @@
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="fill.html" class="btn btn-neutral float-right" title="Automatic filling of the Cij tensor based on symmetry: the cij.util.fill module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="units.html" class="btn btn-neutral float-left" title="Physical unit handling: the cij.util.units module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fill.html" class="btn btn-neutral float-right" title="Automatic filling of the Cij tensor based on symmetry: the cij.util.fill module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020-2021, Chenxing Luo.
-
-    </p>
+    <p>&#169; Copyright 2020-2021, Chenxing Luo.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

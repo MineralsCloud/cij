@@ -1,77 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Plotting helper cij.plot &mdash; Cij  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "document", "processHtmlClass": "math|output_area"}}</script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Physical unit handling: the cij.util.units module" href="util/units.html" />
     <link rel="prev" title="Traditional I/O" href="io/traditional.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Cij
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -79,22 +37,11 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome</a></li>
 </ul>
-<p class="caption"><span class="caption-text">For users</span></p>
+<p class="caption" role="heading"><span class="caption-text">For users</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../usage/installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/cli.html">Command-line tools</a></li>
@@ -102,19 +49,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../usage/output.html">Output parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage/faq.html">Frequently asked questions (FAQ)</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tutorials</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../array.html">Conventions for using multi-demensional arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorials</a></li>
 </ul>
-<p class="caption"><span class="caption-text">For developers</span></p>
+<p class="caption" role="heading"><span class="caption-text">For developers</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">API Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-cij.plot.modes">Checking mode interpolation results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cij.plot.tasks">Plotting task dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-mode-interpolation-results">Checking mode interpolation results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-task-dependencies">Plotting task dependencies</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="util/units.html">Physical unit handling: the <code class="docutils literal notranslate"><span class="pre">cij.util.units</span></code> module</a></li>
@@ -125,73 +72,31 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Cij</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../api.html">API Documentation</a> &raquo;</li>
-        
       <li>Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/api/plot.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   
 <style>
 /* CSS overrides for sphinx_rtd_theme */
@@ -216,267 +121,45 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="module-cij.plot">
-<span id="plotting-helper-cij-plot"></span><h1>Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code><a class="headerlink" href="#module-cij.plot" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="cij.plot.ModePlotter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.plot.</span></span><span class="sig-name descname"><span class="pre">ModePlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>The plotter for plotting interpolated phonon mode frequency and its derivatives (Gruneisen parameters, etc.) for checking
-the status of mode-frequency interpolation</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.ModePlotter.add_pressure_ticks">
-<span class="sig-name descname"><span class="pre">add_pressure_ticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter.add_pressure_ticks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.ModePlotter.plot_modes">
-<span class="sig-name descname"><span class="pre">plot_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter.plot_modes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plotting the phonon modes and its derivatives</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Axes</span></code>) – </p></li>
-<li><p><strong>n</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the order of derivatives to be plotted:
-<span class="math notranslate nohighlight">\(n = 0\)</span> for <span class="math notranslate nohighlight">\(\omega_{qm}(V)\)</span>,
-<span class="math notranslate nohighlight">\(n = 1\)</span> for <span class="math notranslate nohighlight">\(\gamma_{qm}(V)\)</span>,
-<span class="math notranslate nohighlight">\(n = 2\)</span> for <span class="math notranslate nohighlight">\(V\frac{\partial\gamma_{qm}(V)}{\partial V}\)</span></p></li>
-<li><p><strong>iq</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the index of <span class="math notranslate nohighlight">\(q\)</span> point to be plotted</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="cij.plot.ModePlotter.qha_input">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">qha_input</span></span><a class="headerlink" href="#cij.plot.ModePlotter.qha_input" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="cij.plot.ModePlotter.v_array">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v_array</span></span><a class="headerlink" href="#cij.plot.ModePlotter.v_array" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="cij.plot.ModePlotter.volumes">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">volumes</span></span><a class="headerlink" href="#cij.plot.ModePlotter.volumes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="cij.plot.Plotter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.plot.</span></span><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>The plotter for QHA’s calculator</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.Plotter.index_p">
-<span class="sig-name descname"><span class="pre">index_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.index_p" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.Plotter.index_t">
-<span class="sig-name descname"><span class="pre">index_t</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.index_t" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="cij.plot.Plotter.p_indices">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">p_indices</span></span><a class="headerlink" href="#cij.plot.Plotter.p_indices" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.Plotter.plot_cij_p">
-<span class="sig-name descname"><span class="pre">plot_cij_p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">argv</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_p" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.Plotter.plot_cij_p_with">
-<span class="sig-name descname"><span class="pre">plot_cij_p_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_p_with" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.Plotter.plot_cij_t_with">
-<span class="sig-name descname"><span class="pre">plot_cij_t_with</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cij_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.Plotter.plot_cij_t_with" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="cij.plot.color_x">
-<span class="sig-prename descclassname"><span class="pre">cij.plot.</span></span><span class="sig-name descname"><span class="pre">color_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.color_x" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generate a map from <span class="math notranslate nohighlight">\(x\)</span> to color</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vmin</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – the lower bound of the color map</p></li>
-<li><p><strong>vmax</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – the upper bound of the color map</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>]</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>the function <span class="math notranslate nohighlight">\(C(x)\)</span> that accepts <span class="math notranslate nohighlight">\(x\)</span> and returns color <span class="math notranslate nohighlight">\(C\)</span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<div class="section" id="module-cij.plot.modes">
-<span id="checking-mode-interpolation-results"></span><h2>Checking mode interpolation results<a class="headerlink" href="#module-cij.plot.modes" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cij.plot.modes.</span></span><span class="sig-name descname"><span class="pre">ModePlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>The plotter for plotting interpolated phonon mode frequency and its derivatives (Gruneisen parameters, etc.) for checking
-the status of mode-frequency interpolation</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.add_pressure_ticks">
-<span class="sig-name descname"><span class="pre">add_pressure_ticks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter.add_pressure_ticks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.plot_modes">
-<span class="sig-name descname"><span class="pre">plot_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter.plot_modes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plotting the phonon modes and its derivatives</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Axes</span></code>) – </p></li>
-<li><p><strong>n</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the order of derivatives to be plotted:
-<span class="math notranslate nohighlight">\(n = 0\)</span> for <span class="math notranslate nohighlight">\(\omega_{qm}(V)\)</span>,
-<span class="math notranslate nohighlight">\(n = 1\)</span> for <span class="math notranslate nohighlight">\(\gamma_{qm}(V)\)</span>,
-<span class="math notranslate nohighlight">\(n = 2\)</span> for <span class="math notranslate nohighlight">\(V\frac{\partial\gamma_{qm}(V)}{\partial V}\)</span></p></li>
-<li><p><strong>iq</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the index of <span class="math notranslate nohighlight">\(q\)</span> point to be plotted</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.qha_input">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">qha_input</span></span><a class="headerlink" href="#cij.plot.modes.ModePlotter.qha_input" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.v_array">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v_array</span></span><a class="headerlink" href="#cij.plot.modes.ModePlotter.v_array" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="cij.plot.modes.ModePlotter.volumes">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">volumes</span></span><a class="headerlink" href="#cij.plot.modes.ModePlotter.volumes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="plotting-helper-cij-plot">
+<h1>Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code><a class="headerlink" href="#plotting-helper-cij-plot" title="Permalink to this headline"></a></h1>
+<div class="section" id="checking-mode-interpolation-results">
+<h2>Checking mode interpolation results<a class="headerlink" href="#checking-mode-interpolation-results" title="Permalink to this headline"></a></h2>
 </div>
-<div class="section" id="module-cij.plot.tasks">
-<span id="plotting-task-dependencies"></span><h2>Plotting task dependencies<a class="headerlink" href="#module-cij.plot.tasks" title="Permalink to this headline">¶</a></h2>
-<p>Plotting the phonon contribution calculation tasks dependencies to a nice
-arrow plot. The underlying functionalities are provided by <a class="reference external" href="https://networkx.github.io/">NetworkX</a>.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="cij.plot.tasks.make_legend">
-<span class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></span><span class="sig-name descname"><span class="pre">make_legend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['#1f77b4',</span> <span class="pre">'#ff7f0e',</span> <span class="pre">'#2ca02c',</span> <span class="pre">'#d62728',</span> <span class="pre">'#9467bd',</span> <span class="pre">'#8c564b',</span> <span class="pre">'#e377c2',</span> <span class="pre">'#7f7f7f',</span> <span class="pre">'#bcbd22',</span> <span class="pre">'#17becf']</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.make_legend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create legends for phonon contribution calculation task dependencies
-plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>ax</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Axes</span></code>]) – the axes to plot on</p></li>
-<li><p><strong>node_color</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – <p>the list of 4 colors for 4 types of phonon modulus calculation 
-tasks:</p>
-<ul>
-<li><p><span class="math notranslate nohighlight">\(c_{iiii}\)</span> (longitudinal)</p></li>
-<li><p><span class="math notranslate nohighlight">\(c_{iijj}\)</span> (off-diagonal)</p></li>
-<li><p><span class="math notranslate nohighlight">\(c_{ijij}\)</span> (shear)</p></li>
-<li><p><span class="math notranslate nohighlight">\(c_{ijkl}\)</span> (shear)</p></li>
-</ul>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="cij.plot.tasks.plot_phonon_contribution_dependencies">
-<span class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></span><span class="sig-name descname"><span class="pre">plot_phonon_contribution_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.plot_phonon_contribution_dependencies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plotting phonon contribution calculation task dependencies</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>calculator</strong> (<a class="reference internal" href="core/calculator.html#cij.core.calculator.Calculator" title="cij.core.calculator.Calculator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></a>) – The thermal elastic modulus calculator</p></li>
-<li><p><strong>**kwargs</strong> – <p>See <a class="reference external" href="https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw_networkx.html#networkx.drawing.nx_pylab.draw_networkx"><code class="docutils literal notranslate"><span class="pre">networkx.draw_networkx</span></code></a></p>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="cij.plot.tasks.plot_tasklist_dependencies">
-<span class="sig-prename descclassname"><span class="pre">cij.plot.tasks.</span></span><span class="sig-name descname"><span class="pre">plot_tasklist_dependencies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_list</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.tasks.plot_tasklist_dependencies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plotting phonon contribution calculation task dependencies in a given
-task list</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>task_list</strong> (<a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskList" title="cij.core.tasks.PhononContributionTaskList"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhononContributionTaskList</span></code></a>) – The thermal elastic modulus task list.</p></li>
-<li><p><strong>**kwargs</strong> – <p>See <a class="reference external" href="https://networkx.github.io/documentation/stable/reference/generated/networkx.drawing.nx_pylab.draw_networkx.html#networkx.drawing.nx_pylab.draw_networkx"><code class="docutils literal notranslate"><span class="pre">networkx.draw_networkx</span></code></a></p>
-</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="plotting-task-dependencies">
+<h2>Plotting task dependencies<a class="headerlink" href="#plotting-task-dependencies" title="Permalink to this headline"></a></h2>
 </div>
 </div>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="util/units.html" class="btn btn-neutral float-right" title="Physical unit handling: the cij.util.units module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="io/traditional.html" class="btn btn-neutral float-left" title="Traditional I/O" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="util/units.html" class="btn btn-neutral float-right" title="Physical unit handling: the cij.util.units module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020-2021, Chenxing Luo.
-
-    </p>
+    <p>&#169; Copyright 2020-2021, Chenxing Luo.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
