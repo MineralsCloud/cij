@@ -16,8 +16,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -128,16 +128,16 @@ on.</p>
 thermalelasticity calculation module; the <code class="docutils literal notranslate"><span class="pre">output</span></code> module controls output
 files and formats.</p>
 <p>For example in YAML format these sections are written nested:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">qha</span><span class="p">:</span>
-  <span class="nt">input</span><span class="p">:</span> <span class="c1"># the qha::input</span>
-  <span class="nt">settings</span><span class="p">:</span>
-    <span class="c1"># the qha::settings section</span>
-<span class="nt">elast</span><span class="p">:</span>
-  <span class="nt">input</span><span class="p">:</span> <span class="c1"># The elast::input</span>
-  <span class="nt">settings</span><span class="p">:</span>
-    <span class="c1"># The the elast::settings section</span>
-<span class="nt">output</span><span class="p">:</span>
-    <span class="c1"># the output section</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">qha</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="c1"># the qha::input</span><span class="w"></span>
+<span class="w">  </span><span class="nt">settings</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># the qha::settings section</span><span class="w"></span>
+<span class="nt">elast</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="c1"># The elast::input</span><span class="w"></span>
+<span class="w">  </span><span class="nt">settings</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># The the elast::settings section</span><span class="w"></span>
+<span class="nt">output</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1"># the output section</span><span class="w"></span>
 </pre></div>
 </div>
 <p>In the following table, we summarize the functionalities for these sections in
@@ -368,7 +368,7 @@ The column names in this table also determine the output thermoelastic coefficie
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

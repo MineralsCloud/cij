@@ -16,8 +16,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -305,7 +305,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -375,8 +375,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>import numpy
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy
 from cij.util import c_
 
 key = c_(46)
@@ -390,8 +389,7 @@ if not key.is_shear: raise RuntimeError(f&quot;The strain c_{key} is not a shear
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>e = numpy.zeros((3, 3))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>e = numpy.zeros((3, 3))
 
 e[key.i[0] - 1, key.i[1] - 1] = 1
 e[key.i[1] - 1, key.i[0] - 1] = 1
@@ -418,8 +416,7 @@ print(e)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>evals, T = numpy.linalg.eig(e)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>evals, T = numpy.linalg.eig(e)
 print(T)
 </pre></div>
 </div>
@@ -439,8 +436,7 @@ print(T)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>print(numpy.diag(evals))
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(numpy.diag(evals))
 </pre></div>
 </div>
 </div>
@@ -461,8 +457,7 @@ print(T)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>print(&quot;e = &quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;e = &quot;)
 print(T @ numpy.diag(evals) @ T.T)
 
 print(&quot;e = T e&#39; T^{-1}:&quot;, numpy.allclose(e, T @ numpy.diag(evals) @ T.T))
@@ -488,8 +483,7 @@ e = T e&#39; T^{-1}: True
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>print(&quot;e&#39; = &quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(&quot;e&#39; = &quot;)
 print(T.T @ e @ T)
 
 print(&quot;e&#39; = T^{-1} e T:&quot;, numpy.allclose(numpy.diag(evals), T.T @ e @ T))
@@ -515,8 +509,7 @@ e&#39; = T^{-1} e T: True
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>import sympy
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import sympy
 
 def round_expr(expr, num_digits=4):
     return expr.xreplace({n : round(n, num_digits) for n in expr.atoms(sympy.Number)})
@@ -530,8 +523,7 @@ def round_expr(expr, num_digits=4):
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from cij.core.phonon_contribution import calculate_fictitious_strain_energy
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from cij.core.phonon_contribution import calculate_fictitious_strain_energy
 </pre></div>
 </div>
 </div>
@@ -540,8 +532,7 @@ def round_expr(expr, num_digits=4):
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>def resolve_elastic_modulus(key):
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def resolve_elastic_modulus(key):
     return sympy.symbols(&quot;c_%d%d&quot; % key.v)
 
 calculate_fictitious_strain_energy(
@@ -564,8 +555,7 @@ $\displaystyle 2.0 c_{44} + 4.0 c_{46} + 2.0 c_{66}$</div></div>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>def resolve_elastic_modulus_rotated(key):
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def resolve_elastic_modulus_rotated(key):
     return sympy.symbols(&quot;c_%d&#39;%d&#39;&quot; % key.v)
 
 e_prime = T.T @ e @ T
@@ -592,8 +582,7 @@ $\displaystyle 1.0 c_{1'1'} - 2.0 c_{1'3'} + 1.0 c_{3'3'}$</div></div>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>a = sympy.symbols(&quot;e_11&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = sympy.symbols(&quot;e_11&quot;)
 b = sympy.symbols(&quot;e_22&quot;)
 c = sympy.symbols(&quot;e_33&quot;)
 
@@ -619,8 +608,7 @@ $\displaystyle \left[\begin{matrix}0.25 e_{11} + 0.5 e_{22} + 0.25 e_{33} &amp; 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>a = sympy.symbols(&quot;α&quot;)
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a = sympy.symbols(&quot;α&quot;)
 b = sympy.symbols(&quot;β&quot;)
 c = sympy.symbols(&quot;γ&quot;)
 
@@ -650,8 +638,7 @@ $\displaystyle \left[\begin{matrix}0.25 α + 0.5 β + 0.25 γ + 1.0 &amp; 0.3536
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from cij.util.voigt import _cij_sort_key
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from cij.util.voigt import _cij_sort_key
 from IPython.display import display
 
 sorted([
@@ -685,8 +672,7 @@ sorted([
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -704,7 +690,7 @@ sorted([
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

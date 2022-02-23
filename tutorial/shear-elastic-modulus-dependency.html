@@ -16,8 +16,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -305,7 +305,7 @@ div.nboutput.container div.output_area > div[class^='highlight']{
 }
 
 /* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
+.prompt .copybtn {
     display: none;
 }
 
@@ -371,8 +371,7 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>import cij.core.calculator
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import cij.core.calculator
 
 calculator = cij.core.calculator.Calculator(&quot;_attachments/plotting/config.yml&quot;)
 </pre></div>
@@ -422,8 +421,7 @@ calculator = cij.core.calculator.Calculator(&quot;_attachments/plotting/config.y
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>%matplotlib inline
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%matplotlib inline
 from matplotlib import pyplot as plt
 from cij.plot.tasks import plot_tasklist_dependencies, plot_phonon_contribution_dependencies, make_legend
 </pre></div>
@@ -433,8 +431,7 @@ from cij.plot.tasks import plot_tasklist_dependencies, plot_phonon_contribution_
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>plt.figure()
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure()
 
 plot_phonon_contribution_dependencies(calculator)
 make_legend()
@@ -455,8 +452,7 @@ plt.show()
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from cij.util import c_
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from cij.util import c_
 from cij.core.tasks import PhononContributionTaskList
 from cij.plot.tasks import plot_tasklist_dependencies
 
@@ -478,8 +474,7 @@ task_list.resolve(
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span>from cij.plot.tasks import plot_tasklist_dependencies, make_legend
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from cij.plot.tasks import plot_tasklist_dependencies, make_legend
 
 plt.figure()
 
@@ -510,7 +505,7 @@ plt.show()
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
