@@ -16,6 +16,8 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -126,8 +128,530 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="the-cij-calculator-cij-core-calculator-module">
-<h1>The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module<a class="headerlink" href="#the-cij-calculator-cij-core-calculator-module" title="Permalink to this headline"></a></h1>
+<div class="section" id="module-cij.core.calculator">
+<span id="the-cij-calculator-cij-core-calculator-module"></span><h1>The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module<a class="headerlink" href="#module-cij.core.calculator" title="Permalink to this headline"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.calculator.Calculator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.calculator.</span></span><span class="sig-name descname"><span class="pre">Calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.Calculator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The main entrance for QHA calculator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config_fname</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the location of the configuration file</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.Calculator.dims">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dims</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.core.calculator.Calculator.dims" title="Permalink to this definition"></a></dt>
+<dd><p>The dimension of the temperature-volume <span class="math notranslate nohighlight">\((T, V)\)</span> grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.Calculator.modulus_keys">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modulus_keys</span></span><a class="headerlink" href="#cij.core.calculator.Calculator.modulus_keys" title="Permalink to this definition"></a></dt>
+<dd><p>Elastic coefficient keys</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.Calculator.pressure_base">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pressure_base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cij.core.calculator.CijPressureBaseInterface" title="cij.core.calculator.CijPressureBaseInterface"><span class="pre">cij.core.calculator.CijPressureBaseInterface</span></a></em><a class="headerlink" href="#cij.core.calculator.Calculator.pressure_base" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cij.core.calculator.CijPressureBaseInterface" title="cij.core.calculator.CijPressureBaseInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">CijPressureBaseInterface</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.Calculator.volume_base">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">volume_base</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cij.core.calculator.CijVolumeBaseInterface" title="cij.core.calculator.CijVolumeBaseInterface"><span class="pre">cij.core.calculator.CijVolumeBaseInterface</span></a></em><a class="headerlink" href="#cij.core.calculator.Calculator.volume_base" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cij.core.calculator.CijVolumeBaseInterface" title="cij.core.calculator.CijVolumeBaseInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">CijVolumeBaseInterface</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.calculator.Calculator.write_output">
+<span class="sig-name descname"><span class="pre">write_output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.Calculator.write_output" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.calculator.</span></span><span class="sig-name descname"><span class="pre">CijPressureBaseInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Elastic and accoustic properties calculated at the temperature-pressure
+<span class="math notranslate nohighlight">\((T, P)\)</span> grid.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.bulk_modulus_reuss">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bulk_modulus_reuss</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.bulk_modulus_reuss" title="Permalink to this definition"></a></dt>
+<dd><p>Reuss average of bulk modulus <span class="math notranslate nohighlight">\(K_\text{R}(T, P)\)</span> as a function
+of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[K_\text{R} = [(s_{11}+s_{22}+s_{33})+2(s_{12}+s_{23}+s_{31})]^{-1}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.bulk_modulus_voigt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bulk_modulus_voigt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.bulk_modulus_voigt" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt average of bulk modulus <span class="math notranslate nohighlight">\(K_\text{V}(T, P)\)</span> as a function
+of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[K_\text{V} = [(c_{11}+c_{22}+c_{33}) + 2(c_{12}+c_{23}+c_{31})]/9\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.bulk_modulus_voigt_reuss_hill">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bulk_modulus_voigt_reuss_hill</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.bulk_modulus_voigt_reuss_hill" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt-Reuss-Hill average of bulk modulus <span class="math notranslate nohighlight">\(K_\text{VRH}(T, P)\)</span>
+as a function of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[K_\text{VRH} = (K_\text{V} + K_\text{R}) / 2\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.mass">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.mass" title="Permalink to this definition"></a></dt>
+<dd><p>The mass per cell <span class="math notranslate nohighlight">\(m\)</span> in kilogram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.modulus_adiabatic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modulus_adiabatic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cij.core.calculator.CijPressureBaseModulusInterface" title="cij.core.calculator.CijPressureBaseModulusInterface"><span class="pre">cij.core.calculator.CijPressureBaseModulusInterface</span></a></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.modulus_adiabatic" title="Permalink to this definition"></a></dt>
+<dd><p>Adiabatic elastic modulus <span class="math notranslate nohighlight">\(c^S_{ij}(T, P)\)</span>  as a function of
+temperature and pressure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cij.core.calculator.CijPressureBaseModulusInterface" title="cij.core.calculator.CijPressureBaseModulusInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">CijPressureBaseModulusInterface</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.modulus_isothermal">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modulus_isothermal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cij.core.calculator.CijPressureBaseModulusInterface" title="cij.core.calculator.CijPressureBaseModulusInterface"><span class="pre">cij.core.calculator.CijPressureBaseModulusInterface</span></a></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.modulus_isothermal" title="Permalink to this definition"></a></dt>
+<dd><p>Isothermal elastic modulus <span class="math notranslate nohighlight">\(c^T_{ij}(T, P)\)</span>  as a function of
+temperature and pressure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cij.core.calculator.CijPressureBaseModulusInterface" title="cij.core.calculator.CijPressureBaseModulusInterface"><code class="xref py py-class docutils literal notranslate"><span class="pre">CijPressureBaseModulusInterface</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.p_array">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">p_array</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.p_array" title="Permalink to this definition"></a></dt>
+<dd><p>The array of pressure points <span class="math notranslate nohighlight">\(P\)</span> of the pressure-temperature
+<span class="math notranslate nohighlight">\((T, P)\)</span> grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.primary_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">primary_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.primary_velocities" title="Permalink to this definition"></a></dt>
+<dd><p>Primary accoustic wave velocity <span class="math notranslate nohighlight">\(v_\text{p}(T, P)\)</span> as a
+function of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[v_\text{p} = \sqrt{\frac{K_\text{VRH} + 3/4 \, G_\text{VRH} }{\rho}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.secondary_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">secondary_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.secondary_velocities" title="Permalink to this definition"></a></dt>
+<dd><p>Secondary accoustic wave velocity <span class="math notranslate nohighlight">\(v_\text{s}(T, P)\)</span> as a
+function of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[v_\text{s} = \sqrt{\frac{G_\text{VRH}}{\rho}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.shear_modulus_reuss">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus_reuss</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.shear_modulus_reuss" title="Permalink to this definition"></a></dt>
+<dd><p>Reuss average of shear modulus <span class="math notranslate nohighlight">\(G_\text{R}(T, P)\)</span> as a function
+of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[G_\text{R} = 15 / [
+      4 (s_{11} + s_{22} + s_{33})
+    - 4 (s_{12} + s_{23} + s_{31})
+    + 3 (s_{44} + s_{55} + s_{66})
+] \]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.shear_modulus_voigt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus_voigt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.shear_modulus_voigt" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt average of shear modulus <span class="math notranslate nohighlight">\(G_\text{V}(T, P)\)</span> as a function
+of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[G_\text{V} = [
+        (c_{11} + c_{22} + c_{33})
+    -   (c_{12} + c_{23} + c_{31})
+    + 3 (c_{44} + c_{55} + c_{66})
+] / 15\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.shear_modulus_voigt_reuss_hill">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus_voigt_reuss_hill</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.shear_modulus_voigt_reuss_hill" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt-Reuss-Hill average of shear modulus <span class="math notranslate nohighlight">\(G_\text{VRH}(T, P)\)</span>
+as a function of temperature and pressure.</p>
+<div class="math notranslate nohighlight">
+\[G_\text{VRH} = (G_\text{V} + G_\text{R}) / 2\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.t_array">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">t_array</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.t_array" title="Permalink to this definition"></a></dt>
+<dd><p>The array of temperature points <span class="math notranslate nohighlight">\(T\)</span> of the pressure-temperature
+<span class="math notranslate nohighlight">\((T, P)\)</span> grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.v2p">
+<span class="sig-name descname"><span class="pre">v2p</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func_of_t_v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.v2p" title="Permalink to this definition"></a></dt>
+<dd><p>The conversion function from <span class="math notranslate nohighlight">\((T, V)\)</span> to <span class="math notranslate nohighlight">\((T, P)\)</span> grid</p>
+<div class="math notranslate nohighlight">
+\[f(T, V) \rightarrow f(T, P)\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>func_of_t_v</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – the input function <span class="math notranslate nohighlight">\(f(T, V)\)</span> under the <span class="math notranslate nohighlight">\((T, V)\)</span> grid</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the output function <span class="math notranslate nohighlight">\(f(T, P)\)</span> under the <span class="math notranslate nohighlight">\((T, P)\)</span> grid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.volumes">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.volumes" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.write_table">
+<span class="sig-name descname"><span class="pre">write_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.write_table" title="Permalink to this definition"></a></dt>
+<dd><p>Write variable as functions of temperature and volume in QHA
+output format, intended to be called by <code class="docutils literal notranslate"><span class="pre">ResultsWriter</span></code> only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseInterface.write_variables">
+<span class="sig-name descname"><span class="pre">write_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijPressureBaseInterface.write_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Write variables to files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>variables</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]]) – List of varables to be written to file, see output
+file description for a detailed description</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseModulusInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.calculator.</span></span><span class="sig-name descname"><span class="pre">CijPressureBaseModulusInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modulus</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2p</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijPressureBaseModulusInterface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.calculator.CijPressureBaseModulusInterface.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijPressureBaseModulusInterface.items" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.calculator.</span></span><span class="sig-name descname"><span class="pre">CijVolumeBaseInterface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Elastic and accoustic properties calculated at the volume-temperature
+<span class="math notranslate nohighlight">\((T, V)\)</span> grid.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_reuss">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bulk_modulus_reuss</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_reuss" title="Permalink to this definition"></a></dt>
+<dd><p>Reuss average of bulk modulus <span class="math notranslate nohighlight">\(K_\text{R}(T, V)\)</span> as a function
+of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[K_\text{R} = [(s_{11}+s_{22}+s_{33})+2(s_{12}+s_{23}+s_{31})]^{-1}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_voigt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bulk_modulus_voigt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_voigt" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt average of bulk modulus <span class="math notranslate nohighlight">\(K_\text{V}(T, V)\)</span> as a function
+of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[K_\text{V} = [(c_{11}+c_{22}+c_{33}) + 2(c_{12}+c_{23}+c_{31})]/9\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_voigt_reuss_hill">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bulk_modulus_voigt_reuss_hill</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_voigt_reuss_hill" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt-Reuss-Hill average of bulk modulus <span class="math notranslate nohighlight">\(K_\text{VRH}(T, V)\)</span>
+as a function of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[K_\text{VRH} = (K_\text{V} + K_\text{R}) / 2\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.mass">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.mass" title="Permalink to this definition"></a></dt>
+<dd><p>The mass per cell <span class="math notranslate nohighlight">\(m\)</span> in kilogram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.modulus_adiabatic">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modulus_adiabatic</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.modulus_adiabatic" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.modulus_isothermal">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">modulus_isothermal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.modulus_isothermal" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.pressures">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pressures</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.pressures" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.primary_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">primary_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.primary_velocities" title="Permalink to this definition"></a></dt>
+<dd><p>Primary accoustic wave velocity <span class="math notranslate nohighlight">\(v_\text{p}(T, V)\)</span> as a
+function of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[v_\text{p} = \sqrt{\frac{K_\text{VRH} + 3/4 \, G_\text{VRH} }{\rho}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.secondary_velocities">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">secondary_velocities</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.secondary_velocities" title="Permalink to this definition"></a></dt>
+<dd><p>Secondary accoustic wave velocity <span class="math notranslate nohighlight">\(v_\text{s}(T, V)\)</span> as a
+function of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[v_\text{s} = \sqrt{\frac{G_\text{VRH}}{\rho}}\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.shear_modulus_reuss">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus_reuss</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.shear_modulus_reuss" title="Permalink to this definition"></a></dt>
+<dd><p>Reuss average of shear modulus <span class="math notranslate nohighlight">\(K_\text{R}(T, V)\)</span> as a function
+of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[G_\text{R} = 15 / [
+      4 (s_{11} + s_{22} + s_{33})
+    - 4 (s_{12} + s_{23} + s_{31})
+    + 3 (s_{44} + s_{55} + s_{66})
+]\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.shear_modulus_voigt">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus_voigt</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.shear_modulus_voigt" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt average of shear modulus <span class="math notranslate nohighlight">\(G_\text{V}(T, V)\)</span> as a function
+of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[G_\text{V} = [
+        (c_{11} + c_{22} + c_{33})
+    -   (c_{12} + c_{23} + c_{31})
+    + 3 (c_{44} + c_{55} + c_{66})
+] / 15\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.shear_modulus_voigt_reuss_hill">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shear_modulus_voigt_reuss_hill</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.shear_modulus_voigt_reuss_hill" title="Permalink to this definition"></a></dt>
+<dd><p>Voigt-Reuss-Hill average of shear modulus <span class="math notranslate nohighlight">\(G_\text{VRH}(T, V)\)</span>
+as a function of temperature and volume.</p>
+<div class="math notranslate nohighlight">
+\[G_\text{VRH} = (G_\text{V} + G_\text{R}) / 2\]</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.t_array">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">t_array</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.t_array" title="Permalink to this definition"></a></dt>
+<dd><p>The array of temperature points <span class="math notranslate nohighlight">\(T\)</span> of the temperature-volume
+<span class="math notranslate nohighlight">\((T, V)\)</span> grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.v_array">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_array</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.v_array" title="Permalink to this definition"></a></dt>
+<dd><p>The array of volume points <span class="math notranslate nohighlight">\(V\)</span> of the temperature-volume
+<span class="math notranslate nohighlight">\((T, V)\)</span> grid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.write_table">
+<span class="sig-name descname"><span class="pre">write_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.write_table" title="Permalink to this definition"></a></dt>
+<dd><p>Write variable as functions of temperature and volume in QHA
+output format, intended to be called by <code class="docutils literal notranslate"><span class="pre">ResultsWriter</span></code> only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.calculator.CijVolumeBaseInterface.write_variables">
+<span class="sig-name descname"><span class="pre">write_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variables</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.calculator.CijVolumeBaseInterface.write_variables" title="Permalink to this definition"></a></dt>
+<dd><p>Write variables to files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>variables</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]]) – List of varables to be written to file, see output
+file description for a detailed description</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

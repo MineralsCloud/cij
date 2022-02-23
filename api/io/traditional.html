@@ -64,7 +64,7 @@
 <li class="toctree-l3"><a class="reference internal" href="config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Traditional I/O</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.qha_input">Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#traditional-qha-tabular-output-qha-output">Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.qha_output">Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.elast_dat">Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code></a></li>
 </ul>
 </li>
@@ -307,8 +307,30 @@
 </dd></dl>
 
 </div>
-<div class="section" id="traditional-qha-tabular-output-qha-output">
-<h2>Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code><a class="headerlink" href="#traditional-qha-tabular-output-qha-output" title="Permalink to this headline"></a></h2>
+<div class="section" id="module-cij.io.traditional.qha_output">
+<span id="traditional-qha-tabular-output-qha-output"></span><h2>Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code><a class="headerlink" href="#module-cij.io.traditional.qha_output" title="Permalink to this headline"></a></h2>
+<p>These methods are imported and is therfore identical to what is provided in
+the QHA distribution.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.io.traditional.qha_output.save_x_pt">
+<span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_output.</span></span><span class="sig-name descname"><span class="pre">save_x_pt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_pressures_gpa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_pt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.io.traditional.qha_output.save_x_tp">
+<span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_output.</span></span><span class="sig-name descname"><span class="pre">save_x_tp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_pressures_gpa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_sample_gpa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_tp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.io.traditional.qha_output.save_x_tv">
+<span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_output.</span></span><span class="sig-name descname"><span class="pre">save_x_tv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_tv" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.io.traditional.qha_output.save_x_vt">
+<span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_output.</span></span><span class="sig-name descname"><span class="pre">save_x_vt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_output.save_x_vt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </div>
 <div class="section" id="module-cij.io.traditional.elast_dat">
 <span id="traditional-elast-tabular-output-elast-dat"></span><h2>Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code><a class="headerlink" href="#module-cij.io.traditional.elast_dat" title="Permalink to this headline"></a></h2>

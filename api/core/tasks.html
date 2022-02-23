@@ -16,6 +16,8 @@
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -126,8 +128,214 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="the-phonon-contribution-tasks-module">
-<h1>The phonon contribution tasks module<a class="headerlink" href="#the-phonon-contribution-tasks-module" title="Permalink to this headline"></a></h1>
+<div class="section" id="module-cij.core.tasks">
+<span id="the-phonon-contribution-tasks-module"></span><h1>The phonon contribution tasks module<a class="headerlink" href="#module-cij.core.tasks" title="Permalink to this headline"></a></h1>
+<p>This module analysis the basic units (task) of phonon contribution
+calculation to be performed, and the order they are conducted.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.calc_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.calc_type" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElasticModulusCalculationType</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.get_dependencies">
+<span class="sig-name descname"><span class="pre">get_dependencies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.get_dependencies" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>, <a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.get_modulus_adiabatic">
+<span class="sig-name descname"><span class="pre">get_modulus_adiabatic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.get_modulus_adiabatic" title="Permalink to this definition"></a></dt>
+<dd><p>Get phonon contribution of the adiabatic elastic modulus as the
+result of this task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.get_modulus_isothermal">
+<span class="sig-name descname"><span class="pre">get_modulus_isothermal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.get_modulus_isothermal" title="Permalink to this definition"></a></dt>
+<dd><p>Get phonon contribution of the isothermal elastic modulus as the 
+result of this task.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.params" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.task_params">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">task_params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><span class="pre">cij.core.tasks.PhononContributionTaskParams</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.task_params" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTaskList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserList</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskList.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.calculate" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskList.get_adiabatic_results">
+<span class="sig-name descname"><span class="pre">get_adiabatic_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.get_adiabatic_results" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskList.get_isothermal_results">
+<span class="sig-name descname"><span class="pre">get_isothermal_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.get_isothermal_results" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskList.resolve">
+<span class="sig-name descname"><span class="pre">resolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.resolve" title="Permalink to this definition"></a></dt>
+<dd><p>Create the list of phonon calculation tasks based on the initial
+strain and the <span class="math notranslate nohighlight">\(c_{ij}\)</span> keys in topological order, i.e. each task
+should have a smaller index than its dependant.</p>
+<dl>
+<dt>Example</dt><dd><p><span class="math notranslate nohighlight">\(c_{44}\)</span> depends on <span class="math notranslate nohighlight">\(c_{2'2'}\)</span>, <span class="math notranslate nohighlight">\(c_{2'3'}\)</span> and 
+<span class="math notranslate nohighlight">\(c_{3'3'}\)</span>, the order of calculation tasks should be:</p>
+<blockquote>
+<div><p>[<span class="math notranslate nohighlight">\(c_{2'2'}\)</span>, <span class="math notranslate nohighlight">\(c_{2'3'}\)</span>, <span class="math notranslate nohighlight">\(c_{3'3'}\)</span>,
+<span class="math notranslate nohighlight">\(c_{44}\)</span>]</p>
+</div></blockquote>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strain</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – The strains <span class="math notranslate nohighlight">\(e_1/\Delta\)</span>, <span class="math notranslate nohighlight">\(e_2/\Delta\)</span>,
+<span class="math notranslate nohighlight">\(e_3/\Delta\)</span> in the orthogonal coordinates system under
+hydrostatic pressure.</p></li>
+<li><p><strong>keys</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>]) – The symbols :math:<a href="#id1"><span class="problematic" id="id2">`</span></a>c_{ij}`s needs to be calculated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTaskParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calc_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<p>Parameters for elastic constants phonon contribution calculation task.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskParams.calc_type">
+<span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.calc_type" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskParams.create">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.create" title="Permalink to this definition"></a></dt>
+<dd><p>Factory method for creating <code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strain</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – The strains <span class="math notranslate nohighlight">\(e_1/\Delta\)</span>, <span class="math notranslate nohighlight">\(e_2/\Delta\)</span>,
+<span class="math notranslate nohighlight">\(e_3/\Delta\)</span> in the orthogonal coordinates system under
+hydrostatic pressure.</p></li>
+<li><p><strong>key</strong> (<a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>) – The symbol <span class="math notranslate nohighlight">\(c_{ij}\)</span> needs to be calculated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskParams.params">
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.params" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTaskResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskResults" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserDict</span></code></p>
+<p>The results of phonon calculation tasks</p>
+<ul class="simple">
+<li><p>Key is <code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></p></li>
+<li><p>Value is <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskResults.get_results_by_strain_keys">
+<span class="sig-name descname"><span class="pre">get_results_by_strain_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keys</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskResults.get_results_by_strain_keys" title="Permalink to this definition"></a></dt>
+<dd><p>The results for given <span class="math notranslate nohighlight">\(c_{ij}\)</span> symbol at given set of strain</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strain</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – The strains <span class="math notranslate nohighlight">\(e_1/\Delta\)</span>, <span class="math notranslate nohighlight">\(e_2/\Delta\)</span>,
+<span class="math notranslate nohighlight">\(e_3/\Delta\)</span> in the orthogonal coordinates system under
+hydrostatic pressure.</p></li>
+<li><p><strong>keys</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code>[<a class="reference internal" href="../util/voigt.html#cij.util.voigt.ModulusRepresentation" title="cij.util.voigt.ModulusRepresentation"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a>]) – The symbols :math:<a href="#id3"><span class="problematic" id="id4">`</span></a>c_{ij}`s are calculated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

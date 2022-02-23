@@ -126,8 +126,43 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="phonon-frequency-interpolation">
-<h1>Phonon frequency interpolation<a class="headerlink" href="#phonon-frequency-interpolation" title="Permalink to this headline"></a></h1>
+<div class="section" id="module-cij.core.mode_gamma">
+<span id="phonon-frequency-interpolation"></span><h1>Phonon frequency interpolation<a class="headerlink" href="#module-cij.core.mode_gamma" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.core.mode_gamma.interpolate_mode_krogh">
+<span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">interpolate_mode_krogh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.interpolate_mode_krogh" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.core.mode_gamma.interpolate_mode_lagrange">
+<span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">interpolate_mode_lagrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.interpolate_mode_lagrange" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.core.mode_gamma.interpolate_mode_lsq_poly">
+<span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">interpolate_mode_lsq_poly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.interpolate_mode_lsq_poly" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.core.mode_gamma.interpolate_mode_ppoly">
+<span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">interpolate_mode_ppoly</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.interpolate_mode_ppoly" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.core.mode_gamma.interpolate_mode_spline">
+<span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">interpolate_mode_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.interpolate_mode_spline" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.core.mode_gamma.interpolate_modes">
+<span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">interpolate_modes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qha_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spline'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.interpolate_modes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cij.core.mode_gamma.lstsq_polyfit">
+<span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">lstsq_polyfit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_xs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.lstsq_polyfit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </div>
 
 
