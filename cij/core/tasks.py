@@ -4,7 +4,7 @@ calculation to be performed, and the order they are conducted.
 
 import numpy
 import itertools
-from networkx import nx
+import networkx as nx
 from typing import List, Union, NamedTuple, Tuple, Iterable
 from collections import UserList, UserDict
 
