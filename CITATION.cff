@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Luo"
+  given-names: "Chenxing"
+  orcid: "https://orcid.org/0000-0003-4116-6851"
+- family-names: "Deng"
+  given-names: "Xin"
+- family-names: "Wang"
+  given-names: "Wenzhong"
+- family-names: "Gaurav"
+  given-names: "Shukla"
+  orcid: "https://orcid.org/0000-0003-1002-4842"
+- family-names: "Wu"
+  given-names: "Zhongqing"
+  orcid: "https://orcid.org/0000-0002-4842-6380"
+- family-names: "Wentzcovitch"
+  given-names: "Renata"
+  orcid: "https://orcid.org/0000-0001-5663-9426"
+title: "cij: A Python code for quasiharmonic thermoelasticity"
+version: 
+doi: "10.1016/j.cpc.2021.108067"
+date-released: 
+url: "https://github.com/MineralsCloud/cij"
