@@ -154,6 +154,7 @@ See [GitHub pages][2].
 ![GitHub Actions](https://github.com/MineralsCloud/cij/actions/workflows/main.yml/badge.svg)
 [![codecov](https://codecov.io/gh/MineralsCloud/cij/branch/dev/graph/badge.svg?token=Ln1Fo4vNBE)](https://codecov.io/gh/MineralsCloud/cij)
 [![pypi](https://img.shields.io/pypi/v/cij.svg)](https://pypi.org/project/cij/)
+[![pypi](https://img.shields.io/pypi/dm/cij.svg)](https://pypi.org/project/cij/)
 
 ## How to cite
 
