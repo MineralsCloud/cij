@@ -1,6 +1,6 @@
 # Document builder
 
-docutils>=0.12,<0.17 
+docutils>=0.12, <0.17 
 sphinx
 sphinx-autobuild
 sphinx-jinja
@@ -9,6 +9,7 @@ sphinx-autodoc-typehints
 nbsphinx
 pygments>=2.4.1
 sphinx-click
+markupsafe==2.0.1 # soft_unicode issue
 
 # Test
 
