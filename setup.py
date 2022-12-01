@@ -17,7 +17,7 @@ setup(
     url='https://github.com/MineralsCloud/cij/',
     packages=find_packages(),
     install_requires=[
-        "numpy >= 1.10.0, <= 1.21",
+        "numpy >= 1.10.0",
         "pandas",
         "scipy",
         "qha",
