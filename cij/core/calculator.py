@@ -305,7 +305,7 @@ class CijVolumeBaseInterface:
         function of temperature and volume.
 
         .. math::
-            v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 3/4 \, G_\\text{VRH} }{\\rho}}
+            v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 4/3 \, G_\\text{VRH} }{\\rho}}
         '''
         e = units.Quantity((self.bulk_modulus_voigt_reuss_hill + 4 / 3 * self.shear_modulus_voigt_reuss_hill) * self.v_array, units.rydberg).to(units.kg * units.km ** 2 / units.s ** 2).magnitude
         return numpy.sqrt(e / self.mass)
@@ -490,7 +490,7 @@ class CijPressureBaseInterface:
         function of temperature and pressure.
 
         .. math::
-            v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 3/4 \, G_\\text{VRH} }{\\rho}}
+            v_\\text{p} = \\sqrt{\\frac{K_\\text{VRH} + 4/3 \, G_\\text{VRH} }{\\rho}}
         '''
         return self.v2p(self.calculator.volume_base.primary_velocities)
 
