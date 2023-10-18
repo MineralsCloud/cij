@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -27,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> Cij
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -71,8 +77,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Welcome to Cij’s documentation!</li>
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to Cij’s documentation!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -82,32 +88,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="welcome-to-cij-s-documentation">
-<h1>Welcome to Cij’s documentation!<a class="headerlink" href="#welcome-to-cij-s-documentation" title="Permalink to this headline"></a></h1>
+  <div class="section" id="welcome-to-cij-s-documentation">
+<h1>Welcome to Cij’s documentation!<a class="headerlink" href="#welcome-to-cij-s-documentation" title="Permalink to this heading"></a></h1>
 <p><strong>Cij</strong> is a program that calculates elastic and accoustic properties of minerals at finite temperature.</p>
 <div class="toctree-wrapper compound">
 </div>
@@ -142,44 +124,160 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/core/calculator.html">The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/core/full_modulus.html">The elastic moduli as a whole</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/core/tasks.html">The phonon contribution tasks module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core/calculator.html">The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core/calculator.html#cij.core.calculator.Calculator"><code class="docutils literal notranslate"><span class="pre">Calculator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/calculator.html#cij.core.calculator.CijPressureBaseInterface"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/calculator.html#cij.core.calculator.CijPressureBaseModulusInterface"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseModulusInterface</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/calculator.html#cij.core.calculator.CijVolumeBaseInterface"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core/full_modulus.html">The elastic moduli as a whole</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core/tasks.html">The phonon contribution tasks module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core/tasks.html#cij.core.tasks.PhononContributionTask"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/tasks.html#cij.core.tasks.PhononContributionTaskList"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/tasks.html#cij.core.tasks.PhononContributionTaskParams"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/tasks.html#cij.core.tasks.PhononContributionTaskResults"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskResults</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="api/core/phonon_contribution.html">The phonon contribution module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/core/phonon_contribution.html#module-cij.core.phonon_contribution.nonshear">Longitudinal and off-diagonal phonon contribution</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/core/phonon_contribution.html#module-cij.core.phonon_contribution.shear">Shear phonon contribution</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="api/core/mode_gamma.html">Phonon frequency interpolation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/core/qha_adapter.html">Adapter layer for QHA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/core/mode_gamma.html">Phonon frequency interpolation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_krogh"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_krogh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_lagrange"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_lagrange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_lsq_poly"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_lsq_poly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_ppoly"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_ppoly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_spline"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_spline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/mode_gamma.html#cij.core.mode_gamma.interpolate_modes"><code class="docutils literal notranslate"><span class="pre">interpolate_modes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/mode_gamma.html#cij.core.mode_gamma.lstsq_polyfit"><code class="docutils literal notranslate"><span class="pre">lstsq_polyfit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/core/qha_adapter.html">Adapter layer for QHA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/core/qha_adapter.html#cij.core.qha_adapter.QHACalculator"><code class="docutils literal notranslate"><span class="pre">QHACalculator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/io/config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io/config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/io/config.html#cij.io.config.apply_default_config"><code class="docutils literal notranslate"><span class="pre">apply_default_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/io/config.html#cij.io.config.read_config"><code class="docutils literal notranslate"><span class="pre">read_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/io/config.html#cij.io.config.update_config"><code class="docutils literal notranslate"><span class="pre">update_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/io/config.html#cij.io.config.validate_config"><code class="docutils literal notranslate"><span class="pre">validate_config()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="api/io/traditional.html">Traditional I/O</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/io/traditional.html#cij.io.traditional.read_elast_data"><code class="docutils literal notranslate"><span class="pre">read_elast_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/io/traditional.html#cij.io.traditional.read_energy"><code class="docutils literal notranslate"><span class="pre">read_energy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/io/traditional.html#module-cij.io.traditional.qha_input">Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/io/traditional.html#module-cij.io.traditional.qha_output">Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/io/traditional.html#module-cij.io.traditional.elast_dat">Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="api/io.html#cij.io.apply_default_config"><code class="docutils literal notranslate"><span class="pre">apply_default_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io.html#cij.io.read_config"><code class="docutils literal notranslate"><span class="pre">read_config()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/plot.html">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/plot.html#module-cij.plot.modes">Checking mode interpolation results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/plot.html#module-cij.plot.tasks">Plotting task dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/plot.html#cij.plot.ModePlotter"><code class="docutils literal notranslate"><span class="pre">ModePlotter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.ModePlotter.add_pressure_ticks"><code class="docutils literal notranslate"><span class="pre">ModePlotter.add_pressure_ticks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.ModePlotter.plot_modes"><code class="docutils literal notranslate"><span class="pre">ModePlotter.plot_modes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.ModePlotter.qha_input"><code class="docutils literal notranslate"><span class="pre">ModePlotter.qha_input</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.ModePlotter.v_array"><code class="docutils literal notranslate"><span class="pre">ModePlotter.v_array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.ModePlotter.volumes"><code class="docutils literal notranslate"><span class="pre">ModePlotter.volumes</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/util/units.html">Physical unit handling: the <code class="docutils literal notranslate"><span class="pre">cij.util.units</span></code> module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/util/voigt.html">Standard and voigt subscripts: the <code class="docutils literal notranslate"><span class="pre">cij.util.voigt</span></code> module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/util/fill.html">Automatic filling of the Cij tensor based on symmetry: the <code class="docutils literal notranslate"><span class="pre">cij.util.fill</span></code> module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/misc.html">Miscellaneous functions: <code class="docutils literal notranslate"><span class="pre">cij.misc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/plot.html#cij.plot.Plotter"><code class="docutils literal notranslate"><span class="pre">Plotter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.Plotter.index_p"><code class="docutils literal notranslate"><span class="pre">Plotter.index_p()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.Plotter.index_t"><code class="docutils literal notranslate"><span class="pre">Plotter.index_t()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.Plotter.p_indices"><code class="docutils literal notranslate"><span class="pre">Plotter.p_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.Plotter.plot_cij_p"><code class="docutils literal notranslate"><span class="pre">Plotter.plot_cij_p()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.Plotter.plot_cij_p_with"><code class="docutils literal notranslate"><span class="pre">Plotter.plot_cij_p_with()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.Plotter.plot_cij_t_with"><code class="docutils literal notranslate"><span class="pre">Plotter.plot_cij_t_with()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/plot.html#cij.plot.color_x"><code class="docutils literal notranslate"><span class="pre">color_x()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/plot.html#module-cij.plot.modes">Checking mode interpolation results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.modes.ModePlotter"><code class="docutils literal notranslate"><span class="pre">ModePlotter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/plot.html#module-cij.plot.tasks">Plotting task dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.tasks.make_legend"><code class="docutils literal notranslate"><span class="pre">make_legend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.tasks.plot_phonon_contribution_dependencies"><code class="docutils literal notranslate"><span class="pre">plot_phonon_contribution_dependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/plot.html#cij.plot.tasks.plot_tasklist_dependencies"><code class="docutils literal notranslate"><span class="pre">plot_tasklist_dependencies()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/util/units.html">Physical unit handling: the <code class="docutils literal notranslate"><span class="pre">cij.util.units</span></code> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/util/units.html#cij.util.units.convert_unit"><code class="docutils literal notranslate"><span class="pre">convert_unit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/util/voigt.html">Standard and voigt subscripts: the <code class="docutils literal notranslate"><span class="pre">cij.util.voigt</span></code> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.C_"><code class="docutils literal notranslate"><span class="pre">C_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.E_"><code class="docutils literal notranslate"><span class="pre">E_</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ElasticModulusCalculationType"><code class="docutils literal notranslate"><span class="pre">ElasticModulusCalculationType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ElasticModulusCalculationType.LONGITUDINAL"><code class="docutils literal notranslate"><span class="pre">ElasticModulusCalculationType.LONGITUDINAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ElasticModulusCalculationType.OFF_DIAGONAL"><code class="docutils literal notranslate"><span class="pre">ElasticModulusCalculationType.OFF_DIAGONAL</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ElasticModulusCalculationType.SHEAR"><code class="docutils literal notranslate"><span class="pre">ElasticModulusCalculationType.SHEAR</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.calc_type"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.calc_type</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.create"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.from_standard"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.from_standard()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.from_voigt"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.from_voigt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.i"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.i</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.is_longitudinal"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.is_longitudinal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.is_off_diagonal"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.is_off_diagonal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.is_shear"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.is_shear</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.j"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.j</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.multiplicity"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.multiplicity</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.s"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.standard"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.standard</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.v"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.v</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.ModulusRepresentation.voigt"><code class="docutils literal notranslate"><span class="pre">ModulusRepresentation.voigt</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.create"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.from_standard"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.from_standard()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.from_voigt"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.from_voigt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.i"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.i</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.j"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.j</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.s"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.s</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.standard"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.standard</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.v"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.v</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/util/voigt.html#cij.util.voigt.StrainRepresentation.voigt"><code class="docutils literal notranslate"><span class="pre">StrainRepresentation.voigt</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/util/fill.html">Automatic filling of the Cij tensor based on symmetry: the <code class="docutils literal notranslate"><span class="pre">cij.util.fill</span></code> module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/util/fill.html#cij.util.fill.fill_cij"><code class="docutils literal notranslate"><span class="pre">fill_cij()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/misc.html">Miscellaneous functions: <code class="docutils literal notranslate"><span class="pre">cij.misc</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/misc.html#cij.misc.evec_disp2eig"><code class="docutils literal notranslate"><span class="pre">evec_disp2eig()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/misc.html#cij.misc.evec_load"><code class="docutils literal notranslate"><span class="pre">evec_load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/misc.html#cij.misc.evec_sort"><code class="docutils literal notranslate"><span class="pre">evec_sort()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
@@ -197,7 +295,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

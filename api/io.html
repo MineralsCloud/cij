@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -61,6 +67,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="io/config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="io/traditional.html">Traditional I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cij.io.apply_default_config"><code class="docutils literal notranslate"><span class="pre">apply_default_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cij.io.read_config"><code class="docutils literal notranslate"><span class="pre">read_config()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="plot.html">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></a></li>
@@ -85,9 +93,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API Documentation</a> &raquo;</li>
-      <li>Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Documentation</a></li>
+      <li class="breadcrumb-item active">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/io.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -97,39 +105,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="input-and-output-cij-io">
-<h1>Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code><a class="headerlink" href="#input-and-output-cij-io" title="Permalink to this headline"></a></h1>
+  <div class="section" id="input-and-output-cij-io">
+<h1>Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code><a class="headerlink" href="#input-and-output-cij-io" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="io/config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="io/config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io/config.html#cij.io.config.apply_default_config"><code class="docutils literal notranslate"><span class="pre">apply_default_config()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/config.html#cij.io.config.read_config"><code class="docutils literal notranslate"><span class="pre">read_config()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/config.html#cij.io.config.update_config"><code class="docutils literal notranslate"><span class="pre">update_config()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/config.html#cij.io.config.validate_config"><code class="docutils literal notranslate"><span class="pre">validate_config()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="io/traditional.html">Traditional I/O</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#module-cij.io.traditional.qha_input">Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#module-cij.io.traditional.qha_output">Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#module-cij.io.traditional.elast_dat">Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#cij.io.traditional.read_elast_data"><code class="docutils literal notranslate"><span class="pre">read_elast_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#cij.io.traditional.read_energy"><code class="docutils literal notranslate"><span class="pre">read_energy()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#module-cij.io.traditional.qha_input">Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData"><code class="docutils literal notranslate"><span class="pre">QHAInputData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData.na"><code class="docutils literal notranslate"><span class="pre">QHAInputData.na</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData.nm"><code class="docutils literal notranslate"><span class="pre">QHAInputData.nm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData.np"><code class="docutils literal notranslate"><span class="pre">QHAInputData.np</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData.nq"><code class="docutils literal notranslate"><span class="pre">QHAInputData.nq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData.nv"><code class="docutils literal notranslate"><span class="pre">QHAInputData.nv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData.volumes"><code class="docutils literal notranslate"><span class="pre">QHAInputData.volumes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QHAInputData.weights"><code class="docutils literal notranslate"><span class="pre">QHAInputData.weights</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QPointData"><code class="docutils literal notranslate"><span class="pre">QPointData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QPointData.coord"><code class="docutils literal notranslate"><span class="pre">QPointData.coord</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QPointData.modes"><code class="docutils literal notranslate"><span class="pre">QPointData.modes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QPointWeight"><code class="docutils literal notranslate"><span class="pre">QPointWeight</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QPointWeight.coord"><code class="docutils literal notranslate"><span class="pre">QPointWeight.coord</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.QPointWeight.weight"><code class="docutils literal notranslate"><span class="pre">QPointWeight.weight</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.VolumeData"><code class="docutils literal notranslate"><span class="pre">VolumeData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.VolumeData.energy"><code class="docutils literal notranslate"><span class="pre">VolumeData.energy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.VolumeData.pressure"><code class="docutils literal notranslate"><span class="pre">VolumeData.pressure</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.VolumeData.q_points"><code class="docutils literal notranslate"><span class="pre">VolumeData.q_points</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.VolumeData.volume"><code class="docutils literal notranslate"><span class="pre">VolumeData.volume</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.read_energy"><code class="docutils literal notranslate"><span class="pre">read_energy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_input.write_energy"><code class="docutils literal notranslate"><span class="pre">write_energy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#module-cij.io.traditional.qha_output">Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_output.save_x_pt"><code class="docutils literal notranslate"><span class="pre">save_x_pt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_output.save_x_tp"><code class="docutils literal notranslate"><span class="pre">save_x_tp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_output.save_x_tv"><code class="docutils literal notranslate"><span class="pre">save_x_tv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.qha_output.save_x_vt"><code class="docutils literal notranslate"><span class="pre">save_x_vt()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io/traditional.html#module-cij.io.traditional.elast_dat">Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastData"><code class="docutils literal notranslate"><span class="pre">ElastData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastData.cellmass"><code class="docutils literal notranslate"><span class="pre">ElastData.cellmass</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastData.lattice_parmeters"><code class="docutils literal notranslate"><span class="pre">ElastData.lattice_parmeters</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastData.nv"><code class="docutils literal notranslate"><span class="pre">ElastData.nv</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastData.volumes"><code class="docutils literal notranslate"><span class="pre">ElastData.volumes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastData.vref"><code class="docutils literal notranslate"><span class="pre">ElastData.vref</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastVolumeData"><code class="docutils literal notranslate"><span class="pre">ElastVolumeData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastVolumeData.static_elastic_modulus"><code class="docutils literal notranslate"><span class="pre">ElastVolumeData.static_elastic_modulus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.ElastVolumeData.volume"><code class="docutils literal notranslate"><span class="pre">ElastVolumeData.volume</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.apply_symetry_on_elast_data"><code class="docutils literal notranslate"><span class="pre">apply_symetry_on_elast_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io/traditional.html#cij.io.traditional.elast_dat.read_elast_data"><code class="docutils literal notranslate"><span class="pre">read_elast_data()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -180,7 +226,7 @@ will be determined by the extension of the configuration file
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

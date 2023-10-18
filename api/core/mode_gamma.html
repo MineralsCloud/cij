@@ -14,7 +14,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -62,7 +68,16 @@
 <li class="toctree-l3"><a class="reference internal" href="full_modulus.html">The elastic moduli as a whole</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tasks.html">The phonon contribution tasks module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="phonon_contribution.html">The phonon contribution module</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Phonon frequency interpolation</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Phonon frequency interpolation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.mode_gamma.interpolate_mode_krogh"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_krogh()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.mode_gamma.interpolate_mode_lagrange"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_lagrange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.mode_gamma.interpolate_mode_lsq_poly"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_lsq_poly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.mode_gamma.interpolate_mode_ppoly"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_ppoly()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.mode_gamma.interpolate_mode_spline"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_spline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.mode_gamma.interpolate_modes"><code class="docutils literal notranslate"><span class="pre">interpolate_modes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.mode_gamma.lstsq_polyfit"><code class="docutils literal notranslate"><span class="pre">lstsq_polyfit()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="qha_adapter.html">Adapter layer for QHA</a></li>
 </ul>
 </li>
@@ -89,10 +104,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../api.html">API Documentation</a> &raquo;</li>
-          <li><a href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a> &raquo;</li>
-      <li>Phonon frequency interpolation</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a></li>
+      <li class="breadcrumb-item active">Phonon frequency interpolation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/core/mode_gamma.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,32 +117,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="module-cij.core.mode_gamma">
-<span id="phonon-frequency-interpolation"></span><h1>Phonon frequency interpolation<a class="headerlink" href="#module-cij.core.mode_gamma" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-cij.core.mode_gamma">
+<span id="phonon-frequency-interpolation"></span><h1>Phonon frequency interpolation<a class="headerlink" href="#module-cij.core.mode_gamma" title="Permalink to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="cij.core.mode_gamma.interpolate_mode_krogh">
 <span class="sig-prename descclassname"><span class="pre">cij.core.mode_gamma.</span></span><span class="sig-name descname"><span class="pre">interpolate_mode_krogh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode_volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode_freqs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.mode_gamma.interpolate_mode_krogh" title="Permalink to this definition"></a></dt>
@@ -176,7 +167,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

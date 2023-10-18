@@ -14,7 +14,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -72,8 +78,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.modulus_worker</span></code> module</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.modulus_worker</span></code> module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/core/modulus_worker.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -83,32 +89,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="module-cij.core.modulus_worker">
-<span id="the-cij-calculator-cij-core-modulus-worker-module"></span><h1>The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.modulus_worker</span></code> module<a class="headerlink" href="#module-cij.core.modulus_worker" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-cij.core.modulus_worker">
+<span id="the-cij-calculator-cij-core-modulus-worker-module"></span><h1>The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.modulus_worker</span></code> module<a class="headerlink" href="#module-cij.core.modulus_worker" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.core.modulus_worker.ElasticModulusWorker">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.modulus_worker.</span></span><span class="sig-name descname"><span class="pre">ElasticModulusWorker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.modulus_worker.ElasticModulusWorker" title="Permalink to this definition"></a></dt>
@@ -179,24 +161,14 @@ as a function of volume.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.core.modulus_worker.ElasticModulusWorker.v_array">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_array</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ElasticModulusWorker.v_array" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v_array</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ElasticModulusWorker.v_array" title="Permalink to this definition"></a></dt>
 <dd><p>The array of interpolated volume points <span class="math notranslate nohighlight">\(V\)</span>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.core.modulus_worker.ElasticModulusWorker.volumes">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ElasticModulusWorker.volumes" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ElasticModulusWorker.volumes" title="Permalink to this definition"></a></dt>
 <dd><p>The array of original volume points <span class="math notranslate nohighlight">\(V\)</span> from input.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
-</dd>
-</dl>
 </dd></dl>
 
 </dd></dl>
@@ -213,26 +185,16 @@ as a function of volume.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.core.modulus_worker.ShearPhononCalculator.fictitious_strain_energy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fictitious_strain_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ShearPhononCalculator.fictitious_strain_energy" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fictitious_strain_energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ShearPhononCalculator.fictitious_strain_energy" title="Permalink to this definition"></a></dt>
 <dd><p>The strain energy for the fictitious strain under the original
 coordinate system except for the unknown</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.core.modulus_worker.ShearPhononCalculator.fictitious_strain_energy_rotated">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fictitious_strain_energy_rotated</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ShearPhononCalculator.fictitious_strain_energy_rotated" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fictitious_strain_energy_rotated</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#cij.core.modulus_worker.ShearPhononCalculator.fictitious_strain_energy_rotated" title="Permalink to this definition"></a></dt>
 <dd><p>The strain energy for the fictitious strain under the rotated
 coordinate system</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py property">
@@ -312,7 +274,7 @@ is calculated</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

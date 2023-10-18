@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -81,9 +87,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../tutorial.html">Tutorials</a> &raquo;</li>
-      <li>Symmetries table for elastic tensor</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../tutorial.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Symmetries table for elastic tensor</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorial/tensor-symmetry.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -93,40 +99,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="symmetries-table-for-elastic-tensor">
-<h1>Symmetries table for elastic tensor<a class="headerlink" href="#symmetries-table-for-elastic-tensor" title="Permalink to this headline"></a></h1>
+  <div class="section" id="symmetries-table-for-elastic-tensor">
+<h1>Symmetries table for elastic tensor<a class="headerlink" href="#symmetries-table-for-elastic-tensor" title="Permalink to this heading"></a></h1>
 <p>The table follows Bragger’s (1965) paper.</p>
 <blockquote>
 <div><p>Brugger, K. (1965). Pure Modes for Elastic Waves in Crystals. Journal of Applied Physics, 36(3), 759–768. <a class="reference external" href="https://doi.org/10.1063/1.1714215">https://doi.org/10.1063/1.1714215</a></p>
 </div></blockquote>
 <div class="section" id="tensor-symmetry-relationship-constraints">
-<h2>Tensor symmetry relationship constraints<a class="headerlink" href="#tensor-symmetry-relationship-constraints" title="Permalink to this headline"></a></h2>
+<h2>Tensor symmetry relationship constraints<a class="headerlink" href="#tensor-symmetry-relationship-constraints" title="Permalink to this heading"></a></h2>
 <div class="section" id="cubic">
-<h3>Cubic<a class="headerlink" href="#cubic" title="Permalink to this headline"></a></h3>
+<h3>Cubic<a class="headerlink" href="#cubic" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span> <span class="o">=</span> <span class="n">c33</span>
 <span class="n">c12</span> <span class="o">=</span> <span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
 <span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span> <span class="o">=</span> <span class="n">c66</span>
@@ -138,7 +120,7 @@
 </div>
 </div>
 <div class="section" id="orthorhombic">
-<h3>Orthorhombic<a class="headerlink" href="#orthorhombic" title="Permalink to this headline"></a></h3>
+<h3>Orthorhombic<a class="headerlink" href="#orthorhombic" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c14</span> <span class="o">=</span> <span class="n">c24</span> <span class="o">=</span> <span class="n">c34</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">c15</span> <span class="o">=</span> <span class="n">c25</span> <span class="o">=</span> <span class="n">c35</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">c16</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="mi">0</span>
@@ -147,7 +129,7 @@
 </div>
 </div>
 <div class="section" id="tetrahedral-6">
-<h3>Tetrahedral (6)<a class="headerlink" href="#tetrahedral-6" title="Permalink to this headline"></a></h3>
+<h3>Tetrahedral (6)<a class="headerlink" href="#tetrahedral-6" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
 <span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
 <span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span>
@@ -159,7 +141,7 @@
 </div>
 </div>
 <div class="section" id="tetrahedral-7">
-<h3>Tetrahedral (7)<a class="headerlink" href="#tetrahedral-7" title="Permalink to this headline"></a></h3>
+<h3>Tetrahedral (7)<a class="headerlink" href="#tetrahedral-7" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
 <span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
 <span class="n">c16</span> <span class="o">=</span> <span class="o">-</span><span class="n">c26</span>
@@ -171,7 +153,7 @@
 </div>
 </div>
 <div class="section" id="hexagonal">
-<h3>Hexagonal<a class="headerlink" href="#hexagonal" title="Permalink to this headline"></a></h3>
+<h3>Hexagonal<a class="headerlink" href="#hexagonal" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
 <span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
 <span class="n">c44</span> <span class="o">=</span> <span class="n">c55</span>
@@ -184,7 +166,7 @@
 </div>
 </div>
 <div class="section" id="trigonal-6">
-<h3>Trigonal (6)<a class="headerlink" href="#trigonal-6" title="Permalink to this headline"></a></h3>
+<h3>Trigonal (6)<a class="headerlink" href="#trigonal-6" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
 <span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
 <span class="n">c14</span> <span class="o">=</span> <span class="o">-</span><span class="n">c24</span> <span class="o">=</span> <span class="n">c56</span>
@@ -196,7 +178,7 @@
 </div>
 </div>
 <div class="section" id="trigonal-7">
-<h3>Trigonal (7)<a class="headerlink" href="#trigonal-7" title="Permalink to this headline"></a></h3>
+<h3>Trigonal (7)<a class="headerlink" href="#trigonal-7" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c11</span> <span class="o">=</span> <span class="n">c22</span>
 <span class="n">c13</span> <span class="o">=</span> <span class="n">c23</span>
 <span class="n">c14</span> <span class="o">=</span> <span class="o">-</span><span class="n">c24</span> <span class="o">=</span> <span class="n">c56</span>
@@ -208,7 +190,7 @@
 </div>
 </div>
 <div class="section" id="monoclinic">
-<h3>Monoclinic<a class="headerlink" href="#monoclinic" title="Permalink to this headline"></a></h3>
+<h3>Monoclinic<a class="headerlink" href="#monoclinic" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c14</span> <span class="o">=</span> <span class="n">c16</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">c24</span> <span class="o">=</span> <span class="n">c26</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">c34</span> <span class="o">=</span> <span class="n">c36</span> <span class="o">=</span> <span class="mi">0</span>
@@ -230,7 +212,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

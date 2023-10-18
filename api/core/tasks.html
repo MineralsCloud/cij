@@ -14,7 +14,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -30,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -62,7 +68,13 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="calculator.html">The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="full_modulus.html">The elastic moduli as a whole</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">The phonon contribution tasks module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The phonon contribution tasks module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.tasks.PhononContributionTask"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskList"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskList</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskResults"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskResults</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="phonon_contribution.html">The phonon contribution module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mode_gamma.html">Phonon frequency interpolation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="qha_adapter.html">Adapter layer for QHA</a></li>
@@ -91,10 +103,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../api.html">API Documentation</a> &raquo;</li>
-          <li><a href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a> &raquo;</li>
-      <li>The phonon contribution tasks module</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a></li>
+      <li class="breadcrumb-item active">The phonon contribution tasks module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/core/tasks.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -104,32 +116,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="module-cij.core.tasks">
-<span id="the-phonon-contribution-tasks-module"></span><h1>The phonon contribution tasks module<a class="headerlink" href="#module-cij.core.tasks" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-cij.core.tasks">
+<span id="the-phonon-contribution-tasks-module"></span><h1>The phonon contribution tasks module<a class="headerlink" href="#module-cij.core.tasks" title="Permalink to this heading"></a></h1>
 <p>This module analysis the basic units (task) of phonon contribution
 calculation to be performed, and the order they are conducted.</p>
 <dl class="py class">
@@ -138,13 +126,8 @@ calculation to be performed, and the order they are conducted.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.calc_type">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.calc_type" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElasticModulusCalculationType</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">ElasticModulusCalculationType</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.calc_type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.get_dependencies">
@@ -183,29 +166,19 @@ result of this task.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.params">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.params" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTask.task_params">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">task_params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><span class="pre">cij.core.tasks.PhononContributionTaskParams</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.task_params" title="Permalink to this definition"></a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><code class="xref py py-class docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">task_params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#cij.core.tasks.PhononContributionTaskParams" title="cij.core.tasks.PhononContributionTaskParams"><span class="pre">PhononContributionTaskParams</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTask.task_params" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskList">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTaskList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserList</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserList</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskList.calculate">
 <span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskList.calculate" title="Permalink to this definition"></a></dt>
@@ -270,12 +243,12 @@ hydrostatic pressure.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTaskParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calc_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTaskParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calc_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">ElasticModulusCalculationType</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <p>Parameters for elastic constants phonon contribution calculation task.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskParams.calc_type">
-<span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><span class="pre">cij.util.voigt.ElasticModulusCalculationType</span></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.calc_type" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">calc_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../util/voigt.html#cij.util.voigt.ElasticModulusCalculationType" title="cij.util.voigt.ElasticModulusCalculationType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElasticModulusCalculationType</span></code></a></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.calc_type" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -300,7 +273,7 @@ hydrostatic pressure.</p></li>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskParams.params">
-<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.params" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">params</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></em><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskParams.params" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
@@ -309,7 +282,7 @@ hydrostatic pressure.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.core.tasks.PhononContributionTaskResults">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.tasks.</span></span><span class="sig-name descname"><span class="pre">PhononContributionTaskResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.tasks.PhononContributionTaskResults" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">collections.UserDict</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">UserDict</span></code></p>
 <p>The results of phonon calculation tasks</p>
 <ul class="simple">
 <li><p>Key is <code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></p></li>
@@ -349,7 +322,7 @@ hydrostatic pressure.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -82,8 +88,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Command-line tools</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Command-line tools</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/usage/cli.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -93,35 +99,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="command-line-tools">
-<h1>Command-line tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline"></a></h1>
+  <div class="section" id="command-line-tools">
+<h1>Command-line tools<a class="headerlink" href="#command-line-tools" title="Permalink to this heading"></a></h1>
 <div class="section" id="cij">
-<h2>cij<a class="headerlink" href="#cij" title="Permalink to this headline"></a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+<h2>cij<a class="headerlink" href="#cij" title="Permalink to this heading"></a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -135,7 +117,7 @@
 <dl class="object">
 <dt class="sig sig-object">
 <span class="sig-name descname"><span class="pre">extract</span></span></dt>
-<dd><p>Extract data from cij calculation results to…</p>
+<dd><p>Extract data from cij calculation results…</p>
 </dd></dl>
 
 <dl class="object">
@@ -147,7 +129,7 @@
 <dl class="object">
 <dt class="sig sig-object">
 <span class="sig-name descname"><span class="pre">geotherm</span></span></dt>
-<dd><p>Extract data from cij calculation results to…</p>
+<dd><p>Extract data from cij calculation results…</p>
 </dd></dl>
 
 <dl class="object">
@@ -165,20 +147,20 @@
 <dl class="object">
 <dt class="sig sig-object">
 <span class="sig-name descname"><span class="pre">run</span></span></dt>
-<dd><p>Perform SAM-Cij calculation details specified…</p>
+<dd><p>Perform SAM-Cij calculation details…</p>
 </dd></dl>
 
 <dl class="object">
 <dt class="sig sig-object">
 <span class="sig-name descname"><span class="pre">run-static</span></span></dt>
-<dd><p>Fit equation of state based on E, V given in…</p>
+<dd><p>Fit equation of state based on E, V given…</p>
 </dd></dl>
 
 </div>
 <div class="section" id="cij-run">
-<h2>cij run<a class="headerlink" href="#cij-run" title="Permalink to this headline"></a></h2>
+<h2>cij run<a class="headerlink" href="#cij-run" title="Permalink to this heading"></a></h2>
 <p>Perform SAM-Cij calculation details specified in SETTINGS.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij run <span class="o">[</span>OPTIONS<span class="o">]</span> SETTINGS
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span>run<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>SETTINGS
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -208,9 +190,9 @@
 
 </div>
 <div class="section" id="cij-run-static">
-<h2>cij run-static<a class="headerlink" href="#cij-run-static" title="Permalink to this headline"></a></h2>
+<h2>cij run-static<a class="headerlink" href="#cij-run-static" title="Permalink to this heading"></a></h2>
 <p>Fit equation of state based on E, V given in INPUT01, and also elastic moduli and acoustic velocities if static Cij table INPUT02 (elast.dat) is given.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij run-static <span class="o">[</span>OPTIONS<span class="o">]</span> INPUT01 <span class="o">[</span>INPUT02<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span>run-static<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>INPUT01<span class="w"> </span><span class="o">[</span>INPUT02<span class="o">]</span>
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -220,7 +202,7 @@
 <dd><p>Interpolate result vs. volume or pressure or don’t interpolate (none).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>none</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">none</span></code></p>
 </dd>
 <dt class="field-even">Options</dt>
 <dd class="field-even"><p>none | pressure | volume</p>
@@ -234,7 +216,7 @@
 <dd><p>Number of volumes (or equivivalently, pressures) on the grid when interpolating results.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>201</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">201</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -245,7 +227,7 @@
 <dd><p>Lower bound of pressure range when interpolate result vs. P, in GPa unit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>0</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -256,7 +238,7 @@
 <dd><p>The interval between two nearest pressures on the grid when interpolate result vs. P, in GPa unit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>1.0</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -279,7 +261,7 @@
 <dd><p>Ratio to expand the volume range when extrapolate equation of states. (from (vmin, vmax) to (vmin / volume_ratio, vmax * volume_ratio)).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>1.2</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.2</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -305,9 +287,9 @@
 
 </div>
 <div class="section" id="cij-extract">
-<h2>cij extract<a class="headerlink" href="#cij-extract" title="Permalink to this headline"></a></h2>
+<h2>cij extract<a class="headerlink" href="#cij-extract" title="Permalink to this heading"></a></h2>
 <p>Extract data from cij calculation results to a table at specific P or T (e.g., table with c11s, c12s, K, G vs. P at 300 K).</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij extract <span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span>extract<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -335,16 +317,16 @@
 <dd><p>Hide table header or not.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>False</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 </div>
 <div class="section" id="cij-fill">
-<h2>cij fill<a class="headerlink" href="#cij-fill" title="Permalink to this headline"></a></h2>
+<h2>cij fill<a class="headerlink" href="#cij-fill" title="Permalink to this heading"></a></h2>
 <p>Fill Cij tensor components table INPUT02 (elast.dat) based on the symmetry constraints of the crystal system.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij fill <span class="o">[</span>OPTIONS<span class="o">]</span> INPUT02
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span>fill<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>INPUT02
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -381,9 +363,9 @@
 
 </div>
 <div class="section" id="cij-geotherm">
-<h2>cij geotherm<a class="headerlink" href="#cij-geotherm" title="Permalink to this headline"></a></h2>
+<h2>cij geotherm<a class="headerlink" href="#cij-geotherm" title="Permalink to this heading"></a></h2>
 <p>Extract data from cij calculation results to table along a geotherm P, T and D (depth) map given in PATH.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij geotherm <span class="o">[</span>OPTIONS<span class="o">]</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span>geotherm<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span>
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -399,7 +381,7 @@
 <dd><p>The name of geotherm pressure column.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>P</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">P</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -410,7 +392,7 @@
 <dd><p>The name of geotherm temperature column</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>T</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">T</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -427,16 +409,16 @@
 <dd><p>Hide header or not.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>False</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 </dd>
 </dl>
 </dd></dl>
 
 </div>
 <div class="section" id="cij-modes">
-<h2>cij modes<a class="headerlink" href="#cij-modes" title="Permalink to this headline"></a></h2>
+<h2>cij modes<a class="headerlink" href="#cij-modes" title="Permalink to this heading"></a></h2>
 <p>Plot interpolated mode frequency vs volume for calculation details specified in SETTINGS.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij modes <span class="o">[</span>OPTIONS<span class="o">]</span> SETTINGS
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span>modes<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>SETTINGS
 </pre></div>
 </div>
 <p class="rubric">Options</p>
@@ -446,7 +428,7 @@
 <dd><p>Plot for i-th q-point</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>0</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -457,7 +439,7 @@
 <dd><p>Plot for n-th derivative</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>0</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -468,7 +450,7 @@
 <dd><p>File name for the output figure.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p>modes.png</p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">modes.png</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -494,9 +476,9 @@
 
 </div>
 <div class="section" id="cij-plot">
-<h2>cij plot<a class="headerlink" href="#cij-plot" title="Permalink to this headline"></a></h2>
+<h2>cij plot<a class="headerlink" href="#cij-plot" title="Permalink to this heading"></a></h2>
 <p>Plot SAM-Cij calculation results for files matching PATTERNS (e.g., <em>.txt, bm_</em>.txt, c*_*.txt or full path bm_tp_gpa.txt are all valid; multiple values can be seperated by spaces).</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij plot <span class="o">[</span>OPTIONS<span class="o">]</span> <span class="o">[</span>PATTERNS<span class="o">]</span>...
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cij<span class="w"> </span>plot<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>PATTERNS<span class="o">]</span>...
 </pre></div>
 </div>
 <p class="rubric">Arguments</p>
@@ -520,7 +502,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

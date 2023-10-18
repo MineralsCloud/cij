@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -89,9 +95,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API Documentation</a> &raquo;</li>
-      <li>The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Documentation</a></li>
+      <li class="breadcrumb-item active">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/core.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,44 +107,222 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="the-core-of-thermoelasticity-calculator-cij-core">
-<h1>The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code><a class="headerlink" href="#the-core-of-thermoelasticity-calculator-cij-core" title="Permalink to this headline"></a></h1>
+  <div class="section" id="the-core-of-thermoelasticity-calculator-cij-core">
+<h1>The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code><a class="headerlink" href="#the-core-of-thermoelasticity-calculator-cij-core" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="core/calculator.html">The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core/full_modulus.html">The elastic moduli as a whole</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core/tasks.html">The phonon contribution tasks module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core/phonon_contribution.html">The phonon contribution module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="core/phonon_contribution.html#module-cij.core.phonon_contribution.nonshear">Longitudinal and off-diagonal phonon contribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="core/phonon_contribution.html#module-cij.core.phonon_contribution.shear">Shear phonon contribution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core/calculator.html">The cij calculator <code class="docutils literal notranslate"><span class="pre">cij.core.calculator</span></code> module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/calculator.html#cij.core.calculator.Calculator"><code class="docutils literal notranslate"><span class="pre">Calculator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.Calculator.dims"><code class="docutils literal notranslate"><span class="pre">Calculator.dims</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.Calculator.modulus_keys"><code class="docutils literal notranslate"><span class="pre">Calculator.modulus_keys</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.Calculator.pressure_base"><code class="docutils literal notranslate"><span class="pre">Calculator.pressure_base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.Calculator.volume_base"><code class="docutils literal notranslate"><span class="pre">Calculator.volume_base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.Calculator.write_output"><code class="docutils literal notranslate"><span class="pre">Calculator.write_output()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="core/mode_gamma.html">Phonon frequency interpolation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core/qha_adapter.html">Adapter layer for QHA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.bulk_modulus_reuss"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.bulk_modulus_reuss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.bulk_modulus_voigt"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.bulk_modulus_voigt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.bulk_modulus_voigt_reuss_hill"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.bulk_modulus_voigt_reuss_hill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.mass"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.mass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.modulus_adiabatic"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.modulus_adiabatic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.modulus_isothermal"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.modulus_isothermal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.p_array"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.p_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.primary_velocities"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.primary_velocities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.secondary_velocities"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.secondary_velocities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.shear_modulus_reuss"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.shear_modulus_reuss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.shear_modulus_voigt"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.shear_modulus_voigt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.shear_modulus_voigt_reuss_hill"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.shear_modulus_voigt_reuss_hill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.t_array"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.t_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.v2p"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.v2p()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.volumes"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.volumes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.write_table"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.write_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseInterface.write_variables"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseInterface.write_variables()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseModulusInterface"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseModulusInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijPressureBaseModulusInterface.items"><code class="docutils literal notranslate"><span class="pre">CijPressureBaseModulusInterface.items()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_reuss"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.bulk_modulus_reuss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_voigt"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.bulk_modulus_voigt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.bulk_modulus_voigt_reuss_hill"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.bulk_modulus_voigt_reuss_hill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.mass"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.mass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.modulus_adiabatic"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.modulus_adiabatic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.modulus_isothermal"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.modulus_isothermal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.pressures"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.pressures</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.primary_velocities"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.primary_velocities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.secondary_velocities"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.secondary_velocities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.shear_modulus_reuss"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.shear_modulus_reuss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.shear_modulus_voigt"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.shear_modulus_voigt</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.shear_modulus_voigt_reuss_hill"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.shear_modulus_voigt_reuss_hill</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.t_array"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.t_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.v_array"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.v_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.write_table"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.write_table()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/calculator.html#cij.core.calculator.CijVolumeBaseInterface.write_variables"><code class="docutils literal notranslate"><span class="pre">CijVolumeBaseInterface.write_variables()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/full_modulus.html">The elastic moduli as a whole</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.calculate_phonon_contribution"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.calculate_phonon_contribution()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.fit_modulus"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.fit_modulus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.get_axial_strains"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.get_axial_strains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.get_static_modulus"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.get_static_modulus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.modulus_adiabatic"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.modulus_adiabatic</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.modulus_isothermal"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.modulus_isothermal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.modulus_keys"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.modulus_keys</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.v_array"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.v_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/full_modulus.html#cij.core.full_modulus.FullThermalElasticModulus.volumes"><code class="docutils literal notranslate"><span class="pre">FullThermalElasticModulus.volumes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/tasks.html">The phonon contribution tasks module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTask"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTask.calc_type"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask.calc_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTask.get_dependencies"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask.get_dependencies()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTask.get_modulus_adiabatic"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask.get_modulus_adiabatic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTask.get_modulus_isothermal"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask.get_modulus_isothermal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTask.params"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask.params</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTask.task_params"><code class="docutils literal notranslate"><span class="pre">PhononContributionTask.task_params</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskList"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskList</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskList.calculate"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskList.calculate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskList.get_adiabatic_results"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskList.get_adiabatic_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskList.get_isothermal_results"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskList.get_isothermal_results()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskList.resolve"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskList.resolve()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskParams"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskParams.calc_type"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams.calc_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskParams.create"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams.create()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskParams.params"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskParams.params</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskResults"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskResults</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/tasks.html#cij.core.tasks.PhononContributionTaskResults.get_results_by_strain_keys"><code class="docutils literal notranslate"><span class="pre">PhononContributionTaskResults.get_results_by_strain_keys()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/phonon_contribution.html">The phonon contribution module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/phonon_contribution.html#module-cij.core.phonon_contribution.nonshear">Longitudinal and off-diagonal phonon contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.ElasticModulus"><code class="docutils literal notranslate"><span class="pre">ElasticModulus</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.Q</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q1"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.Q1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.Q2"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.Q2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.average_over_modes"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.average_over_modes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.freq_array"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.freq_array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.isothermal_to_adiabatic"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.isothermal_to_adiabatic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.mode_gamma"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.mode_gamma</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.prefactors"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.prefactors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.q_weights"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.q_weights</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.t_array"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.t_array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.thermal_contribution"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.thermal_contribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.v_array"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.v_array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_adiabatic"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.value_adiabatic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.value_isothermal"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.value_isothermal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.LongitudinalElasticModulusPhononContribution.zero_point_contribution"><code class="docutils literal notranslate"><span class="pre">LongitudinalElasticModulusPhononContribution.zero_point_contribution</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution"><code class="docutils literal notranslate"><span class="pre">OffDiagonalElasticModulusPhononContribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.mode_gamma"><code class="docutils literal notranslate"><span class="pre">OffDiagonalElasticModulusPhononContribution.mode_gamma</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.prefactors"><code class="docutils literal notranslate"><span class="pre">OffDiagonalElasticModulusPhononContribution.prefactors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.thermal_contribution"><code class="docutils literal notranslate"><span class="pre">OffDiagonalElasticModulusPhononContribution.thermal_contribution</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.value_isothermal"><code class="docutils literal notranslate"><span class="pre">OffDiagonalElasticModulusPhononContribution.value_isothermal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.OffDiagonalElasticModulusPhononContribution.zero_point_contribution"><code class="docutils literal notranslate"><span class="pre">OffDiagonalElasticModulusPhononContribution.zero_point_contribution</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.average_over_modes"><code class="docutils literal notranslate"><span class="pre">average_over_modes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.nonshear.clear_gamma_point"><code class="docutils literal notranslate"><span class="pre">clear_gamma_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/phonon_contribution.html#module-cij.core.phonon_contribution.shear">Shear phonon contribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.fictitious_strain</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.fictitious_strain_energy</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_energy_rotated"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.fictitious_strain_energy_rotated</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.fictitious_strain_rotated"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.fictitious_strain_rotated</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.get_elastic_modulus()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_elastic_modulus_rotated"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.get_elastic_modulus_rotated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.get_modulus_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_modulus_keys_rotated"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.get_modulus_keys_rotated()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.get_target_elastic_modulus"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.get_target_elastic_modulus()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.strain_rotated"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.strain_rotated</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.transformation_matrix"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.transformation_matrix</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_adiabatic"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.value_adiabatic</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.ShearElasticModulusPhononContribution.value_isothermal"><code class="docutils literal notranslate"><span class="pre">ShearElasticModulusPhononContribution.value_isothermal</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.calculate_fictitious_strain_energy"><code class="docutils literal notranslate"><span class="pre">calculate_fictitious_strain_energy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/phonon_contribution.html#cij.core.phonon_contribution.shear.get_fictitious_strain_energy_keys"><code class="docutils literal notranslate"><span class="pre">get_fictitious_strain_energy_keys()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/mode_gamma.html">Phonon frequency interpolation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_krogh"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_krogh()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_lagrange"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_lagrange()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_lsq_poly"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_lsq_poly()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_ppoly"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_ppoly()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mode_gamma.html#cij.core.mode_gamma.interpolate_mode_spline"><code class="docutils literal notranslate"><span class="pre">interpolate_mode_spline()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mode_gamma.html#cij.core.mode_gamma.interpolate_modes"><code class="docutils literal notranslate"><span class="pre">interpolate_modes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/mode_gamma.html#cij.core.mode_gamma.lstsq_polyfit"><code class="docutils literal notranslate"><span class="pre">lstsq_polyfit()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="core/qha_adapter.html">Adapter layer for QHA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculator"><code class="docutils literal notranslate"><span class="pre">QHACalculator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculator.desired_pressure_status"><code class="docutils literal notranslate"><span class="pre">QHACalculator.desired_pressure_status()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculator.read_input"><code class="docutils literal notranslate"><span class="pre">QHACalculator.read_input()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter.ntv"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter.ntv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter.pressure_base"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter.pressure_base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter.t_array"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter.t_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter.t_sample_array"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter.t_sample_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter.v2p"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter.v2p()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter.v_array"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter.v_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHACalculatorAdapter.volume_base"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter.volume_base</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.bulk_modulus"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.bulk_modulus</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.bulk_modulus_isothermal"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.bulk_modulus_isothermal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.enthalpies"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.enthalpies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.entropies"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.entropies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.gibbs_free_energies"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.gibbs_free_energies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.heat_capacity"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.heat_capacity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.helmholtz_free_energies"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.helmholtz_free_energies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.p_array"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.p_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.t_array"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.t_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.t_sample_array"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.t_sample_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.thermal_expansivities"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.thermal_expansivities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAPressureBaseInterface.volumes"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface.volumes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.bulk_modulus"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.bulk_modulus</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.bulk_modulus_isothermal"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.bulk_modulus_isothermal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.enthalpies"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.enthalpies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.entropies"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.entropies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.gibbs_free_energies"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.gibbs_free_energies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.heat_capacity"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.heat_capacity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.helmholtz_free_energies"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.helmholtz_free_energies</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.pressures"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.pressures</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.t_array"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.t_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.t_sample_array"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.t_sample_array</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.thermal_expansivities"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.thermal_expansivities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="core/qha_adapter.html#cij.core.qha_adapter.QHAVolumeBaseInterface.v_array"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface.v_array</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -154,7 +338,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

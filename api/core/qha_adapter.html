@@ -14,7 +14,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -28,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,7 +69,13 @@
 <li class="toctree-l3"><a class="reference internal" href="tasks.html">The phonon contribution tasks module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="phonon_contribution.html">The phonon contribution module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mode_gamma.html">Phonon frequency interpolation</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Adapter layer for QHA</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Adapter layer for QHA</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.qha_adapter.QHACalculator"><code class="docutils literal notranslate"><span class="pre">QHACalculator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.qha_adapter.QHACalculatorAdapter"><code class="docutils literal notranslate"><span class="pre">QHACalculatorAdapter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.qha_adapter.QHAPressureBaseInterface"><code class="docutils literal notranslate"><span class="pre">QHAPressureBaseInterface</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.core.qha_adapter.QHAVolumeBaseInterface"><code class="docutils literal notranslate"><span class="pre">QHAVolumeBaseInterface</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a></li>
@@ -89,10 +101,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../api.html">API Documentation</a> &raquo;</li>
-          <li><a href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a> &raquo;</li>
-      <li>Adapter layer for QHA</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a></li>
+      <li class="breadcrumb-item active">Adapter layer for QHA</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/core/qha_adapter.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,36 +114,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="module-cij.core.qha_adapter">
-<span id="adapter-layer-for-qha"></span><h1>Adapter layer for QHA<a class="headerlink" href="#module-cij.core.qha_adapter" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-cij.core.qha_adapter">
+<span id="adapter-layer-for-qha"></span><h1>Adapter layer for QHA<a class="headerlink" href="#module-cij.core.qha_adapter" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.core.qha_adapter.QHACalculator">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.core.qha_adapter.</span></span><span class="sig-name descname"><span class="pre">QHACalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.qha_adapter.QHACalculator" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">qha.calculator.Calculator</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cij.core.qha_adapter.QHACalculator.desired_pressure_status">
 <span class="sig-name descname"><span class="pre">desired_pressure_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cij.core.qha_adapter.QHACalculator.desired_pressure_status" title="Permalink to this definition"></a></dt>
@@ -340,7 +328,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

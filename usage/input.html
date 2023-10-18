@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -30,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -79,8 +85,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Building input</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Building input</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/usage/input.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -90,36 +96,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="building-input">
-<h1>Building input<a class="headerlink" href="#building-input" title="Permalink to this headline"></a></h1>
+  <div class="section" id="building-input">
+<h1>Building input<a class="headerlink" href="#building-input" title="Permalink to this heading"></a></h1>
 <p>The executation the <code class="docutils literal notranslate"><span class="pre">cij</span></code> program requires a configuration file and two
 input data files. They are described below.</p>
 <div class="section" id="program-configuration-file-settings-yaml">
-<h2>Program configuration file (<code class="docutils literal notranslate"><span class="pre">settings.yaml</span></code>)<a class="headerlink" href="#program-configuration-file-settings-yaml" title="Permalink to this headline"></a></h2>
+<h2>Program configuration file (<code class="docutils literal notranslate"><span class="pre">settings.yaml</span></code>)<a class="headerlink" href="#program-configuration-file-settings-yaml" title="Permalink to this heading"></a></h2>
 <p>The configuration file in JSON and YAML format controls the behavior of the program: where to look for the input
 data, which parameters to calculate, the pressure and temperature range to work
 on.</p>
@@ -128,16 +110,16 @@ on.</p>
 thermalelasticity calculation module; the <code class="docutils literal notranslate"><span class="pre">output</span></code> module controls output
 files and formats.</p>
 <p>For example in YAML format these sections are written nested:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">qha</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="c1"># the qha::input</span><span class="w"></span>
-<span class="w">  </span><span class="nt">settings</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># the qha::settings section</span><span class="w"></span>
-<span class="nt">elast</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="c1"># The elast::input</span><span class="w"></span>
-<span class="w">  </span><span class="nt">settings</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># The the elast::settings section</span><span class="w"></span>
-<span class="nt">output</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># the output section</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">qha</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="c1"># the qha::input</span>
+<span class="w">  </span><span class="nt">settings</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># the qha::settings section</span>
+<span class="nt">elast</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="c1"># The elast::input</span>
+<span class="w">  </span><span class="nt">settings</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># The the elast::settings section</span>
+<span class="nt">output</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># the output section</span>
 </pre></div>
 </div>
 <p>In the following table, we summarize the functionalities for these sections in
@@ -340,12 +322,12 @@ and <code class="docutils literal notranslate"><span class="pre">elast::settings
 </div>
 </div>
 <div class="section" id="the-qha-input-data-file-input01">
-<h2>The QHA input data file (<code class="docutils literal notranslate"><span class="pre">input01</span></code>)<a class="headerlink" href="#the-qha-input-data-file-input01" title="Permalink to this headline"></a></h2>
+<h2>The QHA input data file (<code class="docutils literal notranslate"><span class="pre">input01</span></code>)<a class="headerlink" href="#the-qha-input-data-file-input01" title="Permalink to this heading"></a></h2>
 <p>The first input data is similar to the
 <a class="reference external" href="https://mineralscloud.github.io/qha/tutorials/run.html#how-to-make-input-data">QHA’s input data</a>.</p>
 </div>
 <div class="section" id="the-static-elastic-moduli-data-file-elast-dat">
-<h2>The static elastic moduli data file (<code class="docutils literal notranslate"><span class="pre">elast.dat</span></code>)<a class="headerlink" href="#the-static-elastic-moduli-data-file-elast-dat" title="Permalink to this headline"></a></h2>
+<h2>The static elastic moduli data file (<code class="docutils literal notranslate"><span class="pre">elast.dat</span></code>)<a class="headerlink" href="#the-static-elastic-moduli-data-file-elast-dat" title="Permalink to this heading"></a></h2>
 <p>The static elasticity input data file tabulates the static elastic coefficients
 (<span class="math notranslate nohighlight">\(c_{ij}^\text{st}\)</span>, <span class="math notranslate nohighlight">\(i,j = 1 \text{ to } 6\)</span>) and axial length along three axes in
 Cartesian coordinates (<span class="math notranslate nohighlight">\(a_{ii}, i=1,2,3\)</span>) at a series of volume points.</p>
@@ -368,7 +350,7 @@ The column names in this table also determine the output thermoelastic coefficie
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

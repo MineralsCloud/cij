@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -30,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -62,8 +68,34 @@
 <li class="toctree-l2"><a class="reference internal" href="core.html">The core of thermoelasticity calculator: <code class="docutils literal notranslate"><span class="pre">cij.core</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#module-cij.plot.modes">Checking mode interpolation results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cij.plot.tasks">Plotting task dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cij.plot.ModePlotter"><code class="docutils literal notranslate"><span class="pre">ModePlotter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.ModePlotter.add_pressure_ticks"><code class="docutils literal notranslate"><span class="pre">ModePlotter.add_pressure_ticks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.ModePlotter.plot_modes"><code class="docutils literal notranslate"><span class="pre">ModePlotter.plot_modes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.ModePlotter.qha_input"><code class="docutils literal notranslate"><span class="pre">ModePlotter.qha_input</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.ModePlotter.v_array"><code class="docutils literal notranslate"><span class="pre">ModePlotter.v_array</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.ModePlotter.volumes"><code class="docutils literal notranslate"><span class="pre">ModePlotter.volumes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cij.plot.Plotter"><code class="docutils literal notranslate"><span class="pre">Plotter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.Plotter.index_p"><code class="docutils literal notranslate"><span class="pre">Plotter.index_p()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.Plotter.index_t"><code class="docutils literal notranslate"><span class="pre">Plotter.index_t()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.Plotter.p_indices"><code class="docutils literal notranslate"><span class="pre">Plotter.p_indices</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.Plotter.plot_cij_p"><code class="docutils literal notranslate"><span class="pre">Plotter.plot_cij_p()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.Plotter.plot_cij_p_with"><code class="docutils literal notranslate"><span class="pre">Plotter.plot_cij_p_with()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.Plotter.plot_cij_t_with"><code class="docutils literal notranslate"><span class="pre">Plotter.plot_cij_t_with()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cij.plot.color_x"><code class="docutils literal notranslate"><span class="pre">color_x()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cij.plot.modes">Checking mode interpolation results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.modes.ModePlotter"><code class="docutils literal notranslate"><span class="pre">ModePlotter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cij.plot.tasks">Plotting task dependencies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.tasks.make_legend"><code class="docutils literal notranslate"><span class="pre">make_legend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.tasks.plot_phonon_contribution_dependencies"><code class="docutils literal notranslate"><span class="pre">plot_phonon_contribution_dependencies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.plot.tasks.plot_tasklist_dependencies"><code class="docutils literal notranslate"><span class="pre">plot_tasklist_dependencies()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="util/units.html">Physical unit handling: the <code class="docutils literal notranslate"><span class="pre">cij.util.units</span></code> module</a></li>
@@ -87,9 +119,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api.html">API Documentation</a> &raquo;</li>
-      <li>Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">API Documentation</a></li>
+      <li class="breadcrumb-item active">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/api/plot.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -99,32 +131,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="module-cij.plot">
-<span id="plotting-helper-cij-plot"></span><h1>Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code><a class="headerlink" href="#module-cij.plot" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-cij.plot">
+<span id="plotting-helper-cij-plot"></span><h1>Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code><a class="headerlink" href="#module-cij.plot" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.plot.ModePlotter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.plot.</span></span><span class="sig-name descname"><span class="pre">ModePlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.ModePlotter" title="Permalink to this definition"></a></dt>
@@ -229,7 +237,7 @@ the status of mode-frequency interpolation</p>
 </dd></dl>
 
 <div class="section" id="module-cij.plot.modes">
-<span id="checking-mode-interpolation-results"></span><h2>Checking mode interpolation results<a class="headerlink" href="#module-cij.plot.modes" title="Permalink to this headline"></a></h2>
+<span id="checking-mode-interpolation-results"></span><h2>Checking mode interpolation results<a class="headerlink" href="#module-cij.plot.modes" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.plot.modes.ModePlotter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.plot.modes.</span></span><span class="sig-name descname"><span class="pre">ModePlotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.plot.modes.ModePlotter" title="Permalink to this definition"></a></dt>
@@ -278,7 +286,7 @@ the status of mode-frequency interpolation</p>
 
 </div>
 <div class="section" id="module-cij.plot.tasks">
-<span id="plotting-task-dependencies"></span><h2>Plotting task dependencies<a class="headerlink" href="#module-cij.plot.tasks" title="Permalink to this headline"></a></h2>
+<span id="plotting-task-dependencies"></span><h2>Plotting task dependencies<a class="headerlink" href="#module-cij.plot.tasks" title="Permalink to this heading"></a></h2>
 <p>Plotting the phonon contribution calculation tasks dependencies to a nice
 arrow plot. The underlying functionalities are provided by <a class="reference external" href="https://networkx.github.io/">NetworkX</a>.</p>
 <dl class="py function">
@@ -349,7 +357,7 @@ task list</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

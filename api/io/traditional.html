@@ -14,7 +14,9 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -30,11 +32,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Cij
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Cij
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,11 +69,15 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="config.html">Reading configuration: <code class="docutils literal notranslate"><span class="pre">cij.io.config</span></code></a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Traditional I/O</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cij.io.traditional.read_elast_data"><code class="docutils literal notranslate"><span class="pre">read_elast_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cij.io.traditional.read_energy"><code class="docutils literal notranslate"><span class="pre">read_energy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.qha_input">Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.qha_output">Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cij.io.traditional.elast_dat">Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../io.html#cij.io.apply_default_config"><code class="docutils literal notranslate"><span class="pre">apply_default_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../io.html#cij.io.read_config"><code class="docutils literal notranslate"><span class="pre">read_config()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../plot.html">Plotting helper <code class="docutils literal notranslate"><span class="pre">cij.plot</span></code></a></li>
@@ -92,10 +102,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../api.html">API Documentation</a> &raquo;</li>
-          <li><a href="../io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a> &raquo;</li>
-      <li>Traditional I/O</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../api.html">API Documentation</a></li>
+          <li class="breadcrumb-item"><a href="../io.html">Input and output: <code class="docutils literal notranslate"><span class="pre">cij.io</span></code></a></li>
+      <li class="breadcrumb-item active">Traditional I/O</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/api/io/traditional.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,32 +115,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<div class="section" id="module-cij.io.traditional">
-<span id="traditional-i-o"></span><h1>Traditional I/O<a class="headerlink" href="#module-cij.io.traditional" title="Permalink to this headline"></a></h1>
+  <div class="section" id="module-cij.io.traditional">
+<span id="traditional-i-o"></span><h1>Traditional I/O<a class="headerlink" href="#module-cij.io.traditional" title="Permalink to this heading"></a></h1>
 <p>Handling traditional way of data input and output used by
 <a class="reference external" href="https://mineralscloud.github.io/qha">QHA</a> and <code class="docutils literal notranslate"><span class="pre">thermo.f</span></code> code</p>
 <dl class="py function">
@@ -162,50 +148,50 @@
 </dd></dl>
 
 <div class="section" id="module-cij.io.traditional.qha_input">
-<span id="traditional-qha-input-qha-input"></span><h2>Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code><a class="headerlink" href="#module-cij.io.traditional.qha_input" title="Permalink to this headline"></a></h2>
+<span id="traditional-qha-input-qha-input"></span><h2>Traditional QHA input: <code class="docutils literal notranslate"><span class="pre">qha_input</span></code><a class="headerlink" href="#module-cij.io.traditional.qha_input" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_input.</span></span><span class="sig-name descname"><span class="pre">QHAInputData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">np</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">na</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volumes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData.na">
-<span class="sig-name descname"><span class="pre">na</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.na" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">na</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.na" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData.nm">
-<span class="sig-name descname"><span class="pre">nm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nm" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nm</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nm" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData.np">
-<span class="sig-name descname"><span class="pre">np</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.np" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">np</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.np" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData.nq">
-<span class="sig-name descname"><span class="pre">nq</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nq" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nq</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nq" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData.nv">
-<span class="sig-name descname"><span class="pre">nv</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nv" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nv</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.nv" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData.volumes">
-<span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cij.io.traditional.qha_input.VolumeData" title="cij.io.traditional.qha_input.VolumeData"><span class="pre">cij.io.traditional.qha_input.VolumeData</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.volumes" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><a class="reference internal" href="#cij.io.traditional.qha_input.VolumeData" title="cij.io.traditional.qha_input.VolumeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">VolumeData</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.volumes" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 6</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QHAInputData.weights">
-<span class="sig-name descname"><span class="pre">weights</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.weights" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">weights</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code><span class="pre">[</span><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">],</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">]]</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QHAInputData.weights" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 5</p>
 </dd></dl>
 
@@ -214,16 +200,16 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QPointData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_input.</span></span><span class="sig-name descname"><span class="pre">QPointData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QPointData.coord">
-<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData.coord" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">]</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData.coord" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QPointData.modes">
-<span class="sig-name descname"><span class="pre">modes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData.modes" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">modes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">]</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointData.modes" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
@@ -232,16 +218,16 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QPointWeight">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_input.</span></span><span class="sig-name descname"><span class="pre">QPointWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QPointWeight.coord">
-<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight.coord" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">coord</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">]</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight.coord" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.QPointWeight.weight">
-<span class="sig-name descname"><span class="pre">weight</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight.weight" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">weight</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.QPointWeight.weight" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
@@ -250,28 +236,28 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.VolumeData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.io.traditional.qha_input.</span></span><span class="sig-name descname"><span class="pre">VolumeData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pressure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_points</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.VolumeData.energy">
-<span class="sig-name descname"><span class="pre">energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.energy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.energy" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.VolumeData.pressure">
-<span class="sig-name descname"><span class="pre">pressure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.pressure" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">pressure</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.pressure" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.VolumeData.q_points">
-<span class="sig-name descname"><span class="pre">q_points</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cij.io.traditional.qha_input.QPointData" title="cij.io.traditional.qha_input.QPointData"><span class="pre">cij.io.traditional.qha_input.QPointData</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.q_points" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">q_points</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><a class="reference internal" href="#cij.io.traditional.qha_input.QPointData" title="cij.io.traditional.qha_input.QPointData"><code class="xref py py-class docutils literal notranslate"><span class="pre">QPointData</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.q_points" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.qha_input.VolumeData.volume">
-<span class="sig-name descname"><span class="pre">volume</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.volume" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">volume</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#cij.io.traditional.qha_input.VolumeData.volume" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
@@ -308,7 +294,7 @@
 
 </div>
 <div class="section" id="module-cij.io.traditional.qha_output">
-<span id="traditional-qha-tabular-output-qha-output"></span><h2>Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code><a class="headerlink" href="#module-cij.io.traditional.qha_output" title="Permalink to this headline"></a></h2>
+<span id="traditional-qha-tabular-output-qha-output"></span><h2>Traditional QHA tabular output: <code class="docutils literal notranslate"><span class="pre">qha_output</span></code><a class="headerlink" href="#module-cij.io.traditional.qha_output" title="Permalink to this heading"></a></h2>
 <p>These methods are imported and is therfore identical to what is provided in
 the QHA distribution.</p>
 <dl class="py function">
@@ -333,38 +319,38 @@ the QHA distribution.</p>
 
 </div>
 <div class="section" id="module-cij.io.traditional.elast_dat">
-<span id="traditional-elast-tabular-output-elast-dat"></span><h2>Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code><a class="headerlink" href="#module-cij.io.traditional.elast_dat" title="Permalink to this headline"></a></h2>
+<span id="traditional-elast-tabular-output-elast-dat"></span><h2>Traditional elast tabular output: <code class="docutils literal notranslate"><span class="pre">elast_dat</span></code><a class="headerlink" href="#module-cij.io.traditional.elast_dat" title="Permalink to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.io.traditional.elast_dat.</span></span><span class="sig-name descname"><span class="pre">ElastData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vref</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nv</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cellmass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volumes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lattice_parmeters</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastData.cellmass">
-<span class="sig-name descname"><span class="pre">cellmass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.cellmass" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">cellmass</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.cellmass" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 2</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastData.lattice_parmeters">
-<span class="sig-name descname"><span class="pre">lattice_parmeters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.lattice_parmeters" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">lattice_parmeters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">]]</span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.lattice_parmeters" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 4</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastData.nv">
-<span class="sig-name descname"><span class="pre">nv</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.nv" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nv</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.nv" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastData.volumes">
-<span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#cij.io.traditional.elast_dat.ElastVolumeData" title="cij.io.traditional.elast_dat.ElastVolumeData"><span class="pre">cij.io.traditional.elast_dat.ElastVolumeData</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.volumes" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">volumes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><a class="reference internal" href="#cij.io.traditional.elast_dat.ElastVolumeData" title="cij.io.traditional.elast_dat.ElastVolumeData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ElastVolumeData</span></code></a><span class="pre">]</span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.volumes" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 3</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastData.vref">
-<span class="sig-name descname"><span class="pre">vref</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.vref" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">vref</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastData.vref" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -373,16 +359,16 @@ the QHA distribution.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastVolumeData">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cij.io.traditional.elast_dat.</span></span><span class="sig-name descname"><span class="pre">ElastVolumeData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_elastic_modulus</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastVolumeData.static_elastic_modulus">
-<span class="sig-name descname"><span class="pre">static_elastic_modulus</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">collections.OrderedDict</span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData.static_elastic_modulus" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">static_elastic_modulus</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">OrderedDict</span></code></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData.static_elastic_modulus" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 1</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cij.io.traditional.elast_dat.ElastVolumeData.volume">
-<span class="sig-name descname"><span class="pre">volume</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData.volume" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">volume</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></em><a class="headerlink" href="#cij.io.traditional.elast_dat.ElastVolumeData.volume" title="Permalink to this definition"></a></dt>
 <dd><p>Alias for field number 0</p>
 </dd></dl>
 
@@ -426,7 +412,7 @@ the QHA distribution.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Chenxing Luo.</p>
+    <p>&#169; Copyright 2020-2023, Chenxing Luo.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
