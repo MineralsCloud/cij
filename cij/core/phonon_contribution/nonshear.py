@@ -26,7 +26,7 @@ def average_over_modes(amount: numpy.ndarray, q_weights: numpy.ndarray) -> numpy
     :param amount: :math:`X_{qm}`
     :param q_weights: :math:`q`-point multiplicities :math:`w_q`
 
-    :returns: Sum :math:`\\bar X = \sum_{qm} X_{qm} w_q`
+    :returns: Sum :math:`\\bar X = \\sum_{qm} X_{qm} w_q`
     '''
     dims = len(amount.shape)
     _amount = amount.copy()
@@ -117,7 +117,7 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         '''Value of expression :math:`Q_{qm}(T, V)`
 
         .. math::
-            Q_{qm}(T, V) = \\frac{\hbar\omega_{qm}(V)}{k_\\text{B}T}
+            Q_{qm}(T, V) = \\frac{\\hbar\\omega_{qm}(V)}{k_\\text{B}T}
         '''
         return  h_div_k * (self.freq_array[nax,:,:,:] / self.t_array[:,nax,nax,nax])
 
@@ -126,9 +126,9 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         '''Value of expression
 
         .. math::
-            \\frac{Q_{qm}(T, V)}{\exp Q_{qm}(T, V) - 1}
+            \\frac{Q_{qm}(T, V)}{\\exp Q_{qm}(T, V) - 1}
 
-        where :math:`Q_{qm}(T, V) = \\frac{\hbar\omega_{qm}(V)}{k_\\text{B}T}`
+        where :math:`Q_{qm}(T, V) = \\frac{\\hbar\\omega_{qm}(V)}{k_\\text{B}T}`
         '''
         return self.Q / (numpy.exp(self.Q) - 1)
 
@@ -137,9 +137,9 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
         '''Value of expression
 
         .. math::
-            \\frac{Q_{qm}^2(T, V) \exp Q_{qm}(T, V) }{(\exp Q_{qm}(T, V) - 1) ^ 2}
+            \\frac{Q_{qm}^2(T, V) \\exp Q_{qm}(T, V) }{(\\exp Q_{qm}(T, V) - 1) ^ 2}
 
-        where :math:`Q_{qm}(T, V) = \\frac{\hbar\omega_{qm}(V)}{k_\\text{B}T}`
+        where :math:`Q_{qm}(T, V) = \\frac{\\hbar\\omega_{qm}(V)}{k_\\text{B}T}`
         '''
         return self.Q ** 2 * numpy.exp(self.Q) / (numpy.exp(self.Q) - 1) ** 2
 
@@ -152,10 +152,10 @@ class LongitudinalElasticModulusPhononContribution(ElasticModulus):
 
         .. math::
             c^{\\text{zpm}}_{iiii}
-                = \\frac{\hbar}{2V}\\sum_{qm}
+                = \\frac{\\hbar}{2V}\\sum_{qm}
                     \\left(\\frac{\\partial^2\\omega_{qm} (V)}{\\partial e_{ii} ^ 2}\\right)
-                = \\frac{\hbar}{2V}\\sum_{qm}
-                    \\left(\\gamma^{ii}_{qm}\\gamma^{ii}_{qm} - \\frac{\\partial \\gamma^{ii}_{qm}}{\\partial e_{ii}} + \gamma^{ii}_{qm}\\right) \\omega_{qm}
+                = \\frac{\\hbar}{2V}\\sum_{qm}
+                    \\left(\\gamma^{ii}_{qm}\\gamma^{ii}_{qm} - \\frac{\\partial \\gamma^{ii}_{qm}}{\\partial e_{ii}} + \\gamma^{ii}_{qm}\\right) \\omega_{qm}
         '''
         h = units.Quantity(_h, units.J * units.m).to(units.rydberg * units.cm).magnitude
         return h / 2 / self.v_array \
@@ -274,9 +274,9 @@ class OffDiagonalElasticModulusPhononContribution(LongitudinalElasticModulusPhon
 
         .. math::
             c^{\\text{zpm}}_{iijj}
-                = \\frac{\hbar}{2V}\\sum_{qm}
+                = \\frac{\\hbar}{2V}\\sum_{qm}
                     \\left(\\frac{\\partial^2\\omega_{qm} (V)}{\\partial e_{ii} \\partial e_{jj}}\\right)
-                = \\frac{\hbar}{2V}\\sum_{qm}
+                = \\frac{\\hbar}{2V}\\sum_{qm}
                     \\left(\\gamma^{ii}_{qm}\\gamma^{jj}_{qm} - \\frac{\\partial \\gamma^{ii}_{qm}}{\\partial e_{jj}}\\right) \\omega_{qm}
         '''
         h = units.Quantity(_h, units.J * units.m).to(units.rydberg * units.cm).magnitude
