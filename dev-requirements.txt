@@ -3,7 +3,7 @@
 docutils>=0.12, <0.17 
 sphinx
 sphinx-autobuild
-sphinx-jinja
+sphinx-jinja>=2.0.1
 sphinx-rtd-theme
 sphinx-autodoc-typehints
 nbsphinx

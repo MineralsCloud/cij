@@ -37,7 +37,7 @@ extensions = [
 #    "sphinxcontrib.katex",
     'sphinx.ext.mathjax',
     "nbsphinx",
-    "sphinxcontrib.jinja",
+    "sphinx_jinja",
     "sphinx.ext.githubpages",
     'sphinx_click'
 ]
