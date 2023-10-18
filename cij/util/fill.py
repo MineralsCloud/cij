@@ -63,7 +63,7 @@ def fill_cij(
     a = []
     b = []
 
-    for sym, col in elast.iteritems():
+    for sym, col in elast.items():
         sym = sym.lower()   # Warning: user may use upper case "Cij" instead of "cij"!
         if not re.search(r"c(\d)(\d)", sym): continue
         _a = numpy.zeros(nsym)
@@ -124,7 +124,7 @@ def fill_cij(
     
     # drop empty columns
 
-    for index, col in list(elast.iteritems()):
+    for index, col in list(elast.items()):
         if numpy.allclose(col.to_numpy(), 0, atol=drop_atol):
             elast = elast.drop(index, axis=1)
 
