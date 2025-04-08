@@ -111,7 +111,7 @@ class Calculator:
 
         strains = calculate_eulerian_strain(volumes[0], volumes)
         strain_array = calculate_eulerian_strain(volumes[0], self.v_array)
-        _, static_energy_array = polynomial_least_square_fitting(
+        static_energy_array = polynomial_least_square_fitting(
             strains, static_energies, strain_array,
             order=order
         )
