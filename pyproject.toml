@@ -102,7 +102,6 @@ source = ["cij"]
 omit = ["*/tests/*", "*/test_*.py"]
 
 [tool.bumpversion]
-current_version = "1.0.0-b4"
 commit = true
 tag = true
 tag_name = "v{new_version}"
