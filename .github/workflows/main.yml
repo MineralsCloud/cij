@@ -39,8 +39,9 @@ jobs:
           uv pip install -e ".[dev]"
 
       - name: Install pandoc
-        run: |
-          sudo apt-get install pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        with:
+          pandoc-version: 'latest'
 
       - name: Create empty docs directory
         run: |
