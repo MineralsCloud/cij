@@ -26,7 +26,8 @@ setup(
         "networkx",
         "click",
         "jsonschema",
-        "sympy"
+        "sympy",
+        "setuptools",
     ],
     package_data={
         "cij.data": [

@@ -35,6 +35,7 @@ jobs:
       # Install dependencies
       - name: Install dependencies
         run: |
+          uv venv
           uv pip install -e .
           uv pip install -r dev-requirements.txt
       
