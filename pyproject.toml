@@ -100,3 +100,15 @@ addopts = "-v --strict-markers"
 [tool.coverage.run]
 source = ["cij"]
 omit = ["*/tests/*", "*/test_*.py"]
+
+[tool.bumpversion]
+current_version = "1.0.0-b4"
+commit = true
+tag = true
+tag_name = "v{new_version}"
+message = "Bump version to {new_version}"
+
+[[tool.bumpversion.files]]
+filename = "cij/version.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'

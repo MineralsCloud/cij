@@ -118,6 +118,5 @@ Check that secrets are configured in GitHub:
 ## Configuration Files
 
 - `cij/version.py` - Single source of truth for version
-- `pyproject.toml` - Dynamic version configuration
-- `.bumpversion.cfg` - Config for bump-my-version tool
+- `pyproject.toml` - Project metadata, dynamic version, and bump-my-version config
 - `.github/workflows/release.yml` - Automated release workflow (uses uv)
