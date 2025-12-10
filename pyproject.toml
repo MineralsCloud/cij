@@ -1,0 +1,97 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cij"
+version = "1.0.0-b4"
+description = "High temperature thermal elasticity"
+readme = "README.md"
+authors = [
+    {name = "Chenxing Luo", email = "chenxing.luo@columbia.edu"}
+]
+requires-python = ">=3.8"
+license = {text = "GPL-3.0-or-later"}
+keywords = ["thermal elasticity", "high temperature", "materials science"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "numpy>=1.10.0",
+    "pandas",
+    "scipy",
+    "qha",
+    "lazy_property",
+    "pint>=0.10",
+    "networkx",
+    "click",
+    "jsonschema",
+    "sympy",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Document builder
+    "docutils>=0.12,<0.17",
+    "sphinx",
+    "sphinx-autobuild",
+    "sphinx-jinja>=2.0.1",
+    "sphinx-rtd-theme",
+    "sphinx-autodoc-typehints",
+    "nbsphinx",
+    "pygments>=2.4.1",
+    "sphinx-click",
+    "markupsafe==2.0.1",  # soft_unicode issue
+    # Test
+    "pytest",
+    "pytest-cov",
+    "pytest-click",
+]
+
+[project.urls]
+Homepage = "https://github.com/MineralsCloud/cij/"
+Repository = "https://github.com/MineralsCloud/cij/"
+Issues = "https://github.com/MineralsCloud/cij/issues"
+
+[project.scripts]
+cij = "cij.cli.cij:main"
+cij-run = "cij.cli.main:main"
+cij-run-static = "cij.cli.static:main"
+cij-extract = "cij.cli.extract:main"
+cij-extract-geotherm = "cij.cli.geotherm:main"
+cij-plot = "cij.cli.plot:main"
+cij-modes = "cij.cli.modes:main"
+cij-fill = "cij.cli.fill:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cij*"]
+exclude = ["tests*", "docs*"]
+
+[tool.setuptools.package-data]
+"cij.data" = [
+    "schema/*.schema.json",
+    "output/writer_rules.yml",
+    "constraints/*",
+    "default/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"
+
+[tool.coverage.run]
+source = ["cij"]
+omit = ["*/tests/*", "*/test_*.py"]
