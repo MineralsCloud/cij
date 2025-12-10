@@ -1,6 +1,6 @@
 from ..io.traditional import models
 import numpy
-import scipy.interpolate, scipy.misc
+import scipy.interpolate
 from typing import Optional
 
 def interpolate_mode_spline(mode_volumes, mode_freqs, v_array, order=5):
