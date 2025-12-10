@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cij"
-version = "1.0.0-b4"
+dynamic = ["version"]
 description = "High temperature thermal elasticity"
 readme = "README.md"
 authors = [
@@ -55,6 +55,8 @@ dev = [
     "pytest",
     "pytest-cov",
     "pytest-click",
+    # Release
+    "bump-my-version",
 ]
 
 [project.urls]
@@ -76,6 +78,9 @@ cij-fill = "cij.cli.fill:main"
 where = ["."]
 include = ["cij*"]
 exclude = ["tests*", "docs*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "cij.version.__version__"}
 
 [tool.setuptools.package-data]
 "cij.data" = [
