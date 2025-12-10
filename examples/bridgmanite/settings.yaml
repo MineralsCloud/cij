@@ -8,9 +8,9 @@ qha:
     order: 3
     static_only: False
     T_MIN: 0
-    NT: 41
-    DT: 100
-    DT_SAMPLE: 100
+    NT: 16
+    DT: 300
+    DT_SAMPLE: 300
     volume_ratio: 1.2
 elast:
   input: elast.dat
