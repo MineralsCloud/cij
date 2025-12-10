@@ -1,7 +1,7 @@
 qha:
   input: input01
   settings:
-    P_MIN: 0
+    P_MIN: 10
     DELTA_P: 5
     DELTA_P_SAMPLE: 5
     NTV: 31
@@ -11,7 +11,7 @@ qha:
     NT: 16
     DT: 300
     DT_SAMPLE: 300
-    volume_ratio: 1.2
+    volume_ratio: 1.25
 elast:
   input: elast.dat
   settings:
