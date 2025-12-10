@@ -26,7 +26,6 @@ def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_r
 
     from scipy.interpolate import InterpolatedUnivariateSpline
 
-    from qha.fitting import polynomial_least_square_fitting
     from qha.grid_interpolation import calculate_eulerian_strain
     from qha.v2p import v2p
 
@@ -49,13 +48,11 @@ def main(input01: str, input02: str, interp: str, ntv: int, cellmass: float, v_r
 
         strains = calculate_eulerian_strain(volumes[0], volumes)
         strain_array = calculate_eulerian_strain(volumes[0], v_array)
-        _, modulus_array = polynomial_least_square_fitting(
-            strains, moduli, strain_array,
-            order=order
-        )
+        p = numpy.polyfit(strains, moduli, deg=order + 1)
+        modulus_array = numpy.polyval(p, strain_array)
         return modulus_array
 
-    def v2p1d(x_old: numpy.array, p_old: numpy.array, p_new: numpy.array):
+    def v2p1d(x_old: numpy.ndarray, p_old: numpy.ndarray, p_new: numpy.ndarray):
         from numpy import newaxis as nax
         return v2p(x_old[nax, ::-1], p_old[nax, ::-1], p_new)[0]
 
