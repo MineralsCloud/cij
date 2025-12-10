@@ -1,4 +1,3 @@
-from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
 import numpy
 from numpy import newaxis as nax
@@ -57,10 +56,8 @@ class ElasticModulusWorker:
 
         strains = calculate_eulerian_strain(self.volumes[0], self.volumes)
         strain_array = calculate_eulerian_strain(self.volumes[0], self.v_array)
-        _, modulus_array = polynomial_least_square_fitting(
-            strains, moduli, strain_array,
-            order=order
-        )
+        p = numpy.polyfit(strains, moduli, strain_array, deg=order + 1)
+        modulus_array = numpy.polyval(p, strain_array)
         return modulus_array
     
     def get_static_modulus(self, key: C_):

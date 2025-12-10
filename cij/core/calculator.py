@@ -8,7 +8,6 @@ from lazy_property import LazyProperty
 from collections import UserDict
 
 from qha.v2p import v2p
-from qha.fitting import polynomial_least_square_fitting
 from qha.grid_interpolation import calculate_eulerian_strain
 
 import cij.io
@@ -111,10 +110,9 @@ class Calculator:
 
         strains = calculate_eulerian_strain(volumes[0], volumes)
         strain_array = calculate_eulerian_strain(volumes[0], self.v_array)
-        static_energy_array = polynomial_least_square_fitting(
-            strains, static_energies, strain_array,
-            order=order
-        )
+
+        p = numpy.polyfit(strains, static_energies, deg=order + 1)
+        static_energy_array = numpy.polyval(p, strain_array)
         
         self.static_p_array = - numpy.gradient(static_energy_array) / numpy.gradient(self.v_array)
     
